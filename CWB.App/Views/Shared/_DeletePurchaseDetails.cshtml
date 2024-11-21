@@ -1,0 +1,67 @@
+﻿@model CWB.App.Models.ItemMaster.PartPurchaseDetailsVM
+<div class="modal fade" id="dialog-DeletePurchaseDetail" data-bs-backdrop="static" data-bs-keyboard="false" tabindex="-1" aria-labelledby="staticBackdropLabel" aria-hidden="true">
+    <div class="modal-dialog modal-sm">
+        <div class="modal-content">
+            <div class="modal-header">
+                <h5 class="modal-title" id="myLargeModalLabel">Delete Purchase Detail </h5>
+                <button id="btnDeletePDClose" type="button" class="btn-close" data-bs-dismiss="modal" aria-label="Close"></button>
+            </div>
+            <div class="modal-body">
+                <div class="row">
+                    <div>
+                        <form method="post" name="FormDelPurchaseDetails" id="FormDelPurchaseDetails" onsubmit="return false;">
+                            <div class="row">
+                                <!--<label class="form-label col-md-4 mb-2"> Company <span class="text-danger"> *</span> </label>
+                                <div class="col-md-8 mb-2">
+                                    <div class="input-group">
+                                        <div class="col-md-9 mb-2">
+                                        </div>
+                                    </div>
+                                </div>
+                                <label class="form-label col-md-4 mb-2">Lead Time (Days) </label>
+                                <div class="col-md-8 mb-2">
+                                    
+                                </div>
+                                <label class="form-label col-md-4 mb-2">Minimum Order Quantity</label>
+                                <div class="col-md-8 mb-2">
+                                    
+                                </div>
+                                <label class="form-label col-md-4 mb-2">Price</label>
+                                <div class="col-md-8 mb-2">
+                                </div>
+                                -->
+                                <!-- ========================= -->
+                                <!-- ========================= -->
+                                <input type="text" hidden id="DelPSupplier" value="" name="PSupplier" readonly />
+                                <input id="DelLeadTimeInDays" hidden name="LeadTimeInDays" type="text" value="" readonly />
+                                <input id="DelMinimumOrderQuantity" hidden type="text" value="" name="MinimumOrderQuantity" readonly />
+                                <input id="DelPrice" hidden type="text" name="Price" value="" readonly />
+                                <input type="text" hidden id="DelShareOfBusiness" name="ShareOfBusiness" value="" />
+                                <input type="text" hidden id="DelSupplierPartNo" name="PSupplierPartNo" value="" />
+                                <input type="text" hidden id="DelPartId" value="0" name="PPartId" />
+                                <input type="text" hidden id="DelPartPurchaseId" value="0" name="PartPurchaseId" />
+                                <input type="text" hidden id="DelPPDSupplierId" value="" name="PSupplierId"/>
+                                <input type="text" hidden id="DelMasterPartType" value="0" asp-for="PMasterPartType" />
+                                <textarea hidden id="DelAdditionalInfo" name="AdditionalInfo"></textarea>
+                                <input type="text" hidden id="DelRMId" value="-1" name="RMId" />
+                                <input type="text" hidden id="DelBOFId" value="-1" name="BOFId" />
+
+                                <!-- ========================= -->
+                                <div>
+                                    <label class="form-label col-md-8 mb-2"> Are you sure you want to delete this entry?</label>
+                                </div>
+                                <div class="text-center">
+                                    <button type="button" id="DelSupplier" class="btn btn-sm btn-primary" title="Select to Delete Supplier for the RM" data-plugin="tippy" data-tippy-placement="top">Delete</button>
+                                    <button type="button" id="CancelDelSupplier" class="btn btn-sm btn-primary" title="Select to Cancel" data-plugin="tippy" data-tippy-placement="top">Cancel</button>
+                                </div>
+                                <!-- ========================= -->
+                            </div>
+                        </form>
+                    </div>
+                </div>
+            </div>
+        </div><!-- /.modal-content -->
+    </div><!-- /.modal-dialog -->
+</div>
+
+

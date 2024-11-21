@@ -1,0 +1,51 @@
+﻿<div id="dialog-EditUOM">
+    <form id="frmEditUOM" method="post">
+        <table>
+            <tr>
+                <td>
+                    <label>Select UOM To Change</label>
+                </td>
+                <td></td>
+                <td>
+                    <select class="form-select form-select-sm" id="UOMId">
+                        <option value="1">Numbers</option>
+                        <option value="2">Kgs</option>
+                        <option value="3">Ltr</option>
+                    </select>
+                    <!--<select class="form-select form-select-sm" asp-for="CompanyType" asp-items="ViewBag.CompanyTypes">
+                        <option value="">--Select--</option>
+                    </select>
+                    -->
+                </td>
+            </tr>
+            <tr>
+                <td>
+                    <label>Change To</label>
+                </td>
+                <td></td>
+                <td><input class="form-control form-control-sm" type="text" placeholder="Enter here" id="Name" /></td>
+            </tr>
+            <tr></tr>
+            <tr>
+                <td></td>
+                <td></td>
+                <td>
+                    <table>
+                        <tr>
+                            <td>
+                                <input type="button" class="btn btn-sm btn-primary" title="Use to Save the entered data"
+                                       data-plugin="tippy" data-tippy-placement="top" value="Save" id="btnEditUOMSubmit" />
+                            </td>
+                            <td>
+                                <input type="button" class="btn btn-sm btn-primary" title="Use to Save the entered data"
+                                       data-plugin="tippy" data-tippy-placement="top" value="Close" id="btnEditUOMClose" />
+                            </td>
+                        </tr>
+                    </table>
+                </td>
+
+            </tr>
+        </table>
+    </form>
+
+</div>

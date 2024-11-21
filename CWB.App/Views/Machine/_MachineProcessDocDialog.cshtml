@@ -1,0 +1,58 @@
+﻿<div class="tab-pane" id="machine-process-doc">
+    <!-- end row -->
+    <div class="row">
+        <h5 class="mb-2 ">Process Document required for Machine</h5>
+        <div class="col-md-4 dott-bord-r">
+            <div class="row">
+                @Html.Partial("_MachineProcessDocFormDialog", new CWB.App.Models.Machine.McSlNoDocListVM())
+                <!-- ================ -->
+                <div class="table-responsive table-he-150 mt-3">
+                    <table class="table table-sm table-bordered text-center tableFixHead w-100" id="tbl-machine-proc-doc-list">
+                        <thead class="  table-info th-sti">
+                            <tr class="table-border-bottom">
+                                <th>Document Type</th>
+                                <th>Mandatory</th>
+                                <th></th>
+                            </tr>
+                        </thead>
+                        <tbody>
+                        </tbody>
+                    </table>
+                </div>
+            </div>
+        </div>
+        <!-- ------- -->
+        <div class="col-md-8">
+        </div>
+        <!-- end col -->
+    </div>
+    <hr class="hr-color">
+    <div class="row mt-3">
+        <div class="col-md-6">
+            <button class="btn btn-sm btn-light btn-machine-tab-nav machine-tab-withdata disabled" data-targettab="machine-general"><i class="fas fa-arrow-left"></i></button>
+        </div>
+        <div class="col-md-6 text-end">
+            <button class="btn btn-sm btn-warning btn-machine-tab-nav machine-tab-withdata disabled" data-targettab="machine-cost-details"><i class="fas fa-arrow-right"></i></button>
+        </div>
+    </div>
+</div>
+<template id="template-machine-proc-doc">
+    <tr>
+        <td>{documentTypeName}</td>
+        <td>{mandatory}</td>
+        <td>
+            <div class="dropdown float-center">
+                <a href="#" class="dropdown-toggle arrow-none card-drop" data-bs-toggle="dropdown" aria-expanded="false"><i class="mdi mdi-dots-vertical"></i></a>
+                <div class="dropdown-menu dropdown-menu-end">
+                    <!-- item-->
+                    <button data-id="{mcSlNoDocListId}" data-mandatory="{mandatory}" data-doctype="{documentTypeName}" data-doctypeid="{documentTypeId}"
+                            class="dropdown-item edit">
+                        Edit
+                    </button>
+                    <!-- item-->
+                    <button data-id="{mcSlNoDocListId}" data-doctypeid="{documentTypeId}" onclick="DeleteMcProcDoc(this)" class="dropdown-item delete">Delete</button>
+                </div>
+            </div>
+        </td>
+    </tr>
+</template>

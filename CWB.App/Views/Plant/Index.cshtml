@@ -1,0 +1,427 @@
+﻿<!-- Left Sidebar End -->
+<!-- ============================================================== -->
+<!-- Start Page Content here -->
+<!-- ============================================================== -->
+<div class="content">
+    <div class="row">
+        <div class="col-xl-12 col-md-12 col-sm-12 col-xs-12">
+            <div class="card">
+                <div class="card-body">
+                    <h5 class="pb-1 mb-2 mt-1">Location Details</h5>
+                    <div class="row">
+                        <label class="form-label col-md-1 mb-2">Name</label>
+                        <div class="col-md-4 mb-2">
+                            <input class="form-control form-control-sm" type="text" id="docname" name="text">
+                        </div>
+                        <!-- ----- -->
+                        <div class="col-md-8 mt-1">
+                            <div class="table-responsive mb-2 table-he-180">
+                                <table id="PlantTable" class="table table-sm table-bordered w-100 mb-3 text-center">
+                                    <thead class="  table-info th-sti">
+                                        <tr class="table-border-bottom">
+                                            <th width="40%">Name</th>
+                                            <th>City / Country</th>
+                                            <th>No of Shifts</th>
+                                            <th>Weekly off</th>
+                                            <th>1st Shifts Start Time</th>
+                                            <th width="5%"></th>
+                                        </tr>
+                                    </thead>
+                                    <tbody>
+                                    </tbody>
+                                </table>
+                            </div>
+                            <div class="col-md-12 mt-3">
+                                <button class="btn btn-sm btn-primary" onclick="SetOp('add');$('#shop-details').modal('show');" data-bs-toggle="modal">Add Location</button>
+                            </div>
+                        </div>
+                        <!-- -------------  -->
+                        <!-- --------- -->
+                    </div>
+                    <!-- ==================== -->
+                </div>
+                <!-- end card body -->
+            </div>
+        </div>
+        <!-- end col -->
+    </div>
+    <!-- end row -->
+</div>
+<!-- end Container -->
+<!----content-page ends----->
+<!----wrapper ends----->
+<!-- END wrapper -->
+<!-- ============================================================== -->
+<!-- End Page Content here -->
+<!-- ============================================================== -->
+<!-- Right bar overlay-->
+<!-- ================================     MODALS  Starts    ======================================= -->
+<!-- ============================================================================================== -->
+<!-- ========================================  -->
+<!-- shop-details content -->
+<div class="modal fade" data-bs-backdrop="static" data-bs-keyboard="false" tabindex="-1" aria-labelledby="myLargeModalLabel" aria-hidden="true" id="shop-details">
+    <div class="modal-dialog modal-lg">
+        <div class="modal-content">
+            <div class="modal-header">
+                <h4 class="modal-title" id="myLargeModalLabel">  Plant Details for : <span class="h6" id="plantname"></span> </h4>
+                <button type="button" id="btn-shopdetails-close" class="btn-close" data-bs-dismiss="modal" aria-label="Close"></button>
+            </div>
+            <div class="modal-body">
+                <div class="row">
+                    <ul class="nav nav-pills navtab-bg nav-justified">
+                        <li class="nav-item" id="GEN">
+                            <a href="#tab-001" data-bs-toggle="tab" aria-expanded="false" class="nav-link active">
+                                <span class="d-inline-block d-sm-none">Genaral</span>
+                                <span class="d-none d-sm-inline-block">Genaral</span>
+                            </a>
+                        </li>
+                        <li class="nav-item" id="PWD">
+                            <a href="#tab-002" data-bs-toggle="tab" aria-expanded="true" class="nav-link">
+                                <span class="d-inline-block d-sm-none">Plant Working Details</span>
+                                <span class="d-none d-sm-inline-block">Plant Working Details</span>
+                            </a>
+                        </li>
+                        <li class="nav-item" id="HLI">
+                            <a href="#tab-003" data-bs-toggle="tab" aria-expanded="false" class="nav-link">
+                                <span class="d-inline-block d-sm-none">Holiday List</span>
+                                <span class="d-none d-sm-inline-block">Holiday List</span>
+                            </a>
+                        </li>
+                    </ul>
+                    <div class="tab-content p-2">
+                        <div class="tab-pane show active" id="tab-001">
+                            <form method="post" onsubmit="return false;" id="PlantForm">
+                                <div class="row">
+                                    <div class="col-md-2 mb-2">
+                                        <label class="form-check-label">Main Plant </label>
+                                        <input class="form-check-input mt-1 m-l-10" type="checkbox" id="IsMainPlant" name="IsMainPlant">
+                                    </div>
+                                    <!-- ----- -->
+                                    <div class="col-md-10 mb-2">
+                                        <label class="form-check-label">Does the Company do Product Design  </label>
+                                        <input class="form-check-input mt-1 m-l-10" type="checkbox" id="IsProductDesigned" name="IsProductDesigned">
+                                    </div>
+                                    <!-- ----- -->
+                                    <label class="form-label col-md-2 mb-2">Plant  Name </label>
+                                    <div class="col-md-4 mb-2">
+                                        <input class="form-control form-control-sm" type="text" id="Name" name="Name" required>
+                                    </div>
+                                    <!-- ----- -->
+                                    <label class="form-label col-md-2 mb-2">GST</label>
+                                    <div class="col-md-4 mb-2">
+                                        <input type="text" id="GstNo" name="GstNo" class="form-control form-control-sm" />
+                                    </div>
+                                    <!-- ----- -->
+                                    <label class="form-label col-md-2 mb-2">Address</label>
+                                    <div class="col-md-4 mb-2">
+                                        <textarea id="Address" name="Address" class="form-control form-control-sm" style="height: 85px;"> </textarea>
+                                    </div>
+                                    <input type="text" id="PlantId" name="PlantId" value="0" hidden />
+                                    <label class="form-label col-md-2 mb-2">PAN</label>
+                                    <div class="col-md-4 mb-2">
+                                        <input type="text" id="PanNo" name="PanNo" class="form-control form-control-sm" />
+                                    </div>
+                                    <label class="form-label col-md-2 mb-2">City <span class="text-danger">*</span></label>
+                                    <div class="col-md-4 mb-2 d-flex align-items-center">
+                                        <div class="input-group" style="flex-grow: 1;" data-plugin="tippy" data-tippy-placement="top" data-tippy="" data-original-title="Select the Unit of Measurement (UoM). Default is Numbers (Nos)">
+                                            <select class="form-select form-select-sm" id="CitySelect" name="City"></select>
+                                        </div>
+                                        <button type="button" id="AddCityPop" class="btn btn-sm waves-effect waves-light" data-plugin="tippy" data-tippy-placement="top" data-bs-toggle="modal" data-bs-target="#CityPop" data-tippy="" data-original-title="Add UOM">
+                                            <i class="fe-plus-square add-cust-btn"></i>
+                                        </button>
+                                        <button type="button" id="EditCityPop" class="btn btn-sm waves-effect waves-light" title="Select to enter a Material Spec for the chosen Standard not in the List" data-plugin="tippy" data-tippy-placement="top" data-bs-toggle="modal" data-bs-target="#CityPop">
+                                            <i class="fas fa-pencil-alt font-16"></i>
+                                        </button>
+                                    </div>
+                                    <label class="form-label col-md-2 mb-2"></label>
+                                    <div class="col-md-4 mb-2">
+                                    </div>
+                                    <label class="form-label col-md-2 mb-2">PIN</label>
+                                    <div class="col-md-4 mb-2">
+                                        <input type="text" id="Pincode" name="Pincode" class="form-control form-control-sm" />
+                                    </div>
+                                    <label class="form-label col-md-2 mb-2"></label>
+                                    <div class="col-md-4 mb-2">
+                                    </div>
+                                    <label class="form-label col-md-2 mb-2">Country</label>
+                                    <div class="col-md-4 mb-2 d-flex align-items-center">
+                                        <div class="input-group" style="flex-grow: 1;" data-plugin="tippy" data-tippy-placement="top" data-tippy="" data-original-title="Select the Unit of Measurement (UoM). Default is Numbers (Nos)">
+                                            <select class="form-select form-select-sm" id="CountrySelect" name="Country"></select>
+                                        </div>
+                                        <button type="button" id="AddCountryPop" class="btn btn-sm waves-effect waves-light" data-plugin="tippy" data-tippy-placement="top" data-bs-toggle="modal" data-bs-target="#CountryPop" data-tippy="" data-original-title="Add UOM">
+                                            <i class="fe-plus-square add-cust-btn"></i>
+                                        </button>
+                                        <button type="button" id="EditCountryPop" class="btn btn-sm waves-effect waves-light" title="Select to enter a Material Spec for the chosen Standard not in the List" data-plugin="tippy" data-tippy-placement="top" data-bs-toggle="modal" data-bs-target="#CountryPop">
+                                            <i class="fas fa-pencil-alt font-16"></i>
+                                        </button>
+                                    </div>
+                                    <label class="form-label col-md-2 mb-2"></label>
+                                    <div class="col-md-4 mb-2">
+                                    </div>
+                                    <!-- ----- -->
+                                    <div class="col text-end mb-2">
+                                        <input type="submit" id="BtnSavePlant" class="btn btn-sm btn-primary" data-plugin="tippy" data-tippy-placement="top" value="Save">
+                                    </div>
+                                    <!-- end col -->
+                                </div>
+                                <!-- ==================== -->
+                            </form>
+                        </div>
+                        <!-- ============================================================ -->
+                        <div class="tab-pane" id="tab-002">
+                            <form onsubmit="return false;" method="post" id="WDForm">
+
+                                <div class="row mt-3">
+                                    <label class=" col-md-2 form-label mb-2">Weekly Off 1</label>
+                                    <div class="col-md-2 mb-2">
+                                        <select id="WeeklyOff1" name="WeeklyOff1" class="form-select form-select-sm" aria-label="form-select-sm">
+                                            <option value="Sunday">Sunday</option>
+                                            <option value="Monday">Monday</option>
+                                            <option value="Tuesday">Tuesday</option>
+                                            <option value="Wednesday">Wednesday</option>
+                                            <option value="Thursday">Thursday</option>
+                                            <option value="Friday">Friday</option>
+                                            <option value="Saturday">Saturday</option>
+                                        </select>
+                                    </div>
+                                    <!-- ----------  -->
+                                    <label class=" col-md-2 form-label mb-2">Weekly Off 2</label>
+                                    <div class="col-md-2 mb-2">
+                                        <select id="WeeklyOff2" name="WeeklyOff2" class="form-select form-select-sm" aria-label="form-select-sm">
+                                            <option value="Sunday">Sunday</option>
+                                            <option value="Monday">Monday</option>
+                                            <option value="Tuesday">Tuesday</option>
+                                            <option value="Wednesday">Wednesday</option>
+                                            <option value="Thursday">Thursday</option>
+                                            <option value="Friday">Friday</option>
+                                            <option value="Saturday">Saturday</option>
+                                        </select>
+                                    </div>
+                                    <!-- ----------  -->
+                                </div>
+
+                                <!-- =========================== -->
+                                <div class="row">
+                                    <label class=" col-md-2 form-label mb-2">No of Shifts / day</label>
+                                    <div class="col-md-2 mb-2">
+                                        <input name="NoOfShifts" id="NoOfShifts" class="form-control form-control-sm" type="text" value="1">
+                                    </div>
+                                </div>
+
+                                <!-- =========================== -->
+                                <div class="row">
+                                    <label class=" col-md-2 form-label mb-2">1st Shift Start Time</label>
+                                    <div class="col-md-2 mb-2">
+                                        <input class="form-control form-control-sm" type="time" name="FirstShiftStartTime" id="FirstShiftStartTime" required>
+                                    </div>
+                                    <!-- ----------  -->
+                                    <label class=" col-md-2 form-label mb-2">2nd Shift Start Time</label>
+                                    <div class="col-md-2 mb-2">
+                                        <input class="form-control form-control-sm" type="time" name="SecondShiftStartTime" id="SecondShiftStartTime" required>
+                                    </div>
+                                    <!-- ----------  -->
+                                    <label class=" col-md-2 form-label mb-2">3rd Shift Start Time</label>
+                                    <div class="col-md-2 mb-2">
+                                        <input class="form-control form-control-sm" type="time" name="ThirdShiftStartTime" id="ThirdShiftStartTime" required>
+                                    </div>
+                                    <!-- ----------  -->
+                                </div>
+
+                                <!-- =========================== -->
+                                <div class="row">
+                                    <label class=" col-md-2 form-label mb-2">1st Shift Duration</label>
+                                    <div class="col-md-2 mb-2">
+                                        <input type="text" class="form-control form-control-sm" data-toggle="input-mask" data-mask-format="00:00:00" placeholder="e.g HH:MM:SS" name="FirstShiftDuration" id="FirstShiftDuration" required>
+                                    </div>
+                                    <!-- ----------  -->
+                                    <label class=" col-md-2 form-label mb-2">2nd Shift Duration</label>
+                                    <div class="col-md-2 mb-2">
+                                        <input type="text" class="form-control form-control-sm" data-toggle="input-mask" data-mask-format="00:00:00" placeholder="e.g HH:MM:SS" name="SecondShiftDuration" id="SecondShiftDuration" required>
+                                    </div>
+                                    <!-- ----------  -->
+                                    <label class="col-md-2 form-label mb-2">3rd Shift Duration</label>
+                                    <div class="col-md-2 mb-2">
+                                        <input class="form-control form-control-sm mb-2" type="text" name="ThirdShiftDuration" id="ThirdShiftDuration" data-toggle="input-mask" data-mask-format="00:00:00" placeholder="e.g HH:MM:SS" required>
+                                    </div>
+                                    <!-- ----------  -->
+                                </div>
+                                <input type="text" id="WDPlantId" name="PlantId" value="0" hidden />
+                                <input type="text" id="WDId" name="WDId" value="0" hidden />
+                                <!-- =========================== -->
+                                <div class="row">
+                                    <div class="col-md-12 text-end">
+                                        <button id="SaveWorkDetails" type="button" class="btn btn-primary btn-sm">Save</button>
+                                    </div>
+                                </div>
+                                <!-- =========================== -->
+                            </form>
+                        </div>
+                        <!-- ============================================================ -->
+                        <div class="tab-pane" id="tab-003">
+                            <form onsubmit="return false;" method="post" id="HolidayForm">
+                                <div class="row">
+                                    <label class=" col-md-2 form-label mb-2">Holiday Name</label>
+                                    <div class="col-md-3">
+                                        <input class="form-control form-control-sm mb-2" type="text" name="Name" id="HName" required>
+                                    </div>
+                                    <!-- -------- -->
+                                    <label class=" col-md-1 form-label mb-2">Date</label>
+                                    <div class="col-md-3">
+                                        <input class="form-control form-control-sm mb-2" type="date" name="HolidayDate" id="HolidayDate" required>
+                                    </div>
+                                    <input type="text" id="HolidayPlantId" name="PlantId" value="0" hidden />
+                                    <input type="text" id="HolidayId" name="HolidayId" value="0" hidden />
+                                    <!-- -------- -->
+                                    <div class="col-md-3 mb-2 text-end">
+                                        <button id="AddHoliday" class="btn btn-sm btn-primary">Add to List</button>
+                                    </div>
+                                </div>
+                            </form>
+                            <!-- -------- -->
+                            <div class="col-md-12">
+                                <div class="table-responsive mb-2 table-he-150">
+                                    <table class="table table-sm table-bordered w-100 mb-3 text-center" id="HolidaysTable">
+                                        <thead class="  table-info th-sti">
+                                            <tr class="table-border-bottom">
+                                                <th>Holiday Name</th>
+                                                <th>Date</th>
+                                                <th>Day</th>
+                                                <th width="5%"></th>
+                                            </tr>
+                                        </thead>
+                                        <tbody>
+                                            <!--HolidayRows-->
+                                        </tbody>
+                                    </table>
+                                </div>
+                            </div>
+                            <!-- -------- -->
+                        </div>
+                        <!-- --- end row ----- -->
+                    </div>
+                    <!-- ============================================================ -->
+                </div>
+            </div>
+        </div>
+    </div>
+    <!-- /.modal-content -->
+</div>
+<!-- /.modal-dialog -->
+<!--
+     //address: "test"
+    //isMainPlant: true
+    //isProductDesigned: true
+    //name: "test"
+    //notes: "test"
+    //plantId: 1
+    //tenantId: 1
+    //shop-details
+-->
+<div class="modal fade" id="CityPop" data-bs-backdrop="static" data-bs-keyboard="false" tabindex="-1" aria-labelledby="staticBackdropLabel" style="display: none;" aria-hidden="true">
+    <div class="modal-dialog modal-sm">
+        <div class="modal-content">
+            <div class="modal-header">
+                <h4 class="modal-title" id="mySmallModalLabel">City</h4>
+                <button type="button" id="btnCityClose" class="btn-close" data-bs-dismiss="modal" aria-label="Close"></button>
+            </div>
+            <div class="modal-body">
+                <div class="row">
+                    <form id="frmAddCity" onsubmit="return false;" novalidate="novalidate">
+                        <div class="row">
+                            <label class="form-label col-md-4 mb-2">Name</label>
+                            <div class="col-md-8 mb-2">
+                                <input type="text" class="form-control form-control-sm" placeholder="Enter here" name="Name" id="CName">
+                                <input type="text" hidden="" class="form-control form-control-sm" placeholder="Enter here" name="CityId" id="PCityId" value="0">
+                            </div>
+                            <!-- ========================= -->
+                            <div class="col text-end">
+                                <button class="btn btn-sm btn-primary" id="SaveCity">Save</button>
+                            </div>
+                        </div>
+                    </form>
+                    <!-- ========================= -->
+                </div>
+            </div>
+        </div><!-- /.modal-content -->
+    </div><!-- /.modal-dialog -->
+</div><!-- /.modal -->
+<div class="modal fade" id="CountryPop" data-bs-backdrop="static" data-bs-keyboard="false" tabindex="-1" aria-labelledby="staticBackdropLabel" style="display: none;" aria-hidden="true">
+    <div class="modal-dialog modal-sm">
+        <div class="modal-content">
+            <div class="modal-header">
+                <h4 class="modal-title" id="mySmallModalLabel">Country</h4>
+                <button type="button" id="btnCountryClose" class="btn-close" data-bs-dismiss="modal" aria-label="Close"></button>
+            </div>
+            <div class="modal-body">
+                <div class="row">
+                    <form id="frmAddCountry" onsubmit="return false;" novalidate="novalidate">
+                        <div class="row">
+                            <label class="form-label col-md-4 mb-2">Name</label>
+                            <div class="col-md-8 mb-2">
+                                <input type="text" class="form-control form-control-sm" placeholder="Enter here" name="Name" id="CoName">
+                                <input type="text" hidden="" class="form-control form-control-sm" placeholder="Enter here" name="CountryId" id="PCountryId" value="0">
+                            </div>
+                            <!-- ========================= -->
+                            <div class="col text-end">
+                                <button class="btn btn-sm btn-primary" id="SaveCountry">Save</button>
+                            </div>
+                        </div>
+                    </form>
+                    <!-- ========================= -->
+                </div>
+            </div>
+        </div><!-- /.modal-content -->
+    </div><!-- /.modal-dialog -->
+</div><!-- /.modal -->
+
+
+<template id="PlantRowTemplate">
+    <tr>
+        <td data-key="Name">{name}</td>
+        <td data-key="Address">{city} / {country}</td>
+        <td data-key="">{noOfShifts}</td>
+        <td data-key="">{weeklyOff1}</td>
+        <td data-key="">{firstShiftStartTime}</td>
+        <td>
+            <div class="dropdown float-center">
+                <a href="#" class="dropdown-toggle arrow-none card-drop" data-bs-toggle="dropdown" aria-expanded="false"><i class="mdi mdi-dots-vertical"></i></a>
+                <div class="dropdown-menu dropdown-menu-end">
+                    <!-- item-->
+                    <a href="javascript:void(0);" onclick="SetOp('edit');" data-address={address} data-name={name}
+                       data-notes={notes} data-plantId={plantId} data-isproductdesigned={isProductDesigned} data-ismainplant={isMainPlant}
+                       data-city="{city}" data-pin="{pincode}" data-country="{country}" data-gst="{gstNo}" data-pan="{panNo}"
+                       data-bs-toggle="modal"
+                       data-bs-target="#shop-details" class="dropdown-item">Edit</a>
+                    <!-- item-->
+                    <a href="javascript:void(0);" onclick="DelPlant('{name}',{plantId});" class="dropdown-item">Delete</a>
+                </div>
+            </div>
+        </td>
+    </tr>
+</template>
+
+<template id="HolidayRow">
+    <tr>
+        <td>{name}</td>
+        <td>{holidayDateStr}</td>
+        <td>{day}</td>
+        <td>
+            <div class="dropdown float-center">
+                <a href="#" class="dropdown-toggle arrow-none card-drop" data-bs-toggle="dropdown" aria-expanded="false"><i class="mdi mdi-dots-vertical"></i></a>
+                <div class="dropdown-menu dropdown-menu-end">
+                    <!-- item-->
+                    <a href="javascript:void(0);" onclick="EditHoliday({holidayId},'{name}','{holidayDateStr}','{day}');" class="dropdown-item">Edit</a>
+                    <!-- item-->
+                    <a href="javascript:void(0);" onclick="DeleteHoliday({holidayId},'{name}');" class="dropdown-item">delete</a>
+                </div>
+            </div>
+        </td>
+    </tr>
+</template>
+
+
+
+@section scripts {
+    <script src="/js/plant.js"></script>
+}
+

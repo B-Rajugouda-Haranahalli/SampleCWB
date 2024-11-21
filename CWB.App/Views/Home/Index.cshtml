@@ -1,0 +1,31 @@
+﻿@{
+    ViewData["Title"] = "Home Page";
+}
+
+<div class="text-center">
+    <h1 class="display-4">Welcome - Collaboration WorkBench</h1>
+</div>
+
+
+<script>
+    // Get the access token from the server-side ViewBag
+    let accessToken = '@ViewBag.AccessToken';
+
+    // Now you can use accessToken in your JavaScript code
+    console.log(accessToken); // This will log the access token to the console
+
+    // You can also implement your token expiry checks here
+    if (accessToken) {
+        let tokenExpiryTime = getTokenExpiryTime(accessToken);
+        console.log("Token expiry time:", tokenExpiryTime);
+        localStorage.setItem("tokenExpiryTime", tokenExpiryTime);
+    }
+
+    function getTokenExpiryTime(token) {
+        if (!token) return null;
+
+        // Assuming the token is a JWT, you can decode it and extract the expiry time
+        const payload = JSON.parse(atob(token.split('.')[1]));
+        return payload.exp; // Returns the expiry time in seconds
+    }
+</script>

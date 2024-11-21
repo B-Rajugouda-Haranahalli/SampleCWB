@@ -1,0 +1,134 @@
+﻿<div class="row">
+    <div class="col-md-12">
+        <div class="table-responsive">
+            <table class="w-100" style="margin-top: -9px;">
+                <tbody>
+                    <tr>
+                        <td>
+                            <h5>
+                                Details of <span id="DivRoutingName"> </span> for <span id="RDSpanPartName"></span> / <span id="RDSpanPartDesc"></span> - <span id="RDSpanComp"></span>
+                            </h5>
+                            @* <span id="RdMakeName">made from</span> <span id="RDSpanMKPartName"></span> / <span id="RDSpanMKPartDesc"></span> *@
+                        </td>
+                        <td style="text-align: end;">
+                            <button type="button" class="btn-close" id="RoutingAvailableClose"></button>
+                        </td>
+                    </tr>
+                </tbody>
+            </table>
+        </div>
+    </div>
+    <!-- ==========================  -->
+    <!-- ========= -->
+    <div class="col-md-12">
+        <div class="table-responsive mt-1 table-he-330 w-100">
+            <table id="StepTable" class="table table-sm table-bordered  mb-3 text-center mt-1 tableFixHead w-100">
+                <thead class="table-info th-sti">
+                    <tr class="table-border-bottom">
+                        <th width="3%"></th>
+                        <th>Oprn No</th>
+                        <th>Routing Step Description</th>
+                        <th>Location</th>
+                        <th>No of M/cs</th>
+                        <th>Cycle Time (Min)</th>
+                        <th>Setup Time (Min)</th>
+                        <th>Mandatory Docs Avl</th>
+                        <th>No of Parts Used in Step</th>
+                        <th>Update Date</th>
+                        <th>In Current Prodn</th>
+                        <th width="5%"></th>
+                    </tr>
+                </thead>
+                <tbody class="cursor-move ui-sortable">
+                </tbody>
+            </table>
+        </div>
+        <div class="row">
+            <div class="col-md-7 text-end">
+                <span id="BOMMessageDisplay"></span>
+            </div>
+        </div>
+    </div>
+    <div class="col-md-12 text-end">
+        <button id="BtnAddNextStep" class="btn btn-sm btn-primary" title="Use to add a Routing Step" data-plugin="tippy" data-tippy-placement="top">Add Next Step</button>
+    </div>
+    <!-- ===================== -->
+</div>
+
+<template id="RoutingStepTemplate">
+    <tr>
+        @*<td><button class="move-ups">⇈</button><button class="move-downs">⇊</button></td>*@
+        <td><span style="font-size:20px;font-weight: bolder;">=</span></td>
+        <td>{stepNumber}</td>
+        <td>{stepDescription}</td>
+        <td>{locationName}</td>
+        <td>{numberOfSimMachines}</td>
+        <td>{cycleTime}</td>
+        <td>{setupTime}</td>
+        <td>{mandocAvl}</td>
+        <td>{noOfPartsUsed}</td>
+        <td>-</td>
+        <td>-</td>
+        <td hidden>{stepId}</td>
+        <td hidden>{routingId}</td>
+        <td hidden>{stepSequence}</td>
+        <td>
+            <div class="dropdown float-center">
+                <a href="#" class="dropdown-toggle arrow-none card-drop" data-bs-toggle="dropdown" aria-expanded="false"><i class="mdi mdi-dots-vertical"></i></a>
+                <div class="dropdown-menu dropdown-menu-end">
+                    <!-- item-->
+                    <a href="javascript:getAndShowStep({stepId},'{stepNumber}')" class="dropdown-item">Edit</a>
+                    <a href="javascript:void(0);" data-stepid="{stepId}" data-stepNumber="{stepNumber}" data-toggle="modal" data-target="#delete-step" class="dropdown-item">Delete</a>
+                </div>
+            </div>
+        </td>
+    </tr>
+</template>
+
+
+<!-- =========
+
+<div class="row">
+    <div class="table-responsive">
+        <table class="table table-sm">
+            <tbody>
+                <tr>
+                    <td>
+                        <div id="DivRoutingName"></div>
+                    </td>
+                </tr>
+            </tbody>
+        </table>
+    </div>
+    <div class="col-md-7">
+        <div class="table-responsive mt-1 table-he-250">
+            <table id="StepTable" class="table table-sm table-bordered  mb-3 text-center mt-1 tableFixHead w-100">
+                <thead class="table-info th-sti">
+                    <tr class="table-border-bottom">
+                        <th width="10%"></th>
+                        <th width="10%">Step No</th>
+                        <th>Routing Step Description</th>
+                        <th>Location</th>
+                        <th>No of M/cs</th>
+                        <th>Cycle Time (Min)</th>
+                        <th>Setup Time (Min)</th>
+                        <th>Mandatory Doc Avl</th>
+                        <th>Update Date</th>
+                        <th>In Current Prodn</th>
+                        <th width="5%"></th>
+                    </tr>
+                </thead>
+                <tbody>
+                </tbody>
+            </table>
+        </div>
+        <div class="row">
+            <div class="col-md-6 text-end">
+                <span id="BOMMessageDisplay"></span>
+            </div>
+        </div>
+        <button id="BtnAddNextStep" class="btn btn-sm btn-primary" title="Use to add a Routing Step" data-plugin="tippy" data-tippy-placement="top">Add Next Step</button>
+    </div>
+</div>
+
+    ============ -->

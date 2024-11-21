@@ -1,0 +1,37 @@
+﻿@model CWB.App.Models.Designation.DesignationVM
+<div class="modal fade" id="dialog-designation" data-bs-backdrop="static" data-bs-keyboard="false" tabindex="-1" aria-labelledby="staticBackdropLabel" aria-hidden="true">
+    <div class="modal-dialog modal-lg">
+        <div class="modal-content">
+            <div class="modal-header">
+                <h5 class="modal-title" id="myLargeModalLabel">Designation Details </h5>
+                <button id="btnDesignationClose" type="button" class="btn-close" data-bs-dismiss="modal" aria-label="Close"></button>
+            </div>
+            <div class="modal-body">
+                <div class="row">
+                    <div class="col-md-7 dott-bord-r">
+                        <form id="frmDesignation" method="post">
+                            <div class="row">
+                                <!-- ============== -->
+                                <label class=" col-md-4 form-label mb-2" asp-for="Name"></label>
+                                <div class="col-md-8 mb-2" title="Enter Designation Name" data-plugin="tippy" data-tippy-placement="top">
+                                    <input class="form-control form-control-sm" type="text" placeholder="Enter here" id="Name" asp-for="Name" onchange="return false;" />
+                                    <span asp-validation-for="Name"></span>
+                                </div>
+                                <!-- ============== -->
+                                <!-- ============== -->
+                                <div class="col text-end mt-2">
+                                    <input type="button" class="btn btn-sm btn-primary" title="Use to Save the entered data"
+                                           data-plugin="tippy" data-tippy-placement="top" value="Save" id="btnDesignationSubmit" />
+
+                                </div>
+                            </div>
+                            <input type="hidden" id="Id" asp-for="DesignationId" />
+                        </form>
+                    </div>
+                    <!-- ============== -->
+                </div>
+                <!-- ------- -->
+            </div>
+        </div><!-- /.modal-content -->
+    </div><!-- /.modal-dialog -->
+</div>

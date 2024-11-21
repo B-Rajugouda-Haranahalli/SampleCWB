@@ -1,0 +1,46 @@
+﻿<div class="modal fade" id="dialog-EditBOM" data-bs-backdrop="static" data-bs-keyboard="false" tabindex="-1" aria-labelledby="staticBackdropLabel" aria-hidden="true">
+    <div class="modal-dialog modal-sm">
+        <div class="modal-content">
+            <div class="modal-header">
+                <h5 class="modal-title" id="myLargeModalLabel">Edit BOM </h5>
+                <button id="btnEditBOMClose" type="button" class="btn-close" data-bs-dismiss="modal" aria-label="Close"></button>
+            </div>
+            <div class="modal-body">
+                <div class="row">
+                    <div>
+                        <form method="post" name="FormEditBOM" id="FormEditBOM" onsubmit="return false;">
+                            <div class="row mt-8">
+                                <label class="form-label col-md-4 mb-2">Part No</label>
+                                <div class="col-md-8 mb-2" title="Enter the Part No" data-plugin="tippy" data-tippy-placement="top">
+                                    <input class="form-control form-control-sm" type="text" id="EditBOMPartNo" name="BOMPartNo" placeholder="enter here" required readonly>
+                                </div>
+                                <!-- ========================= -->
+                                <!-- ========================= -->
+                                <label class="form-label col-md-4 mb-2">Quantity</label>
+                                <div class="col-md-8 mb-2" title="Quantity" data-plugin="tippy" data-tippy-placement="top">
+                                    <input class="form-control form-control-sm" type="text" id="EditQuantity" name="Quantity" placeholder="enter here" required>
+                                </div>
+                                <div class="col-md-4 mb-2" title="" data-plugin="tippy" data-tippy-placement="top">
+                                    <label class="form-label">Description</label>
+                                </div>
+                                <div class="col-md-7 mb-2" title="" data-plugin="tippy" data-tippy-placement="top">
+                                    <textarea id="EditBOMPartDesc" name="BOMPartDesc" class="form-control form-control-sm"></textarea>
+                                </div>
+                                <!-- ========================= -->
+                                <div class="text-center">
+                                    <input type="text" hidden id="EditMPBOMId" name="MPBOMId" value="0" />
+                                    <input type="text" hidden id="EditMPBOMPartId" name="BOMPartId" value="0" />
+                                    <input type="text" hidden id="EditBOMManufPartId" name="BOMManufPartId" value="0" />
+                                    <button type="button" id="EditBOM" class="btn btn-sm btn-primary" title="Select to Edit another Supplier for the RM" data-plugin="tippy" data-tippy-placement="top">Save</button>
+                                </div>
+                                <!-- ========================= -->
+                            </div>
+                        </form>
+                    </div>
+                </div>
+            </div>
+        </div><!-- /.modal-content -->
+    </div><!-- /.modal-dialog -->
+</div>
+
+

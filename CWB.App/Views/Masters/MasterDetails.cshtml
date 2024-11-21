@@ -1,0 +1,1372 @@
+﻿@{
+    ViewData["Title"] = "Item Master";
+}
+<input value="M-IM" type="hidden" id="hdn-nav-menu" />
+<div class="content">
+    <div class="row" id="myRadioGroup">
+        <div class="col-xl-12 col-md-12 col-sm-12 col-xs-12">
+            <!-- ================= -->
+            <div class="card">
+                <div class="card-body">
+                    <table class="w-100 mb-2">
+                        <tbody>
+                            <tr>
+                                <td>
+                                    <h5>View / Edit Item Master</h5>
+                                </td>
+                                <td class="text-end">
+                                    <a asp-action="Index" asp-controller="Masters"><button type="button" class="btn-close" data-bs-dismiss="modal" aria-label="Close"></button></a>
+                                </td>
+                            </tr>
+                        </tbody>
+                    </table>
+                    <!-- =====================  -->
+                    <div class="row mb-3">
+                        <!-- end col -->
+                        <label class="form-label col-md-1 mb-2">Part Type </label>
+                        <div class="col-md-3 mb-2">
+                            <select class="form-select form-select-sm" id="MasterPart" name="MasterPart" data-plugin="tippy" data-tippy-placement="top" data-tippy="" data-original-title="Select Part No from Drop Down">
+                                <option id="mp-se" value="0">--Select--</option>
+                                <option id="mp-mp" value="1">Manufactured Part</option>
+                                <option id="mp-as" value="2">Assembly</option>
+                                <option id="mp-bf" value="3">BOF</option>
+                                <option id="mp-rm" value="4">Raw Material</option>
+                            </select>
+                        </div>
+                        <!-- end col -->
+                        <label class="form-label col-md-1 mb-2">Company</label>
+                        <div class="col-md-3 mb-2">
+                            <input class="form-control form-control-sm" type="text" id="master_co" name="master_co" placeholder="enter here">
+                        </div>
+                        <!-- -------------------------------------  -->
+                        <!-- end col -->
+                        <label class="form-label col-md-1 mb-2">Status </label>
+                        <div class="col-md-3 mb-2">
+                            <select class="form-select form-select-sm" id="Status" name="Status" asp-items="ViewBag.Statuses" required>
+                            </select>
+                        </div>
+                        <!-- =============== -->
+                        <label class="form-label col-md-1 mb-2">Part No </label>
+                        <div class="col-md-3 mb-2">
+                            <input class="form-control form-control-sm" type="text" id="master_partno" name="master_partno" placeholder="enter here">
+                        </div>
+                        <!-- =============== -->
+                        <label class="form-label col-md-1 mb-2">Part Desc </label>
+                        <div class="col-md-7 mb-2">
+                            <textarea name="master_description" form="usrform" id="master_description" class="form-control form-control-sm" title="Enter Part Description - full or partial to shortlist Part Nos" data-plugin="tippy" data-tippy-placement="top"></textarea>
+                        </div>
+                        <!-- =============== -->
+                        <!-- end col -->
+                    </div>
+                    <!-- ---- end row ----  -->
+                    <div class="row mb-3">
+                        <div class="col-md-10">
+                            <table class="w-100">
+                                <tbody data-plugin="tippy" data-tippy-placement="top" data-tippy="" data-original-title="Select the category of the Part">
+                                    <tr>
+                                        <td>
+                                            <label class="form-check-label" for="cars">Manufactured Part without RM </label>
+                                            <input class="form-check-input mt-1" type="radio" id="manfWithOutRM" name="cars" value="2">
+                                        </td>
+                                        <td>
+                                            <label class="form-check-label" for="cars">Assembly Part No without BOM </label>
+                                            <input class="form-check-input mt-1" type="radio" id="AssWithOuutBOM" name="cars" value="3">
+                                        </td>
+                                        <td>
+                                            <label class="form-check-label" for="cars">
+                                                Purchased Matl without Supplier
+                                            </label>
+                                            <input class="form-check-input mt-1" type="radio" id="PurcSupplier" name="cars" value="4">
+                                        </td>
+                                        <td>
+                                            <label class="form-check-label" for="cars">Mandatory Docs not Uploaded </label>
+                                            <input class="form-check-input mt-1" type="radio" id="MandatoryNotUp" name="cars" value="5">
+                                        </td>
+                                        <td>
+                                            <label class="form-check-label" for="cars">
+                                                Final Part No Sold to
+                                                Customer
+                                            </label>
+                                            <input class="form-check-input mt-1" type="radio" id="finalepartSold" name="cars" value="5">
+                                        </td>
+                                        <td>
+                                            <label class="form-check-label" for="cars">
+                                                &nbsp;&nbsp;
+                                            </label>
+                                        </td>
+                                    </tr>
+                                </tbody>
+                            </table>
+                        </div>
+                        <div class="col-md-2 text-end">
+                            <button type="button" class="btn btn-outline-primary btn-sm mt-3"
+                                    id="ClearSearchFields">
+                                Clear Fields
+                            </button>
+                        </div>
+                    </div>
+                    <!-- ---- end row ----  -->
+                    <!-- ===== start-1st ====== -->
+                    <div class="row desc" id="Cars2" style="display:none">
+                        <div class="col-md-3">
+                            <table class="w-100">
+                                <tbody>
+                                    <tr>
+                                        <td data-plugin="tippy" data-tippy-placement="top" data-tippy="" data-original-title="Check the Box to see Manufactured Part Nos without Routing">
+                                            <label class="form-check-label" for="gp-4">
+                                                Show Part Numbers Without
+                                                Routing
+                                            </label>
+                                            <input class="form-check-input mt-1" type="checkbox" name="gp-4">
+                                        </td>
+                                    </tr>
+                                </tbody>
+                            </table>
+                        </div>
+                    </div>
+                    <!-- ===== end-1st ====== -->
+                    <!-- ===== start-2nd ====== -->
+                    <div class="row desc" id="Cars3" style="display:none">
+                        <div class="col-md-3" data-plugin="tippy" data-tippy-placement="top" data-tippy="" data-original-title="Check the Box to see Manufactured Part Nos without Routing">
+                            <label class="form-check-label" for="gp-5">Show Part Numbers Without Routing</label>
+                            <input class="form-check-input mt-1" type="checkbox" name="gp-5">
+                        </div>
+                        <div class="col-md-3 text-end" data-plugin="tippy" data-tippy-placement="top" data-tippy="" data-original-title="Check the Box to see Assembly Part Nos without BOM">
+                            <label class="form-check-label" for="gp-5">Show Part Numbers Without BOM</label>
+                            <input class="form-check-input mt-1" type="checkbox" name="gp-5">
+                        </div>
+                    </div>
+                    <!-- ===== end-2nd ====== -->
+                    <!-- ===== start-3rd ====== -->
+                    <div class="row desc" id="Cars4" style="display:none">
+                        <label class="form-label col-md-2 mb-2">BOF Type</label>
+                        <div class="col-md-4 mb-2" data-plugin="tippy" data-tippy-placement="top" data-tippy="" data-original-title="Select BOF Type from Drop Down">
+                            <select class="form-select form-select-sm">
+                                <option value="">Standard</option>
+                                <option value="">Catalog</option>
+                                <option value=""> Made to Print </option>
+                            </select>
+                        </div>
+                        <div class="col-md-6"></div>
+                        <!-- ----------------  -->
+                        <label class="form-label col-md-2 mb-2">Supplier</label>
+                        <div class="col-md-4 mb-2" data-plugin="tippy" data-tippy-placement="top" data-tippy="" data-original-title="Select Supplier Company from Drop Down">
+                            <select class="form-select form-select-sm">
+                                <option value="">Select Supplier</option>
+                                <option value="">XXXXXXX</option>
+                                <option value="">XXXXX</option>
+                            </select>
+                        </div>
+                        <!-- ----------------  -->
+                        <label class="form-label col-md-2 mb-2">Supplier Part No</label>
+                        <div class="col-md-4 mb-2" data-plugin="tippy" data-tippy-placement="top" data-tippy="" data-original-title="Enter Supplier Part No">
+                            <input class="form-control form-control-sm" type="text" placeholder="enter here">
+                        </div>
+                        <!-- ------------------- -->
+                    </div>
+                    <!-- ===== end-3rd ====== -->
+                    <!-- ===== start-4th ====== -->
+                    <div class="row desc" id="Cars5" style="display:none">
+                        <!-- ------------------- -->
+                        <label class="form-label col-md-2 mb-2"> RM Category</label>
+                        <div class="col-md-4 mb-2" data-plugin="tippy" data-tippy-placement="top" data-tippy="" data-original-title="Select Raw Material (RM) Category from Drop Down (Standard RM, Made to Print ...)">
+                            <select class="form-select form-select-sm">
+                                <option value=""> Made to Print </option>
+                                <option value=""> Standard Purchased RM </option>
+                            </select>
+                        </div>
+                        <!-- ------------------- -->
+                        <label class="form-label col-md-2 mb-2"> RM Type</label>
+                        <div class="col-md-4 mb-2" data-plugin="tippy" data-tippy-placement="top" data-tippy="" data-original-title="Select Raw Material Type from Drop Down (Casting, Forging ...)">
+                            <select class="form-select form-select-sm">
+                                <option value="">Forging</option>
+                                <option value="">Casting</option>
+                                <option value="">Sheet</option>
+                                <option value="">Bar Stock</option>
+                            </select>
+                        </div>
+                        <!-- ------------------- -->
+                        <label class="form-label col-md-2 mb-2"> Supplier</label>
+                        <div class="col-md-4 mb-2" data-plugin="tippy" data-tippy-placement="top" data-tippy="" data-original-title="Select Supplier Company from Drop Down">
+                            <select class="form-select form-select-sm">
+                                <option value="">Select Supplier</option>
+                                <option value="">XXXXXXX</option>
+                                <option value="">XXXXX</option>
+                            </select>
+                        </div>
+                        <!-- ------------------- -->
+                        <label class="form-label col-md-2 mb-2">Supplier Part No</label>
+                        <div class="col-md-4 mb-2" data-plugin="tippy" data-tippy-placement="top" data-tippy="" data-original-title="Enter Supplier Part No">
+                            <input class="form-control form-control-sm" type="text" placeholder="enter here">
+                        </div>
+                        <!-- ------------------- -->
+                        <label class="form-label col-md-2 mb-2"> Base Material</label>
+                        <div class="col-md-4 mb-2" data-plugin="tippy" data-tippy-placement="top" data-tippy="" data-original-title="Select Base Material from Drop Down (Steel, Aluminium, Brass ...)">
+                            <select class="form-select form-select-sm">
+                                <option value="">XXXXX</option>
+                                <option value="">XXXXXX</option>
+                            </select>
+                        </div>
+                        <!-- ------------------- -->
+                    </div>
+                    <!-- ===== end-4th ====== -->
+                </div>
+            </div>
+            <!-- end card body -->
+            <!-- ============================= -->
+            <div class="card">
+                <div class="card-body">
+                    <div class="row">
+                        <div class="table-responsive mt-1 table-he-180">
+                            <table class="table table-sm table-bordered w-100 mb-3 tableFixHead" id="mptable">
+                                <thead class="  table-info th-sti text-center">
+                                    <tr class="table-border-bottom">
+                                        <th>Company</th>
+                                        <th>Part No</th>
+                                        <th>Description</th>
+                                        <th>Part Type</th>
+                                        <th>BOM Avl</th>
+                                        <th>RM Avl</th>
+                                        <th>Supplier Avl</th>
+                                        <th>Mandatory Doc Avl</th>
+                                        <th width="5%"></th>
+                                    </tr>
+                                </thead>
+                                <tbody>
+                                    <!-- --------------------  -->
+                                    <tr>
+                                        <td>XXXXXXXXX</td>
+                                        <td>XXXXXXXXX</td>
+                                        <td>XXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXX</td>
+                                        <td> Manufactured Part without Routing</td>
+                                        <td>N/A</td>
+                                        <td>Yes</td>
+                                        <td>N/A</td>
+                                        <td>No</td>
+                                        <td>
+                                            <div class="dropdown float-center">
+                                                <a href="#" class="dropdown-toggle arrow-none card-drop" data-bs-toggle="dropdown" aria-expanded="false"><i class="mdi mdi-dots-vertical"></i></a>
+                                                <div class="dropdown-menu dropdown-menu-end">
+                                                    <!-- item-->
+                                                    <a href="#" class="dropdown-item">Edit Part Details</a>
+                                                    <!-- item-->
+                                                    <a href="routing.html" class="dropdown-item">Edit Routing</a>
+                                                    <!-- item-->
+                                                    <a href="bom.html" class="dropdown-item">Edit BOM</a>
+                                                    <!-- item-->
+                                                    <a href="bom.html" class="dropdown-item">Create BOM</a>
+                                                    <!-- item-->
+                                                    <a href="routing.html" class="dropdown-item">Create Routing</a>
+                                                    <!-- item-->
+                                                    <a href="manf-part.html" class="dropdown-item">Create Balloon</a>
+                                                    <!-- item-->
+                                                    <a href="manf-part.html" class="dropdown-item">Edit Balloon</a>
+                                                </div>
+                                            </div>
+                                        </td>
+                                    </tr>
+                                    <!-- --------------------  -->
+                                    <!-- --------------------  -->
+                                </tbody>
+                            </table>
+                        </div>
+                        <!-- =========================== -->
+                        <div class="col-md-12 mt-2">
+                            <button class="btn btn-purple btn-sm" data-bs-toggle="modal" data-bs-target="#adtimc">
+                                Associated Document Type with Item Master
+                                Content
+                            </button>
+                        </div>
+                        <!-- =========================== -->
+                    </div>
+                </div>
+                <!-- end card body -->
+            </div>
+            <!-- end card -->
+            <div class="card">
+                <div class="card-body">
+                    <div class="row">
+                        <div class="col-md-12">
+                            <button class="btn btn-sm">
+                                <h5>MIS</h5>
+                            </button>
+                            <!-- ---------------  -->
+                            <button class="btn btn-purple btn-sm" data-bs-toggle="modal" data-bs-target="#popup1">Manufactured Parts Assemblies</button>
+                            <!-- ---------------  -->
+                            <button class="btn btn-purple btn-sm" data-bs-toggle="modal" data-bs-target="#popup5">
+                                Raw
+                                Material
+                            </button>
+                            <!-- ---------------  -->
+                            <button class="btn btn-purple btn-sm" data-bs-toggle="modal" data-bs-target="#popup9">
+                                BOF
+                                List
+                            </button>
+                            <!-- ---------------  -->
+                            <button class="btn btn-purple btn-sm" data-bs-toggle="modal" data-bs-target="#popup2">
+                                Raw
+                                Material Suppliers
+                            </button>
+                            <!-- ---------------  -->
+                            <button class="btn btn-purple btn-sm" data-bs-toggle="modal" data-bs-target="#popup6">
+                                BOF
+                                Suppliers
+                            </button>
+                            <!-- ---------------  -->
+                        </div>
+                        <!-- =========================== -->
+                    </div>
+                </div>
+            </div>
+            <!-- ============================= -->
+        </div>
+        <!-- end card -->
+        <!-- ======================================================================== -->
+    </div>
+
+</div>
+@section scripts {
+    <script src="~/js/addfunctions.js"></script>
+    <script src="~/js/ItemMaster/supplier.js"></script>
+    <script src="~/js/ItemMaster/rmselects.js"></script>
+    <script src="~/js/contact-model.js"></script>
+    @*<script src="~/js/ItemMaster/RawMaterial-model.js"></script>*@
+    <script src="~/js/ItemMaster/masterdetails.js"></script>
+    <script src="~/js/contacts.js"></script>
+}
+
+
+<template id="MasterDetaiTemplate">
+    <tr style="text-align: center;">
+        <td data-key="Company">{company}</td>
+        <td data-key="PartNo">{partNo}</td>
+        <td data-key="Description">{description}</td>
+        <td data-key="MasterDisplay">{masterDisplay}</td>
+        <td data-key="BomAvl">{bomAvl}</td>
+        <td data-key="RmAvl">{rmAvl}</td>
+        <td data-key="SupplierAvl">{supplierAvl}</td>
+        <td data-key="MandocAvl">{mandocAvl}</td>
+        <td data-key="Status" hidden>{status}</td>
+        <td data-key="FinalPart" hidden>{finalPart}</td>
+        <td>
+            <div class="dropdown float-center">
+                <a href="#" class="dropdown-toggle arrow-none card-drop" data-bs-toggle="dropdown" aria-expanded="false"><i class="mdi mdi-dots-vertical"></i></a>
+                <div class="dropdown-menu dropdown-menu-end">
+                    <!-- item-->
+                    <a href="/masters/editpart?partId={partId}&partType={masterPartType}">Edit Part Details</a>
+                </div>
+            </div>
+        </td>
+    </tr>
+</template>
+
+<template id="MasterDocRow">
+
+    <tr>
+        <td>{documentTypeName}</td>
+        <td>{mandatory}</td>
+        <td>
+            <div class="dropdown float-center">
+                <a href="#" class="dropdown-toggle arrow-none card-drop" data-bs-toggle="dropdown" aria-expanded="false"><i class="mdi mdi-dots-vertical"></i></a>
+                <div class="dropdown-menu dropdown-menu-end">
+                    <!-- item-->
+                    <a href="javascript:void(0);" class="dropdown-item" data-docname="{documentTypeId}" data-mandatory="{mandatory}" data-mastercontent="{contentId}"
+                       data-masterdocid="{itemMasterDocListId}" onclick="EditItemMasterDoc(this)">Edit</a>
+                    <!-- item-->
+                    <a href="javascript:void(0);" class="dropdown-item"
+                       data-docname="{documentTypeId}" data-mandatory="{mandatory}" data-mastercontent="{contentId}"
+                       data-masterdocid="{itemMasterDocListId}" onclick="DeleteItemMasterDoc(this)">Delete</a>
+                </div>
+            </div>
+        </td>
+    </tr>
+</template>
+
+<div class="modal fade" id="adtimc" data-bs-backdrop="static" data-bs-keyboard="false" tabindex="-1" aria-labelledby="staticBackdropLabel" aria-hidden="true">
+    <div class="modal-dialog modal-lg">
+        <div class="modal-content">
+            <div class="modal-header">
+                <h5 class="modal-title" id="standard-modalLabel">Associate Document Type with Item Master Content</h5>
+                <button type="button" class="btn-close" data-bs-dismiss="modal" aria-label="Close"></button>
+            </div>
+            <div class="modal-body">
+                <div class="row">
+                    <div class="col-md-6 mt-3 dott-bord-r">
+                        <div class="row">
+                            <label class="form-label col-md-5 mb-2">Item Master Content *</label>
+                            <div class="col-md-7 mb-2">
+                                <select class="form-select form-select-sm" id="MasterContent" title="" data-plugin="tippy" data-tippy-placement="top">
+                                    <option value="0">--Select--</option>
+                                </select>
+                            </div>
+                            <!-- ----------- -->
+                            <label class="form-label col-md-5 mb-2">Document Type Name * </label>
+                            <div class="col-md-7 mb-2">
+                                <select class="form-select form-select-sm" id="DocTypeName" title="" data-plugin="tippy" data-tippy-placement="top">
+                                    <option value="0">--Select--</option>
+                                </select>
+                            </div>
+                            <!-- ----------- -->
+                            <div class="col-md-12">
+                                <label class="form-check-label">Document Upload Mandatory</label>
+                                <input class="form-check-input m-l-15 mt-1" id="DocUploadMandatory" type="checkbox">
+                                <input type="text" id="DocTypeId" hidden />
+                                <input type="text" id="ItemDocId" hidden />
+                            </div>
+                            <!-- ----------- -->
+                            <div class="col mt-12 text-end">
+                                <button type="button" class="btn btn-purple btn-sm" id="AddToMasterDocList">Save</button>
+                            </div>
+                        </div>
+                        <div class="row">
+                            <span id="Text-Error"></span>
+                        </div>
+                    </div>
+                    <!-- ----------- -->
+                    <div class="col-md-6 mt-3">
+                        <div class="table-responsive mt-1 table-he-180">
+                            <table class="table table-sm table-bordered w-100 mb-3 tableFixHead" id="MasterDocList">
+                                <thead class="  table-info th-sti text-center">
+                                    <tr class="table-border-bottom">
+                                        <th width="75%">Document Type</th>
+                                        <th>Mandatory</th>
+                                        <th width="5%"></th>
+                                    </tr>
+                                </thead>
+                                <tbody>
+                                    <!-- --------------------  -->
+                                    <!-- --------------------  -->
+                                    <!-- --------------------  -->
+                                </tbody>
+                            </table>
+                        </div>
+                        <!-- =========================== -->
+                    </div>
+                    <!-- ----------- -->
+                </div>
+            </div>
+        </div>
+        <!-- /.modal-content -->
+    </div>
+    <!-- /.modal-dialog -->
+</div>
+
+<div class="modal fade" id="popup1" data-bs-backdrop="static" data-bs-keyboard="false" tabindex="-1" aria-labelledby="staticBackdropLabel" aria-hidden="true">
+    <div class="modal-dialog modal-full-width">
+        <div class="modal-content">
+            <div class="modal-header">
+                <h4 class="modal-title" id="standard-modalLabel">Manufactured Parts / Assemblies Overview</h4>
+                <button type="button" class="btn-close" data-bs-dismiss="modal" aria-label="Close"></button>
+            </div>
+            <div class="modal-body">
+                <div class="row">
+                    <div class="table-responsive mt-2">
+                        <table class="table table-sm table-bordered tableFixHead w-100" id="Popup1Grid">
+                            <thead class="table-info th-sti text-center">
+                                <tr class="table-border-bottom">
+                                    <th width="20%">Company</th>
+                                    <th># Final Part Sold to Customer</th>
+                                    <th># Manf Parts (Active)</th>
+                                    <th># Assemblies (Active)</th>
+                                    <th># Manf Parts (Inactive)</th>
+                                    <th># Assemblies (Inactive)</th>
+                                    <th># Active Manf Part w/o RM</th>
+                                    <th># Active Assemblies w/o BOM</th>
+                                    <th># Mandatory Docs not Uploaded</th>
+                                    <th># Routing not Avl (Manf Part)</th>
+                                    <th>View List</th>
+                                </tr>
+                            </thead>
+                            <tbody class="text-center">
+                                <!-- ---------- -->
+                                <tr style="font-weight: bold;font-size: 16px;">
+                                    <td style="text-align: end; ">Total</td>
+                                    <td>xxx</td>
+                                    <td>xxx</td>
+                                    <td>xxx</td>
+                                    <td>xxx</td>
+                                    <td>xxx</td>
+                                    <td>xxx</td>
+                                    <td>xxx</td>
+                                    <td>xxx</td>
+                                    <td>xxx</td>
+                                </tr>
+                                <!-- ---------- -->
+                            </tbody>
+                        </table>
+                    </div>
+                    <!-- =========== -->
+                    <!-- =========== -->
+                </div>
+            </div>
+        </div>
+        <!-- /.modal-content -->
+    </div>
+    <!-- /.modal-dialog -->
+</div>
+
+<div class="modal fade" id="ViewManufPartPopup" data-bs-backdrop="static" data-bs-keyboard="false" tabindex="-1" aria-labelledby="staticBackdropLabel" aria-hidden="true">
+    <div class="modal-dialog modal-full-width">
+        <div class="modal-content bxs-modal">
+            <div class="modal-header">
+                <h5 class="modal-title" id="standard-modalLabel">Manufactured Part / Assembly List for Company <span id="VmPopComp"></span></h5>
+                <button type="button" class="btn-close" data-bs-dismiss="modal" aria-label="Close"></button>
+            </div>
+            <div class="modal-body">
+                <div class="row">
+                    <div class="row">
+                        <div class="col-md-2 mb-2">
+                            <select class="form-select form-select-sm" title="" data-plugin="tippy" data-tippy-placement="top" id="VMSearchPartTypr">
+                                <option value="0">Part Type </option>
+                                <option value="1">Manufactured Part </option>
+                                <option value="2">Assembly</option>
+                            </select>
+                        </div>
+                        <!-- ----------- -->
+                        <!-- ----------- -->
+                        <div class="col-md-8" style="display: flex;justify-content: space-between;">
+                            <div>
+                                <label class="form-check-label">Manf. Part without RM</label>
+                                <input class="form-check-input m-l-15 mt-1" type="checkbox" id="VMManfWithoutRM">
+                            </div>
+                            <div>
+                                <label class="form-check-label">Parts without Item Mast. Mand. Docs</label>
+                                <input class="form-check-input m-l-15 mt-1" type="checkbox" id="VMManfWithoutDoc">
+                            </div>
+                            <div>
+                                <label class="form-check-label">Routing Not Avl.</label>
+                                <input class="form-check-input m-l-15 mt-1" type="checkbox" id="VMManfWithoutRouting">
+                            </div>
+                            <div>
+                                <label class="form-check-label">Routing Update Reqd.</label>
+                                <input class="form-check-input m-l-15 mt-1" type="checkbox" id="VMManfWithoutRoutingUpdate">
+                            </div>
+                        </div>
+                        <!-- ----------- -->
+                        <!-- ----------- -->
+                        <div class="col-md-2 mb-2">
+                            <select class="form-select form-select-sm" title="" data-plugin="tippy" data-tippy-placement="top" id="VMStatus">
+                                <option value="0">Status</option>
+                                <option value="1">Active</option>
+                                <option value="2">Inactive</option>
+                            </select>
+                        </div>
+                        <!-- ----------- -->
+                        <div class="col-md-6" style="display: flex;justify-content: space-between;">
+                            <div>
+                                <label class="form-check-label">Final Part No Sold to Customer</label>
+                                <input class="form-check-input m-l-15 mt-1" type="checkbox" id="VMFinalPart">
+                            </div>
+                            <div>
+                                <label class="form-check-label">Assembly Part No without BOM</label>
+                                <input class="form-check-input m-l-15 mt-1" type="checkbox" id="VMAssWithoutBOm">
+                            </div>
+                            <div>
+                                <label class="form-check-label">Routing Mand. Docs Not Avl.</label>
+                                <input class="form-check-input m-l-15 mt-1" type="checkbox" id="VMRoutingWithoutDoc">
+                            </div>
+                        </div>
+                        <!-- ----------- -->
+                        <div class="col">
+                            <button class="btn btn-purple btn-sm" id="BtnClearFlieds"><i class="fas fa-filter m-r-15"></i> Cancel Filter</button>
+                        </div>
+                        <!-- ----------- -->
+                    </div>
+                    <!-- ----------- -->
+                    <div class="col-md-12 mt-3">
+                        <div class="table-responsive table-he-250 mt-2">
+                            <table class="table table-sm table-bordered tableFixHead w-100" id="VMOneGrid">
+                                <thead class="table-info th-sti text-center">
+                                    <tr class="table-border-bottom">
+                                        <th>Part No / Description/ Rev No / Date</th>
+                                        <th>Final Part Sold to Customer</th>
+                                        <th>Part Type</th>
+                                        <th>Status</th>
+                                        <th>Status Change Date</th>
+                                        <th>RM Linked</th>
+                                        <th>BOM Avl</th>
+                                        <th>Item Mast. Mand. Docs Avl</th>
+                                        <th>Routing Avl</th>
+                                        <th>Routing Mand. Doc. Avl.</th>
+                                        <th>Routing Update Reqd.</th>
+                                        <th>View Doc</th>
+                                    </tr>
+                                </thead>
+                                <tbody class="text-center">
+                                </tbody>
+                            </table>
+                        </div>
+                        <!-- =========================== -->
+                    </div>
+                    <!-- ----------- -->
+                </div>
+            </div>
+        </div>
+        <!-- /.modal-content -->
+    </div>
+    <!-- /.modal-dialog -->
+</div>
+<div class="modal fade" id="popup5" data-bs-backdrop="static" data-bs-keyboard="false" tabindex="-1" aria-labelledby="staticBackdropLabel" aria-hidden="true">
+    <div class="modal-dialog modal-full-width">
+        <div class="modal-content bxs-modal">
+            <div class="modal-header">
+                <h5 class="modal-title" id="standard-modalLabel">Raw Material List </h5>
+                <button type="button" class="btn-close" data-bs-dismiss="modal" aria-label="Close"></button>
+            </div>
+            <div class="modal-body">
+                <div class="row">
+                    <div class="row">
+                        <div class="col-md-2 mb-2">
+                            <div class="input-group">
+                                <input class="form-control form-control-sm" type="text" placeholder="Part Number" id="P5PartNo">
+                            </div>
+                        </div>
+                        <!-- =============== -->
+                        <div class="col-md-2 mb-2">
+                            <input class="form-control form-control-sm" type="text" placeholder="Company" id="P5Company">
+                        </div>
+                        <!-- ----------- -->
+                        <div class="col-md-2 mb-2">
+                            <input class="form-control form-control-sm" type="text" placeholder="Source" id="P5Source">
+                        </div>
+                        <!-- ----------- -->
+                        <div class="col-md-2 mb-2">
+                            <label class="form-check-label">Parts with 2+ Suppliers</label>
+                            <input class="form-check-input m-l-15 mt-1" type="checkbox" id="P5Supplier2">
+                        </div>
+                        <!-- ----------- -->
+                        <div class="col-md-2"></div>
+                        <!-- ----------- -->
+                        <!-- ----------- -->
+                        <div class="col-md-2 mb-2">
+                            <select class="form-select form-select-sm" title="" data-plugin="tippy" data-tippy-placement="top" id="P5Status">
+                                <option value="0">Status </option>
+                                <option value="1">Active </option>
+                                <option value="2">Inactive </option>
+                            </select>
+                        </div>
+                        <!-- ----------- -->
+                        <div class="col-md-2 mb-2">
+                            <input class="form-control form-control-sm" type="text" placeholder="RM Type" id="P5RmType">
+                        </div>
+                        <!-- ----------- -->
+                        <div class="col-md-2 mb-2">
+                            <input class="form-control form-control-sm" type="text" placeholder="Base RM" id="P5BaseRm">
+                        </div>
+                        <!-- ----------- -->
+                        <div class="col-md-2 mb-2">
+                            <input class="form-control form-control-sm" type="text" placeholder="Matl Spec" id="P5MatlSpec">
+                        </div>
+                        <!-- ----------- -->
+                        <div class="col-md-2 mb-2">
+                            <label class="form-check-label">Parts with 1 Supplier</label>
+                            <input class="form-check-input m-l-15 mt-1" type="checkbox" id="P5SuppWith1">
+                        </div>
+                        <!-- ----------- -->
+                        <!-- ----------- -->
+                        <div class="col text-end">
+                            <button class="btn btn-purple btn-sm" id="btnP5CancelFields"><i class="fas fa-filter m-r-15"></i>Filter</button>
+                        </div>
+                        <!-- ----------- -->
+                    </div>
+                    <!-- ----------- -->
+                    <div class="col-md-12 mt-3">
+                        <div class="table-responsive table-he-250 mt-2">
+                            <table class="table table-sm table-bordered tableFixHead w-100" id="P5Grid">
+                                <thead class="table-info th-sti text-center">
+                                    <tr class="table-border-bottom">
+                                        <th>Part No / Description/ Rev No / Date</th>
+                                        <th>Company</th>
+                                        <th>Source</th>
+                                        <th>Status</th>
+                                        <th>RM Type</th>
+                                        <th>Base RM</th>
+                                        <th>Matl Spec</th>
+                                        <th># Parts where Used</th>
+                                        <th>Price</th>
+                                        <th>Reorder Level</th>
+                                        <th>Reorder Qnty</th>
+                                        <th>Lead Time (days)</th>
+                                        <th>Item Mast. Mand. Docs Avl</th>
+                                        <th>View Docs</th>
+                                        <th>View Where Used List</th>
+                                    </tr>
+                                </thead>
+                                <tbody class="text-center">
+                                </tbody>
+                            </table>
+                        </div>
+                        <!-- =========================== -->
+                    </div>
+                    <!-- ----------- -->
+                </div>
+            </div>
+        </div>
+        <!-- /.modal-content -->
+    </div>
+    <!-- /.modal-dialog -->
+</div>
+
+<div class="modal fade" id="popup6" data-bs-backdrop="static" data-bs-keyboard="false" tabindex="-1" aria-labelledby="staticBackdropLabel" aria-hidden="true">
+    <div class="modal-dialog modal-full-width">
+        <div class="modal-content">
+            <div class="modal-header">
+                <h4 class="modal-title" id="standard-modalLabel">BOF Suppliers</h4>
+                <button type="button" class="btn-close" data-bs-dismiss="modal" aria-label="Close"></button>
+            </div>
+            <div class="modal-body">
+                <div class="row">
+                    <div class="table-responsive mt-2">
+                        <table class="table table-sm table-bordered tableFixHead w-100" id="P6Grid">
+                            <thead class="table-info th-sti text-center">
+                                <tr class="table-border-bottom">
+                                    <th>Supplier / Customer</th>
+                                    <th>Source</th>
+                                    <th># Made to Print</th>
+                                    <th># Standard</th>
+                                    <th># Catalog</th>
+                                    <th># Preferred</th>
+                                    <th># Active</th>
+                                    <th># Inactive</th>
+                                    <th># Item Mast. Mandatory Docs Not Avl</th>
+                                    <th># Parts Supplied</th>
+                                    <th>View List</th>
+                                </tr>
+                            </thead>
+                            <tbody class="text-center">
+                                <!-- ---------- -->
+                            </tbody>
+                        </table>
+                    </div>
+                    <!-- =========== -->
+                    <!-- =========== -->
+                </div>
+            </div>
+        </div>
+        <!-- /.modal-content -->
+    </div>
+    <!-- /.modal-dialog -->
+</div>
+
+<div class="modal fade" id="popup7" data-bs-backdrop="static" data-bs-keyboard="false" tabindex="-1" aria-labelledby="staticBackdropLabel" aria-hidden="true">
+    <div class="modal-dialog modal-lg">
+        <div class="modal-content bxs-modal">
+            <div class="modal-header">
+                <h5 class="modal-title" id="standard-modalLabel">BOM List for Company <span id="P7Comp"> </span> <span style="margin-left: 150px;" id="P7Cust">Customer Supplied</span></h5>
+                <button type="button" class="btn-close" data-bs-dismiss="modal" aria-label="Close"></button>
+            </div>
+            <div class="modal-body">
+                <div class="row">
+                    <div class="row">
+                        <div class="col-md-3 mb-2">
+                            <select class="form-select form-select-sm" title="" data-plugin="tippy" data-tippy-placement="top" id="P7BofType">
+                                <option value="0">BOF Type</option>
+                                <option value="1">Standard</option>
+                                <option value="2">Catalog</option>
+                                <option value="3">Made to Print</option>
+                            </select>
+                        </div>
+                        <!-- ----------- -->
+                        <div class="col-md-6 mb-2"></div>
+                        <!-- ----------- -->
+                        <div class="col-md-3 mb-2">
+                            <select class="form-select form-select-sm" title="" data-plugin="tippy" data-tippy-placement="top" id="P7Status">
+                                <option value="0">Status</option>
+                                <option value="1">Active</option>
+                                <option value="2">Inactive</option>
+                            </select>
+                        </div>
+                        <!-- ----------- -->
+                    </div>
+                    <!-- ----------- -->
+                    <div class="col-md-12 mt-3">
+                        <div class="table-responsive table-he-250 mt-2">
+                            <table class="table table-sm table-bordered tableFixHead w-100" id="P7Grid">
+                                <thead class="table-info th-sti text-center">
+                                    <tr class="table-border-bottom">
+                                        <th>Part No / Description/ Rev No / Date</th>
+                                        <th>Status</th>
+                                        <th width="20%">BOF Type</th>
+                                        <th>Status Change Date</th>
+                                        <th>Item Mast. Mand. Docs Avl</th>
+                                        <th>Where used List</th>
+                                        <th>View Doc</th>
+                                    </tr>
+                                </thead>
+                                <tbody class="text-center">
+                                </tbody>
+                            </table>
+                        </div>
+                        <!-- =========================== -->
+                    </div>
+                    <!-- ----------- -->
+                </div>
+            </div>
+        </div>
+        <!-- /.modal-content -->
+    </div>
+    <!-- /.modal-dialog -->
+</div>
+
+<div class="modal fade" id="popup9" data-bs-backdrop="static" data-bs-keyboard="false" tabindex="-1" aria-labelledby="staticBackdropLabel" aria-hidden="true">
+    <div class="modal-dialog modal-full-width">
+        <div class="modal-content bxs-modal">
+            <div class="modal-header">
+                <h5 class="modal-title" id="standard-modalLabel">BOF List </h5>
+                <button type="button" class="btn-close" data-bs-dismiss="modal" aria-label="Close"></button>
+            </div>
+            <div class="modal-body">
+                <div class="row">
+                    <div class="row">
+                        <div class="col-md-2 mb-2">
+                            <div class="input-group">
+                                <input class="form-control form-control-sm" type="text" placeholder="Part Number" id="P9PartSearch">
+
+                            </div>
+                        </div>
+                        <!-- =============== -->
+                        <div class="col-md-2 mb-2">
+                            <input class="form-control form-control-sm" type="text" placeholder="Company" id="P9CompSearch">
+                        </div>
+                        <!-- ----------- -->
+                        <div class="col-md-2 mb-2">
+                            <input class="form-control form-control-sm" type="text" placeholder="Source" id="P9SourceSearch">
+                        </div>
+                        <!-- ----------- -->
+                        <div class="col-md-2 mb-2">
+                            <select class="form-select form-select-sm" title="" data-plugin="tippy" data-tippy-placement="top" id="P9BofType">
+                                <option value="0">BOF Type</option>
+                                <option value="1">Standard</option>
+                                <option value="2">Catalog</option>
+                                <option value="3">Made to Print</option>
+                            </select>
+                        </div>
+                        <!-- ----------- -->
+                        <!-- ----------- -->
+                        <div class="col-md-2"></div>
+                        <!-- ----------- -->
+                        <!-- ----------- -->
+                        <div class="col-md-2 mb-2">
+                            <select class="form-select form-select-sm" title="" data-plugin="tippy" data-tippy-placement="top" id="P9StatusSearch">
+                                <option value="0">Status </option>
+                                <option value="1">Active </option>
+                                <option value="2">Inactive</option>
+                            </select>
+                        </div>
+                        <!-- ----------- -->
+                        <!-- ----------- -->
+                        <div class="col-md-2 mb-2">
+                            <label class="form-check-label">Parts with 1 Supplier</label>
+                            <input class="form-check-input m-l-15 mt-1" type="checkbox" id="P9Supp1">
+                        </div>
+                        <!-- ----------- -->
+                        <div class="col-md-2 mb-2">
+                            <label class="form-check-label">Parts with 2+ Suppliers</label>
+                            <input class="form-check-input m-l-15 mt-1" type="checkbox" id="P9Supp2">
+                        </div>
+                        <!-- ----------- -->
+                        <div class="col text-end">
+                            <button class="btn btn-purple btn-sm" id="P9BtnClearFields"><i class="fas fa-filter m-r-15"></i>Filter</button>
+                        </div>
+                        <!-- ----------- -->
+                    </div>
+                    <!-- ----------- -->
+                    <div class="col-md-12 mt-3">
+                        <div class="table-responsive table-he-250 mt-2">
+                            <table class="table table-sm table-bordered tableFixHead w-100" id="P9Grid">
+                                <thead class="table-info th-sti text-center">
+                                    <tr class="table-border-bottom">
+                                        <th>Part No / Description/ Rev No / Date</th>
+                                        <th>Company</th>
+                                        <th>Source</th>
+                                        <th>Status</th>
+                                        <th>BOF Type</th>
+                                        <th># Parts where Used</th>
+                                        <th>Price</th>
+                                        <th>Reorder Level</th>
+                                        <th>Reorder Qnty</th>
+                                        <th>Lead Time (days)</th>
+                                        <th>Item Mast. Mand. Docs Avl</th>
+                                        <th>View Docs</th>
+                                        <th>View Where Used List</th>
+                                    </tr>
+                                </thead>
+                                <tbody class="text-center">
+                                </tbody>
+                            </table>
+                        </div>
+                        <!-- =========================== -->
+                    </div>
+                    <!-- ----------- -->
+                </div>
+            </div>
+        </div>
+        <!-- /.modal-content -->
+    </div>
+    <!-- /.modal-dialog -->
+</div>
+
+<div class="modal fade" id="popup8" data-bs-backdrop="static" data-bs-keyboard="false" tabindex="-1" aria-labelledby="staticBackdropLabel" aria-hidden="true">
+    <div class="modal-dialog">
+        <div class="modal-content bxs-modal">
+            <div class="modal-header">
+                <h4 class="modal-title" id="mySmallModalLabel"></h4>
+                <button type="button" class="btn-close" data-bs-dismiss="modal" aria-label="Close"></button>
+            </div>
+            <div class="modal-body">
+                <div class="row">
+                    <!-- ========================= -->
+                    <div class="col-md-12 dott-bord-r">
+                        <div class="table-responsive table-he-150">
+                            <table class="table table-sm table-bordered w-100 text-center">
+                                <thead class="table-info th-sti">
+                                    <tr class="table-border-bottom">
+                                    </tr>
+                                </thead>
+                                <tbody>
+                                    <tr>
+                                        <td>List of Assemblies where BOF </td>
+                                        <td><span id="P8BofNo"></span> / <span id="P8BofDesc"></span> from <span id="P8Comp"></span> is used</td>
+                                    </tr>
+                                </tbody>
+                            </table>
+                        </div>
+                    </div>
+                    <!-- ========================= -->
+                    <div class="col-md-12 mt-3">
+                        <div class="table-responsive table-he-250 mt-2">
+                            <table class="table table-sm table-bordered tableFixHead w-100" id="P8Grid">
+                                <thead class="table-info th-sti text-center">
+                                    <tr class="table-border-bottom">
+                                        <th>Company / Customer</th>
+                                        <th>Part No / Desc</th>
+                                        <th>Preferred</th>
+
+                                    </tr>
+                                </thead>
+                                <tbody class="text-center">
+                                </tbody>
+                            </table>
+                        </div>
+                        <!-- =========================== -->
+                    </div>
+                    <!-- ========================= -->
+                </div>
+            </div>
+        </div><!-- /.modal-content -->
+    </div><!-- /.modal-dialog -->
+</div>
+
+<div class="modal fade" id="popup2" data-bs-backdrop="static" data-bs-keyboard="false" tabindex="-1" aria-labelledby="staticBackdropLabel" aria-hidden="true">
+    <div class="modal-dialog modal-full-width">
+        <div class="modal-content">
+            <div class="modal-header">
+                <h4 class="modal-title" id="standard-modalLabel">Raw Material Suppliers</h4>
+                <button type="button" class="btn-close" data-bs-dismiss="modal" aria-label="Close"></button>
+            </div>
+            <div class="modal-body">
+                <div class="row">
+                    <div class="table-responsive mt-2">
+                        <table class="table table-sm table-bordered tableFixHead w-100" id="P2Grid">
+                            <thead class="table-info th-sti text-center">
+                                <tr class="table-border-bottom">
+                                    <th>Supplier / Customer</th>
+                                    <th>Source</th>
+                                    <th># Made to Print</th>
+                                    <th># Standard RM</th>
+                                    <th># Catalog</th>
+                                    <th># Preferred</th>
+                                    <th># Active</th>
+                                    <th># Inactive</th>
+                                    <th># Item Mast. Mandatory Docs Not Avl</th>
+                                    <th># Parts Supplied</th>
+                                    <th>View List</th>
+                                </tr>
+                            </thead>
+                            <tbody class="text-center">
+                            </tbody>
+                        </table>
+                    </div>
+                    <!-- =========== -->
+                    <!-- =========== -->
+                </div>
+            </div>
+        </div>
+        <!-- /.modal-content -->
+    </div>
+    <!-- /.modal-dialog -->
+</div>
+<div class="modal fade" id="popup3" data-bs-backdrop="static" data-bs-keyboard="false" tabindex="-1" aria-labelledby="staticBackdropLabel" style="display: none;" aria-hidden="true">
+    <div class="modal-dialog modal-lg">
+        <div class="modal-content bxs-modal">
+            <div class="modal-header">
+                <h5 class="modal-title" id="standard-modalLabel">Raw Material / Input Matl List for Company <span id="P3Comp"></span> <span id="P3CustSupp" style="margin-left: 150px;">Customer Supplied</span></h5>
+                <button type="button" class="btn-close" data-bs-dismiss="modal" aria-label="Close"></button>
+            </div>
+            <div class="modal-body">
+                <div class="row">
+                    <div class="row">
+                        <div class="col-md-3 mb-2">
+                            <input class="form-control form-control-sm" type="text" placeholder="RM Type" id="P3RmType">
+                        </div>
+                        <!-- ----------- -->
+                        <div class="col-md-3 mb-2">
+                            <input class="form-control form-control-sm" type="text" placeholder="Base RM" id="P3BaseRm">
+                        </div>
+                        <!-- ----------- -->
+                        <div class="col-md-3 mb-2"></div>
+                        <!-- ----------- -->
+                        <div class="col-md-3 mb-2">
+                            <select class="form-select form-select-sm" title="" data-plugin="tippy" data-tippy-placement="top" id="P3StatusSr">
+                                <option value="0">Status</option>
+                                <option value="1">Active</option>
+                                <option value="2">Inactive</option>
+                            </select>
+                        </div>
+                        <!-- ----------- -->
+
+                    </div>
+                    <!-- ----------- -->
+                    <div class="col-md-12 mt-3">
+                        <div class="table-responsive table-he-250 mt-2">
+                            <table class="table table-sm table-bordered tableFixHead w-100" id="P3Grid">
+                                <thead class="table-info th-sti text-center">
+                                    <tr class="table-border-bottom">
+                                        <th>Part No / Description/ Rev No / Date</th>
+                                        <th>RM Type</th>
+                                        <th>Status</th>
+                                        <th>Status Change Date</th>
+                                        <th>Base RM</th>
+                                        <th>Matl Spec</th>
+                                        <th>Where used List</th>
+                                        <th>View Doc</th>
+                                    </tr>
+                                </thead>
+                                <tbody class="text-center">
+                                </tbody>
+                            </table>
+                        </div>
+                        <!-- =========================== -->
+                    </div>
+                    <!-- ----------- -->
+                </div>
+            </div>
+        </div>
+        <!-- /.modal-content -->
+    </div>
+    <!-- /.modal-dialog -->
+</div>
+
+<div class="modal fade modal-fullscreen-xl-down" id="viewDoc" data-bs-backdrop="static" data-bs-keyboard="false" tabindex="-1" aria-labelledby="staticBackdropLabel" aria-hidden="true">
+    <div class="modal-dialog modal-fullscreen">
+        <div class="modal-content bxs-modal">
+            <div class="modal-header">
+                <h4 class="modal-title" id="mySmallModalLabel">View Documents</h4>
+                <button type="button" class="btn-close" data-bs-dismiss="modal" aria-label="Close"></button>
+            </div>
+            <div class="modal-body">
+                <div class="row">
+                    <div class="col-md-3 mb-2">
+                        <select class="form-select form-select-sm" id="SelectDocType" data-plugin="tippy" data-tippy-placement="top" data-tippy="" data-original-title="Select Part No from Drop Down">
+                        </select>
+                    </div>
+                    <!-- =============== -->
+                    <div class="col-md-3 mb-2">
+                        <button type="button" class="btn btn-sm btn-outline-purple" id="BtnViewDoc">View</button>
+                    </div>
+                    <!-- =============== -->
+                    <!-- ========================= -->
+                    <div class="col-md-12 dott-bord-r mt-3">
+                        <div class="table-responsive table-he-150">
+                            <table class="table table-sm table-bordered w-100 text-center">
+                                <thead class="table-info th-sti">
+                                    <tr class="table-border-bottom">
+                                    </tr>
+                                </thead>
+                                <tbody>
+                                    <tr>
+                                        <td>Document Type : <span id="VPDocType"></span></td>
+                                        <td>Uploaded by <span id="VPUploadedBy"></span> on <span id="VPUploadedOn"></span></td>
+                                        <td>Part No / Desc : <span id="VPPartNo"></span> / <span id="VPPartDesc"></span></td>
+                                        <td>Customer : <span id="VPCustomer"></span> </td>
+                                    </tr>
+                                    <tr>
+                                        <td>Retention Date : <span id="VPRetention"></span></td>
+                                    </tr>
+                                </tbody>
+                            </table>
+                        </div>
+                    </div>
+                    <!-- ========================= -->
+                    <div class="col-md-12">
+                        <iframe id="fileViewer" src="" style="width: 100vw; height: 100vh;"></iframe>
+                    </div>
+                    <!-- ========================= -->
+                </div>
+            </div>
+        </div><!-- /.modal-content -->
+    </div><!-- /.modal-dialog -->
+</div>
+
+<div class="modal fade" id="popup4" data-bs-backdrop="static" data-bs-keyboard="false" tabindex="-1" aria-labelledby="staticBackdropLabel" aria-hidden="true">
+    <div class="modal-dialog">
+        <div class="modal-content bxs-modal">
+            <div class="modal-header">
+                <h4 class="modal-title" id="mySmallModalLabel"></h4>
+                <button type="button" class="btn-close" data-bs-dismiss="modal" aria-label="Close"></button>
+            </div>
+            <div class="modal-body">
+                <div class="row">
+                    <!-- ========================= -->
+                    <div class="col-md-12 dott-bord-r">
+                        <div class="table-responsive table-he-150">
+                            <table class="table table-sm table-bordered w-100 text-center">
+                                <thead class="table-info th-sti">
+                                    <tr class="table-border-bottom">
+                                    </tr>
+                                </thead>
+                                <tbody>
+                                    <tr>
+                                        <td>List of Manufactured Parts where Raw Material </td>
+                                        <td><span id="P4RmPartNo"> </span> / <span id="P4RmDesc"> </span> from <span id="P4Comp"> </span> is used</td>
+                                    </tr>
+                                </tbody>
+                            </table>
+                        </div>
+                    </div>
+                    <!-- ========================= -->
+                    <div class="col-md-12 mt-3">
+                        <div class="table-responsive table-he-250 mt-2">
+                            <table class="table table-sm table-bordered tableFixHead w-100" id="Popup4Grid">
+                                <thead class="table-info th-sti text-center">
+                                    <tr class="table-border-bottom">
+                                        <th>Company / Customer</th>
+                                        <th>Part No / Desc</th>
+                                        <th>Preferred</th>
+                                    </tr>
+                                </thead>
+                                <tbody class="text-center">
+                                </tbody>
+                            </table>
+                        </div>
+                        <!-- =========================== -->
+                    </div>
+                    <!-- ========================= -->
+                </div>
+            </div>
+        </div><!-- /.modal-content -->
+    </div><!-- /.modal-dialog -->
+</div>
+<template id="P9GridRow">
+    <tr>
+        <td>{partNo} / {description}</td>
+        <td>{company}</td>
+        <td>{notes}</td>
+        <td>{status}</td>
+        <td>{masterDisplay}</td>
+        <td>{partused}</td>
+        <td>{price}</td>
+        <td>{reorderLevel}</td>
+        <td>{reorderQnty}</td>
+        <td>{leadTime}</td>
+        <td>{mandocAvl}</td>
+        <td>
+            <a href="javascript:void(0);" data-partid="{partId}" data-customername="{company}" data-partno="{partNo}"
+               data-partdesc="{description}" data-parttype="{masterPartType}"
+               data-bs-toggle="modal" data-bs-target="#viewDoc">
+                <i class="fas fa-eye btn btn-sm"></i><!--style="color: #007bff;"-->
+            </a>
+        </td>
+        <td>
+            <a href="javascript:void(0);" data-partid="{partId}" data-customername="{company}" data-partno="{partNo}"
+               data-partdesc="{description}" data-parttype="{masterPartType}"
+               data-bs-toggle="modal" data-bs-target="#popup8">
+                <i class="fas fa-eye btn btn-sm"></i><!--style="color: #007bff;"-->
+            </a>
+        </td>
+    </tr>
+</template>
+
+<template id="P6GridRow">
+    <tr>
+        <td>{company}</td>
+        <td>{masterDisplay}</td>
+        <td>{noOfManufActive}</td>
+        <td>{noOfAssemblyActive}</td>
+        <td>{noOfManufInActive}</td>
+        <td>{preferred}</td>
+        <td>{noOfActive}</td>
+        <td>{noOfInActive}</td>
+        <td>{mandocAvl}</td>
+        <td>{partSupplied}</td>
+        <td>
+            <a href="javascript:void(0);" data-partid="{partId}" data-customername="{company}" data-partno="{partNo}"
+               data-partdesc="{description}"
+               data-bs-toggle="modal" data-bs-target="#popup7">
+                <i class="fas fa-eye btn btn-sm"></i><!--style="color: #007bff;"-->
+            </a>
+        </td>
+    </tr>
+</template>
+
+<template id="P8GridRow">
+    <tr>
+        <td>{company}</td>
+        <td>{partNo}/{description}</td>
+        <td>{preferred}</td>
+    </tr>
+</template>
+<template id="P4GridRow">
+    <tr>
+        <td>{company}</td>
+        <td>{partNo}/{description}</td>
+        <td>{preferred}</td>
+    </tr>
+</template>
+
+<template id="P5GridRow">
+    <tr>
+        <td>{partNo} / {description}</td>
+        <td>{company}</td>
+        <td>{masterDisplay}</td>
+        <td>{status}</td>
+        <td>{rmTypes}</td>
+        <td>{baseRm}</td>
+        <td>{rmSpecs}</td>
+        <td>{partused}</td>
+        <td>{price}</td>
+        <td>{reorderLevel}</td>
+        <td>{reorderQnty}</td>
+        <td>{leadTime}</td>
+        <td>{mandocAvl}</td>
+        <td>
+            <a href="javascript:void(0);" data-partid="{partId}" data-customername="{company}" data-partno="{partNo}"
+               data-partdesc="{description}" data-parttype="{masterPartType}"
+               data-bs-toggle="modal" data-bs-target="#viewDoc">
+                <i class="fas fa-eye btn btn-sm"></i><!--style="color: #007bff;"-->
+            </a>
+        </td>
+        <td>
+            <a href="javascript:void(0);" data-partid="{partId}" data-customername="{company}" data-partno="{partNo}"
+               data-partdesc="{description}" data-parttype="{masterPartType}"
+               data-bs-toggle="modal" data-bs-target="#popup4">
+                <i class="fas fa-eye btn btn-sm"></i><!--style="color: #007bff;"-->
+            </a>
+        </td>
+    </tr>
+</template>
+
+<template id="P2GridRow">
+    <tr>
+        <td>{company}</td>
+        <td>{masterDisplay}</td>
+        <td>{noOfManufActive}</td>
+        <td>{noOfAssemblyActive}</td>
+        <td>{noOfManufInActive}</td>
+        <td>{preferred}</td>
+        <td>{noOfActive}</td>
+        <td>{noOfInActive}</td>
+        <td>{mandocAvl}</td>
+        <td>{partSupplied}</td>
+        <td>
+            <a href="javascript:void(0);" data-partid="{partId}" data-customername="{company}" data-partno="{partNo}"
+               data-partdesc="{description}"
+               data-bs-toggle="modal" data-bs-target="#popup3">
+                <i class="fas fa-eye btn btn-sm"></i><!--style="color: #007bff;"-->
+            </a>
+        </td>
+    </tr>
+</template>
+
+<template id="P7GridRow">
+    <tr>
+        <td>{partNo} / {description}</td>
+        <td>{status}</td>
+        <td>{masterDisplay}</td>
+        <td>{statusChangeDate}</td>
+        <td>{mandocAvl}</td>
+        <td>
+            <a href="javascript:void(0);" data-partid="{partId}" data-customername="{company}" data-partno="{partNo}"
+               data-partdesc="{description}" data-parttype="{masterDisplay}"
+               data-bs-toggle="modal" data-bs-target="#popup8">
+                <i class="fas fa-eye btn btn-sm"></i><!--style="color: #007bff;"-->
+            </a>
+        </td>
+        <td>
+            <a href="javascript:void(0);" data-partid="{partId}" data-customername="{company}" data-partno="{partNo}"
+               data-partdesc="{description}" data-parttype="{masterDisplay}"
+               data-bs-toggle="modal" data-bs-target="#viewDoc">
+                <i class="fas fa-eye btn btn-sm"></i><!--style="color: #007bff;"-->
+            </a>
+        </td>
+    </tr>
+</template>
+
+<template id="P3GridRow">
+    <tr>
+        <td data-key="PartNo">{partNo} / {description}</td>
+        <td data-key="RmTypes">{rmTypes}</td>
+        <td data-key="Status">{status}</td>
+        <td data-key="StatusChangeDate">{statusChangeDate}</td>
+        <td data-key="RmAvl">{baseRm}</td>
+        <td data-key="RmSpecs">{rmSpecs}</td>
+        <td>
+            <a href="javascript:void(0);" data-partid="{partId}" data-customername="{company}" data-partno="{partNo}"
+               data-partdesc="{description}" data-parttype="{masterDisplay}"
+               data-bs-toggle="modal" data-bs-target="#popup4">
+                <i class="fas fa-eye btn btn-sm"></i><!--style="color: #007bff;"-->
+            </a>
+        </td>
+        <td>
+            <a href="javascript:void(0);" data-partid="{partId}" data-customername="{company}" data-partno="{partNo}"
+               data-partdesc="{description}" data-parttype="{masterDisplay}"
+               data-bs-toggle="modal" data-bs-target="#viewDoc">
+                <i class="fas fa-eye btn btn-sm"></i><!--style="color: #007bff;"-->
+            </a>
+        </td>
+    </tr>
+</template>
+
+<template id="Popup1GridRow">
+    <tr>
+        <td>{company}</td>
+        <td>{finalPart}</td>
+        <td>{noOfManufActive}</td>
+        <td>{noOfAssemblyActive}</td>
+        <td>{noOfManufInActive}</td>
+        <td>{noOfAssemblyInActive}</td>
+        <td>{rmAvl}</td>
+        <td>{bomAvl}</td>
+        <td>{mandocAvl}</td>
+        <td>{routingNotAvl}</td>
+        <td>
+            <a href="javascript:void(0);" data-partid="{partId}" data-customername="{company}" data-partno="{partNo}"
+               data-partdesc="{description}"
+               data-bs-toggle="modal" data-bs-target="#ViewManufPartPopup">
+                <i class="fas fa-eye btn btn-sm"></i><!--style="color: #007bff;"-->
+            </a>
+        </td>
+    </tr>
+</template>
+<template id="VMGridRow">
+    <tr>
+        <td data-key="PartNo">{partNo} / {description}</td>
+        <td data-key="FinalPart">{finalPart}</td>
+        <td data-key="MasterDisplay">{masterDisplay}</td>
+        <td data-key="Status">{status}</td>
+        <td data-key="StatusChangeDate">{statusChangeDate}</td>
+        <td data-key="RmAvl">{rmAvl}</td>
+        <td data-key="BomAvl">{bomAvl}</td>
+        <td data-key="MandocAvl">{mandocAvl}</td>
+        <td data-key="RoutingNotAvl">{routingNotAvl}</td>
+        <td data-key="RoutingDocNotAvl">{routingDocNotAvl}</td>
+        <td> - </td>
+        <td>
+            <a href="javascript:void(0);" data-partid="{partId}" data-customername="{company}" data-partno="{partNo}"
+               data-partdesc="{description}" data-parttype="{masterDisplay}"
+               data-bs-toggle="modal" data-bs-target="#viewDoc">
+                <i class="fas fa-eye btn btn-sm"></i><!--style="color: #007bff;"-->
+            </a>
+        </td>
+    </tr>
+</template>

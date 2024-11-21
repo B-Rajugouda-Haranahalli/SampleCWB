@@ -1,0 +1,41 @@
+﻿<div class="modal fade" id="changeMakeFromPopup" role="dialog" data-backdrop="static" data-keyboard="false" tabindex="-1" aria-labelledby="staticBackdropLabel" aria-hidden="true">
+    <div class="modal-dialog ">
+        <div class="modal-content bxs-modal">
+            <div class="modal-header">
+                <h4 class="modal-title">Change Make From</h4>
+                <button id="BtnchangeMakeFromClose" type="button" class="btn-close" data-dismiss="modal" aria-label="Close"></button>
+            </div>
+            <div class="modal-body">
+                <form method="post" id="FormChangeMakeFrom" onsubmit="return false;">
+                    <div class="row">
+                        <label class="form-label col-md-6 mb-2">Current Make From Part </label>
+                        <div class="col-md-6 mb-1">
+                            <input  class="form-control form-control-sm" id="CMakefromName" name="MKPartName" type="text" title=""
+                                   data-plugin="tippy" data-tippy-placement="top" readonly>
+                        </div>
+                        <label class="form-label col-md-6 mb-2">New Make From Part </label>
+                        <div class="col-md-6 mb-1">
+                            <select class="form-select form-select-sm" id="CMKPartId" name="MKPartId">
+                            </select>
+                            <input id="CRoutingName" name="RoutingName" type="text" title="" data-plugin="tippy" data-tippy-placement="top" hidden>
+                            <input type="text" hidden id="CManufacturedPartId" name="ManufacturedPartId" value="0" />
+                            <!--<input type="text" hidden id="CMKPartId" name="MKPartId" value="0" /> -->
+                            <input type="text" hidden id="COrigRoutingId" name="OrigRoutingId" value="0" />
+                            <input type="text" hidden id="CStatus" name="Status" value="Active" />
+                            <input type="text" hidden id="CPreferredRouting" name="PreferredRouting" value="" />
+
+                            <input type="text" hidden id="CRoutingId" name="RoutingId" value="0" />
+                        </div>
+                        <!-- =========  -->
+                        <div class="col text-end mt-2">
+                            <button id="BtnCRoutingSave" type="button" class="btn btn-sm btn-primary">Save</button>
+                        </div>
+                        <!-- =========  -->
+                    </div>
+                </form>
+            </div>
+        </div>
+        <!-- /.modal-content -->
+    </div>
+    <!-- /.modal-dialog -->
+</div>

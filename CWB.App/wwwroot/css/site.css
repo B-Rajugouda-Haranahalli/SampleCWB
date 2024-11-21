@@ -1,0 +1,19 @@
+﻿/*----Form Validation Error----*/
+.field-validation-error {
+    color: #F1556C;
+    margin-top: 5px;
+}
+
+    .field-validation-error:before {
+        content: "\F0159";
+        font-family: "Material Design Icons";
+        margin-right:5px;
+    }
+.input-validation-error {
+    border-color: #F1556C;
+}
+
+/*----Table menu pop up fix----*/
+/*.table-responsive {
+    overflow: inherit!important;
+}*/

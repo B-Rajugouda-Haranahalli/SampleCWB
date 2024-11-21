@@ -1,0 +1,693 @@
+﻿
+<div class="col-md-12">
+    <div class="table-responsive">
+        <table class="w-100" style="margin-top: -9px;">
+            <tbody>
+                <tr>
+                    <td>
+                        <h5>
+                            Details of Oprn No : <span id="RSDOpNor" style="font-weight:bold;"></span> of <span id="DivRoutingName1"></span> for <span id="RSDPartName"></span> /
+                            - <span id="RSDComp"></span>
+                        </h5>
+                        @* <span id="RSDPartDesc"></span> made from  <span id="RSDMKPName"></span> *@
+                    </td>
+                    <td style="text-align: end;">
+                        <button type="button" class="btn-close" id="RoutingDetailsClose"></button>
+                    </td>
+                </tr>
+            </tbody>
+        </table>
+    </div>
+</div>
+<div class="tab-content p-2">
+    <div class="tab-pane show active" id="step-info">
+        <div class="row">
+            <!-- =================================== -->
+            <div class="row">
+                <div class="col-md-5" style="border: 1px solid #dee2e6;">
+                    <form id="FormRoutingStep" method="post" role="form" class="parsley-examples" onsubmit="return false;">
+                        <div class="row">
+                            <div class="col-md-12 mb-2">
+                                <h5>Step Basic Info.</h5>
+                            </div>
+                            <label class="form-label col-md-4 mb-2">Step Number  <span class="text-danger">*</span></label>
+                            <div class="col-md-8 mb-2">
+                                <input id="StepNumber" name="StepNumber" class="form-control form-control-sm" type="text" title="Enter the Step Number as per Company Practice. It has to be Unique" data-plugin="tippy" data-tippy-placement="top" required />
+                            </div>
+                            <!-- ---------------  -->
+                            <label class="form-label col-md-4 mb-2">Step Description  <span class="text-danger">*</span></label>
+                            <div class="col-md-8 mb-2">
+                                <textarea id="StepDescription" name="StepDescription" class="form-control form-control-sm" title="Enter the a brief description of the Routing Step" data-plugin="tippy" data-tippy-placement="top" required></textarea>
+                            </div>
+                            <!-- ---------------  -->
+                            <label class="form-label col-md-4 mb-2">Operation  <span class="text-danger">*</span></label>
+                            <div class="col-md-8 mb-2">
+                                <select id="StepOperation" name="StepOperation" class="form-select form-select-sm" required title="Select the Manufacturing Operation carried out in this Routing Step. The selection of the Operation will decide the documents that need to be generated for carrying out the step. If the Operation does not exist, it would need to be created in the 'Operations' Master" data-plugin="tippy" data-tippy-placement="top">
+                                    <option value="">Select</option>
+                                </select>
+                            </div>
+                            <!-- ---------------  -->
+                            <label class="form-label col-md-4 mb-2">Step Location  <span class="text-danger">*</span></label>
+                            <div class="col-md-8 mb-2">
+                                <select id="StepLocation" name="StepLocation" class="form-select form-select-sm" title="Indicate where this Routing Step is carried out - Inhouse or Outsourced" data-plugin="tippy" data-tippy-placement="top" required>
+                                    <option value="">Select</option>
+                                </select>
+                            </div>
+                            <div class="col-md-12">
+                                <div class="row">
+                                    <label id="lblNumberOfSimMachines" class="form-label col-md-4 mb-2">No of Machines that can run this operation simultaneously </label>
+                                    <div class="col-md-8 mb-2">
+                                        <input id="NumberOfSimMachines" class="form-control form-control-sm" name="NumberOfSimMachines" value="1" type="text" title="For Line Balancing reasons if more than 1 machine has to run the Operation Step .... indicate the number of Machines that need to run simultaneously. Those many machines or more have to be added to the list " data-plugin="tippy" data-tippy-placement="top">
+                                    </div>
+                                </div>
+                            </div>
+                            <label class="form-label col-md-4 mb-2">
+                                This Routing Step
+                                seqencing with respect to
+                                next Step *
+                            </label>
+                            <div class="col-md-8 mb-2 ">
+                                <select class="form-select form-select-sm" id="StepSequence" name="StepSequence" title="" data-plugin="tippy" data-tippy-placement="top" required="">
+                                    @*<option value="0">Select</option>*@
+                                    <option value="1">Sequential : Next Routing step starts only after all parts of this routing step are completed</option>
+                                    <option value="2">Parallel : Next Routing step can start while this routing step is in progress</option>
+                                    <option value="3"> Line : Current Routing Step Machine feeds 1 to 1 to the next Routing Step Machine</option>
+                                </select>
+                            </div>
+                            <!-- ---------------  -->
+                            <div class="col-md-3 mb-1   display-none ">
+                                <label class="form-label p-r-5">Critical Operation</label>
+                                <input class="form-check-input mt-1" type="checkbox" name="......." value="..." title="Machine to run only in 1st shift" data-plugin="tippy" data-tippy-placement="top">
+                            </div>
+                            <!-- ---------------  -->
+                            <div class="col-md-3 mb-1   display-none ">
+                                <label class="form-label m-r-5">Critical Setup </label>
+                                <input class="form-check-input mt-1" type="checkbox" name="......." value="..." title="Machine to be set only in 1st shift" data-plugin="tippy" data-tippy-placement="top">
+                            </div>
+                            <!-- ---------------  -->
+                            <div class="col-md-12 text-end">
+                                <input type="text" hidden id="Status" name="Status" value="Active" />
+                                <input type="text" hidden id="StepId" name="StepId" value="0" />
+                                <input type="text" hidden id="StepRoutingId" name="RoutingId" value="0" />
+                                @*<input type="text" hidden id="StepSequence" name="StepSequence" value="1" />*@
+                                <button id="BtnSaveStep" class="btn btn-sm btn-primary" title="Use to Save the entered data" data-plugin="tippy" data-tippy-placement="top">Save</button>
+                            </div>
+                            <!-- ---------------  -->
+                        </div>
+                        <!-- end row  -->
+                    </form>
+                    <!-- -------------------------  -->
+                </div>
+                <!-- ------------------------------------------  -->
+                @*<div class="col-md-1">&nbsp;</div>*@
+                <!-- ------------------------------------------  -->
+                <div class="col-md-7" style="border: 1px solid #dee2e6;">
+                    <div class="row">
+                        <partial name="_RouteMachines" />
+                        <partial name="_RouteSubCons" />
+                        <partial name="_DeleteMachine" />
+                        <partial name="_DeleteSubCon" />
+                        <partial name="_DeleteSupplier" />
+                        <!-- =============== -->
+                    </div>
+                    <div class="row">
+                        <div class="col-md-12" id="Div_BomGrid">
+                            <h5 class="mb-2">List of Parts assembled in this step</h5>
+
+                            <div class="table-responsive mt-2 table-he-130 w-100">
+                                <table class="table table-sm table-bordered  mb-3 text-center mt-1 tableFixHead" id="BomUsedGridDisplay">
+                                    <thead class="table-info th-sti">
+                                        <tr class="table-border-bottom">
+                                            <th width="78%">Part No / Desc</th>
+                                            <th>Qnty Used</th>
+                                            <th width="5%"></th>
+                                        </tr>
+                                    </thead>
+                                    <tbody>
+                                        <tr>
+                                            <td></td>
+                                            <td></td>
+                                            <td>
+                                                <div class="dropdown float-center">
+                                                    <a href="#" class="dropdown-toggle arrow-none card-drop" data-bs-toggle="dropdown" aria-expanded="false"><i class="mdi mdi-dots-vertical"></i></a>
+                                                    <div class="dropdown-menu dropdown-menu-end">
+                                                        <!-- item-->
+                                                        <!-- item-->
+                                                        <a href="javascript:void(0);" class="dropdown-item">Edit</a>
+                                                        <!-- item-->
+                                                        <a href="javascript:void(0);" class="dropdown-item">Delete</a>
+                                                        <!-- item-->
+                                                    </div>
+                                                </div>
+                                            </td>
+                                        </tr>
+                                    </tbody>
+                                </table>
+                            </div>
+                        </div>
+                    </div>
+                    <div class="row">
+                        <div class="col-md-12 text-end">
+                            <button type="button" class="btn btn-primary btn-sm" id="tab-step-parts" data-bs-toggle="modal" data-bs-target="#task-rou">
+                            Associate BOM Parts Assembled / Used in this step</button>
+                        </div>
+                    </div>
+                </div>
+                <!-- ------------------------------------------  -->
+                <hr>
+                <!-- ------------------------------------------  -->
+            </div>
+            <!-- row end -->
+            <!-- ================= -->
+        </div>
+        <!-- end row -->
+        <div class="row   display-none ">
+            <!-- ================= -->
+            <label class="form-label col-md-2 mt-2 mb-2">Approver Notes</label>
+            <div class="col-md-9 mt-2 mb-2">
+                <textarea class="form-control form-control-sm">Enter......</textarea>
+            </div>
+            <!-- ---------------  -->
+            <label class="form-label col-md-2 mb-2">Approver Status</label>
+            <div class="col-md-4 mb-2">
+                <select class="form-select form-select-sm">
+                    <option value="">Approved</option>
+                    <option value="">Needs Rework</option>
+                </select>
+            </div>
+            <!-- ---------------  -->
+        </div>
+        <!-- end row -->
+        <hr class="hr-color-2">
+        <div class="row">
+            <div class="col-md-6">
+                <button type="button" class="btn btn-warning btn-sm   display-none " data-bs-toggle="modal" data-bs-target="#add-document-2"><i class="fas fa-info"></i></button>
+                <button type="button" class="btn btn-purple btn-sm   display-none " data-bs-toggle="modal" data-bs-target="#task-rou">Task</button>
+                
+            </div>
+            <!-- ---------- -->
+            <div class="col-md-6 text-end">
+                @*<button class="btn btn-sm btn-dark" data-bs-toggle="modal" data-bs-target="#popup-4" title="Use to Exit " data-plugin="tippy" data-tippy-placement="top">Exit</button>
+                    <button class="btn btn-sm btn-primary" title="Use to Save the entered data" data-plugin="tippy" data-tippy-placement="top">Save</button>
+                    <button type="button" class="btn btn-warning btn-sm"><i class="fas fa-arrow-right"></i></button>
+                    <button hidden class="btn btn-sm btn-info" title="Use to go to the next Tab" data-plugin="tippy" data-tippy-placement="top">Add Next Step</button>*@
+            </div>
+        </div>
+        <div class="col-md-12 mt-3" style="border: 1px solid #dee2e6;">
+            <div class="table-responsive table-he-250">
+                <table class="table table-sm table-bordered tableFixHead w-100" id="RoutingDocgrid">
+                    <thead class="table-info th-sti text-center">
+                        <tr class="table-border-bottom">
+                            <th>Document Type</th>
+                            <th>Mandatory</th>
+                            <th>Info / Comment</th>
+                            <th>Uploaded by</th>
+                            <th>Uploaded on</th>
+                            <th>View</th>
+                            <th>Download</th>
+                            <th width="5%"></th>
+                        </tr>
+                    </thead>
+                    <tbody class="text-center">
+                        <!-- ---------- -->
+                    </tbody>
+                </table>
+            </div>
+            <!-- =========== -->
+            <button class="btn btn-primary btn-sm mt-2" data-bs-toggle="modal" data-bs-target="#doc-item" data-plugin="tippy" data-tippy-placement="top"
+                    data-tippy="" data-original-title="Click to Add a document" id="UploadOrtherDoc">
+                Upload Other
+                Related
+                Documents
+            </button>
+            <!-- =========== -->
+        </div>
+        <!-- row end -->
+    </div>
+
+    <div class="tab-pane" id="bom">
+
+    </div>
+
+</div>
+
+<partial name="_Add-Machine" />
+<partial name="_Add-SubCon" />
+
+<div id="AssociateBOMParts" class="modal fade" data-bs-backdrop="static" data-bs-keyboard="false" tabindex="-1" aria-labelledby="staticBackdropLabel" aria-hidden="true">
+    <div class="modal-dialog modal-full-width">
+        <div class="modal-content">
+            <div class="modal-header">
+                <h4 class="modal-title" id="mySmallModalLabel">
+                    Parts Assembled in Oprn No <span id="BomStepNo"></span>  of Routing
+                    <span id="BomRouting"></span> for Part No / Desc  <span id="BomPartNo"></span> / <span id="BomPartDesc"></span>
+                    made from Part No / Desc - Company <span id="Bomcampany"></span>
+                </h4>
+                <button id="BtnBomPartsClose" type="button" class="btn-close" data-dismiss="modal" aria-label="Close"></button>
+            </div>
+            <!-- ======================================================================================== -->
+            <div class="modal-body">
+
+                <div class="row">
+                    <div class="col-md-8">
+                        <h5>Select parts for Assembly from BOM </h5>
+                        <div class="table-responsive table-he-250 mt-2">
+                            <table id="StepPart-BOM-Table" class="table table-sm table-bordered w-100 mb-1 tableFixHead">
+                                <thead class="table-info th-sti text-center" title="Use this Tab to enter BOM Parts are used in this Routing Step. This Tab is enabled when the Operation is a joining, assembly ... type of operation" data-plugin="tippy" data-tippy-placement="top">
+                                    <tr class="table-border-bottom">
+                                        <th></th>
+                                        <th>Part NO</th>
+                                        <th>Part Description</th>
+                                        <th>BOM Qnty</th>
+                                        <th>Bal Qnty for Assembly</th>
+                                    </tr>
+                                </thead>
+                                <tbody>
+                                </tbody>
+                            </table>
+                        </div>
+                    </div>
+                </div>
+                <div class="row mt-3">
+                    <!-- end col -->
+                    <div class="col-md-9 text-end mt-n4">
+                        <button id="BtnSelectBOMForRouting" class="btn btn-sm btn-purple" title="Use to select the chosen Part No for further data entry" data-plugin="tippy" data-tippy-placement="top"> Select</button>
+                    </div>
+                    <!-- end col -->
+                </div>
+                <!-- --- end row ------  -->
+                <form method="post" id="FormStepPart" role="form" onsubmit="return false;">
+                    <div class="row mt-3">
+
+                        <label class="form-label col-md-1 mb-1"> Part No  </label>
+                        <div class="col-md-2 mb-1">
+                            <input type="text" hidden id="PartId" name="PartId" value="0" />
+                            <input type="text" id="BOMPartNo" name="PartNo" class="form-control form-control-sm" placeholder="" value="" required readonly />
+                        </div>
+                        <!-- ================= -->
+                        <label class="form-label col-md-1 mb-2"> Part Desc</label>
+                        <div class="col-md-3 mb-2">
+                            <textarea id="BOMPartDescription" name="PartDescription" class="form-control form-control-sm" readonly></textarea>
+                        </div>
+
+                        <!-- ================= -->
+                        <label class="form-label col-md-1 mb-2">Qnty for Assy </label>
+                        <div class="col-md-2 mb-2">
+                            <input id="QuantityAssembly" name="QuantityAssembly" type="text" oninput="return onlyNum();" class="form-control form-control-sm" title="Enter the quantity of selected Part No used in this Routing Step Operation. Note it should be equal or less than the Balance Qnty for Assembly" data-plugin="tippy" data-tippy-placement="top" required />
+                        </div>
+
+                        <!-- ========================== -->
+                        <div class="col-md-2 mb-2">
+                            <input type="text" hidden id="BOMId" name="BOMId" value="0" />
+                            <input type="text" hidden id="BOMManufacturedPartId" name="ManufacturedPartId" value="0" />
+                            <input type="text" hidden id="BOMRoutingStepId" name="RoutingStepId" value="0" />
+                            <input type="text" hidden id="RoutingStepPartId" name="StepPartId" value="0" />
+                            <input type="submit" id="BtnAddToStepList" class="btn btn-sm btn-primary" title="Use to add to the Part List for the Routing Step" data-plugin="tippy" data-tippy-placement="top" value="Add to List">
+                        </div>
+                        <!-- ========================== -->
+                    </div>
+                </form>
+
+                <!-- end row  -->
+                <div class="row">
+                    <div class="col-md-8">
+                        <h5 class="mb-2">List of parts Assembled in Current Assy Step</h5>
+                        <div class="table-responsive table-he-180 mt-2">
+                            <table id="StepPart-BOMQTY-Table" class="table table-sm table-bordered w-100 mb-3 tableFixHead">
+                                <thead class="table-info th-sti text-center">
+                                    <tr class="table-border-bottom">
+                                        <th>Part NO</th>
+                                        <th>Part Description</th>
+                                        <th> Qnty used</th>
+                                        <th></th>
+                                    </tr>
+                                </thead>
+                                <tbody>
+                                </tbody>
+                            </table>
+                        </div>
+                    </div>
+                    <!-- end col -->
+                </div>
+                <!-- end row  -->
+                <hr class="hr-color-2">
+            </div>
+            <!--<div class="row mt-2">
+                <div class="col-md-6">
+                    <button type="button" class="btn btn-warning btn-sm" title="Use to go to Previous Tab" data-plugin="tippy" data-tippy-placement="top"><i class="fas fa-arrow-left"></i></button>
+                </div>-->
+            <!-- ---------- -->
+            <!--<div class="col-md-6 text-end">
+                    <button class="btn btn-sm btn-dark" data-bs-toggle="modal" data-bs-target="#popup-4" title="Use to Exit " data-plugin="tippy" data-tippy-placement="top">Exit</button>
+                    <button class="btn btn-sm btn-primary" title="Use to Save the entered data" data-plugin="tippy" data-tippy-placement="top">Save</button>
+                    <button type="button" class="btn btn-warning btn-sm"><i class="fas fa-arrow-right" title="Use to go to the next Tab" data-plugin="tippy" data-tippy-placement="top"></i></button>
+                </div>
+            </div>-->
+            <!-- end row  -->
+        </div>
+    </div>
+</div>
+
+<template id="RT_BOM-template">
+    <tr sclass="bg-grey">
+        <td>
+            <input class="form-check-input" type="radio" id="BOMChk_{mpbomId}" name="BOMChk" value={mpbomId} title="Use to Choose the Part No" data-plugin="tippy" data-tippy-placement="bottom" checked>
+        </td>
+        <td data-key="RT_BOMPartNo">{bomPartNo}</td>
+        <td data-key="RT_BOMPartDesc">{bomPartDesc}</td>
+        <td data-key="RT_BOMQty">{quantity}</td>
+        <td data-key="RT_BOMQty">{balanceQuantity}</td>
+    </tr>
+</template>
+
+
+<template id="RT_BOMQTY-template">
+    <tr sclass="bg-grey">
+        <td data-key="RT_BOMPartNo">{bomPartNo}</td>
+        <td data-key="RT_BOMPartDesc">{bomPartDesc}</td>
+        <td data-key="RT_BOMQty">{quantityUsed}</td>
+        <td>
+            <div class="dropdown float-center">
+                <a href="#" class="dropdown-toggle arrow-none card-drop" data-bs-toggle="dropdown" aria-expanded="false"><i class="mdi mdi-dots-vertical"></i></a>
+                <div class="dropdown-menu dropdown-menu-end">
+                    <a href="javascript:void(0);" onclick="DeleteStepPart({stepPartId},{routingStepId});" class="dropdown-item">delete</a>
+                    <a href="javascript:void(0);"
+                       onclick="SetBOMEditVals({stepPartId},{routingStepId}
+                             ,'{bomPartNo}',{mpbomId},'{bomPartDesc}',{quantityUsed});" class="dropdown-item">Edit</a>
+                </div>
+            </div>
+        </td>
+    </tr>
+</template>
+<!--
+    balanceQuantity:0
+    bomManufPartId:56
+    bomPartDesc:"M3 x 15 Length Grub Screw"
+    bomPartId:60
+    bomPartNo:"M3x15 GS"
+    mpbomId:19
+    quantity:0
+    quantityUsed:1
+    routingStepId:171
+    stepPartId:16
+    tenantId:0-->
+<!--//BOMPartNo,BOMPartDescription,QuantityAssembly
+                    //BOMId,BOMManufacturedPartId
+                    //BOMRoutingStepId
+                    //RoutingStepPartId
+                    -->
+
+
+<div id="doc-item" class="modal fade" data-bs-backdrop="static" data-bs-keyboard="false" tabindex="-1" aria-labelledby="staticBackdropLabel" style="display: none;" aria-hidden="true">
+    <div class="modal-dialog">
+        <div class="modal-content">
+            <div class="modal-header">
+                <h4 class="modal-title" id="standard-modalLabel">Upload Document</h4>
+                <button type="button" id="btnCloseDocItem" class="btn-close" data-bs-dismiss="modal" aria-label="Close"></button>
+            </div>
+            <div class="modal-body">
+                <div class="row">
+                    <!-- ------- -->
+                    <div class="col-md-12">
+                        <!-- =========== -->
+                        <div class="row mt-2">
+                            <label class="col-md-4 form-label mb-2">
+                                Document Type <span class="text-danger">
+                                    *
+                                </span>
+                            </label>
+                            <div class="col-md-8 mb-2" data-plugin="tippy" data-tippy-placement="top" data-tippy="" data-original-title="Indicate the File Content or any relevant info about the Document">
+                                <input type="text" class="form-control form-control-sm" id="DocTypeName" readonly>
+                            </div>
+                            <!-- =========== -->
+                            <label class="col-md-4 form-label mb-2">
+                                Allowed File Extn. <span class="text-danger">
+                                    *
+                                </span>
+                            </label>
+                            <div class="col-md-8 mb-2">
+                                <input type="text" class="form-control form-control-sm" id="FileExtnName" readonly>
+                            </div>
+                            <!-- =========== -->
+                            <label class="col-md-4 form-label mb-2">
+                                Info / Comment<span class="text-danger">
+                                    *
+                                </span>
+                            </label>
+                            <div class="col-md-8 mb-2">
+                                <input type="text" class="form-control form-control-sm" placeholder="Enter  Info / Comment" id="InfoComments">
+                            </div>
+                            <!-- =========== -->
+                            @*<form asp-action="UploadFileToFtp" method="post" enctype="multipart/form-data">*@
+                            <div class="col-md-4 mb-2">
+                                <div class="fileupload btn btn-sm btn-info waves-effect w-100" title="" data-plugin="tippy" data-tippy-placement="top">
+                                    <span><i class="mdi mdi-cloud-upload me-1"></i>Document Upload</span>
+                                    <input type="file" class="upload" name="uploadedFile" id="fileUploadInput" onchange="displayFileName()">
+                                </div>
+                            </div>
+                            <!-- =========== -->
+                            <div class="col-md-8 mb-2">
+                                <input type="text" class="form-control form-control-sm" placeholder="Show uploaded File Name" id="fileNameDisplay" readonly>
+                                <input type="text" id="doclistidFile" hidden />
+                                <input type="text" id="docTypeIdFile" hidden />
+                                <input type="date" id="deletiondate" hidden />
+                            </div>
+                            <!-- =========== -->
+                            <div class="col-md-12 text-end">
+                                <button class="btn btn-sm btn-primary" data-bs-toggle="modal" data-bs-target="#RefDocReason" title="" data-plugin="tippy" data-tippy-placement="top" hidden id="Resonbtn">
+                                    Reason
+                                </button>
+                                <button class="btn btn-sm btn-primary" data-plugin="tippy" data-tippy-placement="top" data-tippy="" data-original-title="Use to Save the entered data" id="UploadFileSave">Save</button>
+                            </div>
+                            @*</form>*@
+                            <!-- =========== -->
+                        </div>
+                        <!-- =========== -->
+                        <!-- =========== -->
+                        <div class="row mt-2 display-none">
+                            <div class="col-md-5">
+                                <button class="btn btn-sm btn-info w-100">Create New Document</button>
+                            </div>
+                            <div class="col-md-5">
+                                <button class="btn btn-sm btn-purple w-100" data-bs-toggle="modal" data-bs-target="#task-rou">Task Document Creation <span class="badge bg-primary rounded-circle noti-icon-badge m-l-10">5</span> </button>
+                            </div>
+                        </div>
+                        <!-- =========== -->
+                    </div>
+                    <!-- ------- -->
+                </div>
+            </div>
+        </div><!-- /.modal-content -->
+    </div><!-- /.modal-dialog -->
+</div>
+
+<div class="modal fade modal-fullscreen-xl-down" id="viewDoc" data-bs-backdrop="static" data-bs-keyboard="false" tabindex="-1" aria-labelledby="staticBackdropLabel" aria-hidden="true">
+    <div class="modal-dialog modal-fullscreen">
+        <div class="modal-content bxs-modal">
+            <div class="modal-header">
+                <h4 class="modal-title" id="mySmallModalLabel">View Documents</h4>
+                <button type="button" class="btn-close" data-bs-dismiss="modal" aria-label="Close"></button>
+            </div>
+            <div class="modal-body">
+                <div class="row">
+                    <!-- ========================= -->
+                    <div class="col-md-12 dott-bord-r">
+                        <div class="table-responsive table-he-150">
+                            <table class="table table-sm table-bordered w-100 text-center">
+                                <thead class="table-info th-sti">
+                                    <tr class="table-border-bottom">
+                                    </tr>
+                                </thead>
+                                <tbody>
+                                    <tr>
+                                        <td>Document Type : <span id="DocTypenameText"></span></td>
+                                        <td>Uploaded by <span id="UploadByText"></span> on <span id="UpdatedDateText"></span></td>
+                                        <td>Part No / Desc : <span id="PartNoText"></span> / <span id="PartDescText"></span></td>
+                                        <td>Customer : <span id="CustomerText"></span> </td>
+                                        <td>PO No / WO No : <span id="PoNoText"></span></td>
+                                    </tr>
+                                    <tr>
+                                        <td>Retention Date : <span id="RetentionDateText"></span></td>
+                                        <td>Routing No : <span id="RoutingNameText"></span></td>
+                                        <td>Opr No : <span id="OprNoText"></span></td>
+                                    </tr>
+                                </tbody>
+                            </table>
+                        </div>
+                    </div>
+                    <!-- ========================= -->
+                    <div class="col-md-12">
+                        <iframe id="fileViewer" src="" style="width: 100vw; height: 100vh;"></iframe>
+                        @*<img src="https://skala.or.id/wp-content/uploads/2024/01/dummy-post-square-1-1.jpg" alt="img" style="width: 100%; height: 400px;">*@
+                    </div>
+                    <!-- ========================= -->
+                </div>
+            </div>
+        </div><!-- /.modal-content -->
+    </div><!-- /.modal-dialog -->
+</div>
+
+
+<div class="modal fade" id="RefDocReason" data-bs-backdrop="static" data-bs-keyboard="false" tabindex="-1" aria-labelledby="staticBackdropLabel" style="display: none;" aria-hidden="true">
+    <div class="modal-dialog">
+        <div class="modal-content bxs-modal">
+            <div class="modal-header">
+                <h4 class="modal-title" id="fullWidthModalLabel">Reference / Master File Replacement </h4>
+                <button type="button" class="btn-close" data-bs-dismiss="modal" aria-label="Close"></button>
+            </div>
+            <div class="modal-body">
+                <div class="row">
+                    <!-- ========================= -->
+                    <label class="form-label col-md-5 mb-2">Reason for File Replacement <span class="text-danger">*</span> </label>
+                    <div class="col-md-6 mb-2">
+                        <select class="form-select form-select-sm" aria-label="form-select-sm" title="" id="DocReasonName"
+                                data-plugin="tippy" data-tippy-placement="top">
+                        </select>
+                    </div>
+                    <!-- ========================= -->
+                    <label class="form-label col-md-5 mb-2">Comment </label>
+                    <div class="col-md-6 mb-2">
+                        <input type="text" id="RefDoc" class="form-control form-control-sm" placeholder="Enter here" />
+                    </div>
+                    <!-- ========================= -->
+                    <div class="col-md-11 text-end">
+                        <input type="text" id="RefDocId" hidden />
+                        <button class="btn btn-sm btn-primary" id="RefDocSave">Save</button>
+                    </div>
+                    <!-- ========================= -->
+                </div>
+                <!-- end row -->
+            </div>
+            <!-- body end -->
+        </div>
+        <!-- /.modal-content -->
+    </div>
+    <!-- /.modal-dialog -->
+</div>
+
+
+<div class="modal fade" id="RefLogPopup" data-bs-backdrop="static" data-bs-keyboard="false" tabindex="-1" aria-labelledby="staticBackdropLabel" style="display: none;" aria-hidden="true">
+    <div class="modal-dialog">
+        <div class="modal-content bxs-modal">
+            <div class="modal-header">
+                <h4 class="modal-title" id="mySmallModalLabel">Reference File Replacement Log </h4>
+                <button type="button" class="btn-close" data-bs-dismiss="modal" aria-label="Close"></button>
+            </div>
+            <div class="modal-body">
+                <div class="row">
+                    <!-- ========================= -->
+                    <div class="col-md-6 mb-2">
+                        <label class="form-label mb-1">Document Type Name : <span id="SpanDocType"></span> </label>
+                    </div>
+                    <!-- -----------------  -->
+                    <div class="col-md-6 mb-2">
+                        <label class="form-label mb-1">Routing Name : <span id="SpanDocPart"></span> </label>
+                    </div>
+                    <!-- -----------------  -->
+                    <!-- ========================= -->
+                    <div class="col-md-12">
+                        <div class="table-responsive table-he-150">
+                            <table class="table table-sm table-bordered w-100 text-center" id="RefLogGrid">
+                                <thead class="  table-info th-sti">
+                                    <tr class="table-border-bottom">
+                                        <th>Date</th>
+                                        <th>By</th>
+                                        <th>Action</th>
+                                        <th>Reason</th>
+                                        <th>Comment</th>
+                                    </tr>
+                                </thead>
+                                <tbody>
+                                    <!-- ----------- -->
+                                </tbody>
+                            </table>
+                        </div>
+                        <!-- ========================= -->
+                    </div>
+                    <!-- ========================= -->
+                    <!-- ========================= -->
+                </div>
+            </div>
+        </div><!-- /.modal-content -->
+    </div><!-- /.modal-dialog -->
+</div>
+
+<template id="maufDocUploadRow">
+    <tr>
+        <td>{documentTypeName}</td>
+        <td>{mandatory}</td>
+        <td>{comments}</td>
+        <td>{uploadedBy}</td>
+        <td>{updatedOnStr}</td>
+        <td>
+            @*<i class="fas fa-eye btn btn-sm" data-bs-toggle="modal"
+                data-bs-target="#viewDoc"></i>*@
+            <a href="javascript:void(0);" data-filename="{fileName}" data-doctypename="{documentTypeName}" data-customername="{companyName}"
+               data-partno="{partNo}" data-partdesc="{partDesc}" data-routingname="{routingName}" data-retdate="{retentionDateStr}"
+               data-oprno="{oprNo}" data-uploadby="{uploadedBy}" data-uploadon="{updatedOnStr}"
+               onclick="viewFile(this)">
+                <i class="fas fa-eye btn btn-sm"></i><!--style="color: #007bff;"-->
+            </a>
+        </td>
+        <td>
+            <a href="javascript:void(0);" data-filename="{fileName}" onclick="downloadFile(this)">
+                <i class="fas fa-download btn btn-sm"></i><!--style="color: #007bff;"-->
+            </a>
+        </td>
+        <td>
+            <div class="dropdown float-center">
+                <a href="#" class="dropdown-toggle arrow-none card-drop"
+                   data-bs-toggle="dropdown" aria-expanded="false">
+                    <i class="mdi mdi-dots-vertical"></i>
+                </a>
+                <div class="dropdown-menu dropdown-menu-end">
+                    <!-- item-->
+                    <a href="javascript:void(0);" class="dropdown-item" data-bs-toggle="modal" data-bs-target="#doc-item"
+                       data-filename="{fileName}" data-doctypename="{documentTypeName}" data-comments="{comments}" data-fileextnname="{fileExtnName}"
+                       data-documenttypeid="{documentTypeId}" data-upload="1" data-deletiondate="{deletionDate}"
+                       data-doclistid="{docListId}" data-retdate="{retentionDateStr}">Upload</a>
+                    <!-- item-->
+                    <a href="javascript:void(0);" class="dropdown-item" data-bs-toggle="modal" data-bs-target="#doc-item"
+                       data-filename="{fileName}" data-doctypename="{documentTypeName}" data-comments="{comments}" data-fileextnname="{fileExtnName}"
+                       data-documenttypeid="{documentTypeId}" data-upload="2" data-deletiondate="{deletionDate}"
+                       data-doclistid="{docListId}" data-retdate="{retentionDateStr}">Edit</a>
+                    <!-- item-->
+                    <a href="javascript:void(0);" class="dropdown-item" data-doclistid="{docListId}"
+                       onclick="DeleteDocList(this)">Delete</a>
+                    <!-- item-->
+                    <a href="javascript:void(0);" class="dropdown-item" data-bs-toggle="modal" data-bs-target="#RefLogPopup"
+                       data-doctypename="{documentTypeName}" data-documenttypeid="{documentTypeId}"
+                       data-doclistid="{docListId}">View Log</a>
+                </div>
+            </div>
+        </td>
+    </tr>
+</template>
+
+
+<template id="RefLogGridRow">
+    <tr style="text-align: center;">
+        <td>{date}</td>
+        <td>{uploadedByStr}</td>
+        <td>{action}</td>
+        <td>{reasonName}</td>
+        <td>{comments}</td>
+    </tr>
+</template>
+
+<template id="BomGridLandingRow">
+    <tr sclass="bg-grey">
+        <td data-key="RT_BOMPartNo">{bomPartNo} / {bomPartDesc}</td>
+        <td data-key="RT_BOMQty">{quantityUsed}</td>
+        <td>
+            <div class="dropdown float-center">
+                <a href="#" class="dropdown-toggle arrow-none card-drop" data-bs-toggle="dropdown" aria-expanded="false"><i class="mdi mdi-dots-vertical"></i></a>
+                <div class="dropdown-menu dropdown-menu-end">
+                    <a href="javascript:void(0);" onclick="DeleteStepPart({stepPartId},{routingStepId});" class="dropdown-item">delete</a>
+                    <a href="javascript:void(0);"
+                        data-bs-toggle="modal" data-bs-target="#AssociateBOMParts" class="dropdown-item">Edit</a>
+                </div>
+            </div>
+        </td>
+    </tr>
+</template>

@@ -1,0 +1,6 @@
+Zookeeper - It allows services to find and communicate with 
+      each other without hardcoding the network locations of services
+Kafka - is a distributed streaming platform designed to
+      handle large volumes of data in real-time
+Kafdrop -  is a web UI for viewing Kafka topics and 
+      browsing consumer groups

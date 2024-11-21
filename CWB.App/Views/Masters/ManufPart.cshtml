@@ -1,0 +1,118 @@
+﻿@{
+    ViewData["Title"] = "Item Master - Manufactured Part";
+    
+}
+
+@model CWB.App.Models.ItemMaster.ManufacturedPartNoDetailVM
+<input value="M-IM" type="hidden" id="hdn-nav-menu" />
+<div class="content" id="ManufPartMain">
+    <div class="row">
+        
+        <div class="col-md-12">
+            <div class="card">
+                <div class="card-body">
+                    <!-- ================ -->
+                    <div class="row m-0">
+                        <div class="col-md-9">
+                            <ul class="nav nav-tabs nav-pills navtab-bg">
+                                <li class="nav-item" id="TabMPMain">
+                                    <a href="#tab-1" aria-expanded="false" class="nav-link active">
+                                        <span class="d-inline-block d-sm-none">Basic Info</span>
+                                        <span class="d-none d-sm-inline-block">Basic Information</span>
+                                    </a>
+                                </li>
+                                <li class="nav-item" id="TabHeadMakefrom">
+                                    <a href="#tab-2" id="navHeadMakefrom" aria-expanded="true" class="nav-link ">
+                                        <span class="d-inline-block d-sm-none">Make from</span>
+                                        <span class="d-none d-sm-inline-block">Make from</span>
+                                    </a>
+                                </li>
+                                <li class="nav-item" id="TabHeadBOM">
+                                    <a href="#tab-3" id="navHeadBOM" aria-expanded="false" class="nav-link">
+                                        <span class="d-inline-block d-sm-none">BOM</span>
+                                        <span class="d-none d-sm-inline-block">BOM</span>
+                                    </a>
+                                </li>
+                                <li class="nav-item" id="TabHeadBalloon">
+                                    <a href="#tab-4" aria-expanded="false" class="nav-link">
+                                        <span class="d-inline-block d-sm-none">Balloon</span>
+                                        <span class="d-none d-sm-inline-block">Balloon</span>
+                                    </a>
+                                </li>
+                            </ul>
+                        </div>
+                        <div class="col-md-3 text-end">
+                            <a asp-action="Index" asp-controller="Masters" id="closeatag">
+                                <button type="button" class="btn-close" data-bs-dismiss="modal" aria-label="Close"></button>
+                            </a>
+                        </div>
+                    </div>
+                    <!-- ===============================================================  -->
+                    <!-- ===============================================================  -->
+                    
+                    <div class="tab-content">
+                        <!-- ================ -->
+                        <div class="tab-pane show active" id="tab-1">
+                            <partial name="../Shared/_ManuF_Tab1" model=@Model/>
+                            <!-- ===================  -->
+                            <div class="row mt-2">
+                                @*<partial name="_ReferenceDocuments" />*@
+                            </div>
+                            <!-- end row -->
+                        </div>
+                        <!-- ================ -->
+                        <div class="tab-pane" id="tab-2">
+                            <partial name="../Shared/_ManuF_Tab2" model='new CWB.App.Models.ItemMaster.MPMakeFromVM{}' />
+                        </div>
+                        <!-- ================ -->
+                        <div class="tab-pane" id="tab-3">       
+                            <partial name="../Shared/_ManuF_Tab3" model='new CWB.App.Models.ItemMaster.MPBomVM{}' />
+                        </div>
+                        <!-- ======================= -->
+                        <div class="tab-pane" id="tab-4"></div>
+                        <!-- ======================= -->
+                    </div>
+            
+
+                    <!-- ================ -->
+                </div>
+            </div>
+        </div>
+        <!-- ====== end col =========== -->
+    </div>
+    <!-- end row -->
+</div>
+
+
+<partial name="_ManuF_Templates" />
+
+<partial name="_EditBOM" />
+<partial name="_EditMakeFrom"/>
+<partial name="_DeleteBOM"/>
+<partial name="_DeleteMakeFrom"/>
+
+@*<partial name="_ReferenceDocumentUpload" />*@
+@*<partial name="../Shared/_AddUOM" />*@
+<partial name="../Shared/_CustomerSuppliedRM" />
+<partial name="../Shared/_ExistingPart" />
+<partial name="../Shared/_ExistingPartBOF" />
+<partial name="../Shared/_ContactsDialog" model='new CWB.App.Models.Contacts.CompanyVM{CompanyId=0,DivisionId=0,Location=""}' />
+<partial name="../Shared/_RawMaterialSelection" />
+
+
+
+@section scripts {
+    <script src="~/js/addfunctions.js"></script>
+    <script src="~/js/ItemMaster/supplier.js"></script>
+    <script src="~/js/ItemMaster/rmselects.js"></script>
+    <script src="~/js/contact-model.js"></script>
+    <script src="~/js/ItemMaster/ManufPart-model.js"></script>
+    <script src="~/js/contacts.js"></script>
+    <script src="~/js/searchparts.js"></script>
+    <script src="~/js/searchpartsbof.js"></script>
+    <script>
+        var modelObj = @Html.Raw(Json.Serialize(Model));
+        modelObj["Edit"] = false;
+   
+    </script>
+}

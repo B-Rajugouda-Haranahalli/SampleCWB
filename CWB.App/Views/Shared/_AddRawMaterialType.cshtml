@@ -1,0 +1,33 @@
+﻿<div class="modal fade" id="dialog-AddRMType" data-bs-backdrop="static" data-bs-keyboard="false" tabindex="-1" aria-labelledby="staticBackdropLabel" aria-hidden="true">
+    <div class="modal-dialog">
+        <div class="modal-content">
+            <div class="modal-header">
+                <h4 class="modal-title" id="mySmallModalLabel"><span id="ENameSP">Add</span> Raw Material Type</h4>
+                <button type="button" class="btn-close" data-bs-dismiss="modal" aria-label="Close"></button>
+            </div>
+            <div class="modal-body">
+                <form method="post" onsubmit="return false;" id="TypeForm">
+                    <div class="row">
+                        <label class=" col-md-4 form-label mb-2">Raw Material Type *</label>
+                        <div class="col-md-8 mb-2">
+                            <input id="TypeName" name="Name" class="form-control form-control-sm mb-2" type="text" name="text" placeholder="Enter here">
+                        </div>
+                    </div>
+                    <!-- ================== -->
+                    <div class="col-md-12">
+                        <label class="form-check-label m-r-5">Multiple Parts made from 1 Input RM </label>
+                        <input class="form-check-input mt-1" id="TypeMulitpleInputRM" name="MultiplePartsMadeFrom1InputRM" type="checkbox" data-plugin="tippy" data-tippy-placement="top" data-tippy="" data-original-title="Check">
+                    </div>
+                    <input type="text" hidden value="0" id="DRawMaterialTypeId" name="RawMaterialTypeId" />
+                    <div class="col text-end">
+                        <button class="btn btn-sm btn-primary" id="btnAddRMType" onclick="AddRMType();">Save</button>
+                    </div>
+                </form>
+                <!-- ================== -->
+            </div>
+            <div class="modal-footer">
+                @*<button type="button" class="btn btn-primary btn-sm">Save</button>*@
+            </div>
+        </div><!-- /.modal-content -->
+    </div><!-- /.modal-dialog -->
+</div>

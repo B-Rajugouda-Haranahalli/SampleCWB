@@ -1,0 +1,36 @@
+﻿<div id="Div_RouteSuppliers" class="col-md-12">
+    <div class="table-responsive mt-2 table-he-180 w-100">
+        <table class="table table-sm table-bordered  mb-3 text-center mt-1 tableFixHead" id="RouteSuppliersTable">
+            <thead class="  table-info th-sti">
+                <tr class="table-border-bottom">
+                    <th width="55%">Supplier</th>
+                    <th>SOB</th>
+                    <th>Outsource Days</th>
+                    <th width="5%"></th>
+                </tr>
+            </thead>
+            <tbody>
+            </tbody>
+        </table>
+    </div>
+    <button class="btn btn-sm btn-primary mt-2" data-bs-toggle="modal" data-bs-target="#add-subcon">Add Sub Con</button>
+</div>
+
+<template id="RouteSupplierTemplate">
+    <tr>
+        <td data-key="supplier">{name}</td>
+        <td data-key="shareOfBusiness">{shareOfBusiness}</td>
+        <td data-key="outSourceDays">{outSourceDays}</td>
+        <td>
+            <div class="dropdown float-center">
+                <a href="#" class="dropdown-toggle arrow-none card-drop" data-bs-toggle="dropdown" aria-expanded="false"><i class="mdi mdi-dots-vertical"></i></a>
+                <div class="dropdown-menu dropdown-menu-end">
+                    <!-- item-->
+                    <a href="javascript:void(0);" data-makefromid="{routingStepSupplierId}" data-bs-toggle="modal" data-bs-target="#add-subcon" class="dropdown-item">Edit</a>
+                    <!-- item-->
+                    <a href="javascript:void(0);" data-stepid="{routingStepId}" data-routingstepsupplierid="{routingStepSupplierId}" data-bs-toggle="modal" data-bs-target="#delete-supplier" class="dropdown-item">Delete</a>
+                </div>
+            </div>
+        </td>
+    </tr>
+</template>

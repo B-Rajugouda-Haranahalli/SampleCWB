@@ -1,0 +1,91 @@
+﻿<div id="Div_RouteMachines">
+    <div class="col-md-12" >
+        <h5 class="mb-2">Machine List for this Step</h5>
+        <div class="table-responsive mt-2 table-bordered table-he-130 ">
+            <table class="table table-sm table-bordered  mb-3 text-center mt-1 tableFixHead" id="RouteMachinesTable">
+                <thead class="table-info th-sti">
+                    <tr class="table-border-bottom">
+                        <th>Pref</th>
+                        <th>Machine / Location</th>
+                        <th>Cycle Time min</th>
+                        <th>Setup time min</th>
+                        <th>Mandatory Docs Avl</th>
+                        <th></th>
+                    </tr>
+                </thead>
+                <tbody>
+                </tbody>
+            </table>
+        </div>
+    </div>
+    <div class="col-md-12 mt-3 mb-1 text-end">
+        <button class="btn btn-sm btn-primary" id="addMachine" data-AddEdit="Add" data-bs-toggle="modal" data-bs-target="#add-machine" title="" data-plugin="tippy" data-tippy-placement="top" disabled>Add Machine</button>
+    </div>
+</div>
+<template id="RouteMachinesRowTemplate">
+    <tr bgcolor="{bgColor}">
+        <td>
+            <input type="radio" class="form-check-input" name="pref" {checked} disabled>
+        </td>
+        <td data-key="machine">{name}</td>
+        <td data-key="ftoftime">{firstPieceProcessingTime}</td>
+        <td data-key="setTime">{setupTime}</td>
+        <td data-key="mandocAvl">{mandocAvl}</td>
+        <td>
+            <div class="dropdown float-center">
+                <a href="#" class="dropdown-toggle arrow-none card-drop" data-bs-toggle="dropdown" aria-expanded="false"><i class="mdi mdi-dots-vertical"></i></a>
+                <div class="dropdown-menu dropdown-menu-end">
+                    <a href="javascript:void(0);" onclick="SetPreferredMachine(event,{routingStepMachineId},{routingStepId});" class="dropdown-item">Set Preferred Machine</a>
+                    <!-- item-->
+                    <a href="javascript:void(0);"
+                       data-firstpieceprocessingtime="{firstPieceProcessingTime}"
+                       data-floortofloortime="{floorToFloorTime}"
+                       data-machineid="{machineId}"
+                       data-noofpartsperloading="{noOfPartsPerLoading}"
+                       data-preferredmachine="{preferredMachine}"
+                       data-machineroutingstepid="{routingStepId}"
+                       data-routingstepmachineid="{routingStepMachineId}"
+                       data-setuptime="{setupTime}"
+                       data-addedit="Edit"
+                       data-bs-toggle="modal" data-bs-target="#add-machine"
+                       class="dropdown-item">Edit</a>
+                    <!-- item-->
+                    <a href="javascript:void(0);" data-machinename="{name}" data-stepid="{routingStepId}" data-routingstepmachineid="{routingStepMachineId}" data-bs-toggle="modal" data-bs-target="#delete-machine" class="dropdown-item">Delete</a>
+                </div>
+            </div>
+        </td>
+    </tr>
+</template>
+<!--
+/*$("#SetupTime").val(rTgt.data("SetupTime"));
+$("#FloorToFloorTime").val(rTgt.data("FloorToFloorTime"));
+$("#FirstPieceProcessingTime").val(rTgt.data("FirstPieceProcessingTime"));
+$("#NoOfPartsPerLoading").val(rTgt.data("NoOfPartsPerLoading"));
+$("#PreferredMachine").val(rTgt.data("PreferredMachine"));
+$("#MachineId").val(rTgt.data("MachineId"));
+$("#MachineRoutingStepId").val(rTgt.data("MachineRoutingStepId"));//maps to StepId
+$("#RoutingStepMachineId").val(rTgt.data("RoutingStepMachineId"));//maps to Id*/
+-->
+<!--<div id="Div_RouteMachines" class="col-md-12">
+    <div class="table-responsive table-he-180 w-100 ">
+        <table class="table table-sm table-bordered mb-3 text-center tableFixHead" id="RouteMachinesTable">
+            <thead class="  table-info th-sti">
+                <tr class="table-border-bottom">
+                    <th width="50%">Machine</th>
+                    <th width="10%">PreferredMachine</th>
+                    <th>Floor to Floor time</th>
+                    <th>Status</th>
+                    <th width="5%"></th>
+                </tr>
+            </thead>
+            <tbody>
+            </tbody>
+        </table>
+    </div>
+    <div>-->
+<!-- ============ -->
+<!--<div class="col-md-3 mt-3 mb-1 text-end">
+            <button class="btn btn-sm btn-primary" id="addMachine" data-AddEdit="Add" data-bs-toggle="modal" data-bs-target="#add-machine" title="" data-plugin="tippy" data-tippy-placement="top" disabled>Add Machine</button>
+        </div>
+    </div>
+</div>-->

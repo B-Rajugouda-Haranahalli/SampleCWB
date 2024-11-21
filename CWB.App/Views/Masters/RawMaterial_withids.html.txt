@@ -1,0 +1,1606 @@
+
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="utf-8" />
+    <title>Item Master - Raw Material | CWB</title>
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <meta content="KGK " name="description" />
+    <meta content="kgk" name="author" />
+    <meta http-equiv="X-UA-Compatible" content="IE=edge" />
+    <!-- Custom Style Sheet -->
+    <link rel="stylesheet" type="text/css" href="/css/custom.css" />
+    <!-- App favicon -->
+    <link rel="shortcut icon" href="/images/favicon.ico" />
+    <!-- App css -->
+    <link href="/css/bootstrap.min.css" rel="stylesheet" type="text/css" id="bs-default-stylesheet" />
+    <link href="/css/app.min.css" rel="stylesheet" type="text/css" id="app-default-stylesheet" />
+    <link href="/css/bootstrap-dark.min.css" rel="stylesheet" type="text/css" id="bs-dark-stylesheet" />
+    <link href="/css/app-dark.min.css" rel="stylesheet" type="text/css" id="app-dark-stylesheet" />
+    <link href="/css/site.css" type="text/css" rel="stylesheet" />
+    <link href="/css/select2.min.css" type="text/css" rel="stylesheet" />
+    <!-- icons -->
+    <link href="/css/icons.min.css" rel="stylesheet" type="text/css" />
+
+</head>
+<body>
+    <!-- Pre-loader -->
+    <div id="preloader">
+        <div id="status">
+            <div class="spinner-border avatar-lg text-primary m-2" role="status"></div>
+        </div>
+    </div>
+    <!-- End Preloader-->
+    <!-- Begin page -->
+    <div id="wrapper">
+        <!-- Topbar Start -->
+        <div class="navbar-custom">
+            <div class="container-fluid">
+                <ul class="list-unstyled topnav-menu float-end mb-0">
+        <li class="d-none d-lg-block">
+            <form class="app-search">
+                <div class="app-search-box dropdown">
+                    <div class="input-group">
+                        <input type="search" class="form-control" placeholder="Search..." id="top-search" />
+                        <button class="btn" type="button"> <i class="fe-search"></i> </button>
+                    </div>
+                </div>
+            </form>
+        </li>
+        <li class="dropdown d-inline-block d-lg-none">
+            <a class="nav-link dropdown-toggle arrow-none waves-effect waves-light" data-bs-toggle="dropdown" href="#" role="button" aria-haspopup="false" aria-expanded="false"> <i class="fe-search noti-icon"></i> </a>
+            <div class="dropdown-menu dropdown-lg dropdown-menu-end p-0">
+                <form class="p-3">
+                    <input type="text" class="form-control" placeholder="Search ..." aria-label="Search" />
+                </form>
+            </div>
+        </li>
+        <!--email  -->
+        <li class="dropdown notification-list topbar-dropdown">
+            <a class="nav-link dropdown-toggle waves-effect waves-light" data-bs-toggle="dropdown" href="#" role="button" aria-haspopup="false" aria-expanded="false">
+                <i class="ri-mail-line font-19"></i>
+                <!-- <span class="badge bg-danger rounded-circle noti-icon-badge">5</span> -->
+            </a>
+        </li>
+        <!-- Chat -->
+        <li class="dropdown notification-list topbar-dropdown">
+            <a class="nav-link dropdown-toggle nav-user me-0 waves-effect waves-light" data-bs-toggle="dropdown" href="#" role="button" aria-haspopup="false" aria-expanded="false"> <i class="ri-account-circle-line font-28"></i> </a>
+            <div class="dropdown-menu dropdown-menu-end profile-dropdown">
+                <!-- item-->
+                <a href="javascript:void(0);" class="dropdown-item notify-item"> <i class="ri-account-circle-line"></i> <span>Kgk1 Admin</span> </a>
+                <!-- item-->
+                <div class="dropdown-divider"></div>
+                <a href="javascript:void(0);" class="dropdown-item notify-item"> <i class="ri-account-circle-line"></i> <span>My Account</span> </a>
+                <!-- item-->
+                <div class="dropdown-divider"></div>
+                <!-- item-->
+                <a class="dropdown-item notify-item" href="/Home/Logout"> <i class="ri-logout-box-line"></i> <span>Logout</span> </a>
+            </div>
+        </li>
+</ul>
+
+                <!-- LOGO -->
+                <ul class="list-unstyled topnav-menu topnav-menu-left m-0">
+                    <li>
+                        <button class="button-menu-mobile waves-effect waves-light"> <i class="fe-menu"></i> </button>
+                    </li>
+                    <li>
+                        <!-- Mobile menu toggle (Horizontal Layout)-->
+                        <a class="navbar-toggle nav-link" data-bs-toggle="collapse" data-bs-target="#topnav-menu-content">
+                            <div class="lines"> <span></span> <span></span> <span></span> </div>
+                        </a>
+                        <!-- End mobile menu toggle-->
+                    </li>
+                    <li class="dropdown d-none d-xl-block">
+                        <a class="nav-link dropdown-toggle waves-effect waves-light" data-bs-toggle="dropdown" href="#" role="button" aria-haspopup="false" aria-expanded="false"> <strong class="text-light font-20">Collaboration WorkBench</strong> </a>
+                    </li>
+                </ul>
+                <div class="clearfix"></div>
+            </div>
+        </div>
+        <!-- end Topbar -->
+        <!-- ========== Left Sidebar Start ========== -->
+        <div class="left-side-menu">
+            <!-- LOGO -->
+            <div class="logo-box">
+                <a href="#" class="logo logo-light text-center">
+                    <span class="logo-sm">
+                        <img src="/images/logo.png" alt="" height="24" />
+                    </span>
+                    <span class="logo-lg">
+                        <img src="/images/logo.png" alt="" height="35" />
+                        <!--<span  class="text-dark"><strong></strong></span>-->
+                    </span>
+                </a>
+            </div>
+            <div class="h-100" data-simplebar>
+    <!--- Sidemenu -->
+    <div id="sidebar-menu">
+        <ul id="side-menu">
+            <li>
+                <a href="/">
+                    <i class="fas fa-home"></i>
+                    <span> Home </span>
+                </a>
+            </li>
+                <li>
+                    <a href="#sidebarMAST-3" data-bs-toggle="collapse" aria-expanded="false" aria-controls="sidebarMAST-3"> <i class=" fas fa-book "></i> <span> Masters</span> <span class="menu-arrow"></span> </a>
+                    <div class="collapse" id="sidebarMAST-3">
+                        <ul class="nav-second-level">
+                            <li><a data-navid="M-IM" href="/Masters">Item Master</a></li>
+                            <li><a href="routing.html">Routing</a></li>
+                            <li><a data-navid="M-ML" href="/Machine">Machine List</a></li>
+                            <li><a href="manufacturing-resource.html">Manufacturing Resource</a></li>
+                            <li><a data-navid="M-OL" href="/OperationList">Opearation List</a></li>
+                            <li><a data-navid="M-C" href="/Contacts">Contacts</a></li>
+                        </ul>
+                    </div>
+                </li>
+
+        </ul>
+    </div>
+    <!-- End Sidebar -->
+    <div class="clearfix"></div>
+</div>
+            <!-- Sidebar -left -->
+        </div>
+        <!-- Left Sidebar End -->
+        <!-- Start Page Content here -->
+        <!-- ============================================================== -->
+        <div class="content-page">
+            <input value="M-IM" type="hidden" id="hdn-nav-menu" />
+<!-- Left Sidebar End -->
+<!-- ============================================================== -->
+<!-- Start Page Content here -->
+<!-- ============================================================== -->
+<div class="content">
+    <div class="row">
+        <!-- ====== Start col =========== -->
+        <div class="col-md-12">
+            <div class="card">
+                <div class="card-body">
+                    <!-- ================ -->
+                    <div class="row">
+                        <div class="col-md-9">
+                            <ul class="nav nav-tabs nav-pills navtab-bg">
+                                <li class="nav-item" id="TabRawMaterial">
+                                    <a href="#tab-1" data-bs-toggle="tab" aria-expanded="false" class="nav-link active"> <span class="d-inline-block d-sm-none">Raw Material</span> <span class="d-none d-sm-inline-block">Raw Material</span> </a>
+                                </li>
+                                <li class="nav-item" id="TabPurchaseDetails">
+                                    <a href="#tab-2" data-bs-toggle="tab" aria-expanded="true" class="nav-link "> <span class="d-inline-block d-sm-none">Purchase Details</span> <span class="d-none d-sm-inline-block">Purchase Details</span> </a>
+                                </li>
+                            </ul>
+                        </div>
+                        <div class="col-md-3 text-end">
+                            <a href="/Masters">
+                                <button type="button" class="btn-close" data-bs-dismiss="modal" aria-label="Close"></button>
+                            </a>
+                        </div>
+                    </div>
+                    <!-- ===============================================================  -->
+                    <!-- ===============================================================  -->
+                    <div class="tab-content">
+                        <form method="post" id="RawMetform">
+                        <!-- ================ -->
+                        <div class="tab-pane show active" id="tab-1">
+                            <div class="row">
+                                <h5 class="mb-2 mt-2"> Create New / Edit Raw Material</h5>
+                                <div class="col-md-8">
+                                    <div class="row">
+                                        <div class="col-md-3 mt-1">
+                                            <label class="form-label mb-1 font-13">Own Purchased RM</label>
+                                            <input class="form-check-input m-l-5" type="radio" id="RadioOwnPurchasedRM" name="RawMaterialMade" value="1" title="" data-plugin="tippy" data-tippy-placement="top" checked>
+                                        </div>
+                                        <!-- ---------------  -->
+                                        <div class="col-md-4 mt-1 text-center">
+                                            <label class="form-label mb-1 font-13">Customer Supplied RM</label>
+                                            <input class="form-check-input m-l-5" type="radio" id="RadioCustomerSuppliedRM" name="RawMaterialMade" value="2" title="Select" data-plugin="tippy" data-tippy-placement="top">
+                                        </div>
+                                        <!-- ---------------  -->
+                                    </div>
+                                    <div class="row">
+                                        <div class="col-md-3 mt-1">
+                                            <label class="form-label mb-1 font-13">Made to Print RM</label>
+                                            <input class="form-check-input m-l-5" type="radio" id="RadioMadeToPrintRM" name="RawMaterialMade" value="3" title="Select if the Raw Material Part No is a Standard Part (Eg Plate, Bar ...) or Made to Print (against the Company's Drawing)" data-plugin="tippy" data-tippy-placement="top">
+                                        </div>
+                                        <!-- ---------------  -->
+                                        <div class="col-md-4 mt-1 text-center">
+                                            <label class="form-label mb-1 font-13">Standard Purchased RM</label>
+                                            <input class="form-check-input m-l-5" type="radio" id="RadioStandardPurchasedRM" name="RawMaterialMade" value="4" title="Select" data-plugin="tippy" data-tippy-placement="top">
+                                        </div>
+                                        <!-- ---------------  -->
+                                    </div>
+                                    <input type="text" value="1" hidden id="RawMaterialMadeType" data-val="true" data-val-required="The RawMaterialMadeType field is required." name="RawMaterialMadeType" />
+                                </div>
+                                <!-- ============= -->
+                                <label class="form-label col-md-1 mb-2 text-end">Status</label>
+                                <div class="col-md-3 mb-2">
+                                    <div class="input-group">
+                                        <select class="form-select form-select-sm">
+                                            <option value="">Active </option>
+                                            <option value="">Inactive</option>
+                                            <option value="">Hold</option>
+                                        </select>
+                                        <button type="button" id="#" class="btn btn-sm waves-effect waves-light" title="Click to see the Status change details" data-plugin="tippy" data-tippy-placement="top" data-bs-toggle="modal" data-bs-target="#status-info">
+                                            <i class="fe-info color-green add-cust-btn"></i>
+                                        </button>
+                                        <input type="text" id="Status" name="Status" hidden value="1"/>
+                                    </div>
+                                </div>
+                                <!-- ========================= -->
+                                <!-- ========================= -->
+                                <div class="col-md-7"></div>
+                                <!-- ========================= -->
+                                <label class="form-label col-md-2 mb-2 text-end">Status Change Reason</label>
+                                <div class="col-md-3 mb-2" title="Enter Status Change Reason" data-plugin="tippy" data-tippy-placement="top">
+                                    <input name="StatusChangeReason" id="StatusChangeReason" class="form-control form-control-sm" type="text" placeholder="enter here">
+                                </div>
+                                <!-- ========================= -->
+                                <!-- ============= -->
+
+                            </div><hr>
+                            <!-- ---------------------- -->
+                            
+                                <div class="row">
+                                    <!-- ========================= -->
+                                    <label class="form-label col-md-2 mb-2"> Raw Material Type <span class="text-danger"> * </span></label>
+                                    <div class="col-md-4 mb-2">
+                                        <div class="input-group">
+                                            <select class="form-select form-select-sm" title="Select the Raw Material Type from the Drop Down (Plate, Forging, Casting ...)" data-plugin="tippy" data-tippy-placement="top" required>
+                                                <option value="">Select</option>
+                                                <option value="1">Forging</option>
+                                                <option value="2">Casting</option>
+                                                <option value="3">Sheet</option>
+                                                <option value="3">Bar Stock</option>
+                                            </select>
+                                            <button type="button" id="#" class="btn btn-sm waves-effect waves-light" title="Use to add a New Raw Material Type to the List" data-plugin="tippy" data-tippy-placement="top" data-bs-toggle="modal" data-bs-target="#add-rm-type">
+                                                <i class="fe-plus-square add-cust-btn"></i>
+                                            </button>
+                                            <input type="text" hidden name="RawMaterialTypeId" id="RawMaterialTypeId" value="1" />
+                                        </div>
+                                    </div>
+                                    <div class="col-md-6">&nbsp;</div>
+                                    <!-- ========================= -->
+                                    <label class="form-label col-md-2 mb-2"> Customer</label>
+                                    <div class="col-md-4 mb-2">
+                                        <div class="input-group">
+                                            <select class="form-select form-select-sm" title="Select the Raw Material Type from the Drop Down (Plate, Forging, Casting ...)" data-plugin="tippy" data-tippy-placement="top" required>
+                                                <option value="">Select</option>
+                                                <option value="XXXXX">xxxx</option>
+                                                <option value="XXXXX">xxxx</option>
+                                                <option value="XXXXX">xxxx</option>
+                                                <option value="XXXXX">xx xx</option>
+                                            </select>
+                                            <button type="button" id="#" class="btn btn-sm waves-effect waves-light" title="Use to add a New Customer Type to the List" data-plugin="tippy" data-tippy-placement="top" data-bs-toggle="modal" data-bs-target="#">
+                                                <i class="fe-plus-square add-cust-btn"></i>
+                                            </button>
+                                        </div>
+                                    </div>
+                                    <div class="col-md-6">&nbsp;</div>
+                                    <!-- ========================= -->
+                                    <label class="form-label col-md-2 mb-2"> Part No</label>
+                                    <div class="col-md-4 mb-2" title="Enter the Inhouse Part No (Own Company's Part No). RM made to Print require a Part No. You can optionally provide inhouse Part Nos for Standard RM ParTs" data-plugin="tippy" data-tippy-placement="top">
+                                        <input class="form-control form-control-sm" type="text" placeholder="enter here" id="InHousePartNo" name="InHousePartNo" value="">
+                                    </div>
+                                    <!-- ========================= -->
+                                    <label class="form-label col-md-1 mb-2 text-end">Rev No</label>
+                                    <div class="col-md-2 mb-2" title="Enter the Rev No applicable to the Part No" data-plugin="tippy" data-tippy-placement="top">
+                                        <input class="form-control form-control-sm" type="text" placeholder="enter here" id="RevNo" name="RevNo" value="">
+                                    </div>
+                                    <!-- ========================= -->
+                                    <label class="form-label col-md-1 mb-2 text-end">Rev Date</label>
+                                    <div class="col-md-2 mb-2" title="Enter the Rev No Date" data-plugin="tippy" data-tippy-placement="top">
+                                        <input class="form-control form-control-sm" type="date" id="RevDate" name="RevDate" value="">
+                                    </div>
+                                    <!-- ========================= -->
+                                    <label class="form-label col-md-2 mb-2">Part Description <span class="text-danger"> * </span></label>
+                                    <div class="col-md-4 mb-2" title="Enter the Part Description" data-plugin="tippy" data-tippy-placement="top">
+                                        <textarea class="form-control form-control-sm" id="PartDescription" name="PartDescription" value="Desc.."></textarea>
+                                    </div>
+                                    <!-- ---------------------- -->
+                                </div>
+                                <!-- ---------------------- -->
+                                <!-- ========================= -->
+                                <div class="row">
+                                    <label class="form-label col-md-2 mb-2">Base Raw Material <span class="text-danger"> * </span></label>
+                                    <div class="col-md-4 mb-2">
+                                        <div class="input-group">
+                                            <select class="form-select form-select-sm" title="Select the Base Raw Material from the List (Steel, Brass ...)" data-plugin="tippy" data-tippy-placement="top" required>
+                                                <option value="">Select</option>
+                                                <option value="1">Steel</option>
+                                                <option value="2">Cast Iron</option>
+                                                <option value="3">Brass</option>
+                                                <option value="4">Aluminum</option>
+                                            </select>
+                                            <button type="button" id="#" class="btn btn-sm waves-effect waves-light" title="Select to enter a new Base Raw Material to the List" data-plugin="tippy" data-tippy-placement="top" data-bs-toggle="modal" data-bs-target="#add-base-rm">
+                                                <i class="fe-plus-square add-cust-btn"></i>
+                                            </button>
+                                        </div>
+                                        <input type="text" hidden id="BaseRawMaterialId" name="BaseRawMaterialId" value="1" />
+                                    </div>
+                                    <!-- ========================= -->
+                                    <label class="form-label col-md-1 mb-2 text-end">Standard</label>
+                                    <div class="col-md-2 mb-2">
+                                        <div class="input-group">
+                                            <select class="form-select form-select-sm" title="Select the Standard from the List (IS, DIN, JIS ...)" data-plugin="tippy" data-tippy-placement="top">
+                                                <option value="1">SAE </option>
+                                                <option value="2">ISO</option>
+                                                <option value="3">DIN</option>
+                                                <option value="4">JIS</option>
+                                            </select>
+                                            <input type="text" id="Standard" name="Standard" value="1" hidden/>
+                                            <button type="button" id="#" class="btn btn-sm waves-effect waves-light" title="Select to enter a Standard not in the List" data-plugin="tippy" data-tippy-placement="top" data-bs-toggle="modal" data-bs-target="#add-std">
+                                                <i class="fe-plus-square add-cust-btn"></i>
+                                            </button>
+                                        </div>
+                                    </div>
+                                    <!-- ========================= -->
+                                    <label class="form-label col-md-1 mb-2 text-end">Material Spec</label>
+                                    <div class="col-md-2 mb-2">
+                                        <div class="input-group">
+                                            <select class="form-select form-select-sm" title="Enter the Material Spec as for the RM Part No. The List will show options available for the chosen Standard" data-plugin="tippy" data-tippy-placement="top">
+                                                <option value="0">Select </option>
+                                                <option value="1">XXXXX</option>
+                                                <option value="2">XXXXX</option>
+                                            </select>
+                                            <input type="text" hidden value="" id="MaterialSpec" name="MaterialSpec" />
+                                            <button type="button" id="#" class="btn btn-sm waves-effect waves-light" title="Select to enter a Material Spec for the chosen Standard not in the List" data-plugin="tippy" data-tippy-placement="top" data-bs-toggle="modal" data-bs-target="#add-ms">
+                                                <i class="fe-plus-square add-cust-btn"></i>
+                                            </button>
+                                        </div>
+                                    </div>
+                                    <!-- ========================= -->
+                                </div>
+                                <!-- ========================= -->
+                                <div class="row display-none">
+                                    <label class="form-label col-md-2 mb-2"> Unit of Measurement </label>
+                                    <div class="col-md-4 mb-2">
+                                        <div class="input-group" title="Enter the Unit of Measurement (UoM). Default is Nos" data-plugin="tippy" data-tippy-placement="top">
+                                            <select class="form-select form-select-sm">
+                                                <option value="">Numbers</option>
+                                                <option value="">Kgs</option>
+                                                <option value="">Ltr</option>
+                                            </select>
+                                            <button type="button" id="#" class="btn btn-sm waves-effect waves-light" title="Select to enter a new UoM not in the List" data-plugin="tippy" data-tippy-placement="top" data-bs-toggle="modal" data-bs-target="#">
+                                                <i class="fe-plus-square add-cust-btn"></i>
+                                            </button>
+                                        </div>
+                                    </div>
+                                </div>
+                                <!-- ========================= -->
+                                <div class="row">
+                                    <label class="form-label col-md-2 mb-2">Raw Material Weight</label>
+                                    <div class="col-md-4 mb-2" title="Enter the Raw Material Weight in Kgs" data-plugin="tippy" data-tippy-placement="top">
+                                        <input id="RawMaterialWeight" name="RawMaterialWeight" class="form-control form-control-sm" type="text" placeholder="enter here">
+                                    </div>
+                                </div>
+                                <!-- ========================= -->
+                                <div class="row">
+                                    <label class="form-label col-md-2 mb-2">Raw Material Notes</label>
+                                    <div class="col-md-4 mb-2" title="Enter any relevant Notes for the Raw Material Part No" data-plugin="tippy" data-tippy-placement="top">
+                                        <textarea id="RawMaterialNotes" name="RawMaterialNotes" class="form-control form-control-sm">Enter......</textarea>
+                                    </div>
+                                    <input type="text" value="1" id="PurchaseDetailId" name="PurchaseDetailId" hidden/>
+                                    <input type="text" value="" id="RawMaterialDetailId" name="RawMaterialDetailId" hidden />
+                                    
+                                    <div class="col-md-12 text-end">
+                                        <a href="/Masters">
+                                            <button type="button" class="btn btn-sm btn-dark" data-bs-toggle="modal" title="Use to Exit " data-plugin="tippy" data-tippy-placement="top">Exit</button>
+                                        </a>
+                                        <button class="btn btn-sm btn-primary" title="Use to Save the entered data" data-plugin="tippy" data-tippy-placement="top" id="btnRawMaterialDetailSubmit">Save</button>
+                                        <button type="button" class="btn btn-sm btn-warning" title="Use to go to the next Tab" data-plugin="tippy" data-tippy-placement="top" ><i class=" fas fa-arrow-right"> </i> </button>
+                                    </div>
+                                </div>
+                                </div>
+                            <input name="__RequestVerificationToken" type="hidden" value="CfDJ8Frr5Rb8H4lBlRFSoGqrVjMIUCH1C40-AP2Z4qUte3GhcE7UzrqIafXPwKdXZRwOcl-u7yoDLgkdx0a3DjEzrIqQL1f1yYlvmnrYQH8ulNt48kpT9jVDJRU0UZLtJMzIsw4GWfc7CEEq5MDhE02laSH4X8XSi8gGFZ6JkkKOu5gBAUtoUo61JjKCd__Ry38rcA" /></form>
+                            <!-- ========================= -->
+                            <div class="row mt-2">
+                                <div class="accordion" id="accordionExample">
+                                    <div class="accordion-item">
+                                        <h2 class="accordion-header" id="headingOne">
+                                            <button class="accordion-button" type="button" data-bs-toggle="collapse" data-bs-target="#collapseOne" aria-expanded="true" aria-controls="collapseOne">
+                                                Part No Reference Documents <span class="badge bg-primary rounded-circle noti-icon-badge m-l-10">5</span>
+                                            </button>
+                                        </h2>
+                                        <div id="collapseOne" class="accordion-collapse collapse" aria-labelledby="headingOne" data-bs-parent="#accordionExample">
+                                            <div class="accordion-body">
+                                                <div class="row">
+                                                    <div class="col-md-8">
+                                                        <div class="table-responsive table-he-150">
+                                                            <table class="table table-sm table-bordered tableFixHead w-100">
+                                                                <thead class="table-info th-sti text-center">
+                                                                    <tr class="table-border-bottom">
+                                                                        <th>File Content / Comment</th>
+                                                                        <th>Type</th>
+                                                                        <th>File Name</th>
+                                                                        <th width="5%"></th>
+                                                                    </tr>
+                                                                </thead>
+                                                                <tbody>
+                                                                    <tr>
+                                                                        <td>In publishing and graphic design, Lorem ipsum a placeholder</td>
+                                                                        <td>jpeg</td>
+                                                                        <td>Work Instruction</td>
+                                                                        <td>
+                                                                            <div class="dropdown float-center">
+                                                                                <a href="#" class="dropdown-toggle arrow-none card-drop" data-bs-toggle="dropdown" aria-expanded="false"><i class="mdi mdi-dots-vertical"></i></a>
+                                                                                <div class="dropdown-menu dropdown-menu-end">
+                                                                                    <!-- item-->
+                                                                                    <a href="javascript:void(0);" class="dropdown-item">Edit</a>
+                                                                                    <!-- item-->
+                                                                                    <a href="javascript:void(0);" class="dropdown-item">Delete</a>
+                                                                                    <!-- item-->
+                                                                                    <a href="javascript:void(0);" class="dropdown-item">View</a>
+                                                                                    <!-- item-->
+                                                                                    <a href="javascript:void(0);" class="dropdown-item">Download</a>
+                                                                                </div>
+                                                                            </div>
+                                                                        </td>
+                                                                    </tr>
+                                                                    <tr>
+                                                                        <td>In publishing and graphic design, Lorem ipsum a placeholder</td>
+                                                                        <td>jpeg</td>
+                                                                        <td>Work Instruction</td>
+                                                                        <td>
+                                                                            <div class="dropdown float-center">
+                                                                                <a href="#" class="dropdown-toggle arrow-none card-drop" data-bs-toggle="dropdown" aria-expanded="false"><i class="mdi mdi-dots-vertical"></i></a>
+                                                                                <div class="dropdown-menu dropdown-menu-end">
+                                                                                    <!-- item-->
+                                                                                    <a href="javascript:void(0);" class="dropdown-item">Edit</a>
+                                                                                    <!-- item-->
+                                                                                    <a href="javascript:void(0);" class="dropdown-item">Delete</a>
+                                                                                    <!-- item-->
+                                                                                    <a href="javascript:void(0);" class="dropdown-item">View</a>
+                                                                                    <!-- item-->
+                                                                                    <a href="javascript:void(0);" class="dropdown-item">Download</a>
+                                                                                </div>
+                                                                            </div>
+                                                                        </td>
+                                                                    </tr>
+                                                                    <tr>
+                                                                        <td>In publishing and graphic design, Lorem ipsum a placeholder</td>
+                                                                        <td>jpeg</td>
+                                                                        <td>Work Instruction</td>
+                                                                        <td>
+                                                                            <div class="dropdown float-center">
+                                                                                <a href="#" class="dropdown-toggle arrow-none card-drop" data-bs-toggle="dropdown" aria-expanded="false"><i class="mdi mdi-dots-vertical"></i></a>
+                                                                                <div class="dropdown-menu dropdown-menu-end">
+                                                                                    <!-- item-->
+                                                                                    <a href="javascript:void(0);" class="dropdown-item">Edit</a>
+                                                                                    <!-- item-->
+                                                                                    <a href="javascript:void(0);" class="dropdown-item">Delete</a>
+                                                                                    <!-- item-->
+                                                                                    <a href="javascript:void(0);" class="dropdown-item">View</a>
+                                                                                    <!-- item-->
+                                                                                    <a href="javascript:void(0);" class="dropdown-item">Download</a>
+                                                                                </div>
+                                                                            </div>
+                                                                        </td>
+                                                                    </tr>
+                                                                    <tr>
+                                                                        <td>In publishing and graphic design, Lorem ipsum a placeholder</td>
+                                                                        <td>jpeg</td>
+                                                                        <td>Work Instruction</td>
+                                                                        <td>
+                                                                            <div class="dropdown float-center">
+                                                                                <a href="#" class="dropdown-toggle arrow-none card-drop" data-bs-toggle="dropdown" aria-expanded="false"><i class="mdi mdi-dots-vertical"></i></a>
+                                                                                <div class="dropdown-menu dropdown-menu-end">
+                                                                                    <!-- item-->
+                                                                                    <a href="javascript:void(0);" class="dropdown-item">Edit</a>
+                                                                                    <!-- item-->
+                                                                                    <a href="javascript:void(0);" class="dropdown-item">Delete</a>
+                                                                                    <!-- item-->
+                                                                                    <a href="javascript:void(0);" class="dropdown-item">View</a>
+                                                                                    <!-- item-->
+                                                                                    <a href="javascript:void(0);" class="dropdown-item">Download</a>
+                                                                                </div>
+                                                                            </div>
+                                                                        </td>
+                                                                    </tr>
+                                                                    <tr>
+                                                                        <td>In publishing and graphic design, Lorem ipsum a placeholder</td>
+                                                                        <td>jpeg</td>
+                                                                        <td>Work Instruction</td>
+                                                                        <td>
+                                                                            <div class="dropdown float-center">
+                                                                                <a href="#" class="dropdown-toggle arrow-none card-drop" data-bs-toggle="dropdown" aria-expanded="false"><i class="mdi mdi-dots-vertical"></i></a>
+                                                                                <div class="dropdown-menu dropdown-menu-end">
+                                                                                    <!-- item-->
+                                                                                    <a href="javascript:void(0);" class="dropdown-item">Edit</a>
+                                                                                    <!-- item-->
+                                                                                    <a href="javascript:void(0);" class="dropdown-item">Delete</a>
+                                                                                    <!-- item-->
+                                                                                    <a href="javascript:void(0);" class="dropdown-item">View</a>
+                                                                                    <!-- item-->
+                                                                                    <a href="javascript:void(0);" class="dropdown-item">Download</a>
+                                                                                </div>
+                                                                            </div>
+                                                                        </td>
+                                                                    </tr>
+                                                                </tbody>
+                                                            </table>
+                                                        </div>
+                                                        <!-- =========== -->
+                                                        <div class="row mt-2">
+                                                            <div class="col-md-5">
+                                                                <button class="btn btn-info btn-sm" data-bs-toggle="modal" data-bs-target="#doc-item" title="Click to Add a document" data-plugin="tippy" data-tippy-placement="top"> Add Document</button>
+                                                            </div>
+                                                        </div>
+                                                        <!-- =========== -->
+                                                    </div>
+                                                    <!-- ------- -->
+                                                </div>
+                                            </div>
+                                        </div>
+                                    </div>
+                                    <!-- End accordion item  -->
+                                </div>
+                            </div>
+                            <!-- end row -->
+                            <!-- end row -->
+                        </div>
+                        <!-- ==================================== -->
+                        <div class="tab-pane" id="tab-2">
+                            <!-- ========= -->
+                            <div class="row">
+                                <div class="col-md-9">
+                                    <div class="table-responsive">
+                                        <table class="table table-sm">
+                                            <tbody>
+                                                <tr>
+                                                    <td>
+                                                        <span class="h6">Part No:</span>  XXXXXXXXXXXXXXX
+                                                    </td>
+                                                    <td>
+                                                        <span class="h6">Part Description:</span> Lorem Ipsum is  dummy text of the printing industry.
+                                                    </td>
+                                                </tr>
+                                            </tbody>
+                                        </table>
+                                    </div>
+                                </div>
+                                <!-- ========= -->
+                                <!-- ========= -->
+                                <div class="col-md-3">
+                                    <div class="table-responsive">
+                                        <table class="table table-sm  text-end w-100">
+                                            <tbody>
+                                                <tr>
+                                                    <td>
+                                                        <button class="btn btn-sm btn-dark display-none"><span class="fon-we-700">Target Date :</span> 12/08/2022</button>
+                                                    </td>
+                                                </tr>
+                                            </tbody>
+                                        </table>
+                                    </div>
+                                </div>
+                                <!-- ========= -->
+                            </div>
+                            <!-- ========= -->
+                            <div class="row">
+                                <div class="col-md-6 dott-bord-r">
+                                    <form role="form" class="parsley-examples">
+                                        <div class="row mt-4">
+                                            <label class="form-label col-md-4 mb-2"> Supplier <span class="text-danger"> *</span> </label>
+                                            <div class="col-md-8 mb-2">
+                                                <div class="input-group">
+                                                    <select class="form-select form-select-sm" title="Select the Supplier Company from the Drop Down" data-plugin="tippy" data-tippy-placement="top" required>
+                                                        <option value="">Select </option>
+                                                        <option value="qqqqq">Supplier</option>
+                                                        <option value="qqqqq">Company</option>
+                                                    </select>
+                                                    <button type="button" id="#" class="btn btn-sm waves-effect waves-light" title="Select to enter details of the Supplier Company if it is not in the List" data-plugin="tippy" data-tippy-placement="top" data-bs-toggle="modal" data-bs-target="#add-supplier">
+                                                        <i class="fe-plus-square add-cust-btn"></i>
+                                                    </button>
+                                                </div>
+                                            </div>
+                                            <!-- ========================= -->
+                                            <label class="form-label col-md-4 mb-2">Supplier Part No</label>
+                                            <div class="col-md-8 mb-2">
+                                                <input class="form-control form-control-sm" type="text" placeholder="enter here" title="Enter the Supplier Part No" data-plugin="tippy" data-tippy-placement="top">
+                                            </div>
+                                            <!-- ============================== -->
+                                            <label class="form-label col-md-4 mb-2">Lead Time (Days) </label>
+                                            <div class="col-md-8 mb-2">
+                                                <input class="form-control form-control-sm" type="text" placeholder="enter here" title="Enter the Lead time in days for procuring the RM Part No from the Supplier Company" data-plugin="tippy" data-tippy-placement="top">
+                                            </div>
+                                            <!-- ============================== -->
+                                            <label class="form-label col-md-4 mb-2">Minimum Order Quantity</label>
+                                            <div class="col-md-8 mb-2">
+                                                <input class="form-control form-control-sm" type="text" placeholder="enter here" title="Enter any applicable Minimum Order Quantity (MoQ)" data-plugin="tippy" data-tippy-placement="top">
+                                            </div>
+                                            <!-- ========================= -->
+                                            <label class="form-label col-md-4 mb-2">Price</label>
+                                            <div class="col-md-8 mb-2">
+                                                <input class="form-control form-control-sm" type="text" placeholder="enter here" title="Enter the price of the RM" data-plugin="tippy" data-tippy-placement="top">
+                                            </div>
+                                            <!-- ========================= -->
+                                            <label class="form-label col-md-4 mb-2">Share of Business</label>
+                                            <div class="col-md-8 mb-2">
+                                                <input class="form-control form-control-sm" type="text" placeholder="enter here" title="Enter the Share of Business (in case of multiple Suppliers) for the RM Part No (%)" data-plugin="tippy" data-tippy-placement="top">
+                                            </div>
+                                            <!-- ========================= -->
+                                            <label class="form-label col-md-4 mb-2">Additional Information</label>
+                                            <div class="col-md-8 mb-2">
+                                                <textarea class="form-control form-control-sm" title="Enter any relevant comment / additional info" data-plugin="tippy" data-tippy-placement="top">Enter......</textarea>
+                                            </div>
+                                            <!-- ========================= -->
+                                            <div class="col-md-6 mb-2">
+                                                <button type="button" class="btn btn-sm btn-primary" title="Select to Add another Supplier for the RM" data-plugin="tippy" data-tippy-placement="top">Add Supplier</button>
+                                            </div>
+                                            <div class="col-md-6 mb-2 text-end">
+                                                <button class="btn btn-sm btn-primary" title="Use to Save the entered data" data-plugin="tippy" data-tippy-placement="top">Save</button>
+                                            </div>
+                                            <!-- ========================= -->
+                                        </div>
+                                    </form>
+                                </div>
+                                <!-- col end -->
+                                <div class="col-md-6">
+                                    <div class="table-responsive table-he-180 mt-3">
+                                        <table class="table table-sm table-bordered mb-3 text-center mt-1 w-100 tableFixHead" id="tblEmployee">
+                                            <thead class="  table-info th-sti">
+                                                <tr class="table-border-bottom">
+                                                    <th>Supplier</th>
+                                                    <th>Lead Time</th>
+                                                    <th>MOQ</th>
+                                                    <th>Price</th>
+                                                    <th width="5%"></th>
+                                                </tr>
+                                            </thead>
+                                            <tbody>
+                                                <tr>
+                                                    <td></td>
+                                                    <td></td>
+                                                    <td></td>
+                                                    <td></td>
+                                                    <td>
+                                                        <div class="dropdown float-center">
+                                                            <a href="#" class="dropdown-toggle arrow-none card-drop" data-bs-toggle="dropdown" aria-expanded="false"><i class="mdi mdi-dots-vertical"></i></a>
+                                                            <div class="dropdown-menu dropdown-menu-end">
+                                                                <!-- item-->
+                                                                <a href="javascript:void(0);" class="dropdown-item">Edit</a>
+                                                                <!-- item-->
+                                                                <a href="javascript:void(0);" class="dropdown-item">delete</a>
+                                                            </div>
+                                                        </div>
+                                                    </td>
+                                                </tr>
+                                                <tr>
+                                                    <td></td>
+                                                    <td></td>
+                                                    <td></td>
+                                                    <td></td>
+                                                    <td>
+                                                        <div class="dropdown float-center">
+                                                            <a href="#" class="dropdown-toggle arrow-none card-drop" data-bs-toggle="dropdown" aria-expanded="false"><i class="mdi mdi-dots-vertical"></i></a>
+                                                            <div class="dropdown-menu dropdown-menu-end">
+                                                                <!-- item-->
+                                                                <a href="javascript:void(0);" class="dropdown-item">Edit</a>
+                                                                <!-- item-->
+                                                                <a href="javascript:void(0);" class="dropdown-item">delete</a>
+                                                            </div>
+                                                        </div>
+                                                    </td>
+                                                </tr>
+                                                <tr>
+                                                    <td></td>
+                                                    <td></td>
+                                                    <td></td>
+                                                    <td></td>
+                                                    <td>
+                                                        <div class="dropdown float-center">
+                                                            <a href="#" class="dropdown-toggle arrow-none card-drop" data-bs-toggle="dropdown" aria-expanded="false"><i class="mdi mdi-dots-vertical"></i></a>
+                                                            <div class="dropdown-menu dropdown-menu-end">
+                                                                <!-- item-->
+                                                                <a href="javascript:void(0);" class="dropdown-item">Edit</a>
+                                                                <!-- item-->
+                                                                <a href="javascript:void(0);" class="dropdown-item">delete</a>
+                                                            </div>
+                                                        </div>
+                                                    </td>
+                                                </tr>
+                                                <tr>
+                                                    <td></td>
+                                                    <td></td>
+                                                    <td></td>
+                                                    <td></td>
+                                                    <td>
+                                                        <div class="dropdown float-center">
+                                                            <a href="#" class="dropdown-toggle arrow-none card-drop" data-bs-toggle="dropdown" aria-expanded="false"><i class="mdi mdi-dots-vertical"></i></a>
+                                                            <div class="dropdown-menu dropdown-menu-end">
+                                                                <!-- item-->
+                                                                <a href="javascript:void(0);" class="dropdown-item">Edit</a>
+                                                                <!-- item-->
+                                                                <a href="javascript:void(0);" class="dropdown-item">delete</a>
+                                                            </div>
+                                                        </div>
+                                                    </td>
+                                                </tr>
+                                                <tr>
+                                                    <td></td>
+                                                    <td></td>
+                                                    <td></td>
+                                                    <td></td>
+                                                    <td>
+                                                        <div class="dropdown float-center">
+                                                            <a href="#" class="dropdown-toggle arrow-none card-drop" data-bs-toggle="dropdown" aria-expanded="false"><i class="mdi mdi-dots-vertical"></i></a>
+                                                            <div class="dropdown-menu dropdown-menu-end">
+                                                                <!-- item-->
+                                                                <a href="javascript:void(0);" class="dropdown-item">Edit</a>
+                                                                <!-- item-->
+                                                                <a href="javascript:void(0);" class="dropdown-item">delete</a>
+                                                            </div>
+                                                        </div>
+                                                    </td>
+                                                </tr>
+                                                <tr>
+                                                    <td></td>
+                                                    <td></td>
+                                                    <td></td>
+                                                    <td></td>
+                                                    <td>
+                                                        <div class="dropdown float-center">
+                                                            <a href="#" class="dropdown-toggle arrow-none card-drop" data-bs-toggle="dropdown" aria-expanded="false"><i class="mdi mdi-dots-vertical"></i></a>
+                                                            <div class="dropdown-menu dropdown-menu-end">
+                                                                <!-- item-->
+                                                                <a href="javascript:void(0);" class="dropdown-item">Edit</a>
+                                                                <!-- item-->
+                                                                <a href="javascript:void(0);" class="dropdown-item">delete</a>
+                                                            </div>
+                                                        </div>
+                                                    </td>
+                                                </tr>
+                                                <tr>
+                                                    <td></td>
+                                                    <td></td>
+                                                    <td></td>
+                                                    <td></td>
+                                                    <td>
+                                                        <div class="dropdown float-center">
+                                                            <a href="#" class="dropdown-toggle arrow-none card-drop" data-bs-toggle="dropdown" aria-expanded="false"><i class="mdi mdi-dots-vertical"></i></a>
+                                                            <div class="dropdown-menu dropdown-menu-end">
+                                                                <!-- item-->
+                                                                <a href="javascript:void(0);" class="dropdown-item">Edit</a>
+                                                                <!-- item-->
+                                                                <a href="javascript:void(0);" class="dropdown-item">delete</a>
+                                                            </div>
+                                                        </div>
+                                                    </td>
+                                                </tr>
+                                                <tr>
+                                                    <td></td>
+                                                    <td></td>
+                                                    <td></td>
+                                                    <td></td>
+                                                    <td>
+                                                        <div class="dropdown float-center">
+                                                            <a href="#" class="dropdown-toggle arrow-none card-drop" data-bs-toggle="dropdown" aria-expanded="false"><i class="mdi mdi-dots-vertical"></i></a>
+                                                            <div class="dropdown-menu dropdown-menu-end">
+                                                                <!-- item-->
+                                                                <a href="javascript:void(0);" class="dropdown-item">Edit</a>
+                                                                <!-- item-->
+                                                                <a href="javascript:void(0);" class="dropdown-item">delete</a>
+                                                            </div>
+                                                        </div>
+                                                    </td>
+                                                </tr>
+                                                <tr>
+                                                    <td></td>
+                                                    <td></td>
+                                                    <td></td>
+                                                    <td></td>
+                                                    <td>
+                                                        <div class="dropdown float-center">
+                                                            <a href="#" class="dropdown-toggle arrow-none card-drop" data-bs-toggle="dropdown" aria-expanded="false"><i class="mdi mdi-dots-vertical"></i></a>
+                                                            <div class="dropdown-menu dropdown-menu-end">
+                                                                <!-- item-->
+                                                                <a href="javascript:void(0);" class="dropdown-item">Edit</a>
+                                                                <!-- item-->
+                                                                <a href="javascript:void(0);" class="dropdown-item">delete</a>
+                                                            </div>
+                                                        </div>
+                                                    </td>
+                                                </tr>
+                                            </tbody>
+                                        </table>
+                                    </div>
+                                    <!-- --------------  -->
+                                </div>
+                                <!-- col end -->
+                            </div>
+                            <!-- ========================= -->
+                            <div class="row">
+                                <div class="col-md-6 mt-3">
+                                    <button type="button" class="btn btn-warning btn-sm" title="Use to go to the Previous Tab" data-plugin="tippy" data-tippy-placement="top"><i class="fas fa-arrow-left"></i></button>
+                                </div>
+                                <!-- ---------- -->
+                                <div class="col-md-6 mt-3 text-end">
+                                    <button class="btn btn-sm btn-dark" data-bs-toggle="modal" data-bs-target="#popup-4" title="Use to Exit " data-plugin="tippy" data-tippy-placement="top">Exit</button>
+                                    <button type="button" class="btn btn-warning btn-sm" title="Use to go to the next Tab" data-plugin="tippy" data-tippy-placement="top"><i class="fas fa-arrow-right"></i></button>
+                                </div>
+                                <!-- ------end col ----- -->
+                            </div>
+                            <!-- ========================= -->
+                        </div>
+                        <!-- ==================================== -->
+                        <div class="tab-pane" id="tab-3"></div>
+                        <!-- ======================= -->
+                    </div>
+                    <!-- ====== end tab content  ========== -->
+                </div>
+            </div>
+        </div>
+        <!-- ====== end col =========== -->
+    </div>
+<!----wrapper ends----->
+<!-- END wrapper -->
+<!-- ============================================================== -->
+<!-- End Page Content here -->
+<!-- ============================================================== -->
+<!-- ================================     MODALS  Starts    ======================================= -->
+<!--  Modal content for the Large example -->
+<!--  Modal content for the Large example -->
+<div class="modal fade" id="add-supplier" data-bs-backdrop="static" data-bs-keyboard="false" tabindex="-1" aria-labelledby="staticBackdropLabel" aria-hidden="true">
+<div class="modal-dialog modal-lg">
+<div class="modal-content">
+    <div class="modal-header">
+        <h5 class="modal-title" id="myLargeModalLabel">Company / Employee Details </h5>
+        <button type="button" class="btn-close" data-bs-dismiss="modal" aria-label="Close"></button>
+    </div>
+    <div class="modal-body">
+        <div class="row">
+            <div class="col-md-7 dott-bord-r">
+                <div class="row">
+                    <label class="form-label col-md-4 mb-2">Company / Supplier</label>
+                    <div class="col-md-8 mb-2">
+                        <select class="form-select form-select-sm">
+                            <option value="">XXXXXXX </option>
+                            <option value="">XXXXXXX </option>
+                            <option value="">XXXXXXX </option>
+                        </select>
+                    </div>
+                    <!-- ============== -->
+                    <label class=" col-md-4 form-label mb-2">Company Name</label>
+                    <div class="col-md-8">
+                        <input class="form-control form-control-sm mb-2" type="text" name="text" placeholder="Enter here">
+                    </div>
+                    <!-- ============== -->
+                    <label class=" col-md-4 form-label mb-2">Division</label>
+                    <div class="col-md-8">
+                        <input class="form-control form-control-sm mb-2" type="text" name="text" placeholder="Enter here">
+                    </div>
+                    <!-- ============== -->
+                    <label class=" col-md-4 form-label mb-2">Location</label>
+                    <div class="col-md-8">
+                        <input class="form-control form-control-sm mb-2" type="text" name="text" placeholder="Enter here">
+                    </div>
+                    <!-- ============== -->
+                    <label class=" col-md-4 form-label mb-2">Notes</label>
+                    <div class="col-md-8">
+                        <textarea class="form-control form-control-sm" maxlength="100">Enter......</textarea>
+                    </div>
+                    <!-- ============== -->
+                    <div class="col text-end mt-2">
+                        <button class="btn btn-sm btn-primary"> Save</button>
+                    </div>
+                </div>
+            </div>
+            <!-- ============== -->
+            <div class="col-md-5">
+                <div class="table-responsive table-he-180">
+                    <table class="table table-sm table-bordered mb-2 text-center mt-1 tableFixHead" id="tblEmployee">
+                        <thead class="  table-info th-sti">
+                            <tr class="table-border-bottom">
+                                <th width="65%">Division / Branch</th>
+                                <th width="30%">Location</th>
+                                <th width="5%"></th>
+                            </tr>
+                        </thead>
+                        <tbody>
+                            <tr>
+                                <td></td>
+                                <td></td>
+                                <td>
+                                    <div class="dropdown float-center">
+                                        <a href="#" class="dropdown-toggle arrow-none card-drop" data-bs-toggle="dropdown" aria-expanded="false"><i class="mdi mdi-dots-vertical"></i></a>
+                                        <div class="dropdown-menu dropdown-menu-end">
+                                            <!-- item-->
+                                            <a href="javascript:void(0);" class="dropdown-item">View</a>
+                                            <!-- item-->
+                                            <a href="javascript:void(0);" class="dropdown-item">Edit</a>
+                                            <!-- item-->
+                                            <a href="javascript:void(0);" class="dropdown-item">delete</a>
+                                        </div>
+                                    </div>
+                                </td>
+                            </tr>
+                            <tr>
+                                <td></td>
+                                <td></td>
+                                <td>
+                                    <div class="dropdown float-center">
+                                        <a href="#" class="dropdown-toggle arrow-none card-drop" data-bs-toggle="dropdown" aria-expanded="false"><i class="mdi mdi-dots-vertical"></i></a>
+                                        <div class="dropdown-menu dropdown-menu-end">
+                                            <!-- item-->
+                                            <a href="javascript:void(0);" class="dropdown-item">View</a>
+                                            <!-- item-->
+                                            <a href="javascript:void(0);" class="dropdown-item">Edit</a>
+                                            <!-- item-->
+                                            <a href="javascript:void(0);" class="dropdown-item">delete</a>
+                                        </div>
+                                    </div>
+                                </td>
+                            </tr>
+                            <tr>
+                                <td></td>
+                                <td></td>
+                                <td>
+                                    <div class="dropdown float-center">
+                                        <a href="#" class="dropdown-toggle arrow-none card-drop" data-bs-toggle="dropdown" aria-expanded="false"><i class="mdi mdi-dots-vertical"></i></a>
+                                        <div class="dropdown-menu dropdown-menu-end">
+                                            <!-- item-->
+                                            <a href="javascript:void(0);" class="dropdown-item">View</a>
+                                            <!-- item-->
+                                            <a href="javascript:void(0);" class="dropdown-item">Edit</a>
+                                            <!-- item-->
+                                            <a href="javascript:void(0);" class="dropdown-item">delete</a>
+                                        </div>
+                                    </div>
+                                </td>
+                            </tr>
+                            <tr>
+                                <td></td>
+                                <td></td>
+                                <td>
+                                    <div class="dropdown float-center">
+                                        <a href="#" class="dropdown-toggle arrow-none card-drop" data-bs-toggle="dropdown" aria-expanded="false"><i class="mdi mdi-dots-vertical"></i></a>
+                                        <div class="dropdown-menu dropdown-menu-end">
+                                            <!-- item-->
+                                            <a href="javascript:void(0);" class="dropdown-item">View</a>
+                                            <!-- item-->
+                                            <a href="javascript:void(0);" class="dropdown-item">Edit</a>
+                                            <!-- item-->
+                                            <a href="javascript:void(0);" class="dropdown-item">delete</a>
+                                        </div>
+                                    </div>
+                                </td>
+                            </tr>
+                            <tr>
+                                <td></td>
+                                <td></td>
+                                <td>
+                                    <div class="dropdown float-center">
+                                        <a href="#" class="dropdown-toggle arrow-none card-drop" data-bs-toggle="dropdown" aria-expanded="false"><i class="mdi mdi-dots-vertical"></i></a>
+                                        <div class="dropdown-menu dropdown-menu-end">
+                                            <!-- item-->
+                                            <a href="javascript:void(0);" class="dropdown-item">View</a>
+                                            <!-- item-->
+                                            <a href="javascript:void(0);" class="dropdown-item">Edit</a>
+                                            <!-- item-->
+                                            <a href="javascript:void(0);" class="dropdown-item">delete</a>
+                                        </div>
+                                    </div>
+                                </td>
+                            </tr>
+                            <tr>
+                                <td></td>
+                                <td></td>
+                                <td>
+                                    <div class="dropdown float-center">
+                                        <a href="#" class="dropdown-toggle arrow-none card-drop" data-bs-toggle="dropdown" aria-expanded="false"><i class="mdi mdi-dots-vertical"></i></a>
+                                        <div class="dropdown-menu dropdown-menu-end">
+                                            <!-- item-->
+                                            <a href="javascript:void(0);" class="dropdown-item">View</a>
+                                            <!-- item-->
+                                            <a href="javascript:void(0);" class="dropdown-item">Edit</a>
+                                            <!-- item-->
+                                            <a href="javascript:void(0);" class="dropdown-item">delete</a>
+                                        </div>
+                                    </div>
+                                </td>
+                            </tr>
+                            <tr>
+                                <td></td>
+                                <td></td>
+                                <td>
+                                    <div class="dropdown float-center">
+                                        <a href="#" class="dropdown-toggle arrow-none card-drop" data-bs-toggle="dropdown" aria-expanded="false"><i class="mdi mdi-dots-vertical"></i></a>
+                                        <div class="dropdown-menu dropdown-menu-end">
+                                            <!-- item-->
+                                            <a href="javascript:void(0);" class="dropdown-item">View</a>
+                                            <!-- item-->
+                                            <a href="javascript:void(0);" class="dropdown-item">Edit</a>
+                                            <!-- item-->
+                                            <a href="javascript:void(0);" class="dropdown-item">delete</a>
+                                        </div>
+                                    </div>
+                                </td>
+                            </tr>
+                        </tbody>
+                    </table>
+                </div>
+                <div class="col-md-12 mt-1">
+                    <button class="btn btn-sm btn-primary">Add Division</button>
+                </div>
+                <!-- --------------  -->
+            </div>
+            <!-- ============== -->
+        </div>
+        <!-- ------- -->
+        <div class="row mt-3">
+            <div class="accordion" id="accordionExample">
+                <div class="accordion-item">
+                    <h2 class="accordion-header" id="headingOne">
+                        <button class="accordion-button" type="button" data-bs-toggle="collapse" data-bs-target="#collapseOne"
+                                aria-expanded="true" aria-controls="collapseOne">
+                            Employee List
+                        </button>
+                    </h2>
+                    <div id="collapseOne" class="accordion-collapse collapse" aria-labelledby="headingOne"
+                            data-bs-parent="#accordionExample">
+                        <div class="accordion-body">
+                            <div class="row">
+                                <div class="col-md-5 dott-bord-r">
+                                    <div class="row">
+                                        <label class="form-label col-md-4 mb-2">Division</label>
+                                        <div class="col-md-8 mb-2">
+                                            <select class="form-select form-select-sm">
+                                                <option value="">XXXXXXX </option>
+                                                <option value="">XXXXXXX </option>
+                                                <option value="">XXXXXXX </option>
+                                            </select>
+                                        </div>
+                                        <!-- ============== -->
+                                        <label class=" col-md-4 form-label mb-2">Name</label>
+                                        <div class="col-md-8">
+                                            <input class="form-control form-control-sm mb-2" type="text" name="text" placeholder="Enter here">
+                                        </div>
+                                        <!-- ============== -->
+                                        <label class=" col-md-4 form-label mb-2">Designation</label>
+                                        <div class="col-md-8">
+                                            <input class="form-control form-control-sm mb-2" type="text" name="text" placeholder="Enter here">
+                                        </div>
+                                        <!-- ============== -->
+                                        <label class=" col-md-4 form-label mb-2">Phone</label>
+                                        <div class="col-md-8">
+                                            <input class="form-control form-control-sm mb-2" type="text" name="text" placeholder="Enter here">
+                                        </div>
+                                        <!-- ============== -->
+                                        <label class=" col-md-4 form-label mb-2">Email</label>
+                                        <div class="col-md-8">
+                                            <input class="form-control form-control-sm mb-2" type="text" name="text" placeholder="Enter here">
+                                        </div>
+                                        <!-- ============== -->
+                                        <label class=" col-md-4 form-label mb-2">Notes</label>
+                                        <div class="col-md-8">
+                                            <textarea class="form-control form-control-sm" maxlength="100">Enter......</textarea>
+                                        </div>
+                                        <!-- ============== -->
+                                        <div class="col text-end mt-3">
+                                            <button class="btn btn-sm btn-primary"> Save</button>
+                                        </div>
+                                    </div>
+                                </div>
+                                <!-- ============== -->
+                                <div class="col-md-7">
+                                    <div class="row">
+                                        <div class="col-md-4">
+                                            <select class="form-select form-select-sm">
+                                                <option value="">Select Division</option>
+                                                <option value="">XXXXXX</option>
+                                                <option value="">XXXXXX</option>
+                                                <option value="">XXXXXX</option>
+                                                <option value="">XXXXXX</option>
+                                            </select>
+                                        </div>
+                                        <!-- -------- -->
+                                        <div class="col-md-4">
+                                            <input class="form-control form-control-sm" type="text" placeholder="Name">
+                                        </div>
+                                        <!-- --- -->
+                                        <div class="col-md-4">
+                                            <input class="form-control form-control-sm" type="text" placeholder="Keyword">
+                                        </div>
+                                        <!-- -------- -->
+                                    </div>
+                                    <!-- ------ -->
+                                    <div class="table-responsive table-he-180 mt-3">
+                                        <table class="table table-sm table-bordered mb-2 text-center mt-1 tableFixHead" id="tblEmployee">
+                                            <thead class="  table-info th-sti">
+                                                <tr class="table-border-bottom">
+                                                    <th width="35%">Division</th>
+                                                    <th width="30%">Name</th>
+                                                    <th width="30%">Designation</th>
+                                                    <th width="5%"></th>
+                                                </tr>
+                                            </thead>
+                                            <tbody>
+                                                <tr>
+                                                    <td></td>
+                                                    <td></td>
+                                                    <td></td>
+                                                    <td>
+                                                        <div class="dropdown float-center">
+                                                            <a href="#" class="dropdown-toggle arrow-none card-drop" data-bs-toggle="dropdown" aria-expanded="false"><i class="mdi mdi-dots-vertical"></i></a>
+                                                            <div class="dropdown-menu dropdown-menu-end">
+                                                                <!-- item-->
+                                                                <a href="javascript:void(0);" class="dropdown-item">View</a>
+                                                                <!-- item-->
+                                                                <a href="javascript:void(0);" class="dropdown-item">Edit</a>
+                                                                <!-- item-->
+                                                                <a href="javascript:void(0);" class="dropdown-item">delete</a>
+                                                            </div>
+                                                        </div>
+                                                    </td>
+                                                </tr>
+                                                <tr>
+                                                    <td></td>
+                                                    <td></td>
+                                                    <td></td>
+                                                    <td>
+                                                        <div class="dropdown float-center">
+                                                            <a href="#" class="dropdown-toggle arrow-none card-drop" data-bs-toggle="dropdown" aria-expanded="false"><i class="mdi mdi-dots-vertical"></i></a>
+                                                            <div class="dropdown-menu dropdown-menu-end">
+                                                                <!-- item-->
+                                                                <a href="javascript:void(0);" class="dropdown-item">View</a>
+                                                                <!-- item-->
+                                                                <a href="javascript:void(0);" class="dropdown-item">Edit</a>
+                                                                <!-- item-->
+                                                                <a href="javascript:void(0);" class="dropdown-item">delete</a>
+                                                            </div>
+                                                        </div>
+                                                    </td>
+                                                </tr>
+                                                <tr>
+                                                    <td></td>
+                                                    <td></td>
+                                                    <td></td>
+                                                    <td>
+                                                        <div class="dropdown float-center">
+                                                            <a href="#" class="dropdown-toggle arrow-none card-drop" data-bs-toggle="dropdown" aria-expanded="false"><i class="mdi mdi-dots-vertical"></i></a>
+                                                            <div class="dropdown-menu dropdown-menu-end">
+                                                                <!-- item-->
+                                                                <a href="javascript:void(0);" class="dropdown-item">View</a>
+                                                                <!-- item-->
+                                                                <a href="javascript:void(0);" class="dropdown-item">Edit</a>
+                                                                <!-- item-->
+                                                                <a href="javascript:void(0);" class="dropdown-item">delete</a>
+                                                            </div>
+                                                        </div>
+                                                    </td>
+                                                </tr>
+                                                <tr>
+                                                    <td></td>
+                                                    <td></td>
+                                                    <td></td>
+                                                    <td>
+                                                        <div class="dropdown float-center">
+                                                            <a href="#" class="dropdown-toggle arrow-none card-drop" data-bs-toggle="dropdown" aria-expanded="false"><i class="mdi mdi-dots-vertical"></i></a>
+                                                            <div class="dropdown-menu dropdown-menu-end">
+                                                                <!-- item-->
+                                                                <a href="javascript:void(0);" class="dropdown-item">View</a>
+                                                                <!-- item-->
+                                                                <a href="javascript:void(0);" class="dropdown-item">Edit</a>
+                                                                <!-- item-->
+                                                                <a href="javascript:void(0);" class="dropdown-item">delete</a>
+                                                            </div>
+                                                        </div>
+                                                    </td>
+                                                </tr>
+                                                <tr>
+                                                    <td></td>
+                                                    <td></td>
+                                                    <td></td>
+                                                    <td>
+                                                        <div class="dropdown float-center">
+                                                            <a href="#" class="dropdown-toggle arrow-none card-drop" data-bs-toggle="dropdown" aria-expanded="false"><i class="mdi mdi-dots-vertical"></i></a>
+                                                            <div class="dropdown-menu dropdown-menu-end">
+                                                                <!-- item-->
+                                                                <a href="javascript:void(0);" class="dropdown-item">View</a>
+                                                                <!-- item-->
+                                                                <a href="javascript:void(0);" class="dropdown-item">Edit</a>
+                                                                <!-- item-->
+                                                                <a href="javascript:void(0);" class="dropdown-item">delete</a>
+                                                            </div>
+                                                        </div>
+                                                    </td>
+                                                </tr>
+                                                <tr>
+                                                    <td></td>
+                                                    <td></td>
+                                                    <td></td>
+                                                    <td>
+                                                        <div class="dropdown float-center">
+                                                            <a href="#" class="dropdown-toggle arrow-none card-drop" data-bs-toggle="dropdown" aria-expanded="false"><i class="mdi mdi-dots-vertical"></i></a>
+                                                            <div class="dropdown-menu dropdown-menu-end">
+                                                                <!-- item-->
+                                                                <a href="javascript:void(0);" class="dropdown-item">View</a>
+                                                                <!-- item-->
+                                                                <a href="javascript:void(0);" class="dropdown-item">Edit</a>
+                                                                <!-- item-->
+                                                                <a href="javascript:void(0);" class="dropdown-item">delete</a>
+                                                            </div>
+                                                        </div>
+                                                    </td>
+                                                </tr>
+                                                <tr>
+                                                    <td></td>
+                                                    <td></td>
+                                                    <td></td>
+                                                    <td>
+                                                        <div class="dropdown float-center">
+                                                            <a href="#" class="dropdown-toggle arrow-none card-drop" data-bs-toggle="dropdown" aria-expanded="false"><i class="mdi mdi-dots-vertical"></i></a>
+                                                            <div class="dropdown-menu dropdown-menu-end">
+                                                                <!-- item-->
+                                                                <a href="javascript:void(0);" class="dropdown-item">View</a>
+                                                                <!-- item-->
+                                                                <a href="javascript:void(0);" class="dropdown-item">Edit</a>
+                                                                <!-- item-->
+                                                                <a href="javascript:void(0);" class="dropdown-item">delete</a>
+                                                            </div>
+                                                        </div>
+                                                    </td>
+                                                </tr>
+                                            </tbody>
+                                        </table>
+                                    </div>
+                                    <div class="col-md-12 mt-1">
+                                        <button class="btn btn-sm btn-primary">Add Employee</button>
+                                    </div>
+                                    <!-- --------------  -->
+                                </div>
+                                <!-- ============== -->
+                            </div>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </div>
+        <!-- ------- -->
+    </div>
+</div><!-- /.modal-content -->
+</div><!-- /.modal-dialog -->
+</div><!-- /.modal -->
+<!-- ======================================================== -->
+<!-- ======================================== -->
+<div class="modal fade" id="add-rm-type" data-bs-backdrop="static" data-bs-keyboard="false" tabindex="-1" aria-labelledby="staticBackdropLabel" aria-hidden="true">
+<div class="modal-dialog modal-sm">
+<div class="modal-content">
+    <div class="modal-header">
+        <h4 class="modal-title" id="mySmallModalLabel">Add Raw Material Type</h4>
+        <button type="button" class="btn-close" data-bs-dismiss="modal" aria-label="Close"></button>
+    </div>
+    <div class="modal-body">
+        <div class="row">
+            <label class=" col-md-4 form-label mb-2">Raw Material Type</label>
+            <div class="col-md-8 mb-2">
+                <input class="form-control form-control-sm mb-2" type="text" name="text" placeholder="Enter here">
+            </div>
+        </div>
+        <!-- ================== -->
+    </div>
+    <div class="modal-footer">
+        <button type="button" class="btn btn-primary btn-sm">Add</button>
+    </div>
+</div><!-- /.modal-content -->
+</div><!-- /.modal-dialog -->
+</div><!-- /.modal -->
+<!-- ========================================= -->
+<!-- ======================================== -->
+<div class="modal fade" id="add-base-rm" data-bs-backdrop="static" data-bs-keyboard="false" tabindex="-1" aria-labelledby="staticBackdropLabel" aria-hidden="true">
+<div class="modal-dialog modal-sm">
+<div class="modal-content">
+    <div class="modal-header">
+        <h4 class="modal-title" id="mySmallModalLabel">Add Base Raw Material</h4>
+        <button type="button" class="btn-close" data-bs-dismiss="modal" aria-label="Close"></button>
+    </div>
+    <div class="modal-body">
+        <div class="row">
+            <label class=" col-md-4 form-label mb-2">Base Raw Material</label>
+            <div class="col-md-8 mb-2">
+                <input class="form-control form-control-sm mb-2" type="text" name="text" placeholder="Enter here">
+            </div>
+        </div>
+        <!-- ================== -->
+    </div>
+    <div class="modal-footer">
+        <button type="button" class="btn btn-primary btn-sm">Add</button>
+    </div>
+</div><!-- /.modal-content -->
+</div><!-- /.modal-dialog -->
+</div><!-- /.modal -->
+<!-- ========================================= -->
+<!-- ======================================== -->
+<div class="modal fade" id="add-std" data-bs-backdrop="static" data-bs-keyboard="false" tabindex="-1" aria-labelledby="staticBackdropLabel" aria-hidden="true">
+<div class="modal-dialog modal-sm">
+<div class="modal-content">
+    <div class="modal-header">
+        <h4 class="modal-title" id="mySmallModalLabel">Add Standard</h4>
+        <button type="button" class="btn-close" data-bs-dismiss="modal" aria-label="Close"></button>
+    </div>
+    <div class="modal-body">
+        <div class="row">
+            <label class=" col-md-4 form-label mb-2">Standard</label>
+            <div class="col-md-8 mb-2">
+                <input class="form-control form-control-sm mb-2" type="text" name="text" placeholder="Enter here">
+            </div>
+        </div>
+        <!-- ================== -->
+    </div>
+    <div class="modal-footer">
+        <button type="button" class="btn btn-primary btn-sm">Add</button>
+    </div>
+</div><!-- /.modal-content -->
+</div><!-- /.modal-dialog -->
+</div><!-- /.modal -->
+<!-- ========================================= -->
+<!-- ======================================== -->
+<div class="modal fade" id="add-ms" data-bs-backdrop="static" data-bs-keyboard="false" tabindex="-1" aria-labelledby="staticBackdropLabel" aria-hidden="true">
+<div class="modal-dialog modal-sm">
+<div class="modal-content">
+    <div class="modal-header">
+        <h4 class="modal-title" id="mySmallModalLabel">Add Material Specification</h4>
+        <button type="button" class="btn-close" data-bs-dismiss="modal" aria-label="Close"></button>
+    </div>
+    <div class="modal-body">
+        <div class="row">
+            <label class=" col-md-4 form-label mb-2">Material Specification</label>
+            <div class="col-md-8 mb-2">
+                <input class="form-control form-control-sm mb-2" type="text" name="text" placeholder="Enter here">
+            </div>
+        </div>
+        <!-- ================== -->
+    </div>
+    <div class="modal-footer">
+        <button type="button" class="btn btn-primary btn-sm">Add</button>
+    </div>
+</div><!-- /.modal-content -->
+</div><!-- /.modal-dialog -->
+</div><!-- /.modal -->
+<!-- Right modal content -->
+<div id="popup-4" class="modal fade" tabindex="-1" role="dialog" aria-hidden="true">
+<div class="modal-dialog modal-sm modal-right">
+<div class="modal-content">
+    <div class="modal-header border-0">
+        <button type="button" class="btn-close" data-bs-dismiss="modal" aria-label="Close"></button>
+    </div>
+    <div class="modal-body">
+        <div class="row mt-2 display-none">
+            <table class="table table-sm w-100 mb-1">
+                <tr>
+                    <th>Workflow Instance </th>
+                </tr>
+                <tr>
+                    <td>XXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXX</td>
+                </tr>
+                <tr>
+                    <th>Task / Workflow Step</th>
+                </tr>
+                <tr>
+                    <td>XXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXX</td>
+                </tr>
+            </table>
+            <table class="table table-sm w-100 mt-n2 m-0">
+                <tr>
+                    <th>Planned complete Date :</th>
+                    <td>69% Complete</td>
+                </tr>
+                <tr>
+                    <th>Allocated Duration :</th>
+                    <td>01:01:00</td>
+                </tr>
+            </table>
+        </div>
+        <h6>This Task is on the Critical Path</h6>
+        <div class="row">
+            <div class="col-md-12">
+                <div class="form-check">
+                    <input class="form-check-input" type="radio">
+                    <label class="form-check-label" for="flexRadioDefault2">
+                        Save & Continue Later
+                    </label>
+                </div>
+            </div>
+            <div class="col-md-12 mt-2 mb-1">
+                <div class="form-check">
+                    <input class="form-check-input" type="radio">
+                    <label class="form-check-label" for="flexRadioDefault2">
+                        Task 100% completed
+                    </label>
+                </div>
+            </div>
+            <!-- ---------------  -->
+            <div dir="ltr mb-2">
+                <input type="text" id="range_13">
+            </div>
+            <!-- ---------------  -->
+            <div class="col-md-12 mb-2 mt-2">
+                <label class="form-label">Next Planned Date </label>
+                <input class="form-control form-control-sm" type="date" name="data" id="#">
+            </div>
+            <!-- ---------------  -->
+            <div class="col-md-12 mb-2 mt-2">
+                <label class="form-label">Planned Duration </label>
+                <input type="text" class="form-control form-control-sm" data-toggle="input-mask" data-mask-format="00:00:00" placeholder="e.g HH:MM:SS">
+            </div>
+            <div class="col-md-12 text-end mt-2">
+                <button type="button" class="btn btn-primary btn-sm">Save</button>
+            </div>
+        </div>
+    </div>
+</div>
+<!-- /.modal-content -->
+</div>
+<!-- /.modal-dialog -->
+</div>
+<!-- /.modal -->
+<!-- ========================================= -->
+<!-- Standard modal content -->
+<div id="doc-item" class="modal fade" data-bs-backdrop="static" data-bs-keyboard="false" tabindex="-1" aria-labelledby="staticBackdropLabel" aria-hidden="true">
+<div class="modal-dialog">
+<div class="modal-content">
+    <div class="modal-header">
+        <h4 class="modal-title" id="standard-modalLabel">Document Upload</h4>
+        <button type="button" class="btn-close" data-bs-dismiss="modal" aria-label="Close"></button>
+    </div>
+    <div class="modal-body">
+        <div class="row">
+            <!-- ------- -->
+            <div class="col-md-12">
+                <!-- =========== -->
+                <div class="row mt-2">
+                    <label class="col-md-4 form-label mb-2">File Content / Comment <span class="text-danger"> * </span></label>
+                    <div class="col-md-8 mb-2" title="Indicate the File Content or any relevant info about the Document" data-plugin="tippy" data-tippy-placement="top">
+                        <textarea class="form-control form-control-sm">Enter......</textarea>
+                    </div>
+                </div>
+                <!-- =========== -->
+                <!-- =========== -->
+                <div class="row">
+                    <label class="col-md-4 form-label mb-2">Document Type <span class="text-danger"> * </span></label>
+                    <div class="col-md-8 mb-2" title="Select the Document Type" data-plugin="tippy" data-tippy-placement="top">
+                        <select class="form-select form-select-sm" aria-label="form-select-sm">
+                            <option value="">3D</option>
+                            <option value="">2D</option>
+                            <option value="">jpg</option>
+                        </select>
+                    </div>
+                    <!-- -------  -->
+                </div>
+                <!-- =========== -->
+                <!-- =========== -->
+                <div class="row mt-2">
+                    <div class="col-md-7">
+                        <div class="fileupload btn btn-sm btn-info waves-effect w-100" title="" data-plugin="tippy" data-tippy-placement="top">
+                            <span><i class="mdi mdi-cloud-upload me-1"></i>Document Upload</span>
+                            <input type="file" class="upload">
+                        </div>
+                    </div>
+                    <!-- ----------- -->
+                    <div class="col-md-5 text-end">
+                        <button class="btn btn-sm btn-primary" title="Use to Save the entered data" data-plugin="tippy" data-tippy-placement="top">Save</button>
+                    </div>
+                </div>
+                <!-- =========== -->
+                <!-- =========== -->
+                <div class="row mt-2 display-none">
+                    <div class="col-md-5">
+                        <button class="btn btn-sm btn-info w-100">Create New Document</button>
+                    </div>
+                    <div class="col-md-5">
+                        <button class="btn btn-sm btn-purple w-100" data-bs-toggle="modal" data-bs-target="#task-rou">Task Document Creation  <span class="badge bg-primary rounded-circle noti-icon-badge m-l-10">5</span>  </button>
+                    </div>
+                </div>
+                <!-- =========== -->
+            </div>
+            <!-- ------- -->
+        </div>
+    </div>
+</div><!-- /.modal-content -->
+</div><!-- /.modal-dialog -->
+</div><!-- /.modal -->
+<!-- ======================================================== -->
+<div class="modal fade" id="status-info" data-bs-backdrop="static" data-bs-keyboard="false" tabindex="-1" aria-labelledby="staticBackdropLabel" aria-hidden="true">
+<div class="modal-dialog">
+<div class="modal-content">
+    <div class="modal-header">
+        <h4 class="modal-title" id="mySmallModalLabel">Status Change Reason</h4>
+        <button type="button" class="btn-close" data-bs-dismiss="modal" aria-label="Close"></button>
+    </div>
+    <div class="modal-body">
+        <div class="row">
+        </div>
+    </div>
+</div><!-- /.modal-content -->
+</div><!-- /.modal-dialog -->
+<div id="part-reference-doc-model" class="modal fade" data-bs-backdrop="static" data-bs-keyboard="false" tabindex="-1" aria-labelledby="staticBackdropLabel" aria-hidden="true">
+    <div class="modal-dialog">
+        <div class="modal-content">
+            <div class="modal-header">
+                <h4 class="modal-title" id="standard-modalLabel">Document Upload</h4>
+                <button type="button" class="btn-close" data-bs-dismiss="modal" aria-label="Close"></button>
+            </div>
+            <div class="modal-body">
+                <div class="row">
+                    <!-- ------- -->
+                    <div class="col-md-12">
+                        <!-- =========== -->
+                        <div class="row mt-2">
+                            <label class="col-md-4 form-label mb-2">File Content / Comment <span class="text-danger"> * </span></label>
+                            <div class="col-md-8 mb-2" title="Indicate the File Content or any relevant info about the Document" data-plugin="tippy" data-tippy-placement="top">
+                                <textarea name="comment" form="usrform" id="simpleinput" class="form-control form-control-sm">Enter......</textarea>
+                            </div>
+                        </div>
+                        <!-- =========== -->
+                        <!-- =========== -->
+                        <div class="row">
+                            <label class="col-md-4 form-label mb-2">Document Type <span class="text-danger"> * </span></label>
+                            <div class="col-md-8 mb-2" title="Select the Document Type" data-plugin="tippy" data-tippy-placement="top">
+                                <select class="form-select form-select-sm" aria-label="form-select-sm">
+                                    <option value="">3D</option>
+                                    <option value="">2D</option>
+                                    <option value="">jpg</option>
+                                </select>
+                            </div>
+                            <!-- -------  -->
+                        </div>
+                        <!-- =========== -->
+                        <!-- =========== -->
+                        <div class="row mt-2">
+                            <div class="col-md-7">
+                                <div class="fileupload btn btn-sm btn-info waves-effect w-100" title="" data-plugin="tippy" data-tippy-placement="top">
+                                    <span><i class="mdi mdi-cloud-upload me-1"></i>Document Upload</span>
+                                    <input type="file" class="upload">
+                                </div>
+                            </div>
+                            <!-- ----------- -->
+                            <div class="col-md-5 text-end">
+                                <button class="btn btn-sm btn-primary" title="Use to Save the entered data" data-plugin="tippy" data-tippy-placement="top">Save</button>
+                            </div>
+                        </div>
+                        <!-- =========== -->
+                        <!-- =========== -->
+                        <div class="row mt-2 display-none">
+                            <div class="col-md-5">
+                                <button class="btn btn-sm btn-info w-100">Create New Document</button>
+                            </div>
+                            <div class="col-md-5">
+                                <button class="btn btn-sm btn-purple w-100" data-bs-toggle="modal" data-bs-target="#task-rou">Task Document Creation  <span class="badge bg-primary rounded-circle noti-icon-badge m-l-10">5</span>  </button>
+                            </div>
+                        </div>
+                        <!-- =========== -->
+                    </div>
+                    <!-- ------- -->
+                </div>
+            </div>
+        </div><!-- /.modal-content -->
+    </div><!-- /.modal-dialog -->
+</div>
+
+
+    
+        </div>
+        <!-- end Container -->
+    </div>
+    <!----wrapper ends----->
+    <!-- END wrapper -->
+    <!-- End Page Content here -->
+    <!-- ================================     MODALS  Starts    ================================ -->
+    <!-- ================================    MODALS  Ends    ======================================= -->
+    <script src="/lib/tippy-js/tippy.all.min.js"></script>
+    <!-- Vendor js -->
+    <script src="/js/vendor.min.js"></script>
+    <!-- App js -->
+    <script src="/js/select2.min.js"></script>
+    <script src="/js/app.min.js"></script>
+    <script src="/js/site.js"></script>
+    <script src="/lib/jquery/dist/jquery.min.js"></script>
+    <script src="/lib/jquery-validation/dist/jquery.validate.min.js"></script>
+    <script src="/lib/jquery-validation-unobtrusive/jquery.validate.unobtrusive.min.js"></script>
+    
+    
+<script src="/js/ItemMaster/RawMaterial-model.js"></script>
+
+</body>
+</html>

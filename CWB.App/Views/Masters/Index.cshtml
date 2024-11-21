@@ -1,0 +1,67 @@
+﻿@{
+    ViewData["Title"] = "Item Master";
+}
+<input value="M-IM" type="hidden" id="hdn-nav-menu" />
+<div class="content">
+    <div class="row">
+        <div class="col-xl-12 col-md-12 col-sm-12 col-xs-12">
+            <!-- ================= -->
+            <div class="card">
+                <div class="card-body">
+                    <div class="row">
+                        <h5>Item Master Action List</h5>
+                    </div>
+                    <!-- end row -->
+                    <div class="row mt-2">
+                        <div class="col-md-3">
+                            <div class="widget-simple text-center card btn btn-outline-info">
+                                <a asp-action="MasterDetails">
+                                    <div class="card-body">
+                                        <h5><br>View / Edit Part Numbers<br><br></h5>
+                                    </div>
+                                </a>
+                            </div>
+                        </div>
+                        <!-- end -->
+                        <div class="col-md-3">
+                            <div class="widget-simple text-center card btn btn-outline-info">
+                                <a asp-action="ManufPart" asp-route-id="@ViewBag.IndexId">
+                                    <div class="card-body">
+                                        <h5><br>Create New Manf Part No <br><br></h5>
+                                    </div>
+                                </a>
+                            </div>
+                        </div>
+                        <!-- end -->
+                        <div class="col-md-3">
+                            <div class="widget-simple text-center card btn btn-outline-info">
+                                <a asp-action="RawMaterial" asp-route-id="@ViewBag.IndexId">
+                                    <div class="card-body">
+                                        <h5>Create New Raw Material <br><br> Part No</h5>
+                                    </div>
+                                </a>
+                            </div>
+                        </div>
+                        <!-- end -->
+                        <div class="col-md-3">
+                            <div class="widget-simple text-center card btn btn-outline-info">
+                                <a asp-action="BOF" asp-route-id="@ViewBag.IndexId">
+                                    <div class="card-body">
+                                        <h5>Create New Bought Out Finish <br><br> (BOF) Part No</h5>
+                                    </div>
+                                </a>
+                            </div>
+                        </div>
+                        <!-- end -->
+                    </div>
+                    <!-- end row -->
+                </div>
+            </div>
+            <!-- end card body -->
+            <!-- ================= -->
+        </div>
+        <!-- end card -->
+        <!-- ======================================================================== -->
+    </div>
+    <!-- end col -->
+</div>

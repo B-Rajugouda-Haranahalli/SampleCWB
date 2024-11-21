@@ -1,0 +1,55 @@
+﻿<div class="modal fade" id="dialog-DeleteMakeFrom" data-bs-backdrop="static" data-bs-keyboard="false" tabindex="-1" aria-labelledby="staticBackdropLabel" aria-hidden="true">
+    <div class="modal-dialog modal-sm">
+        <div class="modal-content">
+            <div class="modal-header">
+                <h5 class="modal-title" id="myLargeModalLabel">Delete MakeFrom Raw Material</h5>
+                <button id="btnDelMakeFromClose" type="button" class="btn-close" data-bs-dismiss="modal" aria-label="Close"></button>
+            </div>
+            <div class="modal-body">
+                <div class="row">
+                    <div>
+                        <form method="post" name="FormDelMakeFrom" id="FormDelMakeFrom" onsubmit="return false;">
+                            <div class="row">
+                                <!--
+                                <label class="form-label col-md-4 mb-2">Input Weight (Kgs)</label>
+                                <div class="col-md-8 mb-2" title="Enter the Input Weight in kjgs" data-plugin="tippy" data-tippy-placement="top">
+                                </div>
+                                
+                                <label class="form-label col-md-4 mb-2">Quantity per Input</label>
+                                <div class="col-md-8 mb-2" title="Enter the number of Finished Part Nos that can manufactured from a single Input Material. Example multiple finished Part Nos can be made from a single input Bar or Sheet ..." data-plugin="tippy" data-tippy-placement="top">
+                                </div>
+                                <div class="col-md-4 mb-2" title="" data-plugin="tippy" data-tippy-placement="top">
+                                    <label class="form-label">Description</label>
+                                </div>
+                                <div class="col-md-7 mb-2" title="" data-plugin="tippy" data-tippy-placement="top">
+                                </div>
+                                -->
+                                <div class="text-center">
+                                    <input hidden class="form-control form-control-sm" type="text" id="DelInputWeight" name="inputWeight" placeholder="enter here" required>
+                                    <input hidden class="form-control form-control-sm" type="text" id="DelQuantityPerInput" name="QuantityPerInput" placeholder="enter here" required>
+                                    <textarea hidden id="DelMFDescription" name="MFDescription" class="form-control form-control-sm"></textarea>
+                                    <input type="text" hidden id="DelPartMadeFrom" name="PartMadeFrom" value="0" />
+                                    <input type="text" hidden id="DelPreferedRawMaterial" name="PreferedRawMaterial" value="0" />
+                                    <input type="text" hidden id="DelYieldNotes" name="YieldNotes" value="0" />
+                                    <input type="text" hidden id="DelScrapgenerated" name="Scrapgenerated" value="0" />
+                                    <input type="text" hidden id="DelInputPartNo" name="InputPartNo" value="0" />
+                                    <input type="text" hidden id="DelMPMakeFromId" name="MPMakeFromId" value="0" />
+                                    <input type="text" hidden id="DelMPPartId" name="MPPartId" value="0" />
+                                    <input type="text" hidden id="DelManufPartId" name="ManufPartId" value="0" />
+                                    <div>
+                                        <label class="form-label col-md-8 mb-2"> Are you sure you want to delete this entry?</label>
+                                    </div>
+                                    <div class="text-center">
+                                        <button type="button" id="DelMakeFrom" class="btn btn-sm btn-primary" title="Select to Delete Supplier for the RM" data-plugin="tippy" data-tippy-placement="top">Delete</button>
+                                        <button type="button" id="CancelDelMakeFrom" class="btn btn-sm btn-primary" title="Select to Cancel" data-plugin="tippy" data-tippy-placement="top">Cancel</button>
+                                    </div>
+                                </div>
+                                <!-- ========================= -->
+                            </div>
+                        </form>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </div><!-- /.modal-content -->
+</div><!-- /.modal-dialog -->

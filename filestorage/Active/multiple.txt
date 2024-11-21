@@ -1,0 +1,65 @@
+ $("#ManualSaveWo").on("click", function () {
+        var woid = parseInt($("#Manualwoid").val());
+        var soid = parseInt($("#Manualsoid").val());
+        var partid = parseInt($("#ManualpartId").val());
+        var parttype = parseInt($("#ManualpartType").val());
+        var wostatus = parseInt($("#ManualStatus").val());
+        var soqty = parseInt($("#ManualTotalSoQty").val());
+        var planWoQty = parseInt($("#ManualPlanWoQty").val());
+        var wonumber = $("#ManualWoNumber").val();
+        var WoComplDate = new Date(Date.parse($('#ManualWoComplDt').val()));
+        var formattedDate;
+        var routingid = $("#ManualRouting").val();
+        var startingOpNo = $("#ManualStartOpNo").val();
+        var endingOpNo = $("#ManualEndOpNo").val();
+        var resultData = [];
+        var rstDt = new Date(Date.parse($('#ManualwoCompletedBy').text()));
+        const restrictDt = new Date(rstDt);
+        if (isNaN(WoComplDate.getTime())) {
+            alert("Please Enter the WO Compl Date.");
+            return false;
+            // or display an error message to the user
+        }
+        if (WoComplDate < restrictDt) {
+            alert("Wo Complition Date Should Be Greater Than Current Complition Date");
+            return false;
+            // or display an error message to the user
+        } else {
+            formattedDate = WoComplDate.toISOString();
+        }
+
+        if (planWoQty < soqty) {
+            alert("Plan Wo Qnty Should be Greater or Equal to So Total So Qnty.");
+            return false;
+        }
+
+        var rowData = {
+            woid: parseInt(woid),
+            salesOrderId: parseInt(soid),
+            wonumber: wonumber,
+            partId: parseInt(partid),
+            partType: parseInt(parttype),
+            parentlevel: '',
+            calcWOQty: parseInt(planWoQty),
+            reloadOption: "Manual",
+            planCompletionDate: formattedDate,
+            routingId: parseInt(routingid),
+            startingOpNo: parseInt(startingOpNo),
+            endingOpNo: parseInt(endingOpNo),
+            status: parseInt(wostatus)
+        };
+
+        api.post("/businessaquisition/WOpost", rowData).then((data) => {
+            //console.log(data);
+            resultData.push(data);
+            $('#popup3ManualMultiple').modal('hide');
+            var tablebody = $("#MulitpleWOs tbody");
+            $(tablebody).html("");//empty tbody
+
+            for (i = 0; i < resultData.length; i++) {
+                $(tablebody).append(AppUtil.ProcessTemplateData("MultipleWoRow", resultData[i]));
+            }
+        }).catch((error) => {
+        });
+
+    });

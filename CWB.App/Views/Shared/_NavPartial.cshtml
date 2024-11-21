@@ -1,0 +1,58 @@
+﻿<div class="h-100" data-simplebar>
+    <!--- Sidemenu -->
+    <div id="sidebar-menu">
+        <ul id="side-menu">
+            <li>
+                <a asp-action="Index" asp-controller="Home">
+                    <i class="fas fa-home"></i>
+                    <span> Home </span>
+                </a>
+            </li>
+            @if (User.Identity.IsAuthenticated && User.IsInRole(Roles.ADMIN))
+            {
+                <li>
+                    <a href="#sidebarMAST-2" data-bs-toggle="collapse" aria-expanded="false" aria-controls="sidebarMAST-2"> <i class="fas fa-cogs"></i> <span> Business Process </span> <span class="menu-arrow"></span> </a>
+                    <div class="collapse" id="sidebarMAST-2">
+                        <ul class="nav-second-level">
+                            <li><a asp-action="Index" asp-controller="BusinessAquisition" data-navid="B-BA">Business Acquisition</a></li>
+                            <li><a asp-action="Index" asp-controller="WorkOrder" data-navid="B-BP">Process Planning</a></li>
+                            <li><a href="#" data-navid="B-PR">Production</a></li>
+                            <li><a href="#" data-navid="B-PD">Product Design</a></li>
+                        </ul>
+                    </div>
+                </li>
+                <li>
+                    <a href="#sidebarMAST-3" data-bs-toggle="collapse" aria-expanded="false" aria-controls="sidebarMAST-3"> <i class=" fas fa-book "></i> <span> Masters</span> <span class="menu-arrow"></span> </a>
+                    <div class="collapse" id="sidebarMAST-3">
+                        <ul class="nav-second-level">
+                            <li><a asp-action="Index" asp-controller="Masters" data-navid="M-IM">Item Master</a></li>
+                            <li><a asp-action="Index" asp-controller="Routings" data-navid="M-IR">Routing</a></li>
+                            <li><a asp-action="Index" asp-controller="Machine" data-navid="M-ML">Machine List</a></li>
+                            <li><a asp-action="Index" asp-controller="ManuResource" data-navid="M-MR">Manufacturing Resource</a></li>
+                            <!--<li><a href="manufacturing-resource.html"</a></li>-->
+                            <li><a asp-action="Index" asp-controller="OperationList" data-navid="M-OL">Opearation List</a></li>
+                            <li><a asp-action="Index" asp-controller="Contacts" data-navid="M-C">Contacts</a></li>
+                            <li><a asp-action="Index" asp-controller="DocumentManagement" data-navid="M-D">Document Management</a></li>
+                        </ul>
+                    </div>
+                </li>
+                <li>
+                    <a href="#sidebarMAST-4" data-bs-toggle="collapse" aria-expanded="false" aria-controls="sidebarMAST-4"> <i class="fas fa-cog"></i> <span> Company Settings</span> <span class="menu-arrow"></span> </a>
+                    <div class="collapse" id="sidebarMAST-4">
+                        <ul class="nav-second-level">
+                            <li><a asp-action="Index" asp-controller="Plant" data-navid="C-LO">Location</a></li>
+                            <li><a asp-action="Index" asp-controller="Organization" data-navid="C-OR">Organization</a></li>
+                            <li><a asp-action="Index" asp-controller="Designation" data-navid="C-DE">Designation</a></li>
+                            <li><a asp-action="Index" asp-controller="EmployeeMaster" data-navid="C-EM">Empolyee Master</a></li>
+                            <!--<li><a href="manufacturing-resource.html"</a></li>-->
+                            @*<li><a asp-action="Index" asp-controller="DocumentType" data-navid="C-DT">Document Type</a></li>*@
+                        </ul>
+                    </div>
+                </li>
+            }
+
+        </ul>
+    </div>
+    <!-- End Sidebar -->
+    <div class="clearfix"></div>
+</div>

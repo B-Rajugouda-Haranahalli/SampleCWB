@@ -1,0 +1,96 @@
+﻿@model CWB.App.Models.Machine.MachineVM
+<div class="tab-pane show active" id="machine-general">
+    <form id="frmMachineGeneral" method="post">
+        <div class="row">
+            <!-- -----------------  -->
+            <label class="col-md-2 form-label mb-2" asp-for="MachinePlantId"></label>
+            <div class="col-md-4 mb-2">
+                <select class="form-select form-select-sm" aria-label="form-select-sm" title="Select the Plant from the Drop Down" data-plugin="tippy"
+                        data-tippy-placement="top" asp-items="ViewBag.Plants" asp-for="MachinePlantId">
+                    <option value="">--Select Plant--</option>
+                </select>
+                <span asp-validation-for="MachinePlantId"></span>
+            </div>
+            <!-- -----------------  -->
+            <label class="col-md-2 form-label mb-2" asp-for="MachineDepartmentId"></label>
+            <div class="col-md-4 mb-2">
+                <select class="form-select form-select-sm" aria-label="form-select-sm" title="Select the Shop from the Drop Down. Shops from the selected Shop are shown"
+                        data-plugin="tippy" data-tippy-placement="top" asp-for="MachineDepartmentId">
+                </select>
+                <span asp-validation-for="MachineDepartmentId"></span>
+            </div>
+            <!-- -----------------  -->
+            <label class="col-md-2 form-label mb-2" asp-for="MachineMachineName"></label>
+            <div class="col-md-4 mb-2">
+                <input class="form-control form-control-sm" type="text" placeholder="Name" title="Enter the Name of the Machine. Typically how the machine is referred to in the shop"
+                       data-plugin="tippy" data-tippy-placement="top" asp-for="MachineMachineName" />
+                <span asp-validation-for="MachineMachineName"></span>
+            </div>
+            <!-- -----------------  -->
+            <label class="col-md-2 form-label mb-2" asp-for="MachineMachineSlNo"></label>
+            <div class="col-md-4 mb-2">
+                <input class="form-control form-control-sm" type="text" placeholder="Sl No" title=" Enter the Unique Serial No. of the Machine. Required to identify similar machines in and across the shop"
+                       data-plugin="tippy" data-tippy-placement="top" asp-for="MachineMachineSlNo" />
+                <span asp-validation-for="MachineMachineSlNo"></span>
+            </div>
+            <!-- -----------------  -->
+            <label class="col-md-2 form-label mb-2" asp-for="MachineMachineManufacturer"></label>
+            <div class="col-md-4 mb-2">
+                <input class="form-control form-control-sm" type="text" placeholder="Manufacturer" title="Enter the Manufacturer of the Machine"
+                       data-plugin="tippy" data-tippy-placement="top" asp-for="MachineMachineManufacturer" />
+                <span asp-validation-for="MachineMachineManufacturer"></span>
+            </div>
+            <!-- -----------------  -->
+            <label class="col-md-2 form-label mb-2" asp-for="MachineMachineTypeId"></label>
+            <div class="col-md-4 mb-2">
+                <div class="input-group">
+                    <select class="form-select form-select-sm" title="Select the Machine Type (VMC, Horizonal CNC Lathe, Broaching M/c ...)"
+                            data-plugin="tippy" data-tippy-placement="top" asp-items="ViewBag.MachineTypes" asp-for="MachineMachineTypeId">
+                        <option value="">--Select Machine Type--</option>
+                    </select>
+                    <button type="button" class="btn btn-sm waves-effect waves-light" title="Add Machine Type" data-plugin="tippy" data-tippy-placement="top" data-bs-toggle="modal" data-bs-target="#machine-type-dialog" data-isnew="true">
+                        <i class="fe-plus-square add-cust-btn"></i>
+                    </button>
+                    <button type="button" class="btn btn-sm waves-effect waves-light" title="Edit Machine Type" data-plugin="tippy" data-tippy-placement="top" data-bs-toggle="modal" data-bs-target="#machine-type-dialog" data-isnew="false">
+                        <i class="fas fa-pen font-18"></i>
+                    </button>
+                </div>
+                <span asp-validation-for="MachineMachineTypeId"></span>
+            </div>
+            <!-- -----------------  -->
+            <label class="col-md-2 form-label mb-2" asp-for="MachineOperationListId"></label>
+            <div class="col-md-4 mb-2">
+                <select class="form-select form-select-sm" aria-label="form-select-sm" title="Select the Operation carried out in the Machine. This is required for linking Operation related Documents. If Operation is not in the list ... It is to added from the Masters Menu -> Operation"
+                        data-plugin="tippy" data-tippy-placement="top" asp-items="ViewBag.Operations" asp-for="MachineOperationListId">
+                    <option value="">--Select Operation--</option>
+                </select>
+                <span asp-validation-for="MachineOperationListId"></span>
+            </div>
+            <!-- -----------------  -->
+            <div class="col-md-2 mb-2">
+
+            </div>
+            <!-- -----------------  -->
+            <div class="col-md-4 mb-2">
+
+            </div>
+            <!-- ======================== -->
+        </div>
+        <!-- end row -->
+        <input type="hidden" asp-for="MachineMachineId" />
+    </form>
+    <!-- =============  -->
+    <div class="row">
+        <div class="col-md-6">
+            <button type="button" class="btn btn-purple btn-sm display-none" data-bs-toggle="modal" data-bs-target="#task-rou" title="" data-plugin="tippy" data-tippy-placement="top">Task</button>
+        </div>
+        <div class="col-md-6 text-end">
+            <input type="button" class="btn btn-primary btn-sm" title=" Use to Save the entered data" data-plugin="tippy" data-tippy-placement="top" id="btnMachineGeneralSave" value="Save" />
+            <button type="button" class="btn btn-warning btn-sm btn-machine-tab-nav machine-tab-withdata disabled" title=" Use to go to the next Tab" data-plugin="tippy" data-tippy-placement="top"
+                    data-targettab="machine-process-doc">
+                <i class="fas fa-arrow-right"></i>
+            </button>
+        </div>
+    </div>
+    <!-- end row -->
+</div>

@@ -1,0 +1,73 @@
+﻿<div class="modal fade" id="dialog-EditPurchaseDetail" data-bs-backdrop="static" data-bs-keyboard="false" tabindex="-1" aria-labelledby="staticBackdropLabel" aria-hidden="true">
+    <div class="modal-dialog modal-lg">
+        <div class="modal-content">
+            <div class="modal-header">
+                <h5 class="modal-title" id="myLargeModalLabel">Edit Purchase Detail </h5>
+                <button id="btnEditPDClose" type="button" class="btn-close" data-bs-dismiss="modal" aria-label="Close"></button>
+            </div>
+            <div class="modal-body">
+                <div class="row">
+                    <div>
+                        <form method="post" name="FormEditPurchaseDetails" id="FormEditPurchaseDetails" onsubmit="return false;">
+                            <div class="row mt-8">
+                                <label class="form-label col-md-4 mb-2"> Supplier <span class="text-danger"> *</span> </label>
+                                <div class="col-md-8 mb-2">
+                                    <div class="input-group">
+                                        <div class="col-md-9 mb-2">
+                                            <select class="form-select form-select-sm" id="EdPPDSupplierId" name="PSupplierId"></select>
+                                        </div>
+                                    </div>
+                                </div>
+                                <label class="form-label col-md-4 mb-2">Supplier Part No</label>
+                                <div class="col-md-8 mb-2">
+                                    <input required id="EdSupplierPartNo" name="PSupplierPartNo" class="form-control form-control-sm" type="text" placeholder="enter here" title="Enter the Supplier Part No" data-plugin="tippy" data-tippy-placement="top" value="-">
+                                </div>
+                                <!-- ========================= -->
+                                <!-- ============================== -->
+                                <label class="form-label col-md-4 mb-2">Lead Time (Days) </label>
+                                <div class="col-md-8 mb-2">
+                                    <input required id="EdLeadTimeInDays" name="LeadTimeInDays" class="form-control form-control-sm" type="text" placeholder="enter here" title="Enter the Lead time in days for procuring the RM Part No from the Supplier Company" data-plugin="tippy" data-tippy-placement="top">
+                                </div>
+                                <!-- ============================== -->
+                                <label class="form-label col-md-4 mb-2">Minimum Order Quantity</label>
+                                <div class="col-md-8 mb-2">
+                                    <input required id="EdMinimumOrderQuantity" name="MinimumOrderQuantity" class="form-control form-control-sm" type="text" placeholder="enter here" title="Enter any applicable Minimum Order Quantity (MoQ)" data-plugin="tippy" data-tippy-placement="top">
+                                </div>
+                                <!-- ========================= -->
+                                <label class="form-label col-md-4 mb-2">Price</label>
+                                <div class="col-md-8 mb-2">
+                                    <input required id="EdPrice" name="Price" class="form-control form-control-sm" type="text" placeholder="enter here" title="Enter the price of the RM" data-plugin="tippy" data-tippy-placement="top">
+                                </div>
+                                <label class="form-label col-md-4 mb-2">Share of Business</label>
+                                <div class="col-md-8 mb-2">
+                                    <input required id="EdShareOfBusiness" name="ShareOfBusiness" class="form-control form-control-sm" type="text" placeholder="enter here" title="Enter the Share of Business (in case of multiple Suppliers) for the RM Part No (%)" data-plugin="tippy" data-tippy-placement="top" value="0">
+                                </div>
+                                <!-- ========================= -->
+                                <label class="form-label col-md-4 mb-2">Additional Information</label>
+                                <div class="col-md-8 mb-2">
+                                    <textarea id="EdAdditionalInfo" name="PAdditionalInfo" class="form-control form-control-sm" title="Enter any relevant comment / additional info" data-plugin="tippy" data-tippy-placement="top"></textarea>
+
+                                </div>
+
+                                <input type="text" hidden id="EdPPDSupplier" value="" name="PSupplier" />
+                                <input type="text" hidden id="EdPartId" value="0" name="PPartId" />
+                                <input type="text" hidden id="EdMasterPartType" value="0" name="PMasterPartType" />
+                                <input type="text" hidden id="EdPartPurchaseId" value="0" name="PartPurchaseId" />
+                                <input type="text" hidden id="EdRMId" value="-1" name="RMId" />
+                                <input type="text" hidden id="EdBOFId" value="-1" name="BOFId" />
+                               <!-- ========================= -->
+
+                                <div class="text-center">
+                                    <button type="button" id="EditSupplier" class="btn btn-sm btn-primary" title="Select to Edit another Supplier for the RM" data-plugin="tippy" data-tippy-placement="top">Save</button>
+                                </div>
+                                <!-- ========================= -->
+                            </div>
+                        </form>
+                    </div>
+                </div>
+            </div>
+        </div><!-- /.modal-content -->
+    </div><!-- /.modal-dialog -->
+</div>
+
+

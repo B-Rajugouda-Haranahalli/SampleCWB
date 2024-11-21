@@ -1,0 +1,113 @@
+﻿<!--Depends on partial _ManuF_Templates included in parent page-->
+@model CWB.App.Models.ItemMaster.MPBomVM
+<form method="post" id="MPBOM">
+    <!-- ========= -->
+    <div class="row">
+        <div class="col-md-10">
+            <div class="table-responsive">
+                <table class="table table-sm">
+                    <tbody>
+                        <tr>
+                            <td>
+                                <span class="h6">Supplier:</span> <label id="lblBOMCompanyName"></label>
+                            </td>
+                            <td>
+                                <span class="h6">Part No:</span> <label id="lblBOMPartNumber"></label>
+                            </td>
+                            <td>
+                                <span class="h6">Part Description:</span> <label id="lblBOMPartDescription"></label>
+                        </tr>
+                    </tbody>
+                </table>
+            </div>
+        </div>
+        <!-- ========= -->
+        <div class="col-md-2 display-none">
+            <div class="table-responsive">
+                <table class="table table-sm  text-end w-100">
+                    <tbody>
+                        <tr>
+                            <td>
+                                <button class="btn btn-sm btn-dark"><span class="fon-we-700">Target Date :</span> 12/08/2022</button>
+                            </td>
+                        </tr>
+                    </tbody>
+                </table>
+            </div>
+        </div>
+        <!-- ========= -->
+    </div>
+    <!-- ========= -->
+    <!-- ========= -->
+    <!-- ================ -->
+    <div class="row mt-3">
+        <!-- ================= -->
+        <div class="col-md-12">
+            <div class="row mt-2">
+                <div class="col-md-1">
+                    <button class="btn btn-sm waves-effect waves-light" title="Select Part No" data-plugin="tippy" data-tippy-placement="top" type="button" data-bs-toggle="modal" data-bs-target="#existing-part-bof"><i class="ri-search-2-line bom-ser-1"></i></button>
+                </div>
+                <label class="form-label col-md-1 mb-1"> Part No  <span class="text-danger"> * </span></label>
+                <div class="col-md-2 mb-1">
+                    <input type="text" class="form-control form-control-sm" id="BOMPartNo" name="BOMPartNo" required readonly>
+                </div>
+                <!-- ================= -->
+                <label class="form-label col-md-1 mb-2"> Part  Desc <span class="text-danger"> * </span></label>
+                <div class="col-md-4 mb-2">
+                    <textarea id="BOMPartDesc" name="BOMPartDesc" class="form-control form-control-sm" readonly></textarea>
+                </div>
+                <!-- ================= -->
+                <label class="form-label col-md-1 mb-2">Quantity <span class="text-danger"> * </span></label>
+                <div class="col-md-2 mb-2" title="Enter the Bill of Material Quantity" data-plugin="tippy" data-tippy-placement="top">
+                    <input type="text" id="Quantity" name="Quantity" class="form-control form-control-sm" placeholder="Qty" value="0" required>
+                </div>
+                <input type="text" hidden id="BOMPartId" name="BOMPartId" value="0" />
+                <input type="text" hidden id="BOMManufPartId" name="BOMManufPartId" value="0" />
+                <input type="text" hidden id="MPBOMId" name="MPBOMId" value="0" />
+                <!-- ========================== -->
+                <div class="col-md-12 mb-2 text-end">
+                    <button type="button" class="btn btn-sm btn-info" title="Click to add entered information to the BoM List" data-plugin="tippy" data-tippy-placement="top" id="AddBOM" onclick="AddToBOM()">Add to BOM</button>
+                </div>
+                <!-- ========================== -->
+            </div>
+            <!-- ====== end row =========== -->
+        </div>
+        <!-- ================================================================================== -->
+        <div class="col-md-12">
+            <div class="row">
+                <div class="table-responsive table-he-130">
+                    <table class="table table-sm table-bordered w-100 mb-3 tableFixHead" id="tbl-BOM">
+                        <thead class="  table-info th-sti">
+                            <tr class="table-border-bottom">
+                                <th width="20%">Part No</th>
+                                <th width="55%">Description</th>
+                                <th width="10%">BOM Qty</th>
+                                <th width="10%">UOM</th>
+                                <th width="5%"></th>
+                            </tr>
+                        </thead>
+                        <tbody>
+                        </tbody>
+                    </table>
+                </div>
+                <!-- ============================  -->
+                <!--<div class="col-md-6 mt-3" >
+                    <button type="button" class="btn btn-warning btn-sm"><i class="fas fa-arrow-left"></i></button>
+                </div>-->
+                <!-- ---------- -->
+                <!--<div class="col-md-6 mt-3 text-end">
+                    <a asp-action="Index" asp-controller="Masters">
+                        <button type="button" class="btn btn-sm btn-dark" data-bs-toggle="modal">Exit</button>
+                    </a>-->
+                    <!--
+                    <button class="btn btn-sm btn-primary" title="Save the entered Information" data-plugin="tippy" data-tippy-placement="top" id="btnSaveBOM">Save</button>
+                    -->
+                    <!--<button type="button" class="btn btn-warning btn-sm"><i class="fas fa-arrow-right"></i></button>
+                </div>-->
+                <!-- ------end col ----- -->
+            </div>
+            <!-- end row -->
+        </div>
+    </div>
+    <!-- ==================== -->
+</form>

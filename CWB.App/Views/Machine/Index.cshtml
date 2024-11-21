@@ -1,0 +1,135 @@
+﻿@{
+    ViewData["Title"] = "Machine List";
+}
+@model IEnumerable<CWB.App.Models.Machine.MachineListVM>
+<input value="M-ML" type="hidden" id="hdn-nav-menu" />
+<div class="content">
+    <div class="row">
+        <div class="col-xl-12 col-md-12 col-sm-12 col-xs-12">
+            <!-- ================= -->
+            <div class="card">
+                <div class="card-body">
+                    <div class="row">
+                        <h5 class="mb-2">Machine List</h5>
+                        <!-- -----------------  -->
+                        <label class="col-md-1 form-label mb-2">Plant</label>
+                        <div class="col-md-3 mb-2">
+                            <select class="form-select form-select-sm machine-list-search" aria-label="form-select-sm" title="Select the Plant from the Drop Down"
+                                    data-plugin="tippy" data-tippy-placement="top" data-key="Plant" asp-items="ViewBag.Plants" id="search-machine-plant">
+                                <option value="">--Select Plant--</option>
+                            </select>
+                        </div>
+                        <!-- -----------------  -->
+                        <label class="col-md-1 form-label mb-2">Shop</label>
+                        <div class="col-md-3 mb-2">
+                            <select class="form-select form-select-sm machine-list-search" aria-label="form-select-sm"
+                                    title="Select the Shop from the Drop Down. Shops from the selected Shop are shown"
+                                    data-plugin="tippy" data-tippy-placement="top" data-key="Shop" id="search-machine-shop">
+                            </select>
+                        </div>
+                        <!-- -----------------  -->
+                        <label class="col-md-1 form-label mb-2">Name</label>
+                        <div class="col-md-3 mb-2">
+                            <input class="form-control form-control-sm machine-list-search" type="text" placeholder="enter Name"
+                                   title="Enter the Name of the Machine (partially or fully) to short list the machines"
+                                   data-plugin="tippy" data-tippy-placement="top" id="machineName" data-key="Name">
+                        </div>
+                        <!-- -----------------  -->
+                        <label class="col-md-1 form-label mb-2">Manufacturer</label>
+                        <div class="col-md-3 mb-2">
+                            <input class="form-control form-control-sm machine-list-search" type="text" placeholder="enter Manufacturer" id="manufacturer"
+                                   title="Enter the Machine Manufacturer" data-plugin="tippy" data-tippy-placement="top" data-key="Manufacturer">
+                        </div>
+                        <!-- -----------------  -->
+                        <div class="col-md-3 mb-2">
+                            <button class="btn btn-sm btn-primary" data-plugin="tippy" data-tippy-placement="top" data-tippy="" data-original-title="" id="clearMachineBtn">Clear Search Fields </button>          
+                        </div>
+                        <!-- ======================== -->
+                    </div>
+                    <!-- =========== -->
+                    <div class="row mt-3">
+                        <div class="col-md-12">
+                            <div class="row">
+                                <div class="table-responsive table-he-150">
+                                    <table class="table table-sm table-bordered w-100 text-center" id="tbl-machine-list">
+                                        <thead class="  table-info th-sti">
+                                            <tr class="table-border-bottom">
+                                                <th>Plant</th>
+                                                <th>Shop</th>
+                                                <th>M/c Name</th>
+                                                <th>Sl No</th>
+                                                <th>Manufacturer</th>
+                                                <th width="5%"></th>
+                                            </tr>
+                                        </thead>
+                                        <tbody>
+                                            @foreach (var machine in Model)
+                                            {
+                                                <tr>
+                                                    <td data-key="Plant">@machine.Plant</td>
+                                                    <td data-key="Shop">@machine.Shop</td>
+                                                    <td data-key="Name">@machine.Name</td>
+                                                    <td data-key="SlNo">@machine.SlNo</td>
+                                                    <td data-key="Manufacturer">@machine.Manufacturer</td>
+                                                    <td>
+                                                        <div class="dropdown float-center">
+                                                            <a href="#" class="dropdown-toggle arrow-none card-drop" data-bs-toggle="dropdown" aria-expanded="false"><i class="mdi mdi-dots-vertical"></i></a>
+                                                            <div class="dropdown-menu dropdown-menu-end">
+                                                                <!-- item-->
+                                                                <a href="javascript:void(0);" data-bs-toggle="modal" data-bs-target="#dialog-machine" data-id="@machine.MachineId" class="dropdown-item">Edit</a>
+                                                                <!-- item-->
+                                                                <a href="javascript:void(0);" data-id="@machine.MachineId" class="dropdown-item">Delete</a>
+                                                            </div>
+                                                        </div>
+                                                    </td>
+                                                </tr>
+                                            }
+                                        </tbody>
+                                    </table>
+                                </div>
+                                <div class="col-md-12 mt-3">
+                                    <button class="btn btn-sm btn-primary" data-bs-toggle="modal" data-id="0" data-bs-target="#dialog-machine" title="Use to add a New Machine ...." data-plugin="tippy" data-tippy-placement="top">Add New Machine</button>
+                                </div>
+                            </div>
+                        </div>
+                    </div>
+                    <!-- =========== -->
+                </div>
+                <!-- end card body -->
+            </div>
+            <!-- end card -->
+            <!-- ================= -->
+        </div>
+        <!-- end col -->
+    </div>
+    <!-- end row -->
+</div>
+@Html.Partial("_MachineListDialog")
+@Html.Partial("_MachineTypeDialog", new CWB.App.Models.Machine.MachineTypeVM())
+<template id="machinelist-template">
+    <tr>
+        <td data-key="Plant">{plant}</td>
+        <td data-key="Shop">{shop}</td>
+        <td data-key="Name">{name}</td>
+        <td data-key="SlNo">{slNo}</td>
+        <td data-key="Manufacturer">{manufacturer}</td>
+        <td>
+            <div class="dropdown float-center">
+                <a href="#" class="dropdown-toggle arrow-none card-drop" data-bs-toggle="dropdown" aria-expanded="false"><i class="mdi mdi-dots-vertical"></i></a>
+                <div class="dropdown-menu dropdown-menu-end">
+                    <!-- item-->
+                    <a href="javascript:void(0);" data-bs-toggle="modal" data-bs-target="#dialog-machine" data-id="{machineId}" class="dropdown-item">Edit</a>
+                    <!-- item-->
+                    <a href="javascript:void(0);" data-id="{machineId}" class="dropdown-item">Delete</a>
+                </div>
+            </div>
+        </td>
+    </tr>
+</template>
+@section scripts {
+    <script src="~/js/machine/machine-list.js"></script>
+    <script src="~/js/machine/machine-model.js"></script>
+    <script src="~/js/machine/machine-general-model.js"></script>
+    <script src="~/js/machine/machine-type-model.js"></script>
+    <script src="~/js/machine/machine-proc-doc-model.js"></script>
+}

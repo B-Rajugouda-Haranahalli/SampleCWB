@@ -1,0 +1,78 @@
+﻿<div id="Div_RouteSubCons">
+    <div class="col-md-12">
+        <h5 class="mb-2">Subcon List for this Step</h5>
+        <div class="table-responsive mt-2 table-bordered table-he-250 ">
+            <table class="table table-sm table-bordered  mb-3 text-center mt-1 tableFixHead" id="SubConsTable">
+                <thead class="table-info th-sti">
+                    <tr class="table-border-bottom">
+                        <th>Pref</th>
+                        <th>Subcon Name</th>
+                        <th>No of Work Step</th>
+                        <th>Mandatory Docs Avl</th>
+                        <th></th>
+                    </tr>
+                </thead>
+                <tbody>
+                </tbody>
+            </table>
+        </div>
+    </div>
+    <div class="col-md-12 mt-3 mb-1 text-end">
+        <button data-addedit="Add" id="addSubCon" class="btn btn-sm btn-primary mt-2" data-bs-toggle="modal" data-bs-target="#add-subcon" disabled>Add Sub Con</button>
+    </div>
+</div>
+
+
+
+<template id="RouteSubConsTemplate">
+    <tr>
+        <td>
+            <input type="radio" class="form-check-input" name="pref" {checked} disabled>
+        </td>
+        <td data-key="supplier">{company}</td>
+        <td data-key="noofoperations">{noOfOperations}</td>
+        <td data-key="MandDoc">{mandocAvl}</td>
+        <td>
+            <div class="dropdown float-center">
+                <a href="#" class="dropdown-toggle arrow-none card-drop" data-bs-toggle="dropdown" aria-expanded="false"><i class="mdi mdi-dots-vertical"></i></a>
+                <div class="dropdown-menu dropdown-menu-end">
+                    <!-- item-->
+                    <a href="javascript:void(0);" onclick="SetPreferredSubCon({subConDetailsId});" class="dropdown-item">Set Preferred SubCon</a>
+                    <a href="javascript:void(0);" data-addedit="Edit"
+                       data-workdone="{workDone}"
+                       data-transporttime="{transportTime}"
+                       data-costperpart="{costPerPart}"
+                       data-preferredsubcon="{preferredSubcon}"
+                       data-subconsupplierid="{supplierId}"
+                       data-subcondetailsid="{subConDetailsId}"
+                       data-subconroutingstepid="{routingStepId}"
+                       data-company="{company}"
+                       data-deleted="{deleted}"
+                       data-bs-toggle="modal" data-bs-target="#add-subcon" class="dropdown-item">Edit</a>
+                    <!-- item-->
+                    <a href="javascript:void(0);" data-subcondetailsid="{subConDetailsId}" data-stepid="{routingStepId}" data-company="{company}" data-bs-toggle="modal" data-bs-target="#delete-subcon" class="dropdown-item">Delete</a>
+                </div>
+            </div>
+        </td>
+    </tr>
+</template>
+
+@*<div id="Div_RouteSubCons" class="col-md-12">
+        <div class="table-responsive mt-2 table-he-180 w-100">
+            <table class="table table-sm table-bordered  mb-3 text-center mt-1 tableFixHead" id="SubConsTable">
+                <thead class="  table-info th-sti">
+                    <tr class="table-border-bottom">
+                        <th width="55%">SubCon</th>
+                        <th width="20%">No Of operations</th>
+                        <th width="20%">Preferred SubCon</th>
+                        <th width="5%"></th>
+                    </tr>
+                </thead>class="col-md-12"
+                <tbody>
+                </tbody>
+            </table>
+        </div>
+        <div class="col-md-12 text-end">
+            <button data-addedit="Add" id="addSubCon"  class="btn btn-sm btn-primary mt-2" data-bs-toggle="modal" data-bs-target="#add-subcon" disabled>Add Sub Con</button>
+        </div>
+    </div>*@

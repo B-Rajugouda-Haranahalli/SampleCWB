@@ -1,0 +1,588 @@
+﻿<!--Included in parent page-->
+@model CWB.App.Models.ItemMaster.ManufacturedPartNoDetailVM
+<div class="row mt-n1">
+    <div class="col-md-12">
+        <h5><span id="headingN">New</span> Manufactured Part No Details</h5>
+    </div>
+    <!-- ============================= -->
+    <div class="col-md-7 mb-2">
+        <table class="w-75 display-none">
+            <tbody>
+                <tr>
+                    <td>
+                        <label class="form-check-label" for="gp-12a">New RFQ <span class="text-danger"> * </span></label>
+                        <input class="form-check-input mt-1" type="radio" name="cars" value="2" title="" data-plugin="tippy" data-tippy-placement="top">
+                    </td>
+                    <td>
+                        <label class="form-check-label" for="gp-12a">New Product <span class="text-danger"> * </span></label>
+                        <input class="form-check-input mt-1" type="radio" name="cars" value="3" title="" data-plugin="tippy" data-tippy-placement="top">
+                    </td>
+                    <td>
+                        <label class="form-check-label" for="gp-12a">
+                            Upload Existing Production
+                            Part No Details <span class="text-danger"> * </span>
+                        </label>
+                        <input class="form-check-input mt-1" type="radio" name="cars" value="4" title="" data-plugin="tippy" data-tippy-placement="top">
+                    </td>
+                </tr>
+            </tbody>
+        </table>
+    </div>
+    <!-- ============= -->
+    <div class="col-md-2 mb-2">
+        &nbsp;
+    </div>
+    <!-- ============= -->
+</div>
+
+<form method="post" id="ManufPartForm">
+    <div class="row">
+        <label class="form-label col-md-1">Part Type <span class="text-danger">*</span></label>
+        <div class="col-md-3 mb-2">
+            <select class="form-select form-select-sm" asp-for="ManufacturedPartType">
+                <option value="1" id="ManufChildPart" data-plugin="tippy" data-tippy-placement="top" data-tippy="" data-original-title="Use to select if the Part No refers to a Manufactured Child Part or an Assembly - Collection of 2 or more parts assembled, welded, joined together. The Assembly Part no will require the BOM (Bill of Material) to be filled ">
+                    Manufactured Child
+                    Part
+                </option>
+                <!-- ============================ -->
+                <option value="2" id="Assembly" data-plugin="tippy" data-tippy-placement="top" data-tippy="" data-original-title="Use to select if the Part No refers to a Manufactured Child Part or an Assembly - Collection of 2 or more parts assembled, welded, joined together. The Assembly Part no will require the BOM (Bill of Material) to be filled ">Assembly</option>
+            </select>
+        </div>
+        <!-- ===========================  -->
+        <div class="col-md-4 mb-2">
+            @*<button type="button" id="createfep" name="createfep" class="btn btn-sm btn-info" data-bs-toggle="modal" data-bs-target="#existing-part" data-plugin="tippy" data-tippy-placement="top" data-tippy="" data-original-title="Use this create a New Part No from an existing Part No Data. This will automatically copy all the Part No Data other than the Part No. Edit as required ">
+                    Create from Existing
+                    Part
+                </button>*@
+            <button type="button" id="createfep" name="createfep" class="btn btn-sm btn-info" data-bs-toggle="modal" data-bs-target="#existing-part" data-plugin="tippy" data-tippy-placement="top" data-tippy="" data-original-title="Use this create a New Part No from an existing Part No Data. This will automatically copy all the Part No Data other than the Part No. Edit as required " onclick="downloadNLoadExistingParts()">
+                Create from Existing Part
+            </button>
+        </div>
+        <!-- ============================= -->
+        <label class="form-label col-md-1 mb-2 text-end">Status</label>
+        <div class="col-md-3 mb-2">
+            <div class="input-group">
+                <input type="text" id="Status" asp-for="Status" name="Status" class="form-control form-control-sm" value="Active" readonly>
+                <button type="button" id="#" class="btn btn-sm waves-effect waves-light" data-plugin="tippy" data-tippy-placement="top" data-bs-toggle="modal" data-bs-target="#status-info" data-tippy="" data-original-title="Click to see the Status change details">
+                    <i class="fas fa-pencil-alt font-16"></i>
+                </button>
+                <input asp-for="StatusChangeReason" name="StatusChangeReason" id="StatusChangeReason" class="form-control form-control-sm" type="text" placeholder="enter here" hidden>
+            </div>
+        </div>
+        <!-- ============================= -->
+        <!-- ============================= -->
+    </div>
+    <!-- ============================== -->
+
+    <div class="row mt-4">
+        <!-- ========================= -->
+        <div class="col-md-4 dott-bord-r">
+            <div class="row">
+                <label class="form-label col-md-3 mb-2">
+                    Company <span class="text-danger">
+                        *
+                    </span>
+                </label>
+                <div class="col-md-9 mb-2 d-flex align-items-center">
+                    <div class="input-group" style="flex-grow: 1;">
+                        <select class="form-select form-select-sm" id="CompanyId" asp-for="CompanyId" asp-items="@ViewBag.Companies" data-plugin="tippy" data-tippy-placement="top" required="" data-tippy="" data-original-title="Select the Company whose Parts you wish to see. If own Company's Parts to be viewed ... select Self Company">
+                        </select>
+                        <input type="hidden" id="CompanyName" name="CompanyName" value="" />
+                        <input type="hidden" id="PartId" asp-for="PartId" />
+                        <input type="hidden" id="MasterPartType" asp-for="MasterPartType" />
+                        <input type="text" hidden asp-for="ManufacturedPartNoDetailId" />
+                    </div>
+                    <button type="button" id="#" class="btn btn-sm waves-effect waves-light ms-1" data-plugin="tippy" data-tippy-placement="top" data-bs-toggle="modal" data-bs-target="#dialog-company" data-tippy="" data-original-title="Add New Supplier">
+                        <i class="fe-plus-square add-cust-btn"></i>
+                    </button>
+                </div>
+                <!-- ========================= -->
+                <!-- ========================= -->
+                <label class="form-label col-md-3 mb-2">
+                    Part No <span class="text-danger">
+                        *
+                    </span>
+                </label>
+                <div class="col-md-9 mb-2" data-plugin="tippy" data-tippy-placement="top" data-tippy="" data-original-title="Enter the Part Number (No.) - fully or Partially to shortlist the Part Nos">
+                    <input class="form-control form-control-sm" type="text" id="PartNo" asp-for="PartNo" placeholder="enter here">
+                    <span asp-validation-for="PartNo"></span>
+                </div>
+                <!-- ========================= -->
+                <label class="form-label col-md-3 mb-2">
+                    Revision No
+                </label>
+                <div class="col-md-9 mb-2" data-plugin="tippy" data-tippy-placement="top" data-tippy="" data-original-title="Enter the Revision Number (Rev No) for the Part No. If not entered, default of '0' is entered">
+                    <input class="form-control form-control-sm" type="text" id="RevNo" asp-for="RevNo" placeholder="enter here">
+                </div>
+                <!-- ========================= -->
+                <label class="form-label col-md-3 mb-2">Revision Date </label>
+                <div class="col-md-9 mb-2" data-plugin="tippy" data-tippy-placement="top" data-tippy="" data-original-title="Enter the Rev No Date if available">
+                    <input class="form-control form-control-sm" type="date" id="RevDate" asp-for="RevDate">
+                </div>
+                <!-- ========================= -->
+                <label class="form-label col-md-3 mb-2">
+                    Part Description <span class="text-danger">
+                        *
+                    </span>
+                </label>
+                <div class="col-md-9 mb-2" data-plugin="tippy" data-tippy-placement="top" data-tippy="" data-original-title="Enter the Part Description (fully or Partially) to shortlist the Part Nos">
+                    <textarea id="PartDescription" asp-for="PartDescription" class="form-control form-control-sm"></textarea>
+                </div>
+                <label class="form-label col-md-3 mb-2">
+                    Final Part No sold to
+                    Customer
+                </label>
+                <div class="col-md-9 mb-2" data-plugin="tippy" data-tippy-placement="top" data-tippy="" data-original-title="Enter the Part Description (fully or Partially) to shortlist the Part Nos">
+                    <input type="text" id="FinalPartNosoldtoCustomer" asp-for="FinalPartNosoldtoCustomer" hidden />
+
+                    <input type="checkbox" id="checkboxFinalPart" />
+                </div>
+                <!-- ========================= -->
+            </div>
+        </div>
+        <!-- ===================================  -->
+        <div class="col-md-4 dott-bord-r">
+            <div class="row">
+                <label class="form-label col-md-4 mb-2"> Unit of Measurement (UoM)</label>
+                <div class="col-md-8 mb-2 d-flex align-items-center">
+                    <div class="input-group" style="flex-grow: 1;" data-plugin="tippy" data-tippy-placement="top" data-tippy="" data-original-title="Select the Unit of Measurement (UoM). Default is Numbers (Nos)">
+                        <select class="form-select form-select-sm" id="UOMId" asp-for="UOMId" asp-items="@ViewBag.UOMs"></select>
+
+                    </div>
+                    <button type="button" id="addUomPopup" class="btn btn-sm waves-effect waves-light" data-plugin="tippy" data-tippy-placement="top" data-bs-toggle="modal" data-bs-target="#uom" data-tippy="" data-original-title="Add UOM">
+                        <i class="fe-plus-square add-cust-btn"></i>
+                    </button>
+                    <button type="button" id="UomEdit" class="btn btn-sm waves-effect waves-light" data-plugin="tippy" data-tippy-placement="top" data-bs-toggle="modal" data-bs-target="#uom" data-tippy="" data-original-title="Edit UOM">
+                        <i class="fas fa-pen font-18"></i>
+                    </button>
+                </div>
+                <!-- -------------------------------------  -->
+                <label class="form-label col-md-4 mb-2">Finished Weight (Kgs) <span class="text-danger"> * </span></label>
+                <div class="col-md-8 mb-2" data-plugin="tippy" data-tippy-placement="top" data-tippy="" data-original-title="Enter the Finished Weight of the Part No in Kgs">
+                    <input type="text" class="form-control form-control-sm" id="FinishedWeight" asp-for="FinishedWeight" placeholder="enter here" required>
+                </div>
+                <!-- -------------------------------------  -->
+                <hr>
+                <!-- -------------------------------------  -->
+                <div id="ReorderFields">
+                    <label class="form-label col-md-4 mb-2">Reorder Level</label>
+                    <div class="col-md-8 mb-2">
+                        <input class="form-control form-control-sm" type="text" id="ReorderLevel" asp-for="ReorderLevel" placeholder="enter here">
+                    </div>
+                    <!-- -------------------------------------  -->
+                    <label class="form-label col-md-4 mb-2">Reorder Qnty</label>
+                    <div class="col-md-8 mb-2">
+                        <input class="form-control form-control-sm" type="text" id="ReorderQnty" asp-for="ReorderQnty" placeholder="enter here">
+                    </div>
+
+                </div>
+                <!-- -------------------------------------  -->
+            </div>
+        </div>
+        <!-- ===================================  -->
+        <div class="col-md-4 dott-bord-r">
+            <div class="row" id="priceDiv">
+                <label class="form-label col-md-4 mb-2">
+                    Price Settled with
+                    Customer (INR) <span class="text-danger"> * </span>
+                </label>
+                <div class="col-md-8 mb-2">
+                    <input class="form-control form-control-sm" type="text" id="PriceSettledwithCustomer_INR" asp-for="PriceSettledwithCustomer_INR" placeholder="enter here">
+                </div>
+            </div>
+        </div>
+        <!-- ===================================  -->
+    </div>
+    <!-- ============================== -->
+    <!-- ---- end row ----  -->
+    <div class="row">
+        <div class="col-md-1 mb-2">
+            <button class="btn btn-sm btn-outline-dark w-100 display-none" data-bs-toggle="modal" data-bs-target="#tree">Group</button>
+        </div>
+        <div class="col-md-3 mb-2">
+            <input class="form-control form-control-sm display-none" type="text" value="CNMG 120408">
+        </div>
+        <div class="col-md-8 text-end mb-2">
+            @*<button type="button" class="btn btn-sm btn-dark" data-bs-toggle="modal" asp-controller="Masters" asp-action="Index">Exit</button>*@
+            <button class="btn btn-sm btn-primary" title="Use to Save the entered data" id="btnManufPartDetailSubmit" value="Save">Save</button>
+        </div>
+        <!-- ------ end col ----------  -->
+    </div>
+    <!-- ---- end row ----  -->
+</form>
+
+<div class="row">
+    <div class="col-md-12">
+        <div class="table-responsive table-he-250">
+            <table class="table table-sm table-bordered tableFixHead w-100" id="ManufPartDocgrid">
+                <thead class="table-info th-sti text-center">
+                    <tr class="table-border-bottom">
+                        <th>Document Type</th>
+                        <th>Mandatory</th>
+                        <th>Info / Comment</th>
+                        <th>Uploaded by</th>
+                        <th>Uploaded on</th>
+                        <th>View</th>
+                        <th>Download</th>
+                        <th width="5%"></th>
+                    </tr>
+                </thead>
+                <tbody class="text-center">
+                    <!-- ---------- -->
+                    <!-- ---------- -->
+                </tbody>
+            </table>
+        </div>
+        <!-- =========== -->
+        <button class="btn btn-primary btn-sm mt-2" data-bs-toggle="modal"
+                data-bs-target="#doc-item" title="Click to Add a document" data-plugin="tippy"
+                data-tippy-placement="top" id="UploadOrtherDoc">
+            Upload Other Related
+            Documents
+        </button>
+        <!-- =========== -->
+    </div>
+</div>
+
+<!-- /.modal -->
+<div class="modal fade" id="uom" data-bs-backdrop="static" data-bs-keyboard="false" tabindex="-1" aria-labelledby="staticBackdropLabel" style="display: none;" aria-hidden="true">
+    <div class="modal-dialog modal-sm">
+        <div class="modal-content">
+            <div class="modal-header">
+                <h4 class="modal-title" id="mySmallModalLabel">UOM</h4>
+                <button type="button" class="btn-close" data-bs-dismiss="modal" aria-label="Close"></button>
+            </div>
+            <div class="modal-body">
+                <div class="row">
+                    <form id="frmAddUOM" onsubmit="return false;" novalidate="novalidate">
+                        <div class="row">
+                            <label class="form-label col-md-4 mb-2">Name</label>
+                            <div class="col-md-8 mb-2">
+                                <input type="text" class="form-control form-control-sm" placeholder="Enter here" name="Name" id="Name">
+                                <input type="text" hidden="" class="form-control form-control-sm" placeholder="Enter here" name="UOMId" id="UOMId" value="0">
+                            </div>
+                            <!-- ========================= -->
+                            <div class="col text-end">
+                                <button class="btn btn-sm btn-primary" id="SaveUOM">Save</button>
+                            </div>
+                        </div>
+                    </form>
+                    <!-- ========================= -->
+                </div>
+            </div>
+        </div><!-- /.modal-content -->
+    </div><!-- /.modal-dialog -->
+</div><!-- /.modal -->
+
+
+<div class="modal fade" id="status-info" data-bs-backdrop="static" data-bs-keyboard="false" tabindex="-1" aria-labelledby="staticBackdropLabel" style="display: none;" aria-hidden="true">
+    <div class="modal-dialog modal-sm">
+        <div class="modal-content">
+            <div class="modal-header">
+                <h4 class="modal-title" id="mySmallModalLabel">Status Change Reason</h4>
+                <button type="button" class="btn-close" data-bs-dismiss="modal" aria-label="Close"></button>
+            </div>
+            <div class="modal-body">
+                <div class="row">
+                    <label class="form-label col-md-5 mb-2"> Current Status</label>
+                    <div class="col-md-7 mb-2">
+                        <input class="form-control form-control-sm" id="CurrentStatus" type="text" placeholder="enter here" readonly>
+                    </div>
+                    <!-- =============== -->
+                    <label class="form-label col-md-5 mb-2"> New Status *</label>
+                    <div class="col-md-7 mb-2">
+                        <select class="form-select form-select-sm" id="statusPopup" asp-items="ViewBag.Statuses" required>
+                        </select>
+                    </div>
+                    <!-- =============== -->
+                    <label class="form-label col-md-5 mb-2"> Reason *</label>
+                    <div class="col-md-7 mb-2">
+                        <textarea class="form-control form-control-sm" id="statusResasonopup" placeholder="Enter here"></textarea>
+                    </div>
+                    <!-- =============== -->
+                    <div class="col text-end">
+                        <button class="btn btn-sm btn-primary" id="BtnstatusSave">Save</button>
+                    </div>
+                    <!-- =============== -->
+                </div>
+            </div>
+        </div><!-- /.modal-content -->
+    </div><!-- /.modal-dialog -->
+</div>
+
+<div id="doc-item" class="modal fade" data-bs-backdrop="static" data-bs-keyboard="false" tabindex="-1" aria-labelledby="staticBackdropLabel" style="display: none;" aria-hidden="true">
+    <div class="modal-dialog">
+        <div class="modal-content">
+            <div class="modal-header">
+                <h4 class="modal-title" id="standard-modalLabel">Upload Document</h4>
+                <button type="button" class="btn-close" data-bs-dismiss="modal" aria-label="Close"></button>
+            </div>
+            <div class="modal-body">
+                <div class="row">
+                    <!-- ------- -->
+                    <div class="col-md-12">
+                        <!-- =========== -->
+                        <div class="row mt-2">
+                            <label class="col-md-4 form-label mb-2">
+                                Document Type <span class="text-danger">
+                                    *
+                                </span>
+                            </label>
+                            <div class="col-md-8 mb-2" data-plugin="tippy" data-tippy-placement="top" data-tippy="" data-original-title="Indicate the File Content or any relevant info about the Document">
+                                <input type="text" class="form-control form-control-sm" id="DocTypeName" readonly>
+                            </div>
+                            <!-- =========== -->
+                            <label class="col-md-4 form-label mb-2">
+                                Allowed File Extn. <span class="text-danger">
+                                    *
+                                </span>
+                            </label>
+                            <div class="col-md-8 mb-2">
+                                <input type="text" class="form-control form-control-sm" id="FileExtnName" readonly>
+                            </div>
+                            <!-- =========== -->
+                            <label class="col-md-4 form-label mb-2">
+                                Info / Comment<span class="text-danger">
+                                    *
+                                </span>
+                            </label>
+                            <div class="col-md-8 mb-2">
+                                <input type="text" class="form-control form-control-sm" placeholder="Enter  Info / Comment" id="InfoComments">
+                            </div>
+                            <!-- =========== -->
+                            @*<form asp-action="UploadFileToFtp" method="post" enctype="multipart/form-data">*@
+                            <div class="col-md-4 mb-2">
+                                <div class="fileupload btn btn-sm btn-info waves-effect w-100" title="" data-plugin="tippy" data-tippy-placement="top">
+                                    <span><i class="mdi mdi-cloud-upload me-1"></i>Document Upload</span>
+                                    <input type="file" class="upload" name="uploadedFile" id="fileUploadInput" onchange="displayFileName()">
+                                </div>
+                            </div>
+                            <!-- =========== -->
+                            <div class="col-md-8 mb-2">
+                                <input type="text" class="form-control form-control-sm" placeholder="Show uploaded File Name" id="fileNameDisplay" readonly>
+                                <input type="text" id="doclistidFile" hidden />
+                                <input type="text" id="docTypeIdFile" hidden />
+                                <input type="date" id="deletiondate" hidden />
+                            </div>
+                            <!-- =========== -->
+                            <div class="col-md-12 text-end">
+                                <button class="btn btn-sm btn-primary" data-bs-toggle="modal" data-bs-target="#RefDocReason" title="" data-plugin="tippy" data-tippy-placement="top" hidden id="Resonbtn">
+                                    Reason
+                                </button>
+                                <button class="btn btn-sm btn-primary" data-plugin="tippy" data-tippy-placement="top" data-tippy="" data-original-title="Use to Save the entered data" id="UploadFileSave">Save</button>
+                            </div>
+                            @*</form>*@
+                            <!-- =========== -->
+                        </div>
+                        <!-- =========== -->
+                        <!-- =========== -->
+                        <div class="row mt-2 display-none">
+                            <div class="col-md-5">
+                                <button class="btn btn-sm btn-info w-100">Create New Document</button>
+                            </div>
+                            <div class="col-md-5">
+                                <button class="btn btn-sm btn-purple w-100" data-bs-toggle="modal" data-bs-target="#task-rou">Task Document Creation <span class="badge bg-primary rounded-circle noti-icon-badge m-l-10">5</span> </button>
+                            </div>
+                        </div>
+                        <!-- =========== -->
+                    </div>
+                    <!-- ------- -->
+                </div>
+            </div>
+        </div><!-- /.modal-content -->
+    </div><!-- /.modal-dialog -->
+</div>
+
+<div class="modal fade modal-fullscreen-xl-down" id="viewDoc" data-bs-backdrop="static" data-bs-keyboard="false" tabindex="-1" aria-labelledby="staticBackdropLabel" aria-hidden="true">
+    <div class="modal-dialog modal-fullscreen">
+        <div class="modal-content bxs-modal">
+            <div class="modal-header">
+                <h4 class="modal-title" id="mySmallModalLabel">View Documents</h4>
+                <button type="button" class="btn-close" data-bs-dismiss="modal" aria-label="Close"></button>
+            </div>
+            <div class="modal-body">
+                <div class="row">
+                    <!-- ========================= -->
+                    <div class="col-md-12 dott-bord-r">
+                        <div class="table-responsive table-he-150">
+                            <table class="table table-sm table-bordered w-100 text-center">
+                                <thead class="table-info th-sti">
+                                    <tr class="table-border-bottom">
+                                    </tr>
+                                </thead>
+                                <tbody>
+                                    <tr>
+                                        <td>Document Type : <span id="DocTypenameText"></span></td>
+                                        <td>Uploaded by <span id="UploadByText"></span> on <span id="UpdatedDateText"></span></td>
+                                        <td>Part No / Desc : <span id="PartNoText"></span> / <span id="PartDescText"></span></td>
+                                        <td>Customer : <span id="CustomerText"></span> </td>
+                                        <td>PO No / WO No : <span id="PoNoText"></span></td>
+                                    </tr>
+                                    <tr>
+                                        <td>Retention Date : <span id="RetentionDateText"></span></td>
+                                        <td>Routing No : <span id="RoutingNameText"></span></td>
+                                        <td>Opr No : <span id="OprNoText"></span></td>
+                                    </tr>
+                                </tbody>
+                            </table>
+                        </div>
+                    </div>
+                    <!-- ========================= -->
+                    <div class="col-md-12">
+                        <iframe id="fileViewer" src="" style="width: 100vw; height: 100vh;"></iframe>
+                        @*<img src="https://skala.or.id/wp-content/uploads/2024/01/dummy-post-square-1-1.jpg" alt="img" style="width: 100%; height: 400px;">*@
+                    </div>
+                    <!-- ========================= -->
+                </div>
+            </div>
+        </div><!-- /.modal-content -->
+    </div><!-- /.modal-dialog -->
+</div>
+
+
+<div class="modal fade" id="RefDocReason" data-bs-backdrop="static" data-bs-keyboard="false" tabindex="-1" aria-labelledby="staticBackdropLabel" style="display: none;" aria-hidden="true">
+    <div class="modal-dialog">
+        <div class="modal-content bxs-modal">
+            <div class="modal-header">
+                <h4 class="modal-title" id="fullWidthModalLabel">Reference / Master File Replacement </h4>
+                <button type="button" class="btn-close" data-bs-dismiss="modal" aria-label="Close"></button>
+            </div>
+            <div class="modal-body">
+                <div class="row">
+                    <!-- ========================= -->
+                    <label class="form-label col-md-5 mb-2">Reason for File Replacement <span class="text-danger">*</span> </label>
+                    <div class="col-md-6 mb-2">
+                        <select class="form-select form-select-sm" aria-label="form-select-sm" title="" id="DocReasonName"
+                                data-plugin="tippy" data-tippy-placement="top">
+                        </select>
+                    </div>
+                    <!-- ========================= -->
+                    <label class="form-label col-md-5 mb-2">Comment </label>
+                    <div class="col-md-6 mb-2">
+                        <input type="text" id="RefDoc" class="form-control form-control-sm" placeholder="Enter here" />
+                    </div>
+                    <!-- ========================= -->
+                    <div class="col-md-11 text-end">
+                        <input type="text" id="RefDocId" hidden />
+                        <button class="btn btn-sm btn-primary" id="RefDocSave">Save</button>
+                    </div>
+                    <!-- ========================= -->
+                </div>
+                <!-- end row -->
+            </div>
+            <!-- body end -->
+        </div>
+        <!-- /.modal-content -->
+    </div>
+    <!-- /.modal-dialog -->
+</div>
+
+
+<div class="modal fade" id="RefLogPopup" data-bs-backdrop="static" data-bs-keyboard="false" tabindex="-1" aria-labelledby="staticBackdropLabel" style="display: none;" aria-hidden="true">
+    <div class="modal-dialog">
+        <div class="modal-content bxs-modal">
+            <div class="modal-header">
+                <h4 class="modal-title" id="mySmallModalLabel">Reference File Replacement Log </h4>
+                <button type="button" class="btn-close" data-bs-dismiss="modal" aria-label="Close"></button>
+            </div>
+            <div class="modal-body">
+                <div class="row">
+                    <!-- ========================= -->
+                    <div class="col-md-6 mb-2">
+                        <label class="form-label mb-1">Document Type Name : <span id="SpanDocType"></span> </label>
+                    </div>
+                    <!-- -----------------  -->
+                    <div class="col-md-6 mb-2">
+                        <label class="form-label mb-1">Part No : <span id="SpanDocPart"></span> </label>
+                    </div>
+                    <!-- -----------------  -->
+                    <!-- ========================= -->
+                    <div class="col-md-12">
+                        <div class="table-responsive table-he-150">
+                            <table class="table table-sm table-bordered w-100 text-center" id="RefLogGrid">
+                                <thead class="  table-info th-sti">
+                                    <tr class="table-border-bottom">
+                                        <th>Date</th>
+                                        <th>By</th>
+                                        <th>Action</th>
+                                        <th>Reason</th>
+                                        <th>Comment</th>
+                                    </tr>
+                                </thead>
+                                <tbody>
+                                    <!-- ----------- -->
+                                </tbody>
+                            </table>
+                        </div>
+                        <!-- ========================= -->
+                    </div>
+                    <!-- ========================= -->
+                    <!-- ========================= -->
+                </div>
+            </div>
+        </div><!-- /.modal-content -->
+    </div><!-- /.modal-dialog -->
+</div>
+
+<template id="maufDocUploadRow">
+    <tr>
+        <td>{documentTypeName}</td>
+        <td>{mandatory}</td>
+        <td>{comments}</td>
+        <td>{uploadedBy}</td>
+        <td>{updatedOnStr}</td>
+        <td>
+            @*<i class="fas fa-eye btn btn-sm" data-bs-toggle="modal"
+                data-bs-target="#viewDoc"></i>*@
+            <a href="javascript:void(0);" data-filename="{fileName}" data-doctypename="{documentTypeName}" data-customername="{companyName}"
+               data-partno="{partNo}" data-partdesc="{partDesc}" data-routingname="{routingName}" data-retdate="{retentionDateStr}"
+               data-oprno="{oprNo}"
+               onclick="viewFile(this)">
+                <i class="fas fa-eye btn btn-sm"></i><!--style="color: #007bff;"-->
+            </a>
+        </td>
+        <td>
+            <a href="javascript:void(0);" data-filename="{fileName}" onclick="downloadFile(this)">
+                <i class="fas fa-download btn btn-sm"></i><!--style="color: #007bff;"-->
+            </a>
+        </td>
+        <td>
+            <div class="dropdown float-center">
+                <a href="#" class="dropdown-toggle arrow-none card-drop"
+                   data-bs-toggle="dropdown" aria-expanded="false">
+                    <i class="mdi mdi-dots-vertical"></i>
+                </a>
+                <div class="dropdown-menu dropdown-menu-end">
+                    <!-- item-->
+                    <a href="javascript:void(0);" class="dropdown-item" data-bs-toggle="modal" data-bs-target="#doc-item"
+                       data-filename="{fileName}" data-doctypename="{documentTypeName}" data-comments="{comments}" data-fileextnname="{fileExtnName}"
+                       data-documenttypeid="{documentTypeId}" data-upload="1" data-deletiondate="{deletionDate}"
+                       data-doclistid="{docListId}" data-retdate="{retentionDateStr}">Upload</a>
+                    <!-- item-->
+                    <a href="javascript:void(0);" class="dropdown-item" data-bs-toggle="modal" data-bs-target="#doc-item"
+                       data-filename="{fileName}" data-doctypename="{documentTypeName}" data-comments="{comments}" data-fileextnname="{fileExtnName}"
+                       data-documenttypeid="{documentTypeId}" data-upload="2" data-deletiondate="{deletionDate}"
+                       data-doclistid="{docListId}" data-retdate="{retentionDateStr}">Edit</a>
+                    <!-- item-->
+                    <a href="javascript:void(0);" class="dropdown-item" data-doclistid="{docListId}"
+                       onclick="DeleteDocList(this)">Delete</a>
+                    <!-- item-->
+                    <a href="javascript:void(0);" class="dropdown-item" data-bs-toggle="modal" data-bs-target="#RefLogPopup"
+                       data-doctypename="{documentTypeName}" data-documenttypeid="{documentTypeId}"
+                       data-doclistid="{docListId}">View Log</a>
+                </div>
+            </div>
+        </td>
+    </tr>
+</template>
+
+
+<template id="RefLogGridRow">
+    <tr style="text-align: center;">
+        <td>{date}</td>
+        <td>{uploadedByStr}</td>
+        <td>{action}</td>
+        <td>{reasonName}</td>
+        <td>{comments}</td>
+    </tr>
+</template>

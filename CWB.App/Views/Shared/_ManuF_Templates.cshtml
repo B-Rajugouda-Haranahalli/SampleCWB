@@ -1,0 +1,57 @@
+﻿<template id="csrmsearch">
+    <button class="btn btn-sm btn-outline-purple" title="Select the Customer Supplied Input Material Type" data-plugin="tippy" data-tippy-placement="top" type="button" data-bs-toggle="modal" data-bs-target="#rm-select-cust">Select Input Part No *</button>
+</template>
+
+<template id="owrmsearch">
+    <button class="btn btn-sm btn-outline-purple" title="Select the Input Material Type" data-plugin="tippy" data-tippy-placement="top" type="button" data-bs-toggle="modal" data-bs-target="#rm-select">Select Input Part No *</button>
+</template>
+
+<template id="otmpsearch">
+    <button class="btn btn-sm btn-outline-purple" title="Select Other Part" data-plugin="tippy" data-tippy-placement="top" type="button" data-bs-toggle="modal" data-bs-target="#existing-part" onclick="downloadNLoadExistingParts()">Select Input Part No *</button>
+</template>
+
+<template id="MakeFrom-template">
+    <tr style="text-align: center;">
+        <td><input type="radio" class="form-check-input" name="pref" {checked} disabled></td>
+        <td data-key="MFDescription">{mfDescription}</td>
+        <td data-key="MadeFrom">{madeFrom}</td>
+        <td data-key="InputWeight">{inputWeight}</td>
+        <td data-key="QuantityPerInput">{quantityPerInput}</td>
+        <td data-key="UOM" hidden>{uom}</td>
+        <td>
+            <div class="dropdown float-center">
+                <a href="#" class="dropdown-toggle arrow-none card-drop" data-bs-toggle="dropdown" aria-expanded="false"><i class="mdi mdi-dots-vertical"></i></a>
+                <div class="dropdown-menu dropdown-menu-end">
+                    <!-- item-->
+                    <a href="javascript:void(0);" data-makefromid="{mpMakeFromId}" data-bs-toggle="modal" data-bs-target="#dialog-EditMakeFrom" class="dropdown-item">Edit</a>
+                    <!-- item-->
+                    <a href="javascript:void(0);" data-makefromsid="{mpMakeFromId}" data-bs-toggle="modal" data-bs-target="#dialog-DeleteMakeFrom" class="dropdown-item">Delete</a>
+                    <a href="javascript:void(0);" class="dropdown-item" data-bs-toggle="modal" data-makefromid="{mpMakeFromId}" data-inputpartdesc="{mfDescription}"
+                       data-bs-target="#setPreferredPopUp">
+                        Set
+                        Preferred Input Matl
+                    </a>
+                </div>
+            </div>
+        </td>
+    </tr>
+</template>
+<template id="BOM-template">
+    <tr>
+        <td data-key="BOMPartNo">{bomPartNo}</td>
+        <td data-key="BOMPartDesc">{bomPartDesc}</td>
+        <td data-key="BOMQty">{quantity}</td>
+        <td data-key="UOM">{uom}</td>
+        <td>
+            <div class="dropdown float-center">
+                <a href="#" class="dropdown-toggle arrow-none card-drop" data-bs-toggle="dropdown" aria-expanded="false"><i class="mdi mdi-dots-vertical"></i></a>
+                <div class="dropdown-menu dropdown-menu-end">
+                    <!-- item-->
+                    <a href="javascript:void(0);" data-bomid="{mpbomId}" data-bs-toggle="modal" data-bs-target="#dialog-EditBOM" class="dropdown-item">Edit</a>
+                    <!-- item-->
+                    <a href="javascript:void(0);" data-bomid="{mpbomId}" data-bs-toggle="modal" data-bs-target="#dialog-DeleteBOM" class="dropdown-item">Delete</a>
+                </div>
+            </div>
+        </td>
+    </tr>
+</template>

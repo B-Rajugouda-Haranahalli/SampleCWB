@@ -1,0 +1,27 @@
+﻿<div class="modal fade" id="po-hold" data-bs-backdrop="static" data-bs-keyboard="false" tabindex="-1"
+     aria-labelledby="staticBackdropLabel" aria-hidden="true">
+    <div class="modal-dialog ">
+        <div class="modal-content bxs-modal">
+             <form id="poholdform" onclick="return false;">
+            <div class="modal-header">
+                <h5 class="modal-title" id="staticBackdropLabel">Reason for PO Hold / Resume *</h5>
+                <button type="button" id="btnholdclose" class="btn-close" data-bs-dismiss="modal" aria-label="Close"></button>
+            </div>
+            <div class="modal-body">
+                    <textarea id="POHComment" name="Comment" class="form-control" placeholder="Enter Comments"></textarea>
+            </div>
+                <input type="text" hidden id="POLogId" name="POLogId" value="0" />
+                <input type="text" hidden id="POHCustomerOrderId" name="CustomerOrderId" value="0" />
+                <input type="text" hidden id="POHSalesOrderId" name="SalesOrderId" value="0" />
+                <input type="text" hidden id="POHUser" name="User" value="Admin" />
+                <input type="text" hidden id="POHNewValue" name="NewValue" value="0" />
+                <input type="text" hidden id="POHOldValue" name="OldValue" value="0" />
+                <input type="text" hidden id="POHEvent" name="Event" value="HoldResume" />
+                <input type="text" hidden id="POHPartId" name="PartId" value="0" />
+            <div class="modal-footer">
+                <button id="BtnPOHold" type="button" class="btn btn-primary btn-sm">Save</button>
+            </div>
+            </form>
+        </div>
+    </div>
+</div>

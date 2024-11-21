@@ -1,0 +1,30 @@
+failed to get console mode for stdout: The handle is invalid.
+REPOSITORY                        TAG       IMAGE ID       CREATED             SIZE
+cwbapigateway                     latest    bd654844cc2d   About an hour ago   208MB
+cwbapp                            latest    ee8866f7f51b   About an hour ago   287MB
+cwbidentity                       latest    27b406085de1   About an hour ago   278MB
+cwbmasters                        latest    61a45b245c30   About an hour ago   259MB
+cwbmodules                        latest    4f657df14d55   About an hour ago   259MB
+cwbcompanysettings                latest    f389c1c38cdc   About an hour ago   259MB
+cwbsimulation                     latest    33bf272d7e0c   2 hours ago         259MB
+cwbtenant                         latest    ed7068001241   2 hours ago         259MB
+cfixtrader/test                   latest    9ff878d5aaf0   7 hours ago         217MB
+test                              dev       9ff878d5aaf0   7 hours ago         217MB
+mcr.microsoft.com/dotnet/aspnet   8.0       6eedb7553b12   3 days ago          217MB
+cwbapigateway                     dev       77ad6c7edb81   4 months ago        205MB
+cfixtrader/cwbsimulation          latest    dce3b7adf4c6   4 months ago        208MB
+cwbsimulation                     dev       dce3b7adf4c6   4 months ago        208MB
+cwbcompanysettings                dev       499535428777   4 months ago        208MB
+cwbmasters                        dev       d54e78cc1b9a   4 months ago        208MB
+cwbtenant                         dev       974b70be0b5a   4 months ago        208MB
+cwbmodules                        dev       82f90de87f53   4 months ago        208MB
+cwbidentity                       dev       b5409db8e55b   4 months ago        208MB
+cwbapp                            dev       9cc0cab1f8e7   4 months ago        208MB
+cfixtrader/mysql                  latest    b2013ac99101   4 months ago        577MB
+mysql                             latest    b2013ac99101   4 months ago        577MB
+docker/welcome-to-docker          latest    912b66cfd46e   8 months ago        13.4MB
+obsidiandynamics/kafdrop          latest    24a78b254f20   11 months ago       645MB
+mcr.microsoft.com/dotnet/aspnet   3.1       454a55eab920   14 months ago       208MB
+zookeeper                         3.7.0     04ec824d47af   20 months ago       277MB
+mcr.microsoft.com/dotnet/aspnet   5.0       29de1b9e96c0   21 months ago       205MB
+bitnami/kafka                     2.7.0     b5383e9d488d   2 years ago         578MB

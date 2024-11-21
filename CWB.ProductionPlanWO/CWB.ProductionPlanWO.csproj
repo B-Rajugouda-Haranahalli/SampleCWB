@@ -1,0 +1,33 @@
+<Project Sdk="Microsoft.NET.Sdk.Web">
+
+	<PropertyGroup>
+		<TargetFramework>netcoreapp3.1</TargetFramework>
+		<DockerDefaultTargetOS>Linux</DockerDefaultTargetOS>
+		<DockerfileContext>..\CWB</DockerfileContext>
+		<UserSecretsId>d10121ae-e019-4cd8-919f-87d9ed220c75</UserSecretsId>
+	</PropertyGroup>
+
+	<ItemGroup>
+		<PackageReference Include="AutoMapper" Version="12.0.1" />
+		<PackageReference Include="AutoMapper.Extensions.Microsoft.DependencyInjection" Version="12.0.1" />
+		<PackageReference Include="Microsoft.AspNetCore.Mvc.NewtonsoftJson" Version="3.1.25" />
+		<PackageReference Include="Microsoft.EntityFrameworkCore" Version="5.0.15" />
+		<PackageReference Include="Microsoft.VisualStudio.Azure.Containers.Tools.Targets" Version="1.11.1" />
+		<PackageReference Include="Newtonsoft.Json" Version="13.0.1" />
+		<PackageReference Include="Pomelo.EntityFrameworkCore.MySql" Version="5.0.4" />
+	</ItemGroup>
+
+	<ItemGroup>
+		<ProjectReference Include="..\CWB.CommonUtils\CWB.CommonUtils.csproj" />
+		<ProjectReference Include="..\CWB.Constants\CWB.Constants.csproj" />
+		<ProjectReference Include="..\CWB.ExceptionHandling\CWB.ExceptionHandling.csproj" />
+		<ProjectReference Include="..\CWB.Extensions\CWB.Extensions.csproj" />
+		<ProjectReference Include="..\CWB.Logging\CWB.Logging.csproj" />
+	</ItemGroup>
+
+	<ItemGroup>
+		<Folder Include="CompanySettings\" />
+	</ItemGroup>
+
+
+</Project>

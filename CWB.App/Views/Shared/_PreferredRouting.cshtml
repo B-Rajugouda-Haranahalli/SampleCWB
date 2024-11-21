@@ -1,0 +1,37 @@
+﻿<div class="modal fade" id="preferred-rout" role="dialog" data-backdrop="static" data-keyboard="false" tabindex="-1" aria-labelledby="staticBackdropLabel" aria-hidden="true">
+    <div class="modal-dialog">
+        <div class="modal-content bxs-modal">
+            <div class="modal-header">
+                <h4 class="modal-title" id="mySmallModalLabel">Preferred Routing</h4>
+                <button id="BtnPreferredRoutingClose" type="button" class="btn-close" data-dismiss="modal" aria-label="Close"></button>
+            </div>
+            <div class="modal-body">
+                <form method="post" id="FormPreferredRouting" onsubmit="return false;">
+                    <div class="row">
+                        <label class="form-label col-md-10 mb-2">Make Routing Name <span id="RoutingNameText" style="font-weight: bold; color:black;"></span>  as Preferred Routing</label>
+                        <div class="col-md-2 mb-1">
+                            <input id="CheckPPreferredRouting" class="form-check-input"
+                                   type="checkbox" title=""
+                                   data-plugin="tippy" data-tippy-placement="top">
+                            <input id="PRoutingName" name="RoutingName" type="text" title="Enter the Routing Name ... It has to be Unique" data-plugin="tippy" data-tippy-placement="top" hidden>
+                            <input type="text" hidden id="PManufacturedPartId" name="ManufacturedPartId" value="0" />
+                            <input type="text" hidden id="PMKPartId" name="MKPartId" value="0" />
+                            <input type="text" hidden id="POrigRoutingId" name="OrigRoutingId" value="0" />
+                            <input type="text" hidden id="PStatus" name="Status" value="Active" />
+                            <input type="text" hidden id="PPreferredRouting" name="PreferredRouting" value="1" />
+
+                            <input type="text" hidden id="PRoutingId" name="RoutingId" value="0" />
+                        </div>
+                        <!-- =========  -->
+                        <div class="col text-end mt-2">
+                            <button id="BtnPRoutingSave" type="button" class="btn btn-sm btn-primary">Save</button>
+                        </div>
+                        <!-- =========  -->
+                    </div>
+                </form>
+            </div>
+        </div>
+        <!-- /.modal-content -->
+    </div>
+    <!-- /.modal-dialog -->
+</div>

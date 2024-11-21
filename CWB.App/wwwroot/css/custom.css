@@ -1,0 +1,489 @@
+.range-wrap {
+    position: relative;
+    width: 90%;
+    padding: 0.5em 0; /*  Giving more room for hover  */
+    max-width: 300px;
+}
+
+    /* Custom Bar */
+    .range-wrap::before {
+        content: "";
+        background: linear-gradient(to right, #0145b8, #00e5e0, #00f25e);
+        width: 100%;
+        height: 5px;
+        display: block;
+        position: absolute;
+        border-radius: 4px;
+        top: 50%;
+        transform: translateY(-50%);
+        transition: height 100ms ease;
+    }
+
+
+
+/*  Hide Original */
+.range {
+    width: 100%;
+    cursor: pointer;
+    opacity: 0;
+}
+
+.bubble {
+    background: white;
+    border: 3px solid #cbd2da;
+    position: absolute;
+    border-radius: 50%;
+    width: 2rem;
+    height: 2rem;
+    top: 50%;
+    transform: translateY(-50%);
+    pointer-events: none; /* Remove pointer events on Bubble so user can click on the actual thumb beaneath it!  */
+    color: transparent;
+    display: grid;
+    place-items: center; /*  Place the number on the center  */
+    font-weight: bold;
+    transition: color 100ms ease, transform 100ms ease;
+    user-select: none; /*  Prevent Accidentally highlighting the number while sliding the cursor  */
+}
+
+.range-wrap:hover .bubble,
+.range-wrap:focus .bubble {
+    color: black;
+    transform: translateY(-50%) scale(1);
+    padding: 0.1em;
+}
+
+.work_laod_date {
+    font-size: 10px;
+}
+
+.workload_completion {
+    font-size: 9px;
+}
+
+.workload_actual_hrs {
+    font-size: 10px;
+}
+
+.workload_planned_hrs {
+    font-size: 10px;
+}
+
+.repetative_table td {
+    border-bottom-width: 0px;
+}
+
+.my-custom-scrollbar {
+    position: relative;
+    height: 300px;
+    overflow: auto;
+}
+
+.table-wrapper-scroll-y {
+    display: block;
+}
+
+.scroll {
+    overflow-y: scroll;
+    scroll-behavior: smooth;
+    height: 100px;
+}
+
+.chk_list tr {
+    cursor: all-scroll;
+}
+
+
+.supp_file {
+    font-size: 30px;
+}
+
+.work_load_date {
+    font-size: 5px;
+}
+
+.supp_badge {
+    position: relative;
+    left: -15px;
+    top: -10px;
+}
+
+.check_list {
+    font-size: 30px;
+}
+
+.check_list_badge {
+    position: relative;
+    left: -15px;
+    top: -10px;
+}
+
+.outcome {
+    font-size: 30px;
+}
+
+.outcome_badge {
+    position: relative;
+    left: -15px;
+    top: -10px;
+}
+
+.workload {
+    font-size: 20px;
+}
+
+.repetative {
+    font-size: 30px;
+}
+
+.p {
+    font-size: 10px;
+}
+
+.mySlides2 .btn {
+    width: 30px;
+    padding: 5px;
+}
+
+.mySlides2 td {
+    border-top-width: 0px;
+}
+
+#square {
+    font-size: 20px;
+}
+
+    #square.blue {
+        color: blue;
+    }
+
+#up {
+    font-size: 20px;
+}
+
+    #up.blue {
+        color: blue;
+    }
+
+#file {
+    font-size: 20px;
+}
+
+    #file.blue {
+        color: blue;
+    }
+
+#bookmark {
+    font-size: 20px;
+}
+
+    #bookmark.blue {
+        color: blue;
+    }
+
+.otcm tr {
+    cursor: all-scroll;
+}
+
+.lap table td {
+    border-bottom-width: 0px
+}
+
+.mob table td {
+    border-bottom-width: 0px
+}
+/* =================================================================================== */
+html {
+    scrollbar-color: #e9f1f5 #fffbfb;
+    scrollbar-width: 5px !important;
+}
+
+.fon-we-700 {
+    font-weight: 700;
+}
+
+.fon-we-500 {
+    font-weight: 500;
+}
+
+.fon-we-600 {
+    font-weight: 600;
+}
+
+.fon-we-100 {
+    font-weight: 100;
+}
+
+.dott-bord-r {
+    border-right: 1px dotted rgb(114, 114, 114);
+}
+
+.bord {
+    border: 1px dotted rgb(219, 219, 219);
+    border-left: 0;
+    padding: 25px;
+}
+
+.bom-ser-1 {
+    font-size: 24px;
+    margin-top: -9px;
+}
+
+.add-cust-btn {
+    font-size: 24px;
+    margin-top: -3px;
+}
+
+.serch-part-btn {
+    font-size: 20px !important;
+    margin-top: -9px;
+}
+
+.bxs-modal {
+    box-shadow: 1px 2px 2px 2px rgb(214, 214, 214) !important;
+    border-radius: 10px !important;
+}
+
+textarea {
+    height: 15px;
+}
+
+.textarea-h {
+    height: 95px !important;
+}
+
+.table-he-250 {
+    max-height: 250px;
+    overflow: auto;
+}
+
+.table-he-150 {
+    overflow: auto;
+    max-height: 150px;
+}
+
+.table-he-130 {
+    overflow: auto;
+    max-height: 130px;
+}
+
+.table-he-180 {
+    overflow: auto;
+    max-height: 180px;
+}
+
+.tableFixHead {
+    border-collapse: collapse;
+    border-spacing: 0;
+    border: 1px solid rgb(83, 13, 129);
+}
+
+.th-sti {
+    position: sticky;
+    top: 0;
+    z-index: 10;
+    vertical-align: top !important;
+}
+
+.pd-left-30 {
+    padding-left: 30px;
+}
+
+.table-border-bottom {
+    border-bottom: 2px solid rgb(83, 13, 129) !important;
+}
+
+.table-border-bottom-1 {
+    border-bottom: 1px solid rgb(83, 13, 129) !important;
+}
+
+
+.m-l-5 {
+    margin-left: 5px !important;
+}
+
+.m-l-10 {
+    margin-left: 10px !important;
+}
+
+.m-l-15 {
+    margin-left: 8px !important;
+}
+
+.m-l-2 {
+    margin-left: 2px !important;
+}
+
+.m-r-5 {
+    margin-right: 5px !important;
+}
+
+.m-r-10 {
+    margin-right: 10px !important;
+}
+
+.m-r-15 {
+    margin-right: 15px !important;
+}
+
+.p-r-5 {
+    padding-right: 5px !important;
+}
+
+.p-r-8 {
+    padding-right: 8px !important;
+}
+
+.p-l-5 {
+    padding-left: 5px;
+}
+
+.div-max-auto-sc {
+    max-height: 150px;
+    overflow: auto;
+}
+
+.color-purple {
+    color: purple;
+}
+
+.cursor-pointer {
+    cursor: pointer;
+}
+
+.cursor-move {
+    cursor: move;
+}
+
+.display-none {
+    display: none !important;
+}
+
+.modal-border {
+    border: 2px ridge #333 !important;
+}
+
+.text-left {
+    text-align: left !important;
+}
+
+.alert-custom {
+    padding: 1px !important;
+    text-align: center;
+    font-size: 12px;
+}
+
+.mtn-20 {
+    margin-top: -20px !important;
+}
+
+.mtn-17 {
+    margin-top: -17px !important;
+}
+
+.mtn-8 {
+    margin-top: -8px !important;
+}
+
+.mtn-4 {
+    margin-top: -4px !important;
+}
+
+.mt-2 {
+    margin-top: 1px !important;
+}
+
+.bor-top {
+    border-top: 1px solid rgb(224, 224, 224);
+}
+
+.bor-btm {
+    border-bottom: 1px ridge #670000;
+}
+
+.hr-color {
+    margin: 10px !important;
+    color: rgb(168, 128, 201);
+}
+
+.hr-color-2 {
+    margin: 10px !important;
+    color: #ddd;
+}
+
+.height-300 {
+    height: 300px;
+}
+
+.height-200 {
+    height: 200px;
+}
+
+.height-400 {
+    height: 400px;
+}
+
+.h-7 {
+    height: 7px !important;
+}
+
+.color-white {
+    color: white;
+}
+
+.bg-yellow {
+    background-color: rgb(233, 253, 9) !important;
+}
+
+.max-height-100 {
+    max-height: 100px;
+    overflow: auto;
+}
+
+.max-height-200 {
+    max-height: 200px;
+    overflow: auto;
+}
+
+.left-side-menu {
+    z-index: 20 !important;
+}
+
+.tcenter {
+    margin-left: auto;
+    margin-right: auto;
+}
+
+.w-150 {
+    width: 150% !important;
+}
+
+.color-green {
+    color: rgb(137, 215, 137);
+}
+
+.color-blue {
+    color: rgb(151, 151, 211);
+}
+
+.color-red {
+    color: rgb(224, 124, 124);
+}
+
+.bg-purple-1 {
+    background-color: purple !important;
+}
+
+.bg-grey {
+    background-color: #e1dcdc !important;
+}
+
+.bottom-das-border {
+    border-bottom: 1px dashed black;
+}
+
+.dis-box {
+    border: 1px solid #000;
+    padding: 10px;
+    text-align: center;
+}

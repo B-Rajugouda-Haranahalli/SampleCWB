@@ -1,0 +1,384 @@
+failed to get console mode for stdout: The handle is invalid.
+[
+    {
+        "Id": "0a48a92cbf3606ae78eb8e70a386d3e53c5e3fc18ce27fbdb753c582b37de168",
+        "Created": "2024-02-16T20:28:05.1999452Z",
+        "Path": "tail",
+        "Args": [
+            "-f",
+            "/dev/null"
+        ],
+        "State": {
+            "Status": "running",
+            "Running": true,
+            "Paused": false,
+            "Restarting": false,
+            "OOMKilled": false,
+            "Dead": false,
+            "Pid": 5861,
+            "ExitCode": 0,
+            "Error": "",
+            "StartedAt": "2024-02-16T20:28:34.6341097Z",
+            "FinishedAt": "0001-01-01T00:00:00Z"
+        },
+        "Image": "sha256:9cc0cab1f8e75ba38874f410846190e4a718e94b83310789ac44212017178c50",
+        "ResolvConfPath": "/var/lib/docker/containers/0a48a92cbf3606ae78eb8e70a386d3e53c5e3fc18ce27fbdb753c582b37de168/resolv.conf",
+        "HostnamePath": "/var/lib/docker/containers/0a48a92cbf3606ae78eb8e70a386d3e53c5e3fc18ce27fbdb753c582b37de168/hostname",
+        "HostsPath": "/var/lib/docker/containers/0a48a92cbf3606ae78eb8e70a386d3e53c5e3fc18ce27fbdb753c582b37de168/hosts",
+        "LogPath": "/var/lib/docker/containers/0a48a92cbf3606ae78eb8e70a386d3e53c5e3fc18ce27fbdb753c582b37de168/0a48a92cbf3606ae78eb8e70a386d3e53c5e3fc18ce27fbdb753c582b37de168-json.log",
+        "Name": "/CWB.App",
+        "RestartCount": 0,
+        "Driver": "overlay2",
+        "Platform": "linux",
+        "MountLabel": "",
+        "ProcessLabel": "",
+        "AppArmorProfile": "",
+        "ExecIDs": [
+            "d632af2b3f1beafc658a5060fadc6a6e1bf84735658bdb6ceb9056f05a3cde75"
+        ],
+        "HostConfig": {
+            "Binds": [
+                "C:\\Users\\Admin\\AppData\\Roaming/ASP.NET/Https:/root/.aspnet/https:ro",
+                "D:\\projects\\working_copy\\CWB\\CWB.App:/app:rw",
+                "C:\\Program Files\\Microsoft Visual Studio\\2022\\Community\\MSBuild\\Sdks\\Microsoft.Docker.Sdk\\tools\\TokenService.Proxy\\linux-x64\\net6.0:/TokenService.Proxy:ro",
+                "C:\\Program Files\\Microsoft Visual Studio\\2022\\Community\\MSBuild\\Sdks\\Microsoft.Docker.Sdk\\tools\\HotReloadProxy\\linux-x64\\net6.0:/HotReloadProxy:ro",
+                "C:\\Program Files\\Microsoft Visual Studio\\2022\\Community\\Common7\\IDE\\CommonExtensions\\Microsoft\\HotReload:/HotReloadAgent:ro",
+                "C:\\Users\\Admin\\AppData\\Roaming/Microsoft/UserSecrets:/root/.microsoft/usersecrets:ro",
+                "D:\\projects\\working_copy\\CWB:/src:rw",
+                "C:\\Users\\Admin\\vsdbg\\vs2017u5:/remote_debugger:rw",
+                "C:\\Users\\Admin\\.nuget\\packages\\:/.nuget/packages:ro",
+                "C:\\Users\\Admin\\AppData\\Roaming/ASP.NET/Https:/home/app/.aspnet/https:ro",
+                "C:\\Users\\Admin\\AppData\\Roaming/Microsoft/UserSecrets:/home/app/.microsoft/usersecrets:ro"
+            ],
+            "ContainerIDFile": "",
+            "LogConfig": {
+                "Type": "json-file",
+                "Config": {}
+            },
+            "NetworkMode": "cwb-network",
+            "PortBindings": {
+                "443/tcp": [
+                    {
+                        "HostIp": "0.0.0.0",
+                        "HostPort": "9004"
+                    },
+                    {
+                        "HostIp": "0.0.0.0",
+                        "HostPort": "0"
+                    }
+                ],
+                "80/tcp": [
+                    {
+                        "HostIp": "0.0.0.0",
+                        "HostPort": "9005"
+                    },
+                    {
+                        "HostIp": "0.0.0.0",
+                        "HostPort": "0"
+                    }
+                ]
+            },
+            "RestartPolicy": {
+                "Name": "always",
+                "MaximumRetryCount": 0
+            },
+            "AutoRemove": false,
+            "VolumeDriver": "",
+            "VolumesFrom": null,
+            "ConsoleSize": [
+                0,
+                0
+            ],
+            "CapAdd": null,
+            "CapDrop": null,
+            "CgroupnsMode": "host",
+            "Dns": null,
+            "DnsOptions": null,
+            "DnsSearch": null,
+            "ExtraHosts": [],
+            "GroupAdd": null,
+            "IpcMode": "private",
+            "Cgroup": "",
+            "Links": null,
+            "OomScoreAdj": 0,
+            "PidMode": "",
+            "Privileged": false,
+            "PublishAllPorts": false,
+            "ReadonlyRootfs": false,
+            "SecurityOpt": null,
+            "UTSMode": "",
+            "UsernsMode": "",
+            "ShmSize": 67108864,
+            "Runtime": "runc",
+            "Isolation": "",
+            "CpuShares": 0,
+            "Memory": 0,
+            "NanoCpus": 0,
+            "CgroupParent": "",
+            "BlkioWeight": 0,
+            "BlkioWeightDevice": null,
+            "BlkioDeviceReadBps": null,
+            "BlkioDeviceWriteBps": null,
+            "BlkioDeviceReadIOps": null,
+            "BlkioDeviceWriteIOps": null,
+            "CpuPeriod": 0,
+            "CpuQuota": 0,
+            "CpuRealtimePeriod": 0,
+            "CpuRealtimeRuntime": 0,
+            "CpusetCpus": "",
+            "CpusetMems": "",
+            "Devices": null,
+            "DeviceCgroupRules": null,
+            "DeviceRequests": null,
+            "MemoryReservation": 0,
+            "MemorySwap": 0,
+            "MemorySwappiness": null,
+            "OomKillDisable": false,
+            "PidsLimit": null,
+            "Ulimits": null,
+            "CpuCount": 0,
+            "CpuPercent": 0,
+            "IOMaximumIOps": 0,
+            "IOMaximumBandwidth": 0,
+            "MaskedPaths": [
+                "/proc/asound",
+                "/proc/acpi",
+                "/proc/kcore",
+                "/proc/keys",
+                "/proc/latency_stats",
+                "/proc/timer_list",
+                "/proc/timer_stats",
+                "/proc/sched_debug",
+                "/proc/scsi",
+                "/sys/firmware",
+                "/sys/devices/virtual/powercap"
+            ],
+            "ReadonlyPaths": [
+                "/proc/bus",
+                "/proc/fs",
+                "/proc/irq",
+                "/proc/sys",
+                "/proc/sysrq-trigger"
+            ]
+        },
+        "GraphDriver": {
+            "Data": {
+                "LowerDir": "/var/lib/docker/overlay2/28ef5b02bc33e5bc73f19ac565d75eb03866496083353fb6cf2962c25503e92a-init/diff:/var/lib/docker/overlay2/l1pezsrvklzlz5bhh3qycls5g/diff:/var/lib/docker/overlay2/4feb598ed616d9bfd5702db63cec71b6f6b0b8c6f87b62db1d3468281f2eec45/diff:/var/lib/docker/overlay2/32200e5990b04d1e5b3c3eb2a47132b77e90e53d5f2c6904fa0a61b42616eae4/diff:/var/lib/docker/overlay2/205cc5c43649a91934a06abd3c7c684f3adfcf78ed6e101c0cdb53e989b0da39/diff:/var/lib/docker/overlay2/0c2b6c58e280a6925c63b04218b0c81e8f8594c7b391c795557e60f3ce8cb73b/diff:/var/lib/docker/overlay2/1543e1eae8a058b789cece44b37d36510ee0db7a3eda2fe4bb4245810783f884/diff",
+                "MergedDir": "/var/lib/docker/overlay2/28ef5b02bc33e5bc73f19ac565d75eb03866496083353fb6cf2962c25503e92a/merged",
+                "UpperDir": "/var/lib/docker/overlay2/28ef5b02bc33e5bc73f19ac565d75eb03866496083353fb6cf2962c25503e92a/diff",
+                "WorkDir": "/var/lib/docker/overlay2/28ef5b02bc33e5bc73f19ac565d75eb03866496083353fb6cf2962c25503e92a/work"
+            },
+            "Name": "overlay2"
+        },
+        "Mounts": [
+            {
+                "Type": "bind",
+                "Source": "C:\\Users\\Admin\\.nuget\\packages\\",
+                "Destination": "/.nuget/packages",
+                "Mode": "ro",
+                "RW": false,
+                "Propagation": "rprivate"
+            },
+            {
+                "Type": "bind",
+                "Source": "C:\\Users\\Admin\\AppData\\Roaming/ASP.NET/Https",
+                "Destination": "/home/app/.aspnet/https",
+                "Mode": "ro",
+                "RW": false,
+                "Propagation": "rprivate"
+            },
+            {
+                "Type": "bind",
+                "Source": "C:\\Users\\Admin\\AppData\\Roaming/ASP.NET/Https",
+                "Destination": "/root/.aspnet/https",
+                "Mode": "ro",
+                "RW": false,
+                "Propagation": "rprivate"
+            },
+            {
+                "Type": "bind",
+                "Source": "D:\\projects\\working_copy\\CWB\\CWB.App",
+                "Destination": "/app",
+                "Mode": "rw",
+                "RW": true,
+                "Propagation": "rprivate"
+            },
+            {
+                "Type": "bind",
+                "Source": "C:\\Program Files\\Microsoft Visual Studio\\2022\\Community\\MSBuild\\Sdks\\Microsoft.Docker.Sdk\\tools\\TokenService.Proxy\\linux-x64\\net6.0",
+                "Destination": "/TokenService.Proxy",
+                "Mode": "ro",
+                "RW": false,
+                "Propagation": "rprivate"
+            },
+            {
+                "Type": "bind",
+                "Source": "C:\\Users\\Admin\\AppData\\Roaming/Microsoft/UserSecrets",
+                "Destination": "/root/.microsoft/usersecrets",
+                "Mode": "ro",
+                "RW": false,
+                "Propagation": "rprivate"
+            },
+            {
+                "Type": "bind",
+                "Source": "D:\\projects\\working_copy\\CWB",
+                "Destination": "/src",
+                "Mode": "rw",
+                "RW": true,
+                "Propagation": "rprivate"
+            },
+            {
+                "Type": "bind",
+                "Source": "C:\\Users\\Admin\\vsdbg\\vs2017u5",
+                "Destination": "/remote_debugger",
+                "Mode": "rw",
+                "RW": true,
+                "Propagation": "rprivate"
+            },
+            {
+                "Type": "bind",
+                "Source": "C:\\Users\\Admin\\AppData\\Roaming/Microsoft/UserSecrets",
+                "Destination": "/home/app/.microsoft/usersecrets",
+                "Mode": "ro",
+                "RW": false,
+                "Propagation": "rprivate"
+            },
+            {
+                "Type": "bind",
+                "Source": "C:\\Program Files\\Microsoft Visual Studio\\2022\\Community\\MSBuild\\Sdks\\Microsoft.Docker.Sdk\\tools\\HotReloadProxy\\linux-x64\\net6.0",
+                "Destination": "/HotReloadProxy",
+                "Mode": "ro",
+                "RW": false,
+                "Propagation": "rprivate"
+            },
+            {
+                "Type": "bind",
+                "Source": "C:\\Program Files\\Microsoft Visual Studio\\2022\\Community\\Common7\\IDE\\CommonExtensions\\Microsoft\\HotReload",
+                "Destination": "/HotReloadAgent",
+                "Mode": "ro",
+                "RW": false,
+                "Propagation": "rprivate"
+            }
+        ],
+        "Config": {
+            "Hostname": "0a48a92cbf36",
+            "Domainname": "",
+            "User": "",
+            "AttachStdin": false,
+            "AttachStdout": true,
+            "AttachStderr": true,
+            "ExposedPorts": {
+                "443/tcp": {},
+                "80/tcp": {}
+            },
+            "Tty": true,
+            "OpenStdin": false,
+            "StdinOnce": false,
+            "Env": [
+                "ASPNETCORE_URLS=https://+:443;http://+:80",
+                "DOTNET_USE_POLLING_FILE_WATCHER=1",
+                "ASPNETCORE_LOGGING__CONSOLE__DISABLECOLORS=true",
+                "NUGET_FALLBACK_PACKAGES=",
+                "ASPNETCORE_ENVIRONMENT=Development",
+                "PATH=/usr/local/sbin:/usr/local/bin:/usr/sbin:/usr/bin:/sbin:/bin",
+                "DOTNET_RUNNING_IN_CONTAINER=true"
+            ],
+            "Cmd": null,
+            "Image": "cwbapp:dev",
+            "Volumes": null,
+            "WorkingDir": "/app",
+            "Entrypoint": [
+                "tail",
+                "-f",
+                "/dev/null"
+            ],
+            "MacAddress": "02:42:ac:12:00:03",
+            "OnBuild": null,
+            "Labels": {
+                "com.docker.compose.config-hash": "0641f432a0a245a480bd99e03c507a473c9acd036a228dc045094fb103d52303",
+                "com.docker.compose.container-number": "1",
+                "com.docker.compose.depends_on": "",
+                "com.docker.compose.image": "sha256:9cc0cab1f8e75ba38874f410846190e4a718e94b83310789ac44212017178c50",
+                "com.docker.compose.oneoff": "False",
+                "com.docker.compose.project": "dockercompose6968028105464890096",
+                "com.docker.compose.project.config_files": "D:\\projects\\working_copy\\CWB\\docker-compose.yml,D:\\projects\\working_copy\\CWB\\docker-compose.override.yml,D:\\projects\\working_copy\\CWB\\obj\\Docker\\docker-compose.vs.debug.g.yml",
+                "com.docker.compose.project.working_dir": "D:\\projects\\working_copy\\CWB",
+                "com.docker.compose.replace": "a664a8dc09015841d7eeae8a41a9f778ae4b73455491d03c579bcc9bf4d1a74b",
+                "com.docker.compose.service": "cwb.app",
+                "com.docker.compose.version": "2.24.3",
+                "com.microsoft.created-by": "visual-studio",
+                "com.microsoft.visual-studio.project-name": "CWB.App",
+                "com.microsoft.visualstudio.debuggee.arguments": " --additionalProbingPath /.nuget/packages  \"/app/bin/Debug/netcoreapp3.1/CWB.App.dll\"",
+                "com.microsoft.visualstudio.debuggee.killprogram": "/bin/sh -c \"if PID=$(pidof dotnet); then kill $PID; fi\"",
+                "com.microsoft.visualstudio.debuggee.program": "dotnet",
+                "com.microsoft.visualstudio.debuggee.workingdirectory": "/app"
+            }
+        },
+        "NetworkSettings": {
+            "Bridge": "",
+            "SandboxID": "f98c3e521c94414fff5407a283f2c6b974671f6a9fc751effd0c0188553d3dd5",
+            "SandboxKey": "/var/run/docker/netns/f98c3e521c94",
+            "Ports": {
+                "443/tcp": [
+                    {
+                        "HostIp": "0.0.0.0",
+                        "HostPort": "52793"
+                    },
+                    {
+                        "HostIp": "0.0.0.0",
+                        "HostPort": "9004"
+                    }
+                ],
+                "80/tcp": [
+                    {
+                        "HostIp": "0.0.0.0",
+                        "HostPort": "52794"
+                    },
+                    {
+                        "HostIp": "0.0.0.0",
+                        "HostPort": "9005"
+                    }
+                ]
+            },
+            "HairpinMode": false,
+            "LinkLocalIPv6Address": "",
+            "LinkLocalIPv6PrefixLen": 0,
+            "SecondaryIPAddresses": null,
+            "SecondaryIPv6Addresses": null,
+            "EndpointID": "",
+            "Gateway": "",
+            "GlobalIPv6Address": "",
+            "GlobalIPv6PrefixLen": 0,
+            "IPAddress": "",
+            "IPPrefixLen": 0,
+            "IPv6Gateway": "",
+            "MacAddress": "",
+            "Networks": {
+                "cwb-network": {
+                    "IPAMConfig": null,
+                    "Links": null,
+                    "Aliases": [
+                        "CWB.App",
+                        "cwb.app",
+                        "0a48a92cbf36"
+                    ],
+                    "MacAddress": "02:42:ac:12:00:03",
+                    "NetworkID": "524f1a42b8db00ab468f5f997f001a4e2ed466c5462011c4160a79609104e059",
+                    "EndpointID": "016f60debc5e99e1a19bc6af975387c8dc59c2e33e4f6011eb7c02a363f69584",
+                    "Gateway": "172.18.0.1",
+                    "IPAddress": "172.18.0.3",
+                    "IPPrefixLen": 16,
+                    "IPv6Gateway": "",
+                    "GlobalIPv6Address": "",
+                    "GlobalIPv6PrefixLen": 0,
+                    "DriverOpts": null,
+                    "DNSNames": [
+                        "CWB.App",
+                        "cwb.app",
+                        "0a48a92cbf36"
+                    ]
+                }
+            }
+        }
+    }
+]

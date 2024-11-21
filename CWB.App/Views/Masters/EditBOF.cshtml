@@ -1,0 +1,21 @@
+﻿@{
+    ViewData["Title"] = "Edit Item Master - BOF";
+}
+@model CWB.App.Models.ItemMaster.BoughtOutFinishDetailVM
+<partial name="BOF" model=@Model />
+
+@section scripts {
+    <script src="~/js/addfunctions.js"></script>
+    <script src="~/js/ItemMaster/supplier.js"></script>
+    <script src="~/js/ItemMaster/rmselects.js"></script>
+    <script src="~/js/contact-model.js"></script>
+    <script src="~/js/ItemMaster/BOF-model.js"></script>
+    <script src="~/js/ItemMaster/purchasedetails.js"></script>
+    <script src="~/js/contacts.js"></script>
+    <script>
+        var modelObj = @Html.Raw(Json.Serialize(Model));
+        modelObj["Edit"] = true;
+        //$('#BOFform').validate();
+    </script>
+}
+

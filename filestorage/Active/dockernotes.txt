@@ -1,0 +1,93 @@
+Step 1: Create a production-ready Docker Compose file
+
+Create a new file named docker-compose.prod.yml in the root of your solution directory. This file will contain the production-specific configuration for your Docker containers.
+
+version: '3'
+services:
+  webapp1:
+    build: ./WebApp1
+    ports:
+      - "5001:80"
+    environment:
+      - ASPNETCORE_ENVIRONMENT=Production
+    depends_on:
+      - db
+
+  webapp2:
+    build: ./WebApp2
+    ports:
+      - "5002:80"
+    environment:
+      - ASPNETCORE_ENVIRONMENT=Production
+    depends_on:
+      - db
+
+  db:
+    image: postgres
+    environment:
+      - POSTGRES_USER=myuser
+      - POSTGRES_PASSWORD=mypassword
+      - POSTGRES_DB=mydb
+    volumes:
+      - db-data:/var/lib/postgresql/data
+
+volumes:
+  db-data:
+
+
+
+Step 2: Update the Dockerfiles for production
+
+Update each Dockerfile in your projects to use the production environment variable.
+
+FROM mcr.microsoft.com/dotnet/core/sdk:3.1
+
+WORKDIR /app
+
+COPY *.csproj ./
+RUN dotnet restore
+
+COPY . .
+
+RUN dotnet build -c Release -o /app
+
+EXPOSE 80
+
+ENV ASPNETCORE_ENVIRONMENT=Production
+
+CMD ["dotnet", "run"]
+
+
+Step 3: Build and push the Docker images
+
+Run the following command to build and push the Docker images for each project.
+
+docker-compose -f docker-compose.prod.yml build
+docker-compose -f docker-compose.prod.yml push
+
+
+Step 4: Deploy to production
+
+Create a new file named deploy.sh in the root of your solution directory. This file will contain the deployment script.
+
+bash- 
+#!/bin/bash
+
+# Set the production environment variables
+export ASPNETCORE_ENVIRONMENT=Production
+
+# Deploy the Docker containers
+docker-compose -f docker-compose.prod.yml up -d
+
+Make the script executable by running the following command.
+
+bash - 
+chmod +x deploy.sh
+
+Step 5: Run the deployment script
+
+Run the deployment script to deploy your Docker containers to production.
+
+bash -
+
+./deploy.sh

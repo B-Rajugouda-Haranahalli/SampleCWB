@@ -1,0 +1,97 @@
+﻿@{
+    ViewData["Title"] = "Routing";
+}
+@model CWB.App.Models.Routing.RoutingListItemVM
+<input value="M-IR" type="hidden" id="hdn-nav-menu" />
+<div class="content">
+    <div class="row">
+        <div class="col-xl-12 col-md-12 col-sm-12 col-xs-12">
+            <div class="card">
+                <div class="card-body">
+                    <div class="row">
+                        <!-- ================================ -->
+                        <!-- ================================ -->
+                        <div class="col-md-12 mt-n2" hidden>
+                            <ul class="nav nav-tabs nav-pills nav-justified navtab-bg font-12">
+                                <li class="nav-item" id="RoutingAvailable">
+                                    <a href="#rs2" data-bs-toggle="tab" aria-expanded="true" class="nav-link active">
+                                        <span class="d-inline-block d-sm-none">Routing Available</span>
+                                        <span class="d-none d-sm-inline-block">Routing Available</span>
+                                    </a>
+                                </li>
+                                <li class="nav-item" id="RoutingDetails">
+                                    <a href="#rou-det" data-bs-toggle="tab" aria-expanded="true" class="nav-link">
+                                        <span class="d-inline-block d-sm-none">Routing Details</span>
+                                        <span class="d-none d-sm-inline-block">Routing Details</span>
+                                    </a>
+                                </li>
+                                <li class="nav-item" id="RoutingStepDetails">
+                                    <a href="#rsd" data-bs-toggle="tab" aria-expanded="false" class="nav-link">
+                                        <span class="d-inline-block d-sm-none">Routing Step Details</span>
+                                        <span class="d-none d-sm-inline-block">Routing Step Details</span>
+                                    </a>
+                                </li>
+                                <!--
+                                <li class="nav-item">
+                                    <a href="#part-dwg" data-bs-toggle="tab" aria-expanded="false" class="nav-link">
+                                        <span class="d-inline-block d-sm-none">Part Drawing</span>
+                                        <span class="d-none d-sm-inline-block">Part Drawing</span>
+                                    </a>
+                                </li>
+                                <li class="nav-item">
+                                    <a href="#task" data-bs-toggle="tab" aria-expanded="false" class="nav-link">
+                                        <span class="d-inline-block d-sm-none">Task</span>
+                                        <span class="d-none d-sm-inline-block">Task</span>
+                                    </a>
+                                </li>
+                                <li class="nav-item">
+                                    <a href="#log" data-bs-toggle="tab" aria-expanded="false" class="nav-link">
+                                        <span class="d-inline-block d-sm-none">Log</span>
+                                        <span class="d-none d-sm-inline-block">Log</span>
+                                    </a>
+                                </li>
+                                -->
+                            </ul>
+                        </div>
+                        <!-- end -->
+                        <!-- ================================ -->
+                    </div>
+                    <div class="row">
+                        <!-- ================================ -->
+                        <div class="tab-content">
+                            <div class="tab-pane show active p-2" id="rs2">
+                                <partial name="../Shared/_TabRoutingAvailable" model=@Model />
+                            </div>
+                            <div class="tab-pane p-2" id="rou-det">
+                                <partial name="../Shared/_TabRoutingDetails" model=@Model />
+                            </div>
+                            <div class="tab-pane" id="rsd">
+                                <partial name="../Shared/_TabRoutingStepDetails" model=@Model />
+                            </div>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </div>
+</div>
+<partial name="../Shared/_AltRoute" />
+<partial name="../Shared/_NewRoute" />
+<partial name="../Shared/_DeleteRoute" />
+<partial name="../Shared/_DeleteStep" />
+<partial name="../Shared/_EditRoutingName" />
+<partial name="../Shared/_PreferredRouting" />
+<partial name="../Shared/_ChangeMakeFrom" />
+<partial name="../Shared/_ChangeStatus" />
+<partial name="../Shared/_ChangeStatusLog" />
+
+@section scripts {
+    <script src="~/js/ItemMaster/supplier.js"></script>
+    <script src="~/js/routing/Routing-Model.js"></script>
+    <script>
+        @*RoutingDetails = @Html.Raw(Json.Serialize(Model));
+        console.log("***********");
+        console.log(RoutingDetails);
+        console.log("***********");*@
+    </script>
+}

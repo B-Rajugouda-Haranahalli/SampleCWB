@@ -1,0 +1,40 @@
+﻿<div class="modal fade" id="alt-rout" role="dialog" data-backdrop="static" data-keyboard="false" tabindex="-1" aria-labelledby="staticBackdropLabel" aria-hidden="true">
+    <div class="modal-dialog">
+        <div class="modal-content bxs-modal">
+            <div class="modal-header">
+                <h4 class="modal-title" id="mySmallModalLabel">Alternate Routing</h4>
+                <button id="BtnAltRoutingClose" type="button" class="btn-close" data-dismiss="modal" aria-label="Close"></button>
+            </div>
+            <div class="modal-body">
+                <form method="post" id="FormAltRoutingName" onsubmit="return false;">
+                    <div class="row">
+                        <label class="form-label col-md-5 mb-2">Routing name <span class="text-danger">*</span></label>
+                        <div class="col-md-7 mb-1">
+                            <input class="form-control form-control-sm" id="AltRoutingName" name="RoutingName" type="text" title="Enter the Routing Name ... It has to be Unique" data-plugin="tippy" data-tippy-placement="top">
+                            <input type="text" hidden id="AltManufacturedPartId" name="ManufacturedPartId" value="0" />
+                            <input type="text" hidden id="AltOrigRoutingId" name="OrigRoutingId" value="0" />
+                            <input type="text" hidden id="AltStatus" name="Status" value="Active" />
+                            <input type="text" hidden id="AltPreferredRouting" name="PreferredRouting" value="0" />
+
+                            <input type="text" hidden id="AltRoutingId" name="RoutingId" value="0" />
+                        </div>
+                        <div id="AltMakefromDiv" style="display: flex; align-items: center;">
+                            <label class="form-label col-md-5 mb-2"> MakeFrom <span class="text-danger"> *</span> </label>
+                            <div class="col-md-7 mb-1">
+                                <select class="form-select form-select-sm" id="AltMKPartId" name="MKPartId">
+                                </select>
+                            </div>
+                        </div>
+                        <!-- =========  -->
+                        <div class="col text-end mt-2">
+                            <button id="BtnAltRoutingSave" type="button" class="btn btn-sm btn-primary">Save</button>
+                        </div>
+                        <!-- =========  -->
+                    </div>
+                </form>
+            </div>
+        </div>
+        <!-- /.modal-content -->
+    </div>
+    <!-- /.modal-dialog -->
+</div>

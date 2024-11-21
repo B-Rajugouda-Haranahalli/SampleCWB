@@ -1,0 +1,9 @@
+docker rmi cfixtrader/cwbapigateway
+docker rmi cfixtrader/cwbmodules
+docker rmi cfixtrader/cwbmasters
+docker rmi cfixtrader/cwbidentity
+docker rmi cfixtrader/cwbcompanysettings
+docker rmi cfixtrader/cwbapp
+docker rmi cfixtrader/cwbtenant
+docker rmi cfixtrader/mysql
+docker rmi cfixtrader/cwbsimulation

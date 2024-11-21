@@ -1,0 +1,61 @@
+using CWB.CommonUtils.Common;
+using CWB.Constants.UserIdentity;
+using CWB.Logging;
+using CWB.ProductionPlanWO.Domain;
+using CWB.ProductionPlanWO.Services;
+using CWB.ProductionPlanWO.Utils;
+using CWB.ProductionPlanWO.ViewModels;
+using Microsoft.AspNetCore.Authorization;
+using Microsoft.AspNetCore.Http;
+using Microsoft.AspNetCore.Mvc;
+using System;
+using System.Collections.Generic;
+using System.Linq;
+using System.Threading.Tasks;
+
+namespace CWB.ProductionPlanWO.Controllers
+{
+    [ApiController]
+    [Authorize(Roles = Roles.ADMIN)]
+    public class WOController : ControllerBase
+    {
+        private readonly ILoggerManager _logger;
+        private readonly IWOService _wOService;
+
+        public WOController(ILoggerManager logger,IWOService wOService)
+        {
+            _logger = logger;
+            _wOService = wOService;
+        }
+
+        [HttpPost]
+        [Route(ApiRoutes.WO_Operation.PostWorkOrder)]
+        [Produces(AppContentTypes.ContentType, Type = typeof(List<WorkOrdersVM>))]
+        public async Task<IActionResult> WorkOrder([FromBody] List<WorkOrdersVM> workOrderVM)
+        {
+            var wo = await _wOService.WorkOrder(workOrderVM);
+            //List<WO>
+            return Ok(wo);
+        }
+
+        [HttpPost]
+        [Route(ApiRoutes.WO_Operation.PostSingleWorkOrder)]
+        [Produces(AppContentTypes.ContentType, Type = typeof(WorkOrdersVM))]
+        public async Task<IActionResult> SingleWorkOrder([FromBody] WorkOrdersVM workOrderVM)
+        {
+            var wo = await _wOService.SingleWorkOrder(workOrderVM);
+            return Ok(wo);
+        }
+
+        [HttpGet]
+        [Route(ApiRoutes.WO_Operation.HelloWorld)]
+        [Produces(AppContentTypes.ContentType, Type = typeof(string))]
+        public async Task<string> HelloWorld(long tenantId)
+        {
+            var pologs = _wOService.HelloWorld();
+            return pologs;
+        }
+
+
+    }
+}

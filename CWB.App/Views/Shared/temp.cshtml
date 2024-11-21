@@ -1,0 +1,117 @@
+﻿<div class="row">
+    <div class="col-md-4">
+        <form role="form" class="parsley-examples">
+            <div class="row">
+                <div class="col-md-12 mb-2">
+                    <h5>Routing Selected : XXXXXXXX</h5>
+                </div>
+                <label class="form-label col-md-4 mb-2">Step Number  <span class="text-danger">*</span></label>
+                <div class="col-md-8 mb-2">
+                    <input class="form-control form-control-sm" type="text" title="Enter the Step Number as per Company Practice. It has to be Unique" data-plugin="tippy" data-tippy-placement="top" required>
+                </div>
+                <!-- ---------------  -->
+                <label class="form-label col-md-4 mb-2">Step Description  <span class="text-danger">*</span></label>
+                <div class="col-md-8 mb-2">
+                    <textarea class="form-control form-control-sm" title="Enter the a brief description of the Routing Step" data-plugin="tippy" data-tippy-placement="top" required></textarea>
+                </div>
+                <!-- ---------------  -->
+                <label class="form-label col-md-4 mb-2">Operation  <span class="text-danger">*</span></label>
+                <div class="col-md-8 mb-2">
+                    <select class="form-select form-select-sm" required title="Select the Manufacturing Operation carried out in this Routing Step. The selection of the Operation will decide the documents that need to be generated for carrying out the step. If the Operation does not exist, it would need to be created in the 'Operations' Master" data-plugin="tippy" data-tippy-placement="top">
+                        <option value="">Select</option>
+                        <option value="ss">Machining</option>
+                        <option value="ss">Die Casting</option>
+                        <option value="ss">Heat Treatment</option>
+                    </select>
+                </div>
+                <!-- ---------------  -->
+                <label class="form-label col-md-4 mb-2">Step Location  <span class="text-danger">*</span></label>
+                <div class="col-md-8 mb-2">
+                    <select class="form-select form-select-sm" title="Indicate where this Routing Step is carried out - Inhouse or Outsourced" data-plugin="tippy" data-tippy-placement="top" required>
+                        <option value="">Select</option>
+                        <option value="aa">Inhouse</option>
+                        <option value="aa">SubCon</option>
+                        <option value="aa">Company</option>
+                    </select>
+                </div>
+                <!-- ---------------  -->
+                <div class="col-md-3 mb-1   display-none ">
+                    <label class="form-label p-r-5">Critical Operation</label>
+                    <input class="form-check-input mt-1" type="checkbox" name="......." value="..." title="Machine to run only in 1st shift" data-plugin="tippy" data-tippy-placement="top">
+                </div>
+                <!-- ---------------  -->
+                <div class="col-md-3 mb-1   display-none ">
+                    <label class="form-label m-r-5">Critical Setup </label>
+                    <input class="form-check-input mt-1" type="checkbox" name="......." value="..." title="Machine to be set only in 1st shift" data-plugin="tippy" data-tippy-placement="top">
+                </div>
+                <!-- ---------------  -->
+                <div class="col-md-12 text-end">
+                    <button class="btn btn-sm btn-primary" title="Use to Save the entered data" data-plugin="tippy" data-tippy-placement="top"> Save</button>
+                </div>
+                <!-- ---------------  -->
+            </div>
+            <!-- end row  -->
+        </form>
+        <!-- -------------------------  -->
+    </div>
+    <hr>
+    <div class="col-md-12">
+        <div class="row">
+            <h6 class="mb-2">This Routing step Sequencing with respect to Next Routing Step</h6>
+            <div class="col-md-4">
+                <div class="table-responsive">
+                    <table class="table table-sm">
+                        <tbody>
+                            <tr>
+                                <td>
+                                    Sequential : Next Routing step starts only after all parts of this routing step are completed
+                                </td>
+                                <td>
+                                    <input class="form-check-input m-l-5" type="radio" name="group-1">
+                                </td>
+                            </tr>
+                        </tbody>
+                    </table>
+                </div>
+            </div>
+            <!-- ======================  -->
+            <div class="col-md-4">
+                <div class="table-responsive">
+                    <table class="table table-sm">
+                        <tbody>
+                            <tr>
+                                <td>
+                                    Parallel : Next Routing step can start while this routing step is in progress
+                                </td>
+                                <td>
+                                    <input class="form-check-input m-l-5" type="radio" name="group-1" title=" This step starts based on Cycle time difference b/w this and Previous step such that both steps run without either machine waiting" data-plugin="tippy" data-tippy-placement="top">
+                                </td>
+                            </tr>
+                        </tbody>
+                    </table>
+                </div>
+            </div>
+            <!-- ======================  -->
+            <div class="col-md-4">
+                <div class="table-responsive">
+                    <table class="table table-sm">
+                        <tbody>
+                            <tr>
+                                <td>
+                                    Line : Current Routing Step Machine feeds 1 to 1 to the next Routing Step Machine
+                                </td>
+                                <td>
+                                    <input class="form-check-input m-l-5" type="radio" name="group-1" title="As in case of Line Arrangement" data-plugin="tippy" data-tippy-placement="top">
+                                </td>
+                                <td>
+                                    <button type="button" class="btn btn-warning btn-sm" data-bs-toggle="modal" data-bs-target="#info-new"><i class="fas fa-info"></i></button>
+                                </td>
+                            </tr>
+                        </tbody>
+                    </table>
+                </div>
+            </div>
+            <!-- ======================  -->
+        </div>
+    </div>
+</div>

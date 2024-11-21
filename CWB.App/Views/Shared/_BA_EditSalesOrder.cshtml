@@ -1,0 +1,51 @@
+﻿<div class="modal fade" id="Edit-SalesOrder" data-bs-backdrop="static" data-bs-keyboard="false" tabindex="-1"
+     aria-labelledby="staticBackdropLabel" aria-hidden="true">
+    <div class="modal-dialog modal-lg">
+        <div class="modal-content bxs-modal">
+            <div class="modal-header">
+                <h5 class="modal-title" id="staticBackdropLabel">Edit Sales Order</h5>
+                <button type="button" id="BtnEditSalesOrderClose" class="btn-close" data-bs-dismiss="modal" aria-label="Close"></button>
+            </div>
+            <div class="modal-body">
+                <div class="row">
+                    <div class="row mt-4">
+                        <div class="row">
+                            <form id="EditSOForm" onsubmit="return false;">
+                            <label class="form-label col-md-4 mb-2">
+                                Reqd Date <span class="text-danger">*</span>
+                            </label>
+                            <div class="col-md-8 mb-2">
+                                    <input id="EditSORequiredByDate" name="RequiredByDate" class="form-control form-control-sm" type="date" title="" data-plugin="tippy"
+                                       data-tippy-placement="top">
+                            </div>
+                            <!-- ========================= -->
+                            <label class="form-label col-md-4 mb-2">
+                                Reqd Quantity <span class="text-danger">*</span>
+                            </label>
+                            <div class="col-md-8 mb-2">
+                                    <input id="EditSORequiredQuantity" name="RequiredQuantity" class="form-control form-control-sm" type="text" title="" data-plugin="tippy"
+                                      value="0" data-tippy-placement="top" placeholder="Enter Reqd Quantity"/>
+                            </div>
+                            <!-- ========================= -->
+                            <label class="form-label col-md-4 mb-2">
+                                Comment <span class="text-danger">*</span>
+                            </label>
+                            <div class="col-md-8 mb-2">
+                                    <textarea id="EditSOComment" name="Comment" class="form-control form-control-sm" placeholder="Enter Comment" value="-"></textarea>
+                            </div>
+                                <input type="text" hidden id="EditSOPartId" name="DSPartId" value="0" />
+                                <input type="text" hidden id="EditSOScheduleId" name="ScheduleId" value="0"/>
+                                <input type="text" hidden id="EditSOCustomerOrderId" name="CustomerOrderId" value="0" />
+                            <!-- ========================= -->
+                            <div class="col-md-12 text-end">
+                                <button id="BtnEditSO" class="btn btn-sm btn-primary">Edit</button>
+                            </div>
+                            <!-- ========================= -->
+                            </form>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </div>
+</div>

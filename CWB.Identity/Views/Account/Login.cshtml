@@ -1,0 +1,58 @@
+
+@{
+    Layout = "~/Views/Shared/_LayoutNoHeader.cshtml";
+    ViewBag.Title = "Login";
+}
+@model LoginViewModel
+<partial name="_ValidationSummary" />
+
+<div class="row justify-content-center">
+
+    @if (Model.EnableLocalLogin)
+    {
+        <div class="col-md-8 col-lg-6 col-xl-4">
+            <div class="card">
+                <div class="card-body p-4">
+                    <div class="row mb-4">
+                        <div class="col-md-3 mt-1">
+                            <img src="~/images/kgk_logo.PNG" alt="logo" class="img-fluid">
+                        </div>
+                        <!-- -------------  -->
+                        <div class="col-md-9">
+                            <h2>KGK Engineering</h2>
+                        </div>
+                    </div>
+                    <form asp-route="Login" class="parsley-examples">
+                        <input type="hidden" asp-for="ReturnUrl" />
+
+                        <div class="mb-2">
+                            <label class="form-label">Email Address / Mobile Number <span class="text-danger">*</span></label>
+                            <input class="form-control" placeholder="Username" asp-for="Username" autofocus>
+                        </div>
+                        <div class="mb-2">
+                            <label for="Password" class="form-label">Password<span class="text-danger">*</span></label>
+                            <input type="password" class="form-control" placeholder="Password" asp-for="Password" autocomplete="off">
+                        </div>
+                        @if (Model.AllowRememberLogin)
+                        {
+                            <div class="mb-3">
+                                <div class="form-check">
+                                    <input class="form-check-input" asp-for="RememberLogin">
+                                    <label class="form-check-label" for="checkbox-signin">
+                                        Remember me
+                                    </label>
+                                </div>
+                            </div>
+                        }
+                        <div class="d-grid mb-0 text-center">
+                            <button name="button" class="btn btn-primary waves-effect waves-light me-1" value="login">
+                                Login
+                            </button>
+                        </div>
+                    </form>
+                </div>
+            </div>
+        </div>
+    }
+
+</div>

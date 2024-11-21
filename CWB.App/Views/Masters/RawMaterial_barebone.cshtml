@@ -1,0 +1,62 @@
+﻿@{
+    ViewData["Title"] = "Item Master - Raw Material";
+}
+@model CWB.App.Models.ItemMaster.RawMaterialDetailVM
+<input value="M-IM" type="hidden" id="hdn-nav-menu" />
+<form method="post" id="RawMetform">
+    <table>
+        <tr>
+        </tr>
+        <tr>
+            <input type="text" value="1" id="Status" name="Status" />
+            <br>
+            <br>
+            <input type="text" value="Spec" id="MaterialSpec" name="MaterialSpec" />
+            <br>
+            <br>
+            <input type="Date" value="" id="RevDate" name="RevDate" />
+            <br>
+            <br>
+            <input type="text" value="100987" id="RevNo" name="RevNo" />
+            <br>
+            <br>
+            <input type="text" value="1" id="RawMaterialMadeType" name="RawMaterialMadeType" />
+            <br>
+            <br>
+            <input type="text" value="1" id="RawMaterialTypeId" name="RawMaterialTypeId" />
+            <br>
+            <br>
+            <input type="text" hidden value="1009" id="InHousePartNo" name="InHousePartNo" />
+            <br>
+            <br>
+            <input type="text" value="Desc" id="PartDescription" name="PartDescription" />
+            <br>
+            <br>
+            <input type="text" value="1" id="BaseRawMaterialId" name="BaseRawMaterialId" />
+            <br>
+            <br>
+            <input type="text" value="Notes..." id="RawMaterialNotes" name="RawMaterialNotes" />
+            <br>
+            <br>
+            <input type="text" hidden value="10" id="RawMaterialWeight" name="RawMaterialWeight" />
+            <br>
+            <br>
+            <input type="text" hidden value="1" id="Standard" name="Standard" />
+            <br>
+            <br>
+            <input type="text" hidden value="1" id="PurchaseDetailId" name="PurchaseDetailId" />
+            <br>
+            <br>
+            <input type="button" id="btnRawMaterialDetailSubmit" value="Save" text="Save" />
+            <br>
+            <br>
+        </tr>
+    </table>
+</form>
+
+<partial name="_ReferenceDocumentUpload" />
+@section scripts {
+<script src="~/js/ItemMaster/RawMaterial-model.js"></script>
+}
+
+    

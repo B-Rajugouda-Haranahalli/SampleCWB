@@ -1,0 +1,198 @@
+﻿@model CWB.App.Models.Contacts.CompanyVM
+<div class="modal fade" id="dialog-company" data-bs-backdrop="static" data-bs-keyboard="false" tabindex="-1" aria-labelledby="staticBackdropLabel" aria-hidden="true">
+    <div class="modal-dialog modal-lg">
+        <div class="modal-content">
+            <div class="modal-header">
+                <h5 class="modal-title" id="myLargeModalLabel">Company / Employee Details </h5>
+                <button id="btnContactClose" type="button" class="btn-close" data-bs-dismiss="modal" aria-label="Close"></button>
+            </div>
+            <div class="modal-body">
+                <div class="row">
+                    <div class="col-md-7 dott-bord-r">
+                        <form id="frmCompany" method="post">
+                            <div class="row">
+                                <label class="form-label col-md-4 mb-2" asp-for="CompanyType"></label>
+                                <div class="col-md-8 mb-2" title="Select if the Company is a Customer or Supplier or Both" data-plugin="tippy" data-tippy-placement="top">
+                                    <select class="form-select form-select-sm" asp-for="CompanyType" asp-items="ViewBag.CompanyTypes">
+                                        <option value="">--Select--</option>
+                                    </select>
+                                    <span asp-validation-for="CompanyType"></span>
+                                </div>
+                                <!-- ============== -->
+                                <label class=" col-md-4 form-label mb-2" asp-for="CompanyName"></label>
+                                <div class="col-md-8 mb-2" title="Enter Company Name" data-plugin="tippy" data-tippy-placement="top">
+                                    <input class="form-control form-control-sm" id="CompanyName" type="text" placeholder="Enter here" asp-for="CompanyName" onchange="return false;" />
+                                    <span asp-validation-for="CompanyName"></span>
+                                </div>
+                                <!-- ============== -->
+                                <label class=" col-md-4 form-label mb-2" asp-for="DivisionName"></label>
+                                <div class="col-md-8 mb-2" title="Enter the Company Division or Plant if applicable. If it is the Main Plant / Division / HQ enter Main" data-plugin="tippy" data-tippy-placement="top">
+                                    <input class="form-control form-control-sm" type="text" id="DivisionName" placeholder="Enter here" asp-for="DivisionName" onchange="return false;" />
+                                </div>
+                                <!-- ============== -->
+                                <!-- ============== -->
+                                <label class=" col-md-4 form-label mb-2" asp-for="PlantName" hidden>Plant Name <span class="text-danger">*</span></label>
+                                <div class="col-md-8 mb-2" title="Enter Plant Name" data-plugin="tippy" data-tippy-placement="top" hidden>
+                                    <input class="form-control form-control-sm" type="text" id="PlantName" placeholder="Enter here" asp-for="PlantName" onchange="return false;" value="pa" />
+                                </div>
+                                <label class=" col-md-4 form-label mb-2" asp-for="Location">Address</label>
+                                <div class="col-md-8 mb-2" title="Enter the Company Location ... ..." data-plugin="tippy" data-tippy-placement="top">
+                                    <textarea class="form-control form-control-sm" type="text" id="Location" placeholder="Enter here" asp-for="Location" style="height: 85px;"> </textarea>
+                                </div>
+                                <label class=" col-md-4 form-label mb-2" asp-for="City">City <span class="text-danger">*</span></label>
+                                @*<div class="col-md-8 mb-2" title="Enter the Company City..." data-plugin="tippy" data-tippy-placement="top">
+                                        <input class="form-control form-control-sm" type="text" id="City" placeholder="Enter here" asp-for="City" />
+                                    </div>*@
+                                <div class="col-md-8 mb-2 d-flex align-items-center">
+                                    <div class="input-group" style="flex-grow: 1;" data-plugin="tippy" data-tippy-placement="top" data-tippy="" data-original-title="Select the Unit of Measurement (UoM). Default is Numbers (Nos)">
+                                        <select class="form-select form-select-sm" id="CitySelect" asp-for="City"></select>
+                                    </div>
+                                    <button type="button" id="AddCityPop" class="btn btn-sm waves-effect waves-light" data-plugin="tippy" data-tippy-placement="top" data-bs-toggle="modal" data-bs-target="#CityPop" data-tippy="" data-original-title="Add UOM">
+                                        <i class="fe-plus-square add-cust-btn"></i>
+                                    </button>
+                                    <button type="button" id="EditCityPop" class="btn btn-sm waves-effect waves-light" title="Select to enter a Material Spec for the chosen Standard not in the List" data-plugin="tippy" data-tippy-placement="top" data-bs-toggle="modal" data-bs-target="#CityPop">
+                                        <i class="fas fa-pencil-alt font-16"></i>
+                                    </button>
+                                </div>
+                                <label class=" col-md-4 form-label mb-2" asp-for="Pincode">PIN</label>
+                                <div class="col-md-8 mb-2" title="Enter the Company Pincode" data-plugin="tippy" data-tippy-placement="top">
+                                    <input class="form-control form-control-sm" type="text" id="Pincode" placeholder="Enter here" asp-for="Pincode" />
+                                </div>
+                                <label class=" col-md-4 form-label mb-2" asp-for="Country">Country</label>
+                                @*<div class="col-md-8 mb-2" title="Enter the Company Country ..." data-plugin="tippy" data-tippy-placement="top">
+                                    <input class="form-control form-control-sm" type="text" id="Country" placeholder="Enter here" asp-for="Country" />
+                                </div>*@
+                                <div class="col-md-8 mb-2 d-flex align-items-center">
+                                    <div class="input-group" style="flex-grow: 1;" data-plugin="tippy" data-tippy-placement="top" data-tippy="" data-original-title="Select the Unit of Measurement (UoM). Default is Numbers (Nos)">
+                                        <select class="form-select form-select-sm" id="CountrySelect" asp-for="Country"></select>
+                                    </div>
+                                    <button type="button" id="AddCountryPop" class="btn btn-sm waves-effect waves-light" data-plugin="tippy" data-tippy-placement="top" data-bs-toggle="modal" data-bs-target="#CountryPop" data-tippy="" data-original-title="Add UOM">
+                                        <i class="fe-plus-square add-cust-btn"></i>
+                                    </button>
+                                    <button type="button" id="EditCountryPop" class="btn btn-sm waves-effect waves-light" title="Select to enter a Material Spec for the chosen Standard not in the List" data-plugin="tippy" data-tippy-placement="top" data-bs-toggle="modal" data-bs-target="#CountryPop">
+                                        <i class="fas fa-pencil-alt font-16"></i>
+                                    </button>
+                                </div>
+                                <label class=" col-md-4 form-label mb-2" asp-for="GstNo">GST</label>
+                                <div class="col-md-8 mb-2" title="Enter the Company GST No ..." data-plugin="tippy" data-tippy-placement="top">
+                                    <input class="form-control form-control-sm" type="text" id="GstNo" placeholder="Enter here" asp-for="GstNo" />
+                                </div>
+                                <label class=" col-md-4 form-label mb-2" asp-for="PanNo">PAN</label>
+                                <div class="col-md-8 mb-2" title="Enter the Company PAN No ..." data-plugin="tippy" data-tippy-placement="top">
+                                    <input class="form-control form-control-sm" type="text" id="PanNo" placeholder="Enter here" asp-for="PanNo" />
+                                </div>
+                                <!-- ============== -->
+                                <div class="col text-end mt-2">
+                                    <input type="button" class="btn btn-sm btn-primary" title="Use to Save the entered data"
+                                           data-plugin="tippy" data-tippy-placement="top" value="Save" id="btnContactSubmit" />
+
+                                </div>
+                            </div>
+                            <input type="hidden" asp-for="CompanyId" />
+                            <input type="hidden" asp-for="DivisionId" />
+                        </form>
+                    </div>
+                    <!-- ============== -->
+                    <div class="col-md-5">
+                        <div class="table-responsive table-he-180">
+                            <table class="table table-sm table-bordered mb-2 text-center mt-1 tableFixHead" id="tbl-division">
+                                <thead class="  table-info th-sti">
+                                    <tr class="table-border-bottom">
+                                        <th width="65%">Division / Branch</th>
+                                        <th width="30%">City / Country </th>
+                                        <th width="5%"></th>
+                                    </tr>
+                                </thead>
+                                <tbody></tbody>
+                            </table>
+                        </div>
+                        <div class="col-md-12 mt-1">
+                            <button class="btn btn-sm btn-primary" title="Select if another Division of the Comapny" data-plugin="tippy" data-tippy-placement="top" id="btnAddDivision">Add Division</button>
+                        </div>
+                        <!-- --------------  -->
+                    </div>
+                    <!-- ============== -->
+                </div>
+                <!-- ------- -->
+            </div>
+        </div><!-- /.modal-content -->
+    </div><!-- /.modal-dialog -->
+</div>
+
+<div class="modal fade" id="CityPop" data-bs-backdrop="static" data-bs-keyboard="false" tabindex="-1" aria-labelledby="staticBackdropLabel" style="display: none;" aria-hidden="true">
+    <div class="modal-dialog modal-sm">
+        <div class="modal-content">
+            <div class="modal-header">
+                <h4 class="modal-title" id="mySmallModalLabel">City</h4>
+                <button type="button" id="btnCityClose" class="btn-close" data-bs-dismiss="modal" aria-label="Close"></button>
+            </div>
+            <div class="modal-body">
+                <div class="row">
+                    <form id="frmAddCity" onsubmit="return false;" novalidate="novalidate">
+                        <div class="row">
+                            <label class="form-label col-md-4 mb-2">Name</label>
+                            <div class="col-md-8 mb-2">
+                                <input type="text" class="form-control form-control-sm" placeholder="Enter here" name="Name" id="CName">
+                                <input type="text" hidden="" class="form-control form-control-sm" placeholder="Enter here" name="CityId" id="PCityId" value="0">
+                            </div>
+                            <!-- ========================= -->
+                            <div class="col text-end">
+                                <button class="btn btn-sm btn-primary" id="SaveCity">Save</button>
+                            </div>
+                        </div>
+                    </form>
+                    <!-- ========================= -->
+                </div>
+            </div>
+        </div><!-- /.modal-content -->
+    </div><!-- /.modal-dialog -->
+</div><!-- /.modal -->
+<div class="modal fade" id="CountryPop" data-bs-backdrop="static" data-bs-keyboard="false" tabindex="-1" aria-labelledby="staticBackdropLabel" style="display: none;" aria-hidden="true">
+    <div class="modal-dialog modal-sm">
+        <div class="modal-content">
+            <div class="modal-header">
+                <h4 class="modal-title" id="mySmallModalLabel">Country</h4>
+                <button type="button" id="btnCountryClose" class="btn-close" data-bs-dismiss="modal" aria-label="Close"></button>
+            </div>
+            <div class="modal-body">
+                <div class="row">
+                    <form id="frmAddCountry" onsubmit="return false;" novalidate="novalidate">
+                        <div class="row">
+                            <label class="form-label col-md-4 mb-2">Name</label>
+                            <div class="col-md-8 mb-2">
+                                <input type="text" class="form-control form-control-sm" placeholder="Enter here" name="Name" id="CoName">
+                                <input type="text" hidden="" class="form-control form-control-sm" placeholder="Enter here" name="CountryId" id="PCountryId" value="0">
+                            </div>
+                            <!-- ========================= -->
+                            <div class="col text-end">
+                                <button class="btn btn-sm btn-primary" id="SaveCountry">Save</button>
+                            </div>
+                        </div>
+                    </form>
+                    <!-- ========================= -->
+                </div>
+            </div>
+        </div><!-- /.modal-content -->
+    </div><!-- /.modal-dialog -->
+</div><!-- /.modal -->
+
+<template id="division-template">
+    <tr>
+        <td data-key="DivisionName">{divisionName}</td>
+        <td data-key="Location">{city} / {country}</td>
+        <td>
+            <div class="dropdown float-center">
+                <a href="#" class="dropdown-toggle arrow-none card-drop" data-bs-toggle="dropdown" aria-expanded="false"><i class="mdi mdi-dots-vertical"></i></a>
+                <div class="dropdown-menu dropdown-menu-end">
+                    <!-- item-->
+                    <a href="javascript:void(0);" onclick="SetDivisionEditValues({divisionId}, '{divisionName}', '{location}',
+                    '{notes}', {companyId}, '{companyType}',
+                    '{companyName}',
+                    '{plantName}', '{city}', '{pincode}','{country}','{gstNo}','{panNo}');" class="dropdown-item">Edit</a>
+                    <!-- item-->
+                    @*<a href="javascript:void(0);" onclick="DeleteDivision({divisionId},{companyId});" class="dropdown-item">delete</a>*@
+                </div>
+            </div>
+        </td>
+    </tr>
+</template>

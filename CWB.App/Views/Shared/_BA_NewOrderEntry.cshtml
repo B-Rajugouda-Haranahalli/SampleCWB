@@ -1,0 +1,396 @@
+﻿<div id="new-order-entry" class="modal fade" data-bs-backdrop="static" data-bs-keyboard="false" tabindex="-1"
+     aria-labelledby="staticBackdropLabel" aria-hidden="true">
+    <div class="modal-dialog modal-full-width">
+        <div class="modal-content">
+            <div class="modal-header">
+                <h4 class="modal-title" id="fullWidthModalLabel">New / Edit Customer Order</h4>
+                <button type="button" id="OrderEntryClose" class="btn-close" data-bs-dismiss="modal" aria-label="Close"></button>
+            </div>
+            <div class="modal-body">
+                <form id="CustomerOrderForm" onsubmit="return false;">
+                <div class="row">
+                    <div class="col-md-4 mb-2">
+                        <table class="w-100 bord">
+                            <tbody>
+                                <tr>
+                            <td>
+                                <label class="form-check-label" for="poEntry">PO Entry</label>
+                                <input class="form-check-input mt-1" type="radio" id="POEntry" name="OrderType" value="1"
+                                       title="" data-plugin="tippy" data-tippy-placement="top" checked>
+                            </td>
+                            <td>
+                                <label class="form-check-label" for="poEntry">
+                                    Direct Order Entry (without PO)
+                                    <span class="text-danger"> * </span>
+                                </label>
+                                            <input class="form-check-input mt-1" id="DirectEntry"  type="radio" name="OrderType" value="2"
+                                       title="" data-plugin="tippy" data-tippy-placement="top">
+                            </td>
+                                    </tr>
+                            </tbody>
+                        </table>
+                    </div>
+                    <!-- -----------------  -->
+                    <div class="col-md-8 mb-2">
+                    </div>
+                    <!-- -----------------  -->
+                    <label class="form-label col-md-1">Customer</label>
+                    <div class="col-md-2 mb-2">
+                        <select class="form-select form-select-sm" aria-label="form-select-sm" title=""
+                                data-plugin="tippy" data-tippy-placement="top" id="CustomerId" name="CustomerId" required>
+                        </select>
+                    </div>
+                    <!-- -----------------  -->
+                    <label class="form-label col-md-1">PO No</label>
+                    <div class="col-md-2 mb-2">
+                        <input class="form-control form-control-sm" id="PONumber" name="PONumber" type="text" value="" title="" data-plugin="tippy"
+                                   data-tippy-placement="top" placeholder="Enter PO No" required/>
+                    </div>
+                    <!-- -----------------  -->
+                    <label class="form-label col-md-1">Date</label>
+                    <div class="col-md-2 mb-2">
+                            <input class="form-control form-control-sm" name="PODate" id="PODate" value="" type="date" title="" data-plugin="tippy"
+                                   data-tippy-placement="top" required/>
+                    </div>
+                    <!-- -----------------  -->
+                    <div class="col-md-3 mb-2">
+                            <input class="form-control form-control-sm" name="DirectEntryDetails" value="" id="DirectEntryDetails" type="text" title="" data-plugin="tippy"
+                               data-tippy-placement="top" placeholder="Direct Entry Details *" required>
+                    </div>
+                    <!-- -----------------  -->
+                </div>
+                <!-- ======================== -->
+                <div class="row">
+                    <label class="form-label col-md-1">Comments</label>
+                    <div class="col-md-5 mb-2">
+                            <textarea id="Comment" name="Comment" value="" class="form-control form-control-sm" placeholder="Enter Comments" required></textarea>
+                    </div>
+                        <input type="text" hidden id="CustomerOrderId" name="CustomerOrderId" value="0"/>
+                        <input type="text" hidden id="Status" name="Status" value="0" />
+                        <input type="text" hidden id="CustomerName" name="CustomerName" value="" />
+                    <div class="col-md-1">
+                        <button id="BtnAddCustomerOrder" class="btn btn-sm btn-primary">Save</button>
+                    </div>
+                </div>
+                </form>
+                <!-- ======================== -->
+                <hr class="hr-color">
+                <div class="row m-1">
+                    <div class="row">
+                        <h5>Po Line List</h5>
+                    </div>
+                    <div class="row">
+                        <div class="table-responsive table-he-180">
+                            <table id="POLinesTable" class="table table-sm table-bordered w-100 text-center">
+                                <thead class="  table-info th-sti">
+                                    <tr class="table-border-bottom">
+                                        <th>Part No</th>
+                                        <th>Total Qnty</th>
+                                        <th># Sales Order</th>
+                                        <th># Work Order</th>
+                                        <th>Status</th>
+                                        <th>Plan</th>
+                                        <th>Matl</th>
+                                        <th>WIP</th>
+                                        <th>Done</th>
+                                        <th width="2%"></th>
+                                    </tr>
+                                </thead>
+                                <tbody></tbody>
+                            </table>
+                        </div>
+                    </div>
+                    <!--<div class="accordion" id="OrderAccordion">-->
+                    <!--<div class="accordion-item">
+        <h2 class="accordion-header" id="headingTwo">
+            <button id="btnPONoDetails" class="accordion-button collapsed" type="button" data-bs-toggle="collapse"
+                    data-bs-target="#collapseTwo" aria-expanded="false" aria-controls="collapseTwo">
+                Po No Details
+            </button>
+        </h2>
+        <div id="collapseTwo" class="accordion-collapse collapse" aria-labelledby="headingTwo"
+             data-bs-parent="#OrderAccordion">
+            <div class="accordion-body">-->
+                    <!-- =========== -->
+                    <!--</div>
+        </div>
+    </div>-->
+                    <!-- ======= -->
+                    <!--<div class="accordion-item">
+        <h2 class="accordion-header" id="headingOne">
+            <button class="accordion-button" type="button" data-bs-toggle="collapse"
+                    data-bs-target="#collapseOne" aria-expanded="true" aria-controls="collapseOne">
+                Po Line List
+            </button>
+        </h2>
+        <div id="collapseOne" class="accordion-collapse collapse show"
+             aria-labelledby="headingOne" data-bs-parent="#OrderAccordion">
+            <div class="accordion-body">
+                <div class="row">
+                    <div class="table-responsive table-he-180">
+                        <table id="POLinesTable" class="table table-sm table-bordered w-100 text-center">
+                            <thead class="  table-info th-sti">
+                                <tr class="table-border-bottom">
+                                    <th>Part No</th>
+                                    <th>Total Qnty</th>
+                                    <th># Sales Order</th>
+                                    <th># Work Order</th>
+                                    <th>Status</th>
+                                    <th>Plan</th>
+                                    <th>Matl</th>
+                                    <th>WIP</th>
+                                    <th>Done</th>
+                                    <th width="2%"></th>
+                                </tr>
+                            </thead>
+                            <tbody></tbody>
+                        </table>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </div>-->
+                    <!-- ======================================================  -->
+                    <!-- ======= -->
+                    <!--</div>-->
+                    <!-- end accordion -->
+                </div>
+                <!-- =========== -->
+                <!-- =========== -->
+            </div>
+        </div><!-- /.modal-content -->
+    </div><!-- /.modal-dialog -->
+</div><!-- /.modal -->
+
+<div class="modal fade" id="PONoDetailsPopup" data-bs-backdrop="static" data-bs-keyboard="false" tabindex="-1"
+     aria-labelledby="staticBackdropLabel" aria-hidden="true">
+    <div class="modal-dialog modal-full-width">
+        <div class="modal-content bxs-modal">
+            <div class="modal-header">
+                <h5 class="modal-title" id="staticBackdropLabel">Po No Details <span class="text-danger" id="PoDetailsPartNoToSchedule"></span></h5>
+                <button type="button" id="BtnPONoDetailsClose" class="btn-close" data-bs-dismiss="modal" aria-label="Close"></button>
+            </div>
+            <div class="modal-body">
+                <div class="row">
+                    <div class="row mt-3 mb-3">
+                        <div class="col-md-4 dott-bord-r">
+                            <form id="AggregateObjForm" onsubmit="return false;">
+                                <div class="row">
+                                    <label class="form-label col-md-3 mb-2">
+                                        Part Number <span class="text-danger"> *</span>
+                                    </label>
+                                    <div class="col-md-8 mb-2">
+                                        <div class="input-group">
+                                            <input class="form-control form-control-sm" type="text" title=""
+                                                   data-plugin="tippy" data-tippy-placement="top" id="PartNo" name="PartNo" placeholder="Enter Part No" value="" required />
+                                            <input class="form-control form-control-sm" type="text" hidden title=""
+                                                   data-plugin="tippy" data-tippy-placement="top" id="PartId" name="PartId" placeholder="Enter Part No" value="" required />
+
+                                            <button type="button" id="searchpart" class="btn btn-sm btn-outline-dark"
+                                                    title="Search Part No" data-plugin="tippy" data-tippy-placement="top"
+                                                    data-bs-toggle="modal" data-bs-target="#ba_existing-part">
+                                                <i class="ri-search-2-line serch-part-btn1"></i>
+                                            </button>
+
+                                            <!--  <select class="form-select form-select-sm" aria-label="form-select-sm" title=""
+                                data-plugin="tippy" data-tippy-placement="top" id="PartId" name="PartId" required>
+                        </select>-->
+
+                                        </div>
+                                    </div>
+                                    <!-- ========================= -->
+                                    <label class="form-label col-md-3 mb-2">
+                                        Total Qty <span class="text-danger">*</span>
+                                    </label>
+                                    <div class="col-md-8 mb-2">
+                                        <input readonly class="form-control form-control-sm" type="text" title="" value="" data-plugin="tippy"
+                                               data-tippy-placement="top" id="TotalQty" name="TotalQty" placeholder="Enter Total Qty" required />
+                                    </div>
+                                    <!-- ========================= -->
+                                    <label class="form-label col-md-3 mb-2">
+                                        Delivery SCH <span class="text-danger">*</span>
+                                    </label>
+                                    <div class="col-md-8 mb-2">
+                                        <button type="button" id="LaunchDeliverySchedule" class="btn btn-sm btn-outline-dark w-100" title=""
+                                                data-plugin="tippy" data-tippy-placement="top" data-bs-toggle="modal"
+                                                data-bs-target="#Delivery-Schedule">
+                                            Delivery Schedule
+                                        </button>
+                                    </div>
+                                    <!-- ========================= -->
+                                    <!--
+                <label class="form-label col-md-3">Comments</label>
+                <div class="col-md-8 mb-2">
+                    <textarea id="SOComment" name="Comment" class="form-control form-control-sm" placeholder="Enter Comments"></textarea>
+                </div>
+                -->
+                                    <!-- ========================= -->
+                                    <div class="col-md-11 text-end">
+                                        <input type="text" hidden id="SOAggregateId" name="SOAggregateId" value="0" />
+                                        <input type="text" hidden value="0" id="AggregateCustomerOrderId" name="CustomerOrderId" />
+                                        <!--
+                    <button id="BtnAddSalesOrder" class="btn btn-sm btn-primary ">Add</button>-->
+                                    </div>
+                                    <!-- ========================= -->
+                                </div>
+                            </form>
+                        </div>
+                        <!-- ================  -->
+                        <div class="col-md-8">
+                            <div class="row">
+                                <div class="table-responsive table-he-180">
+                                    <table id="SalesOrders" class="table table-sm table-bordered w-100 text-center">
+                                        <thead class="  table-info th-sti">
+                                            <tr class="table-border-bottom">
+                                                <th>Sales Order #</th>
+                                                <th>Work Order #</th>
+                                                <th>Part No</th>
+                                                <th>Reqd Qnty</th>
+                                                <th>Reqd Date</th>
+                                                <th>Status</th>
+                                                <th>Plan</th>
+                                                <th>Matl</th>
+                                                <th>WIP</th>
+                                                <th>Hold</th>
+                                                <th>Done</th>
+                                                <th width="2%"></th>
+                                            </tr>
+                                        </thead>
+                                        <tbody>
+                                            <!--SalesOrderRow(s)-->
+                                        </tbody>
+                                    </table>
+                                </div>
+                            </div>
+                        </div>
+                        <!-- ================  -->
+                    </div>
+                    <!-- ===============  -->
+                </div>
+            </div>
+        </div>
+    </div>
+</div>
+
+
+<partial name="_BA_ExistingPart" />
+<partial name="_BA_DeliverySchedule" />
+<partial name="_BA_EditSalesOrder" />
+<partial name="_BA_POHold" />
+<partial name="_BA_POResume" />
+<partial name="_BA_PODelete" />
+
+<template id="SalesOrderRow">
+    <tr>
+        <td>{soNumber}</td>
+        <td>{workOrderNo}</td>
+        <td>{partNo}</td>
+        <td>{requiredQuantity}</td>
+        <td>{requiredByDateStr}</td>
+        <td>{strStatus}</td>
+        <td>{plan}</td>
+        <td>{matl}</td>
+        <td>{wip}</td>
+        <td>{strHold}</td>
+        <td>{strDone}</td>
+        <td>
+            <div class="dropdown float-center">
+                <a href="#" class="dropdown-toggle arrow-none card-drop"
+                   data-bs-toggle="dropdown" aria-expanded="false">
+                    <i class="mdi mdi-dots-vertical"></i>
+                </a>
+                <div class="dropdown-menu dropdown-menu-end">
+                    <!-- item-->
+                    <!--<a href="javascript:void(0);" class="dropdown-item">View</a>-->
+                    <a href="javascript:void(0);" class="dropdown-item"
+                       data-customerorderid={customerOrderId}
+                       data-salesorderid={salesOrderId}
+                       data-scheduleid={scheduleId}
+                       data-requiredbydatestr='{requiredByDateStr}'
+                       data-requiredquantity={requiredQuantity}
+                       data-comment='{comment}'
+                       data-partid={partId}
+                       data-salesorder="Y"
+                       data-bs-toggle="modal"
+                       data-bs-target="#Edit-SalesOrder">Edit</a>
+                    <a href="javascript:void(0);" class="dropdown-item"
+                       data-bs-toggle="modal" data-partno='{partNo}' 
+                       data-customerorderid={customerOrderId} 
+                       data-salesorder="Y" data-salesorderid={salesOrderId} 
+                       data-bs-target="#po-hold">
+                        Hold /
+                        Resume
+                    </a>
+                    <a href="javascript:void(0);" data-partno='{partNo}' 
+                    data-customerorderid={customerOrderId} 
+                    data-salesorder="Y" data-salesorderid={salesOrderId} class="dropdown-item"
+                       data-bs-toggle="modal"
+                       data-bs-target="#po-Delete">Delete</a>
+                    <a href="javascript:void(0);" class="dropdown-item"
+                       data-bs-toggle="modal" data-customerorderid={customerOrderId} data-salesorderid={salesOrderId} data-salesorder="Y" data-bs-target="#po-log">
+                        View PO
+                        Log
+                    </a>
+                    <a href="javascript:void(0);" onclick="alert('todo...');" class="dropdown-item">
+                        View WO
+                        Status
+                    </a>
+                    <!-- item-->
+                </div>
+            </div>
+        </td>
+    </tr>
+</template>
+
+<template id="POLineRow">
+    <tr class="table-border-bottom">
+        <td>{partNo}</td>
+        <td>{totalQty}</td>
+        <td>{numSalesOrder}</td>
+        <td>{woNumber}</td>
+        <td>{strStatus}</td>
+        <td>{plan}</td>
+        <td>{matl}</td>
+        <td>{wip}</td>
+        <td>{strDone}</td> 
+        <td>
+            <div class="dropdown float-center">
+                <a href="#"
+                   class="dropdown-toggle arrow-none card-drop"
+                   data-bs-toggle="dropdown"
+                   aria-expanded="false">
+                    <i class="mdi mdi-dots-vertical"></i>
+                </a>
+                <div class="dropdown-menu dropdown-menu-end">
+                    <!-- item-->
+                    <a href="javascript:void(0);"
+                       class="dropdown-item">View</a>
+                    <a href="javascript:void(0);"
+                       class="dropdown-item" onclick="showSalesOrdersForPart({partId},'{partNo}');">Edit</a>
+                    <a href="javascript:void(0);"
+                       class="dropdown-item" data-bs-toggle="modal"
+                       data-bs-target="#po-hold">
+                        Hold /
+                        Resume
+                    </a>
+                    <a href="javascript:void(0);"
+                       class="dropdown-item" data-bs-toggle="modal"
+                       data-bs-target="#po-Delete">Delete</a>
+                    <a href="javascript:void(0);"
+                       class="dropdown-item" data-bs-toggle="modal"
+                       data-bs-target="#po-log">
+                        View PO
+                        Log
+                    </a>
+                    <a href="javascript:void(0);"
+                       class="dropdown-item">
+                        View WO
+                        Status
+                    </a>
+                    <!-- item-->
+                </div>
+            </div>
+        </td>
+    </tr>
+</template>
+                   

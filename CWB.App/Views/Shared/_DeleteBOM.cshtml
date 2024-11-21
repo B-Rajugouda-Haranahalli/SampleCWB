@@ -1,0 +1,38 @@
+﻿<div class="modal fade" id="dialog-DeleteBOM" data-bs-backdrop="static" data-bs-keyboard="false" tabindex="-1" aria-labelledby="staticBackdropLabel" aria-hidden="true">
+    <div class="modal-dialog modal-sm">
+        <div class="modal-content">
+            <div class="modal-header">
+                <h5 class="modal-title" id="myLargeModalLabel">Delete BOM </h5>
+                <button id="btnDelBOMClose" type="button" class="btn-close" data-bs-dismiss="modal" aria-label="Close"></button>
+            </div>
+            <div class="modal-body">
+                <div class="row">
+                    <div>
+                        <form method="post" name="FormDeleteBOM" id="FormDeleteBOM" onsubmit="return false;">
+                            <div class="row">
+                                <input hidden class="form-control form-control-sm" type="text" id="DelBOMPartNo" name="BOMPartNo" placeholder="enter here" required readonly>
+                                <input hidden class="form-control form-control-sm" type="text" id="DelQuantity" name="Quantity" placeholder="enter here" required readonly>
+                                <textarea hidden id="DelBOMPartDesc" name="BOMPartDesc" class="form-control form-control-sm" readonly></textarea>
+                                <input hidden type="text" id="DelMPBOMId" name="MPBOMId" value="0" />
+                                <input type="text" hidden id="DelMPBOMPartId" name="BOMPartId" value="0" />
+                                <input type="text" hidden id="DelBOMManufPartId" name="BOMManufPartId" value="0" />   
+                                <div class="text-center">
+                                    <div>
+                                        <label class="form-label col-md-8 mb-2"> Are you sure you want to delete this entry?</label>
+                                    </div>
+                                    <div class="text-center">
+                                        <button type="button" id="DelBOM" class="btn btn-sm btn-primary" title="Select to Delete Supplier for the RM" data-plugin="tippy" data-tippy-placement="top">Delete</button>
+                                        <button type="button" id="CancelDelBOM" class="btn btn-sm btn-primary" title="Select to Cancel" data-plugin="tippy" data-tippy-placement="top">Cancel</button>
+                                    </div>
+                                </div>
+                                <!-- ========================= -->
+                            </div>
+                        </form>
+                    </div>
+                </div>
+            </div>
+        </div><!-- /.modal-content -->
+    </div><!-- /.modal-dialog -->
+</div>
+
+

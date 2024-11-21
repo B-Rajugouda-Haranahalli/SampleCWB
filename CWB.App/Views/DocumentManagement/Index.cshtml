@@ -1,0 +1,656 @@
+﻿@{
+    ViewData["Title"] = "Document Management";
+}
+
+<input value="M-D" type="hidden" id="hdn-nav-menu" />
+<div class="content">
+    <div class="row">
+        <div class="col-xl-12 col-md-12 col-sm-12 col-xs-12">
+            <!-- ================= -->
+            <div class="card">
+                <div class="card-body">
+                    <h5 class="mb-3">Document Management</h5>
+                    <div class="row">
+                        <div class="col-md-3 mb-2">
+                            <label class="form-label mb-1">Ref. Document Formats / Files</label>
+                            <input class="form-control form-control-sm" type="text" placeholder="xxx / xxx" title="" data-plugin="tippy" data-tippy-placement="top">
+                        </div>
+                        <!-- -----------------  -->
+                        <div class="col-md-3 mb-2">
+                            <label class="form-label mb-1">Internal Data Entry Formats / Files</label>
+                            <input class="form-control form-control-sm" type="text" placeholder="xxx / xxx" title="" data-plugin="tippy" data-tippy-placement="top">
+                        </div>
+                        <!-- -----------------  -->
+                        <div class="col-md-3 mb-2">
+                            <label class="form-label mb-1">Customer Data Formats / Files</label>
+                            <input class="form-control form-control-sm" type="text" placeholder="xxx / xxx" title="" data-plugin="tippy" data-tippy-placement="top">
+                        </div>
+                        <!-- -----------------  -->
+                        <div class="col-md-3 mb-2">
+                            <label class="form-label mb-1">Files completing Retention Period Today</label>
+                            <input class="form-control form-control-sm" type="text" placeholder="xxx / xxx" title="" data-plugin="tippy" data-tippy-placement="top">
+                        </div>
+                        <!-- -----------------  -->
+                    </div>
+                    <!-- =========== -->
+                    <div class="row">
+                        <div class="col-md-2 mb-2">
+                            <label class="form-label mb-1">Document Type Name</label>
+                            <input class="form-control form-control-sm" type="text" placeholder="Enter Here" title="" id="SearchDocTypeName"
+                                   data-plugin="tippy" data-tippy-placement="top">
+                        </div>
+                        <!-- -----------------  -->
+                        <div class="col-md-2 mb-2">
+                            <label class="form-label mb-1">Uploading Dept.</label>
+                            @*<select class="form-select form-select-sm" aria-label="form-select-sm" data-plugin="tippy" id="SearchDepartment"
+                                        data-tippy-placement="top" data-tippy="" data-original-title="Select the Department">
+                                    <option value="">Department</option>
+                                </select>*@
+                            <input type="text" id="SeacrchUploaddept" class="form-control form-control-sm" placeholder="Enter Here"
+                                   title="" data-plugin="tippy" data-tippy-placement="top">
+                        </div>
+                        <!-- -----------------  -->
+                        <div class="col-md-2 mb-2">
+                            <label class="form-check-label mt-3">Data Entry Format</label>
+                            <input class="form-check-input mt-3" type="checkbox" title="" id="SearchDataEntryFormat"
+                                   data-plugin="tippy" data-tippy-placement="top">
+                        </div>
+                        <!-- -----------------  -->
+                        <div class="col-md-2 mb-2">
+                            <label class="form-check-label mt-3">Data Share w Customer</label>
+                            <input class="form-check-input mt-3" type="checkbox" title="" id="SearchDataEntryShare"
+                                   data-plugin="tippy" data-tippy-placement="top">
+                        </div>
+                        <!-- -----------------  -->
+                        <div class="col-md-2 mb-2">
+                            <label class="form-label mb-1">File Extn</label>
+                            <select class="form-select form-select-sm" aria-label="form-select-sm" id="SearchFileExtn"
+                                    data-plugin="tippy" data-tippy-placement="top" data-tippy="" data-original-title="Select ">
+                                <option value="">--Select--</option>
+                            </select>
+                        </div>
+
+                        <div class="col-md-2 text-center">
+                            <label class="form-label mb-1">&nbsp;</label>
+                            <button type="button" class="btn btn-outline-primary btn-sm mt-3" id="ClearSearchFields">Clear Fields</button>
+                        </div>
+                        <!-- -----------------  -->
+                    </div>
+                    <!-- =========== -->
+                    <div class="row mt-3">
+                        <div class="col-md-12">
+                            <div class="row">
+                                <div class="table-responsive table-he-294">
+                                    <table class="table table-sm table-bordered w-100 text-center" id="DocTypeGrid">
+                                        <thead class="  table-info th-sti">
+                                            <tr class="table-border-bottom">
+                                                <th>Document Type Name</th>
+                                                <th>Data Entry Format</th>
+                                                <th>Share w Cust.</th>
+                                                <th>Uploading Dept.</th>
+                                                <th>File Extn(s)</th>
+                                                <th>Viewing Departments List</th>
+                                                <th>Retention Period</th>
+                                                <th># Files</th>
+                                                <th width="5%"></th>
+                                            </tr>
+                                        </thead>
+                                        <tbody>
+                                            <!-- --------------  -->
+                                        </tbody>
+                                    </table>
+                                </div>
+                                <div class="col-md-10 mt-3">
+                                    <button class="btn btn-sm btn-primary" data-bs-toggle="modal" data-bs-target="#doc-type-detail"
+                                            title="" data-plugin="tippy" data-tippy-placement="top">
+                                        Add New Document
+                                        Type
+                                    </button>
+                                    <button class="btn btn-sm btn-primary" data-bs-toggle="modal" data-bs-target="#rpdcCustomerPopUp"
+                                            title="" data-plugin="tippy" data-tippy-placement="top">
+                                        View Retention Period for
+                                        Customer Data
+                                    </button>
+                                    <button class="btn btn-sm btn-primary" data-bs-toggle="modal" data-bs-target="#CDRP"
+                                            title="" data-plugin="tippy" data-tippy-placement="top">
+                                        Add Customer Data
+                                        Retention Period
+                                    </button>
+                                    <button class="btn btn-sm btn-primary" data-bs-toggle="modal" data-bs-target="#RefReasonPop"
+                                            title="" data-plugin="tippy" data-tippy-placement="top">
+                                        Add / Edit Reference Document
+                                        Replacement Reason
+                                    </button>
+                                </div>
+                                <div class="col-md-2 mt-3 text-end">
+                                    @*<a href="viewmanagedoc.html">*@
+                                    <a asp-controller="DocumentManagement" asp-action="ViewDocument" class="btn btn-sm btn-primary" id="DocViewBtn">
+                                        View / Manage
+                                        Documents
+                                    </a>
+                                    @*</a>*@
+                                </div>
+                            </div>
+                        </div>
+                    </div>
+                    <!-- =========== -->
+                </div>
+                <!-- end card body -->
+            </div>
+            <!-- end card -->
+            <!-- ================= -->
+        </div>
+        <!-- end col -->
+    </div>
+    <!-- end row -->
+</div>
+
+
+<!------------------Add DocumentType Popup------------------->
+<div class="modal fade" id="doc-type-detail" data-bs-backdrop="static" data-bs-keyboard="false" tabindex="-1" aria-labelledby="staticBackdropLabel" style="display: none;" aria-hidden="true">
+    <div class="modal-dialog modal-lg">
+        <div class="modal-content bxs-modal">
+            <div class="modal-header">
+                <h4 class="modal-title" id="mySmallModalLabel">Document Type Details</h4>
+                <button type="button" class="btn-close" data-bs-dismiss="modal" aria-label="Close"></button>
+            </div>
+            <div class="modal-body">
+                <div class="row">
+                    <!-- ========================= -->
+                    <div class="col-md-6 dott-bord-r">
+                        <div class="row">
+                            <div class="col-md-12 mb-2">
+                                <label class="form-label mb-1">Document Type Name *</label>
+                                <input class="form-control form-control-sm" type="text" id="DTDTypeName"
+                                       title="" data-plugin="tippy" data-tippy-placement="top">
+                                <span id="DTDTypeName-error" style="color:red;display:block;margin-top:4px;"></span>
+                            </div>
+                            <!-- -----------------  -->
+                            <div class="col-md-12 mb-2">
+                                <label class="form-label mb-1">Document Category</label>
+                                <select class="form-select form-select-sm" aria-label="form-select-sm" id="DTDDocCat"
+                                        data-plugin="tippy" data-tippy-placement="top" data-tippy="" data-original-title="Select the Department Category">
+                                </select>
+                                <span id="DTDDocCat-error" style="color:red;display:block;margin-top:4px;"></span>
+                            </div>
+                            <!-- -----------------  -->
+                            <div class="col-md-12 mb-2" id="DTDDataCustDiv">
+                                <label class="form-check-label mt-1">Data to be shared Customer</label>
+                                <input class="form-check-input mt-1" type="checkbox" id="DTDDataCust"
+                                       title="" data-plugin="tippy" data-tippy-placement="top">
+                            </div>
+                            <!-- -----------------  -->
+                            <div class="col-md-7 mb-1" id="RetPeriodDiv" style="display:none;">
+                                <div class="row mt-1">
+                                    <label class="form-label mb-1">Default Retention Period *</label>
+                                    <div class="col-md-6 mb-2">
+                                        <label class="form-label mb-1">Year *</label>
+                                        <input class="form-control form-control-sm" type="number" id="DTDRetYear"
+                                               title="" data-plugin="tippy" data-tippy-placement="top" value="0">
+                                        @*<select class="form-select form-select-sm" aria-label="form-select-sm" id="DTDRetYear"
+                                                    title="" data-plugin="tippy" data-tippy-placement="top">
+                                                <option value="">Year</option>
+                                                <option value="1">1</option>
+                                                <option value="2">2</option>
+                                                <option value="3">3</option>
+                                                <option value="4">4</option>
+                                                <option value="5">5</option>
+                                                <option value="6">6</option>
+                                            </select>*@
+                                    </div>
+                                    <div class="col-md-6 mb-2">
+                                        <label class="form-label mb-1">Month *</label>
+                                        <select class="form-select form-select-sm" aria-label="form-select-sm" id="DTDRetMonth"
+                                                title="" data-plugin="tippy" data-tippy-placement="top">
+                                            <option value="">Month</option>
+                                            <option value="1">1</option>
+                                            <option value="2">2</option>
+                                            <option value="3">3</option>
+                                            <option value="4">4</option>
+                                            <option value="5">5</option>
+                                            <option value="6">6</option>
+                                            <option value="7">7</option>
+                                            <option value="8">8</option>
+                                            <option value="9">9</option>
+                                            <option value="10">10</option>
+                                            <option value="11">11</option>
+                                            <option value="12">12</option>
+                                        </select>
+                                    </div>
+                                </div>
+                            </div>
+                            <!-- -----------------  -->
+                            <div class="col-md-5 mb-1 mt-3">
+                                <label class="form-label mb-1">Allowed File Extn *</label>
+                                <select class="form-select form-select-sm" aria-label="form-select-sm" title="" id="DTDFileExtn"
+                                        data-plugin="tippy" data-tippy-placement="top">
+                                    <option value="">xxxx</option>
+                                </select>
+                                <span id="DTDFileExtn-error" style="color:red;display:block;margin-top:4px;"></span>
+                            </div>
+                            <!-- -----------------  -->
+                            <div class="col-md-12 mb-2 text-end">
+                                <input type="text" id="DTDDocTypeId" hidden />
+                                <button class="btn btn-sm btn-primary" id="AddDocType">Add to List</button>
+                            </div>
+                            <!-- -----------------  -->
+                            <div class="col-md-12 mb-2 text-end">
+                                <div class="table-responsive table-he-150">
+                                    <table class="table table-sm table-bordered w-100 text-center" id="DocTypePopupExtngrid">
+                                        <thead class="table-info th-sti">
+                                            <tr class="table-border-bottom">
+                                                <td>
+                                                    Document Type Name
+                                                </td>
+                                                <td>
+                                                    File Extn Name
+                                                </td>
+                                                <td></td>
+                                            </tr>
+                                        </thead>
+                                        <tbody>
+                                        </tbody>
+                                    </table>
+                                </div>
+                            </div>
+                            <!-- -----------------  -->
+                        </div>
+                    </div>
+                    <!-- ========================= -->
+                    <div class="col-md-6">
+                        <div class="table-responsive table-he-250">
+                            <table class="table table-sm table-bordered w-100 text-center" id="DepartmentUpload">
+                                <thead class="table-info th-sti">
+                                    <tr class="table-border-bottom">
+                                        <td colspan="2">
+                                            Departments that upload Document Type
+                                        </td>
+                                    </tr>
+                                </thead>
+                                <tbody>
+                                </tbody>
+                            </table>
+                        </div>
+                        <!-- ========================= -->
+                        <div class="table-responsive table-he-150">
+                            <table class="table table-sm table-bordered w-100 text-center" id="DepartmentView">
+                                <thead class="table-info th-sti">
+                                    <tr class="table-border-bottom">
+                                        <td colspan="2">
+                                            Departments that view Document Type
+                                        </td>
+                                    </tr>
+                                </thead>
+                                <tbody>
+                                </tbody>
+                            </table>
+                        </div>
+                        <!-- ========================= -->
+                    </div>
+                    <!-- ========================= -->
+                    <div class="col-md-4 text-end">
+                        <button class="btn btn-sm btn-primary" data-bs-toggle="modal" data-bs-target="#FileExtnPopup" title="" data-plugin="tippy" data-tippy-placement="top">
+                            Add New Extn
+                        </button>
+                    </div>
+                    <div class="col-md-7 text-end">
+                        <button class="btn btn-sm btn-primary" id="DocUploadSave">Save</button>
+                    </div>
+                    <!-- ========================= -->
+                </div>
+
+            </div>
+        </div><!-- /.modal-content -->
+    </div><!-- /.modal-dialog -->
+</div>
+<!------------------Ends DocumentType Popup------------------->
+<!------------------File Extn Popup------------------->
+<div class="modal fade" id="FileExtnPopup" data-bs-backdrop="static" data-bs-keyboard="false" tabindex="-1" aria-labelledby="staticBackdropLabel" style="display: none;" aria-hidden="true">
+    <div class="modal-dialog">
+        <div class="modal-content bxs-modal">
+            <div class="modal-header">
+                <h4 class="modal-title" id="fullWidthModalLabel">File Extension List Edit / Update</h4>
+                <button type="button" class="btn-close" data-bs-dismiss="modal" aria-label="Close"></button>
+            </div>
+            <div class="modal-body">
+                <div class="row">
+                    <!-- ========================= -->
+                    <label class="form-label col-md-5 mb-2">File Extension *</label>
+                    <div class="col-md-7 mb-2">
+                        <input class="form-control form-control-sm" type="text" id="fileExtensionNameEdit" placeholder="enter here">
+                        <span id="FileName-error" style="color:red;display:block;margin-top:4px;"></span>
+                    </div>
+                    <!-- ========================= -->
+                    <div class="col-md-12 text-end">
+                        <input type="text" id="fileExtensionEditId" hidden="">
+                        <button class="btn btn-sm btn-primary" id="FileExtensionSave">Save</button>
+                    </div>
+                    <!-- ========================= -->
+                </div>
+                <!-- end row -->
+                <!-- end row -->
+                <div class="row mt-4">
+                    <div class="table-responsive table-he-150">
+                        <table class="table table-sm table-bordered w-100 mb-3 tableFixHead" id="fileExtensionGrid">
+                            <thead class="  table-info th-sti text-center">
+                                <tr class="table-border-bottom">
+                                    <th></th>
+                                    <th width="5%"></th>
+                                </tr>
+                            </thead>
+                            <tbody>
+                            </tbody>
+                        </table>
+                    </div>
+                </div>
+                <!-- end row -->
+            </div>
+        </div>
+    </div>
+</div>
+<!------------------Ends File Extn Popup------------------->
+<!------------------List CustomerRetention Popup------------------->
+<div class="modal fade" id="rpdcCustomerPopUp" data-bs-backdrop="static" data-bs-keyboard="false" tabindex="-1" aria-labelledby="staticBackdropLabel" style="display: none;" aria-hidden="true">
+    <div class="modal-dialog">
+        <div class="modal-content bxs-modal">
+            <div class="modal-header">
+                <h4 class="modal-title" id="mySmallModalLabel">Retention Period List for Data collected for Customer</h4>
+                <button type="button" class="btn-close" data-bs-dismiss="modal" aria-label="Close"></button>
+            </div>
+            <div class="modal-body">
+                <div class="row">
+                    <!-- ========================= -->
+                    <div class="col-md-6 mb-2">
+                        <label class="form-label mb-1">Document Type Name </label>
+                        <input class="form-control form-control-sm" type="text" value="" title="" data-plugin="tippy"
+                               data-tippy-placement="top" id="rpdcDocTypeName">
+                    </div>
+                    <!-- -----------------  -->
+                    <div class="col-md-6 mb-2">
+                        <label class="form-label mb-1">Customer</label>
+                        <select class="form-select form-select-sm" aria-label="form-select-sm" data-plugin="tippy" id="rpdcCustomerSelect"
+                                data-tippy-placement="top" data-tippy="" data-original-title="Select the Department Category">
+                        </select>
+                    </div>
+                    <!-- -----------------  -->
+                    <!-- ========================= -->
+                    <div class="col-md-12">
+                        <div class="table-responsive table-he-150">
+                            <table class="table table-sm table-bordered w-100 text-center" id="rpdcCustomerRetGrid">
+                                <thead class="  table-info th-sti">
+                                    <tr class="table-border-bottom">
+                                        <th>Document Type Name</th>
+                                        <th>Customer</th>
+                                        <th>Retention Period</th>
+                                        <th># Files</th>
+                                        <th width="5%"></th>
+                                    </tr>
+                                </thead>
+                                <tbody>
+                                    <!-- ----------- -->
+                                </tbody>
+                            </table>
+                        </div>
+                        <!-- ========================= -->
+                    </div>
+                    <!-- ========================= -->
+                    <div class="col-md-12">
+                        <button class="btn btn-sm btn-primary" data-bs-toggle="modal" data-bs-target="#CDRP" title="" data-plugin="tippy" data-tippy-placement="top">
+                            Add Customer Data
+                            Retention Period
+                        </button>
+                    </div>
+                    <!-- ========================= -->
+                </div>
+            </div>
+        </div><!-- /.modal-content -->
+    </div><!-- /.modal-dialog -->
+</div>
+<!------------------Ends List CustomerRetention Popup------------------->
+<!------------------Add CustomerRetention Popup------------------->
+<div class="modal fade" id="CDRP" data-bs-backdrop="static" data-bs-keyboard="false" tabindex="-1" aria-labelledby="staticBackdropLabel" style="display: none;" aria-hidden="true">
+    <div class="modal-dialog">
+        <div class="modal-content bxs-modal">
+            <div class="modal-header">
+                <h4 class="modal-title" id="fullWidthModalLabel">Customer Data Retention Period</h4>
+                <button type="button" class="btn-close" data-bs-dismiss="modal" aria-label="Close"></button>
+            </div>
+            <div class="modal-body">
+                <div class="row">
+                    <!-- ========================= -->
+                    <label class="form-label col-md-5 mb-2">Document Type Name *</label>
+                    <div class="col-md-6 mb-2">
+                        <select class="form-select form-select-sm" aria-label="form-select-sm" title="" id="CDRPDocTypeName"
+                                data-plugin="tippy" data-tippy-placement="top">
+                        </select>
+                    </div>
+                    <!-- ========================= -->
+                    <label class="form-label col-md-5 mb-2">Customer *</label>
+                    <div class="col-md-6 mb-2">
+                        <select class="form-select form-select-sm" aria-label="form-select-sm" title="" id="CDRPCustomer"
+                                data-plugin="tippy" data-tippy-placement="top">
+                        </select>
+                    </div>
+                    <!-- ========================= -->
+                    <label class="form-label col-md-5 mb-2">Retention Period *</label>
+                    <div class="col-md-3 mb-2">
+                        <label class="form-label mb-1">Year *</label>
+                        <input class="form-control form-control-sm" type="number" id="CDRPRetPerYear"
+                               title="" data-plugin="tippy" data-tippy-placement="top" value="0">
+                        @*<select class="form-select form-select-sm" aria-label="form-select-sm" title="" id="CDRPRetPerYear"
+                                    data-plugin="tippy" data-tippy-placement="top">
+                                <option value="">Year</option>
+                                <option value="1">1</option>
+                                <option value="2">2</option>
+                                <option value="3">3</option>
+                                <option value="4">4</option>
+                                <option value="5">5</option>
+                                <option value="6">6</option>
+                            </select>*@
+                    </div>
+                    <div class="col-md-3 mb-2">
+                        <label class="form-label mb-1">Month *</label>
+                        <select class="form-select form-select-sm" aria-label="form-select-sm" title="" id="CDRPRetPerMon"
+                                data-plugin="tippy" data-tippy-placement="top">
+                            <option value="">--Select--</option>
+                            <option value="1">1</option>
+                            <option value="2">2</option>
+                            <option value="3">3</option>
+                            <option value="4">4</option>
+                            <option value="5">5</option>
+                            <option value="6">6</option>
+                            <option value="7">7</option>
+                            <option value="8">8</option>
+                            <option value="9">9</option>
+                            <option value="10">10</option>
+                            <option value="11">11</option>
+                            <option value="12">12</option>
+                        </select>
+                    </div>
+                    <!-- ========================= -->
+                    <div class="col-md-11 text-end">
+                        <input type="text" id="CDRPCustRetId" hidden />
+                        <button class="btn btn-sm btn-primary" id="CDRPCustRetSave">Save</button>
+                    </div>
+                    <!-- ========================= -->
+                </div>
+                <!-- end row -->
+            </div>
+            <!-- body end -->
+        </div>
+        <!-- /.modal-content -->
+    </div>
+    <!-- /.modal-dialog -->
+</div>
+<!------------------Ends CustomerRetention Popup------------------->
+<!------------------Add Ref Reason Popup------------------->
+<div class="modal fade" id="RefReasonPop" data-bs-backdrop="static" data-bs-keyboard="false" tabindex="-1" aria-labelledby="staticBackdropLabel" style="display: none;" aria-hidden="true">
+    <div class="modal-dialog">
+        <div class="modal-content bxs-modal">
+            <div class="modal-header">
+                <h4 class="modal-title" id="fullWidthModalLabel">Reference / Master File Replacement Reason</h4>
+                <button type="button" class="btn-close" data-bs-dismiss="modal" aria-label="Close"></button>
+            </div>
+            <div class="modal-body">
+                <div class="row">
+                    <!-- ========================= -->
+                    <label class="form-label col-md-5 mb-2">Replacement Reason <span class="text-danger">*</span> </label>
+                    <div class="col-md-7 mb-2">
+                        <input class="form-control form-control-sm" type="text" id="DocReason" placeholder="enter here">
+                        <span id="DocReason-error" style="color:red;display:block;margin-top:4px;"></span>
+                    </div>
+                    <!-- ========================= -->
+                    <div class="col-md-12 text-end">
+                        <input type="text" id="DocReasonId" hidden="">
+                        <button class="btn btn-sm btn-primary" id="RefReasonSave">Save</button>
+                    </div>
+                    <!-- ========================= -->
+                </div>
+                <!-- end row -->
+                <!-- end row -->
+                <div class="row mt-4">
+                    <div class="table-responsive table-he-150">
+                        <table class="table table-sm table-bordered w-100 mb-3 tableFixHead" id="RefDocGrid">
+                            <thead class="  table-info th-sti text-center">
+                                <tr class="table-border-bottom">
+                                    <th></th>
+                                    <th width="5%"></th>
+                                </tr>
+                            </thead>
+                            <tbody>
+                            </tbody>
+                        </table>
+                    </div>
+                </div>
+                <!-- end row -->
+            </div>
+        </div>
+    </div>
+</div>
+<!------------------Ends CustomerRetention Popup------------------->
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+<template id="DocumentTypeRow">
+    <tr>
+        <td hidden>{documentTypeId}</td>
+        <td>{documentName}</td>
+        <td>{dataReqdByCust}</td>
+        <td>{dataReqdByCust}</td>
+        <td>{deptUploadName}</td>
+        <td>{fileExtnName}</td>
+        <td>{deptViewName}</td>
+        <td>{defaultRetPerYear} Yr/{defaultRetPerMon} M</td>
+        <td>{noOfFiles}</td>
+        <td>
+            <div class="dropdown float-center">
+                <a href="#" class="dropdown-toggle arrow-none card-drop" data-bs-toggle="dropdown" aria-expanded="false"><i class="mdi mdi-dots-vertical"></i></a>
+                <div class="dropdown-menu dropdown-menu-end">
+                    <!-- item-->
+                    <a href="javascript:void(0);" class="dropdown-item" data-bs-toggle="modal" data-bs-target="#doc-type-detail"
+                       data-doctypeid="{documentTypeId}" data-doccatid="{docuCategory}" data-doctypename="{documentName}" data-docdatareqdcust="{dataReqdByCust}"
+                       data-retperyear="{defaultRetPerYear}" data-retpermon="{defaultRetPerMon}" data-fileextnid="{extnId}">Edit</a>
+                    <!-- item-->
+                    <a href="javascript:void(0);" class="dropdown-item" onclick="DeleteDocType({documentTypeId})">Delete</a>
+                </div>
+            </div>
+        </td>
+        <td hidden>
+            {docuCategory}
+        </td>
+        <td hidden>
+            {extnId}
+        </td>
+    </tr>
+</template>
+
+<template id="DepartmentUploadRow">
+    <tr>
+        <td width="15%">
+            <input class="form-check-input mt-1" type="checkbox" title="" data-plugin="tippy" data-tippy-placement="top">
+        </td>
+        <td>{name}</td>
+        <td hidden>{departmentId}</td>
+    </tr>
+</template>
+
+<template id="DepartmentViewRow">
+    <tr>
+        <td width="15%">
+            <input class="form-check-input mt-1" type="checkbox" title="" data-plugin="tippy" data-tippy-placement="top">
+        </td>
+        <td>{name}</td>
+        <td hidden>{departmentId}</td>
+    </tr>
+</template>
+
+<template id="CustomerRetentionRow">
+    <tr>
+        <td>{documentTypeName}</td>
+        <td>{companyName}</td>
+        <td>{retPerYear} Yr/ {retPerMon} M</td>
+        <td>{noOfFiles}</td>
+        <td>
+            <div class="dropdown float-center">
+                <a href="#" class="dropdown-toggle arrow-none card-drop" data-bs-toggle="dropdown" aria-expanded="false"><i class="mdi mdi-dots-vertical"></i></a>
+                <div class="dropdown-menu dropdown-menu-end">
+                    <!-- item-->
+                    <a href="javascript:void(0);" data-bs-toggle="modal" data-bs-target="#CDRP" data-custretnid="{custRetnDataId}"
+                       data-doctypename="{documentTypeName}" data-doctypenameid="{documentTypeId}" data-customerid="{comapanyId}"
+                       data-retperyear="{retPerYear}" data-retpermon="{retPerMon}"
+                       class="dropdown-item">Edit</a>
+                    <!-- item-->
+                    <a href="javascript:void(0);" class="dropdown-item" onclick="DeleteCustRetData({custRetnDataId})">Delete</a>
+                </div>
+            </div>
+        </td>
+    </tr>
+</template>
+
+<template id="FileExtensionGridRow">
+    <tr>
+        <td>{extnName}</td>
+        <td>
+            <a href="javascript:void(0);" data-fileextnid="{extnId}"
+               data-fileextnname="{extnName}" onclick="EditFileExtnsion(this)">
+                <i class="fas fa-pencil-alt btn btn-sm"></i>
+            </a>
+        </td>
+    </tr>
+</template>
+<template id="RefDocGridRow">
+    <tr>
+        <td>{docReason}</td>
+        <td>
+            <a href="javascript:void(0);" data-refdocid="{refDocReasonListId}"
+               data-docreason="{docReason}" onclick="EditRefDoc(this)">
+                <i class="fas fa-pencil-alt btn btn-sm"></i>
+            </a>
+        </td>
+    </tr>
+</template>
+
+<template id="ExtnGridRow">
+    <tr>
+        <td>{documentName}</td>
+        <td>{fileExtnName}</td>
+        <td><a href="javascript:void(0);" id="delete-extn-link" onclick="DeleteExtn('{fileExtnName}',{extnId})"><i class="fas fa-trash"></i></a></td>
+    </tr>
+</template>
+
+
+@section Scripts {
+    <script src="~/js/DocumentManagement.js"></script>
+}

@@ -1,0 +1,51 @@
+﻿<ul class="list-unstyled topnav-menu float-end mb-0">
+    @if (User.Identity.IsAuthenticated)
+    {
+        <li class="d-none d-lg-block">
+            <form class="app-search">
+                <div class="app-search-box dropdown">
+                    <div class="input-group">
+                        <input type="search" class="form-control" placeholder="Search..." id="top-search" />
+                        <button class="btn" type="button"> <i class="fe-search"></i> </button>
+                    </div>
+                </div>
+            </form>
+        </li>
+        <li class="dropdown d-inline-block d-lg-none">
+            <a class="nav-link dropdown-toggle arrow-none waves-effect waves-light" data-bs-toggle="dropdown" href="#" role="button" aria-haspopup="false" aria-expanded="false"> <i class="fe-search noti-icon"></i> </a>
+            <div class="dropdown-menu dropdown-lg dropdown-menu-end p-0">
+                <form class="p-3">
+                    <input type="text" class="form-control" placeholder="Search ..." aria-label="Search" />
+                </form>
+            </div>
+        </li>
+        <!--email  -->
+        <li class="dropdown notification-list topbar-dropdown">
+            <a class="nav-link dropdown-toggle waves-effect waves-light" data-bs-toggle="dropdown" href="#" role="button" aria-haspopup="false" aria-expanded="false">
+                <i class="ri-mail-line font-19"></i>
+                <!-- <span class="badge bg-danger rounded-circle noti-icon-badge">5</span> -->
+            </a>
+        </li>
+        <!-- Chat -->
+        <li class="dropdown notification-list topbar-dropdown">
+            <a class="nav-link dropdown-toggle nav-user me-0 waves-effect waves-light" data-bs-toggle="dropdown" href="#" role="button" aria-haspopup="false" aria-expanded="false"> <i class="ri-account-circle-line font-28"></i> </a>
+            <div class="dropdown-menu dropdown-menu-end profile-dropdown">
+                <!-- item-->
+                <a href="javascript:void(0);" class="dropdown-item notify-item"> <i class="ri-account-circle-line"></i> <span>@User.Identity.Name</span> </a>
+                <!-- item-->
+                <div class="dropdown-divider"></div>
+                <a href="javascript:void(0);" class="dropdown-item notify-item"> <i class="ri-account-circle-line"></i> <span>My Account</span> </a>
+                <!-- item-->
+                <div class="dropdown-divider"></div>
+                <!-- item-->
+                <a class="dropdown-item notify-item" asp-action="Logout" asp-controller="Home"> <i class="ri-logout-box-line"></i> <span>Logout</span> </a>
+            </div>
+        </li>
+    }
+    else
+    {
+        <li class="nav-item">
+            <a class="nav-link" asp-action="Login" asp-controller="Home">Login</a>
+        </li>
+    }
+</ul>

@@ -1,0 +1,97 @@
+﻿<div class="modal fade" id="rm-select" data-bs-backdrop="static" data-bs-keyboard="false" tabindex="-1" aria-labelledby="staticBackdropLabel" aria-hidden="true">
+    <div class="modal-dialog modal-lg">
+        <div class="modal-content">
+            <div class="modal-header">
+                <h4 class="modal-title" id="myLargeModalLabel">Raw Material Selection</h4>
+                <button type="button" class="btn-close" id="btn-close-RMSelect" data-bs-dismiss="modal" aria-label="Close"></button>
+            </div>
+            <div class="modal-body">
+                <!-- ===================== -->
+                <div class="row mb-1">
+                    <label class="form-label col-md-2 mb-2">Inhouse Part Number </label>
+                    <div class="col-md-4 mb-2" title="Enter the Part No partially or fully to shortlist" data-plugin="tippy" data-tippy-placement="top">
+                        <input id="OPartNo" name="OPartNo" class="form-control form-control-sm" type="text" placeholder="enter here">
+                    </div>
+                    <!-- =============== -->
+                    <label class="form-label col-md-2 mb-2">Additional Information </label>
+                    <div class="col-md-4 mb-2" title="Enter hte Part Description partially or fully to shortlist" data-plugin="tippy" data-tippy-placement="top">
+                        <textarea id="OAdditionalInfo" name="OAdditionalInfo" class="form-control form-control-sm"></textarea>
+                    </div>
+                    <!-- =============== -->
+                    <label class="form-label col-md-2 mb-2"> Supplier</label>
+                    <div class="col-md-4 mb-2" title="Select the Raw Material Supplier Company from the List" data-plugin="tippy" data-tippy-placement="top">
+                        <input class="form-control form-control-sm" type="text" id="OSupplierId" name="OSupplierId" placeholder="enter here">
+                    </div>
+                    <!-- ------------------- -->
+                    <label class="form-label col-md-2 mb-2">Supplier Part No</label>
+                    <div class="col-md-4 mb-2" title="Enter the Supplier Part No partially or fully to shortlist" data-plugin="tippy" data-tippy-placement="top">
+                        <input id="OSupplierPartNo" name="SupplierPartNo" class="form-control form-control-sm" type="text" placeholder="enter here">
+                    </div>
+                    <!-- ------------------- -->
+                    <label class="form-label col-md-2 mb-2"> RM Category</label>
+                    <div class="col-md-4 mb-2" title="Select the Raw Material Category  from the  list" data-plugin="tippy" data-tippy-placement="top">
+                        <select id="ORawMaterialMadeSubType" name="RawMaterialMadeSubType" class="form-select form-select-sm">
+                            <option value="1"> Made to Print </option>
+                            <option value="2"> Standard Purchased RM </option>
+                        </select>
+                    </div>
+                    <!-- ------------------- -->
+                    <label class="form-label col-md-2 mb-2"> RM Type</label>
+                    <div class="col-md-4 mb-2" title="Select the Raw Material Type from the list (Casting, Forging, Plate, Bar ..." data-plugin="tippy" data-tippy-placement="top">
+                        <input class="form-control form-control-sm" type="text" id="ORawMaterialTypeId" name="ORawMaterialTypeId" placeholder="enter here">
+                    </div>
+                    <!-- ------------------- -->
+                    <label class="form-label col-md-2 mb-2"> Base Material</label>
+                    <div class="col-md-4 mb-2" title="Select the Base Raw Material from the list (Steel, Brass ....)" data-plugin="tippy" data-tippy-placement="top">
+                        <input class="form-control form-control-sm" type="text" id="OBaseRawMaterialId" name="OBaseRawMaterialId" placeholder="enter here">
+                    </div>
+                    <!-- ------------------- -->
+                    <label class="form-label col-md-2 mb-1">Keyword / Desc</label>
+                    <div class="col-md-4 mb-2" title="Enter any word that is related to the Raw Material to shortlist" data-plugin="tippy" data-tippy-placement="top">
+                        <input id="OKeyword" name="OKeyword" class="form-control form-control-sm" type="text" placeholder="enter here">
+                    </div>
+                    <!-- =============== -->
+                </div>
+                <!-- ====================================== -->
+                <div class="row mt-3">
+                    <div class="table-responsive mt-1 table-he-180">
+                        <table id="OwnRMTable" class="table table-sm table-bordered w-100 mb-3 tableFixHead">
+                            <thead class="  table-info th-sti text-center">
+                                <tr class="table-border-bottom">
+                                    <th width="5%"></th>
+                                    <th>Company</th>
+                                    <th>Part No</th>
+                                    <th>AdditionalInformation</th>
+                                </tr>
+                            </thead>
+                            <tbody>
+                                
+                            </tbody>
+                        </table>
+                    </div>
+                </div>
+            </div>
+            <div class="modal-footer">
+                <button id="OSelect" type="button" class="btn btn-primary btn-sm" onclick="copyOwnData()">Select</button>
+            </div>
+        </div>
+        <!-- /.modal-content -->
+    </div>
+    <!-- /.modal-dialog -->
+</div>
+
+<template id="OwnRMSelectionTemplate">
+    <tr>
+        <td>
+            <input class="form-check-input mt-1" type="radio" name="OSRM" value="{num}">
+        </td>
+        <td data-key="supplier">{supplier}</td>
+        <td data-key="masterPartNo">{partNo}</td>
+        <td data-key="additionalInformation">{additionalInfo}</td>
+        <td style="visibility:collapse" data-key="masterPartId" hidden>{partId}</td>
+        <td style="visibility:collapse" data-key="rmMadeSubType" hidden>{rawMaterialMadeSubType}</td>
+        <td style="visibility:collapse" data-key="rmType" hidden>{rawMaterialType}</td>
+        <td style="visibility:collapse" data-key="baseRM" hidden>{baseRawMaterial}</td>
+    </tr>
+</template>
+

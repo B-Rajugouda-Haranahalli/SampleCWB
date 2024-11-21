@@ -1,0 +1,73 @@
+﻿@model CWB.App.Models.OperationList.OperationDocumentTypeVM
+<div class="row" id="containerOperationListDocType">
+    <h6 class="text-center mb-2">Document Required for the Operation</h6>
+    <!-- ----- -->
+    <div class="col-md-6 dott-bord-r">
+        <form id="frmOperationlistdoc" method="post">
+            <div class="row">
+                <label class="form-label col-md-4 mb-2" asp-for="OperationDocumentTypeId"></label>
+                <div class="col-md-8 mb-2" title="Select the Document Type (Part Program, Tool List ...) from the Drop Down. If the Document Type is not in the List, it needs to be created in Company Settings -> Document Types" data-plugin="tippy" data-tippy-placement="top">
+                    <select class="form-select form-select-sm" asp-for="OperationDocumentTypeId">
+                    </select>
+                    <span asp-validation-for="OperationDocumentTypeId"></span>
+                </div>
+                <!-- ----- -->
+                <div class="col-md-12 mb-2">
+                    <label class="form-check-label" asp-for="IsOperationDocumentMandatory"></label>
+                    <input class="form-check-input mt-1 m-l-10" type="checkbox" title="Select if the Document is mandatory .... ie without which the machine cannot be set or operated"
+                           data-plugin="tippy" data-tippy-placement="top" asp-for="IsOperationDocumentMandatory">
+                    <span asp-validation-for="IsOperationDocumentMandatory"></span>
+                </div>
+                <!-- ----- -->
+                <div class="col-md-12 text-end">
+                    <input type="button" class="btn btn-sm btn-primary" title="Select to Add the Document Type to the List of Documents"
+                           data-plugin="tippy" data-tippy-placement="top" value="ADD" id="btnOperationDocTypeSubmit" />
+                </div>
+            </div>
+            <div class="row">
+                <span id="Text-Error" style="color:red;"></span>
+            </div>
+            <!-- end row -->
+            <input type="hidden" asp-for="OperationListIdForDocType" />
+            <input type="hidden" asp-for="OperationListDocumentId" />
+        </form>
+    </div>
+    <!-- ==================== -->
+    <div class="col-md-6">
+        <div class="table-responsive mb-2 table-he-130">
+            <table class="table table-sm table-bordered w-100 mb-3 text-center" id="tbl-operation-list-doc">
+                <thead class="  table-info th-sti">
+                    <tr class="table-border-bottom">
+                        <th width="70%">Name</th>
+                        <th width="25%">Mandatory</th>
+                        <th width="5%"></th>
+                    </tr>
+                </thead>
+                <tbody>
+                </tbody>
+            </table>
+        </div>
+    </div>
+    <!-- ==================== -->
+</div>
+<template id="operationlist-doc-template">
+    <tr>
+        <td data-key="DocumentType">{documentType}</td>
+        <td data-key="IsMandatory">{isMandatoryStr}</td>
+        <td>
+            <div class="dropdown float-center">
+                <a href="#" class="dropdown-toggle arrow-none card-drop" data-bs-toggle="dropdown" aria-expanded="false"><i class="mdi mdi-dots-vertical"></i></a>
+                <div class="dropdown-menu dropdown-menu-end">
+                    <!-- item-->
+                    <button data-id="{operationalDocumentId}" data-mandatory="{isMandatory}" data-doctype="{documentType}"
+                            data-doctypeid="{documentTypeId}" class="dropdown-item edit">
+                        Edit
+                    </button>
+                    <!-- item-->
+                    <button data-id="{operationalDocumentId}"
+                            data-doctypeid="{documentTypeId}" onclick="DeletOperationDoc(this)" class="dropdown-item delete">delete</button>
+                </div>
+            </div>
+        </td>
+    </tr>
+</template>

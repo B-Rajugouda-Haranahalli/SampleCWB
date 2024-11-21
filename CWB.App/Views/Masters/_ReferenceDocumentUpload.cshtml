@@ -1,0 +1,87 @@
+﻿<div id="part-reference-doc-model" class="modal fade" data-bs-backdrop="static" data-bs-keyboard="false" tabindex="-1" aria-labelledby="staticBackdropLabel" aria-hidden="true">
+    <div class="modal-dialog">
+        <div class="modal-content">
+            <div class="modal-header">
+                <h4 class="modal-title" id="standard-modalLabel">Document Upload</h4>
+                <button type="button" class="btn-close" data-bs-dismiss="modal" aria-label="Close"></button>
+            </div>
+            <div class="modal-body">
+                <div class="row">
+                    <!-- ------- -->
+                    <button class="btn btn-primary" onclick="viewFile('JS Assignment.pdf')">View File</button>
+
+
+                    <div class="col-md-12">
+                        <!-- =========== -->
+                        <form asp-action="UploadFileToFtp" method="post" enctype="multipart/form-data">
+                            <div class="row mt-2">
+                                <label class="col-md-4 form-label mb-2">File Content / Comment <span class="text-danger"> * </span></label>
+                                <div class="col-md-8 mb-2" title="Indicate the File Content or any relevant info about the Document" data-plugin="tippy" data-tippy-placement="top">
+                                    <textarea name="comment" form="usrform" id="simpleinput" class="form-control form-control-sm"></textarea>
+                                </div>
+                            </div>
+                            <!-- =========== -->
+                            <!-- =========== -->
+                            <div class="row">
+                                <label class="col-md-4 form-label mb-2">Document Type <span class="text-danger"> * </span></label>
+                                <div class="col-md-8 mb-2" title="Select the Document Type" data-plugin="tippy" data-tippy-placement="top">
+                                    <select class="form-select form-select-sm" aria-label="form-select-sm">
+                                        <option value="">3D</option>
+                                        <option value="">2D</option>
+                                        <option value="">jpg</option>
+                                    </select>
+                                </div>
+                                <!-- -------  -->
+                            </div>
+                            <!-- =========== -->
+                            <!-- =========== -->
+                            <div class="row mt-2">
+                                <div class="col-md-7">
+                                    <div class="fileupload btn btn-sm btn-info waves-effect w-100" title="" data-plugin="tippy" data-tippy-placement="top">
+                                        <span><i class="mdi mdi-cloud-upload me-1"></i>Document Upload</span>
+                                        <input type="file" class="upload" name="uploadedFile">
+                                    </div>
+                                </div>
+                                <!-- ----------- -->
+                                <div class="col-md-5 text-end">
+                                    <button class="btn btn-sm btn-primary" title="Use to Save the entered data" data-plugin="tippy" id="SaveDoc" data-tippy-placement="top">Save</button>
+                                </div>
+                        </form>
+                    </div><!-- =========== -->
+                    <!-- =========== -->
+                    <div class="row mt-2 display-none">
+                        <div class="col-md-5">
+                            <button class="btn btn-sm btn-info w-100">Create New Document</button>
+                        </div>
+                        <div class="col-md-5">
+                            <button class="btn btn-sm btn-purple w-100" data-bs-toggle="modal" data-bs-target="#task-rou">Task Document Creation  <span class="badge bg-primary rounded-circle noti-icon-badge m-l-10">5</span>  </button>
+                        </div>
+                    </div>
+                    <!-- =========== -->
+                </div>
+                <!-- ------- -->
+            </div>
+        </div>
+    </div><!-- /.modal-content -->
+</div><!-- /.modal-dialog -->
+
+
+<!-- Modal -->
+<div class="modal fade" id="fileModal" tabindex="-1" aria-labelledby="fileModalLabel" aria-hidden="true">
+    <div class="modal-dialog modal-lg">
+        <div class="modal-content">
+            <div class="modal-header">
+                <h5 class="modal-title" id="fileModalLabel">File Viewer</h5>
+                <button type="button" class="btn-close" data-bs-dismiss="modal" aria-label="Close"></button>
+            </div>
+            <div class="modal-body">
+                <iframe id="fileViewer" src="" width="100%" height="500px"></iframe>
+                @*<a id="fileDownloadLink" href="" target="_blank" class="btn btn-primary">Open File</a>*@
+                @*<object id="fileViewer" data="" type="application/pdf" width="100%" height="500px">
+                    <p>Your browser does not support PDFs. <a href="">Download the PDF</a>.</p>
+                </object>*@
+            </div>
+        </div>
+    </div>
+</div>
+

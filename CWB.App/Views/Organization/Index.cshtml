@@ -1,0 +1,791 @@
+﻿<!--
+     public long DepartmentId { get; set; }
+        public string Name { get; set; }
+        public int NoOfShifts { get; set; }
+        public long PlantId { get; set; }
+        public string Activity { get; set; }
+        public long TenantId { get; set; }
+-->
+
+<div class="content">
+    <div class="card">
+        <div class="card-body">
+            <h4 class="pb-1 mt-1 mb-1" >Organization</h4>
+            <ul class="nav nav-pills navtab-bg nav-justified">
+            <li class="nav-item">
+                <a href="#tab222" data-bs-toggle="tab" aria-expanded="true" class="nav-link active">
+                <span class="d-inline-block d-sm-none">Dept</span>
+                <span class="d-none d-sm-inline-block">Department</span>
+                </a>
+            </li>
+
+            <li class="nav-item" hidden>
+                <a href="#tab333" data-bs-toggle="tab" aria-expanded="false" class="nav-link">
+                <span class="d-inline-block d-sm-none">Org Chart</span>
+                <span class="d-none d-sm-inline-block">Organization Chart</span>
+                </a>
+            </li>
+            <li class="nav-item" hidden>
+                <a href="#tab111" data-bs-toggle="tab" aria-expanded="false" class="nav-link">
+                <span class="d-inline-block d-sm-none">Org Head</span>
+                <span class="d-none d-sm-inline-block">Organization Head</span>
+                </a>
+            </li>
+            </ul>
+            <div class="tab-content">
+            <div class="tab-pane show active" id="tab222">
+                <div class="row">
+                    <div class="table-responsive mb-2 table-he-350">
+                        <table class="table table-sm table-bordered w-100 text-center" id="DeptTable">
+                        <thead class="table-info th-sti">
+                            <tr class="table-border-bottom">
+                                <th>Department</th>
+                                <th>Section Name </th>
+                                <th>Location</th>
+                                <th> Production Department / Shop </th>
+                                <th>No of Shifts of Operation</th>
+                                <th>Activity / Function</th>
+                                <th width="5%"></th>
+                            </tr>
+                        </thead>
+                        <tbody>
+
+                        </tbody>
+                        </table>
+                    </div>
+                    <div class="col-md-12 mt-1">
+                            <button onclick="SetOp('add');$('#add-dept').modal('show');" class="btn btn-sm btn-primary" data-op="add" data-bs-toggle="modal">Add / New Department</button>
+                    </div>
+                </div>
+                <!-- -------------  -->
+            </div>
+            <!-- ===============  -->
+            <div class="tab-pane display-none" id="tab333">
+            </div>
+            <!-- ===============  -->
+            <div class="tab-pane display-none" id="tab111">
+                <div class="row mt-3">
+                    <!-- --------------------  -->
+                    <label class="form-label col-md-2 mb-2">Organization Head Position Name</label>
+                    <div class="col-md-4 mb-2">
+                        <input type="text" id="simpleinput" class="form-control form-control-sm" placeholder="Enter here"/>
+                    </div>
+                    <!-- ================= -->
+                    <div class="col-md-4 mb-2">
+                        <button class="btn btn-sm btn-primary">Save</button>
+                    </div>
+                    <!-- --------------------  -->
+                    <div class="accordion mt-3" id="accordionExample">
+                        <div class="accordion-item">
+                        <h2 class="accordion-header" id="headingTwo">
+                            <button class="accordion-button collapsed" type="button" data-bs-toggle="collapse"
+                                data-bs-target="#collapseTwo" aria-expanded="false" aria-controls="collapseTwo">
+                            UI Access for this Position / Role
+                            </button>
+                        </h2>
+                        <div id="collapseTwo" class="accordion-collapse collapse" aria-labelledby="headingTwo"
+                            data-bs-parent="#accordionExample">
+                            <div class="accordion-body">
+                                <div class="row">
+                                    <div class="col-md-5 dott-bord-r">
+                                    <div class="row">
+                                        <!-- ============== -->
+                                        <label class="form-label col-md-2 mb-2">Department</label>
+                                        <div class="col-md-9 mb-2">
+                                            <select class="form-select form-select-sm">
+                                                <option value="">XXXXXXX </option>
+                                                <option value="">XXXXXXX </option>
+                                                <option value="">XXXXXXX </option>
+                                            </select>
+                                        </div>
+                                        <!-- ============== -->
+                                        <label class="form-label col-md-2 mb-2"> Module</label>
+                                        <div class="col-md-9 mb-2">
+                                            <select class="form-select form-select-sm">
+                                                <option value="">XXXXXXX </option>
+                                                <option value="">XXXXXXX </option>
+                                                <option value="">XXXXXXX </option>
+                                            </select>
+                                        </div>
+                                        <!-- ============== -->
+                                        <label class="form-label col-md-2 mb-2">UI</label>
+                                        <div class="col-md-9 mb-2">
+                                            <select class="form-select form-select-sm">
+                                                <option value="">XXXXXXX </option>
+                                                <option value="">XXXXXXX </option>
+                                                <option value="">XXXXXXX </option>
+                                            </select>
+                                        </div>
+                                        <!-- ============== -->
+                                        <label class="form-label col-md-2 mb-2">Access</label>
+                                        <div class="col-md-9 mb-2">
+                                            <select class="form-select form-select-sm">
+                                                <option value="">XXXXXXX </option>
+                                                <option value="">XXXXXXX </option>
+                                                <option value="">XXXXXXX </option>
+                                            </select>
+                                        </div>
+                                        <!-- ============== -->
+                                        <div class="col text-end mt-3">
+                                            <button class="btn btn-sm btn-primary"> Save</button>
+                                        </div>
+                                    </div>
+                                    </div>
+                                    <!-- ============== -->
+                                    <div class="col-md-7">
+                                    <!-- ------ -->
+                                    <div class="table-responsive table-he-150">
+                                        <table class="table table-sm table-bordered mb-2 text-center mt-2 tableFixHead">
+                                            <thead class="  table-info th-sti">
+                                                <tr class="table-border-botztom">
+                                                <th>Department</th>
+                                                <th>Module</th>
+                                                <th>UI</th>
+                                                <th>Access</th>
+                                                <th width="5%"></th>
+                                                </tr>
+                                            </thead>
+                                            <tbody>
+                                                <tr>
+                                                <td></td>
+                                                <td></td>
+                                                <td></td>
+                                                <td></td>
+                                                <td>
+                                                    <div class="dropdown float-center">
+                                                        <a href="#" class="dropdown-toggle arrow-none card-drop" data-bs-toggle="dropdown" aria-expanded="false"><i class="mdi mdi-dots-vertical"></i></a>
+                                                        <div class="dropdown-menu dropdown-menu-end">
+                                                            <!-- item-->
+                                                            <a href="javascript:void(0);" class="dropdown-item">Edit</a>
+                                                            <!-- item-->
+                                                            <a href="javascript:void(0);" class="dropdown-item">delete</a>
+                                                        </div>
+                                                    </div>
+                                                </td>
+                                                </tr>
+                                                <tr>
+                                                <td></td>
+                                                <td></td>
+                                                <td></td>
+                                                <td></td>
+                                                <td>
+                                                    <div class="dropdown float-center">
+                                                        <a href="#" class="dropdown-toggle arrow-none card-drop" data-bs-toggle="dropdown" aria-expanded="false"><i class="mdi mdi-dots-vertical"></i></a>
+                                                        <div class="dropdown-menu dropdown-menu-end">
+                                                            <!-- item-->
+                                                            <a href="javascript:void(0);" class="dropdown-item">Edit</a>
+                                                            <!-- item-->
+                                                            <a href="javascript:void(0);" class="dropdown-item">delete</a>
+                                                        </div>
+                                                    </div>
+                                                </td>
+                                                </tr>
+                                                <tr>
+                                                <td></td>
+                                                <td></td>
+                                                <td></td>
+                                                <td></td>
+                                                <td>
+                                                    <div class="dropdown float-center">
+                                                        <a href="#" class="dropdown-toggle arrow-none card-drop" data-bs-toggle="dropdown" aria-expanded="false"><i class="mdi mdi-dots-vertical"></i></a>
+                                                        <div class="dropdown-menu dropdown-menu-end">
+                                                            <!-- item-->
+                                                            <a href="javascript:void(0);" class="dropdown-item">Edit</a>
+                                                            <!-- item-->
+                                                            <a href="javascript:void(0);" class="dropdown-item">delete</a>
+                                                        </div>
+                                                    </div>
+                                                </td>
+                                                </tr>
+                                                <tr>
+                                                <td></td>
+                                                <td></td>
+                                                <td></td>
+                                                <td></td>
+                                                <td>
+                                                    <div class="dropdown float-center">
+                                                        <a href="#" class="dropdown-toggle arrow-none card-drop" data-bs-toggle="dropdown" aria-expanded="false"><i class="mdi mdi-dots-vertical"></i></a>
+                                                        <div class="dropdown-menu dropdown-menu-end">
+                                                            <!-- item-->
+                                                            <a href="javascript:void(0);" class="dropdown-item">Edit</a>
+                                                            <!-- item-->
+                                                            <a href="javascript:void(0);" class="dropdown-item">delete</a>
+                                                        </div>
+                                                    </div>
+                                                </td>
+                                                </tr>
+                                                <tr>
+                                                <td></td>
+                                                <td></td>
+                                                <td></td>
+                                                <td></td>
+                                                <td>
+                                                    <div class="dropdown float-center">
+                                                        <a href="#" class="dropdown-toggle arrow-none card-drop" data-bs-toggle="dropdown" aria-expanded="false"><i class="mdi mdi-dots-vertical"></i></a>
+                                                        <div class="dropdown-menu dropdown-menu-end">
+                                                            <!-- item-->
+                                                            <a href="javascript:void(0);" class="dropdown-item">Edit</a>
+                                                            <!-- item-->
+                                                            <a href="javascript:void(0);" class="dropdown-item">delete</a>
+                                                        </div>
+                                                    </div>
+                                                </td>
+                                                </tr>
+                                            </tbody>
+                                        </table>
+                                    </div>
+                                    <!-- --------------  -->
+                                    <div class="col-md-12 mt-3 text-end">
+                                        <button class="btn btn-sm btn-primary">Add</button>
+                                    </div>
+                                    <!-- --------------  -->
+                                    </div>
+                                    <!-- ============== -->
+                                </div>
+                                <!-- ============== -->
+                            </div>
+                        </div>
+                        </div>
+                        <!-- ==============================  -->
+                        <div class="accordion-item">
+                        <h2 class="accordion-header" id="headingThree">
+                            <button class="accordion-button collapsed" type="button" data-bs-toggle="collapse"
+                                data-bs-target="#collapseThree" aria-expanded="false" aria-controls="collapseThree">
+                            Workflow Access for this Position / Role
+                            </button>
+                        </h2>
+                        <div id="collapseThree" class="accordion-collapse collapse" aria-labelledby="headingThree"
+                            data-bs-parent="#accordionExample">
+                            <div class="accordion-body">
+                                <!-- ============== -->
+                            </div>
+                        </div>
+                        </div>
+                        <!-- ==============================  -->
+                    </div>
+                    <!-- end accordion -->                    
+                </div>
+                <!-- ------- -->
+            </div>
+            <!-- ===============  -->
+            </div>
+            <!-- ==================== -->
+            <!-- ==================== -->
+        </div>
+    </div>
+    <!-- end card -->
+</div>
+            <!-- end Container -->
+         
+         <!----content-page ends----->
+
+      <!----wrapper ends----->
+      <!-- END wrapper -->
+      <!-- ============================================================== -->
+      <!-- End Page Content here -->
+      <!-- ================================    MODALS  Starts    ======================================= -->
+      <!-- Standard modal content -->
+      <div id="add-dept" class="modal fade" tabindex="-1" role="dialog" aria-labelledby="standard-modalLabel" aria-hidden="true">
+         <div class="modal-dialog">
+            <div class="modal-content">
+               <div class="modal-header">
+                  <h4 class="modal-title" id="standard-modalLabel">Add Department</h4>
+                  <button type="button" id="AddDeptClose" class="btn-close" data-bs-dismiss="modal" aria-label="Close"></button>
+               </div>
+               <div class="modal-body">
+                  <form method="Post" id="DepartmentForm" onsubmit="return false;" class="parsley-examples">
+                     <div class="row">
+                        <!-- ----- -->
+                        <label class="form-label col-md-4 mb-2">Department Name <span class="text-danger">*</span></label>
+                        <div class="col-md-8 mb-2">
+                           <input class="form-control form-control-sm" type="text" name="Name" id="Name" required/> 
+                        </div>
+                        <div class="invalid-feedback">
+                            Please enter department name!
+                        </div>
+                        <!-- ----- -->
+                        <label class="form-label col-md-4 mb-2">Section  Name </label>
+                        <div class="col-md-8 mb-2">
+                            <input class="form-control form-control-sm" type="text" name="Section" id="Section" value="-">
+                        </div>
+                        <!-- ----- -->
+                        <label class="form-label col-md-4 mb-2">Location</label>
+                        <div class="col-md-8 mb-2">
+                           <select name="PlantId" id="PlantId" class="form-select form-select-sm" >
+                           </select>
+                        </div>
+                        <!-- ----- -->
+                        <div class="col-md-12 mb-2">
+                           <label class="form-label  mb-2">Production Department / Shop</label>
+                            <input class="form-check-input m-l-5" name="ProdDept" id="ProdDept" type="checkbox" value="false">
+                        </div>
+                        <!-- ----- -->
+                        <!-- ----- -->
+                        <label class="form-label col-md-4 mb-2">No of Shifts of Operation</label>
+                        <div class="col-md-8 mb-2">
+                            <select id="NoOfShifts" name="NoOfShifts" class="form-select form-select-sm" aria-label="form-select-sm" >
+                              <option value="1">1</option>
+                              <option value="2">2</option>
+                              <option value="3">3</option>
+                           </select>
+                        </div>
+                        <!-- ----- -->
+                        <label class="form-label col-md-4 mb-2">Activity / Function</label>
+                        <div class="col-md-8 mb-2">
+                            <textarea name="Activity" id="Activity"  class="form-control form-control-sm">....</textarea>
+                        </div>
+                        <!-- ----- -->
+                        <div class="col-md-12 mt-2 text-end">
+                            <input type="text" name="DepartmentId" id="DepartmentId" value="0" hidden required/>
+                            <input type="submit" id="SaveDept" class="btn btn-sm btn-primary" value="Save" />
+                        </div>
+                     </div>
+                  </form>
+               </div>
+            </div>
+            <!-- /.modal-content -->
+         </div>
+         <!-- /.modal-dialog -->
+      </div>
+      <!-- /.modal -->
+      <!--  Modal content for the Large example -->
+      <div class="modal fade" id="position" tabindex="-1" role="dialog" aria-labelledby="myLargeModalLabel" aria-hidden="true">
+         <div class="modal-dialog modal-lg">
+            <div class="modal-content">
+               <div class="modal-header">
+                  <h4 class="modal-title" id="myLargeModalLabel">Position / Roles in Department : XXXXXXXX</h4>
+                  <button type="button" class="btn-close" data-bs-dismiss="modal" aria-label="Close"></button>
+               </div>
+               <div class="modal-body">
+                  <div class="row">
+                     <div class="col-md-5 dott-bord-r">
+                        <div class="row">
+                           <label class="col-md-5 form-label mb-2">Position Name <span class="text-danger">*</span> </label>
+                           <div class="col-md-7">
+                              <input class="form-control form-control-sm mb-2" type="text" name="text" placeholder="Enter here">
+                           </div>
+                           <!-- ============== -->
+                           <label class="form-label col-md-5 mb-2">Location</label>
+                           <div class="col-md-7 mb-2">
+                              <select class="form-select form-select-sm">
+                                 <option value="">XXXXXXX </option>
+                                 <option value="">XXXXXXX </option>
+                                 <option value="">XXXXXXX </option>
+                              </select>
+                           </div>
+                           <!-- ============== -->
+                           <label class="form-label col-md-5 mb-2">Reports to <span class="text-danger">*</span></label>
+                           <div class="col-md-7 mb-2">
+                              <select class="form-select form-select-sm">
+                                 <option value="">XXXXXXX </option>
+                                 <option value="">XXXXXXX </option>
+                                 <option value="">XXXXXXX </option>
+                              </select>
+                           </div>
+                           <!-- ============== -->
+                           <div class="col-md-12 mb-2">
+                              <label class="form-label">Department / Section Head</label>
+                              <input class="form-check-input mt-1 m-l-5" type="checkbox">
+                           </div>
+                           <!-- ============== -->
+                           <label class="col-md-5 form-label mb-2">Work done by this Position</label>
+                           <div class="col-md-7">
+                              <textarea name="comment" form="usrform" id="simpleinput" class="form-control form-control-sm" maxlength="100">Enter......</textarea>
+                           </div>
+                           <!-- ============== -->
+                           <div class="col text-end mt-3">
+                              <button class="btn btn-sm btn-primary"> Save</button>
+                           </div>
+                        </div>
+                     </div>
+                     <!-- ============== -->
+                     <div class="col-md-7">
+                        <!-- ------ -->
+                        <div class="table-responsive table-he-180">
+                           <table class="table table-sm table-bordered mb-2 text-center mt-2 tableFixHead">
+                              <thead class="table-info th-sti">
+                                 <tr class="table-border-bottom">
+                                    <th>Position / Roles</th>
+                                    <th>Location</th>
+                                    <th>Reports to</th>
+                                    <th width="5%"></th>
+                                 </tr>
+                              </thead>
+                              <tbody>
+                                 <tr>
+                                    <td></td>
+                                    <td></td>
+                                    <td></td>
+                                    <td>
+                                       <div class="dropdown float-center">
+                                          <a href="#" class="dropdown-toggle arrow-none card-drop" data-bs-toggle="dropdown" aria-expanded="false"><i class="mdi mdi-dots-vertical"></i></a>
+                                          <div class="dropdown-menu dropdown-menu-end">
+                                             <!-- item-->
+                                             <a href="javascript:void(0);" class="dropdown-item">Edit</a>
+                                             <!-- item-->
+                                             <a href="javascript:void(0);" class="dropdown-item">delete</a>
+                                          </div>
+                                       </div>
+                                    </td>
+                                 </tr>
+                                 <tr>
+                                    <td></td>
+                                    <td></td>
+                                    <td></td>
+                                    <td>
+                                       <div class="dropdown float-center">
+                                          <a href="#" class="dropdown-toggle arrow-none card-drop" data-bs-toggle="dropdown" aria-expanded="false"><i class="mdi mdi-dots-vertical"></i></a>
+                                          <div class="dropdown-menu dropdown-menu-end">
+                                             <!-- item-->
+                                             <a href="javascript:void(0);" class="dropdown-item">Edit</a>
+                                             <!-- item-->
+                                             <a href="javascript:void(0);" class="dropdown-item">delete</a>
+                                          </div>
+                                       </div>
+                                    </td>
+                                 </tr>
+                                 <tr>
+                                    <td></td>
+                                    <td></td>
+                                    <td></td>
+                                    <td>
+                                       <div class="dropdown float-center">
+                                          <a href="#" class="dropdown-toggle arrow-none card-drop" data-bs-toggle="dropdown" aria-expanded="false"><i class="mdi mdi-dots-vertical"></i></a>
+                                          <div class="dropdown-menu dropdown-menu-end">
+                                             <!-- item-->
+                                             <a href="javascript:void(0);" class="dropdown-item">Edit</a>
+                                             <!-- item-->
+                                             <a href="javascript:void(0);" class="dropdown-item">delete</a>
+                                          </div>
+                                       </div>
+                                    </td>
+                                 </tr>
+                                 <tr>
+                                    <td></td>
+                                    <td></td>
+                                    <td></td>
+                                    <td>
+                                       <div class="dropdown float-center">
+                                          <a href="#" class="dropdown-toggle arrow-none card-drop" data-bs-toggle="dropdown" aria-expanded="false"><i class="mdi mdi-dots-vertical"></i></a>
+                                          <div class="dropdown-menu dropdown-menu-end">
+                                             <!-- item-->
+                                             <a href="javascript:void(0);" class="dropdown-item">Edit</a>
+                                             <!-- item-->
+                                             <a href="javascript:void(0);" class="dropdown-item">delete</a>
+                                          </div>
+                                       </div>
+                                    </td>
+                                 </tr>
+                                 <tr>
+                                    <td></td>
+                                    <td></td>
+                                    <td></td>
+                                    <td>
+                                       <div class="dropdown float-center">
+                                          <a href="#" class="dropdown-toggle arrow-none card-drop" data-bs-toggle="dropdown" aria-expanded="false"><i class="mdi mdi-dots-vertical"></i></a>
+                                          <div class="dropdown-menu dropdown-menu-end">
+                                             <!-- item-->
+                                             <a href="javascript:void(0);" class="dropdown-item">Edit</a>
+                                             <!-- item-->
+                                             <a href="javascript:void(0);" class="dropdown-item">delete</a>
+                                          </div>
+                                       </div>
+                                    </td>
+                                 </tr>
+                              </tbody>
+                           </table>
+                        </div>
+                        <!-- --------------  -->
+                        <div class="col-md-12 mt-3 text-end">
+                           <button class="btn btn-sm btn-primary" data-bs-toggle="modal" data-bs-target="#position-copy">Add New Role</button>
+                        </div>
+                        <!-- --------------  -->
+                     </div>
+                     <!-- ============== -->
+                  </div>
+                  <!-- end row -->
+               </div>
+            </div>
+            <!-- /.modal-content -->
+         </div>
+         <!-- /.modal-dialog -->
+      </div>
+      <!-- /.modal -->
+      <!--  Modal content for the Large example -->
+      <div class="modal fade" id="ui-access" tabindex="-1" role="dialog" aria-labelledby="myLargeModalLabel" aria-hidden="true">
+         <div class="modal-dialog modal-lg">
+            <div class="modal-content">
+               <div class="modal-header">
+                  <h4 class="modal-title" id="myLargeModalLabel">UI Access for this Position / Role</h4>
+                  <button type="button" class="btn-close" data-bs-dismiss="modal" aria-label="Close"></button>
+               </div>
+               <div class="modal-body">
+                  <div class="row">
+                     <div class="col-md-5 dott-bord-r">
+                        <div class="row">
+                           <!-- ============== -->
+                           <label class="form-label col-md-3 mb-2">Department</label>
+                           <div class="col-md-9 mb-2">
+                              <select class="form-select form-select-sm">
+                                 <option value="">XXXXXXX </option>
+                                 <option value="">XXXXXXX </option>
+                                 <option value="">XXXXXXX </option>
+                              </select>
+                           </div>
+                           <!-- ============== -->
+                           <label class="form-label col-md-3 mb-2"> Module</label>
+                           <div class="col-md-9 mb-2">
+                              <select class="form-select form-select-sm">
+                                 <option value="">XXXXXXX </option>
+                                 <option value="">XXXXXXX </option>
+                                 <option value="">XXXXXXX </option>
+                              </select>
+                           </div>
+                           <!-- ============== -->
+                           <label class="form-label col-md-3 mb-2">UI</label>
+                           <div class="col-md-9 mb-2">
+                              <select class="form-select form-select-sm">
+                                 <option value="">XXXXXXX </option>
+                                 <option value="">XXXXXXX </option>
+                                 <option value="">XXXXXXX </option>
+                              </select>
+                           </div>
+                           <!-- ============== -->
+                           <label class="form-label col-md-3 mb-2">Access</label>
+                           <div class="col-md-9 mb-2">
+                              <select class="form-select form-select-sm">
+                                 <option value="">XXXXXXX </option>
+                                 <option value="">XXXXXXX </option>
+                                 <option value="">XXXXXXX </option>
+                              </select>
+                           </div>
+                           <!-- ============== -->
+                           <div class="col text-end mt-3">
+                              <button class="btn btn-sm btn-primary"> Save</button>
+                           </div>
+                        </div>
+                     </div>
+                     <!-- ============== -->
+                     <div class="col-md-7">
+                        <!-- ------ -->
+                        <div class="table-responsive table-he-150">
+                           <table class="table table-sm table-bordered mb-2 text-center mt-2 tableFixHead">
+                              <thead class="  table-info th-sti">
+                                 <tr class="table-border-bottom">
+                                    <th>Department</th>
+                                    <th>Module</th>
+                                    <th>UI</th>
+                                    <th>Access</th>
+                                    <th width="5%"></th>
+                                 </tr>
+                              </thead>
+                              <tbody>
+                                 <tr>
+                                    <td></td>
+                                    <td></td>
+                                    <td></td>
+                                    <td></td>
+                                    <td>
+                                       <div class="dropdown float-center">
+                                          <a href="#" class="dropdown-toggle arrow-none card-drop" data-bs-toggle="dropdown" aria-expanded="false"><i class="mdi mdi-dots-vertical"></i></a>
+                                          <div class="dropdown-menu dropdown-menu-end">
+                                             <!-- item-->
+                                             <a href="javascript:void(0);" class="dropdown-item">Edit</a>
+                                             <!-- item-->
+                                             <a href="javascript:void(0);" class="dropdown-item">delete</a>
+                                          </div>
+                                       </div>
+                                    </td>
+                                 </tr>
+                                 <tr>
+                                    <td></td>
+                                    <td></td>
+                                    <td></td>
+                                    <td></td>
+                                    <td>
+                                       <div class="dropdown float-center">
+                                          <a href="#" class="dropdown-toggle arrow-none card-drop" data-bs-toggle="dropdown" aria-expanded="false"><i class="mdi mdi-dots-vertical"></i></a>
+                                          <div class="dropdown-menu dropdown-menu-end">
+                                             <!-- item-->
+                                             <a href="javascript:void(0);" class="dropdown-item">Edit</a>
+                                             <!-- item-->
+                                             <a href="javascript:void(0);" class="dropdown-item">delete</a>
+                                          </div>
+                                       </div>
+                                    </td>
+                                 </tr>
+                                 <tr>
+                                    <td></td>
+                                    <td></td>
+                                    <td></td>
+                                    <td></td>
+                                    <td>
+                                       <div class="dropdown float-center">
+                                          <a href="#" class="dropdown-toggle arrow-none card-drop" data-bs-toggle="dropdown" aria-expanded="false"><i class="mdi mdi-dots-vertical"></i></a>
+                                          <div class="dropdown-menu dropdown-menu-end">
+                                             <!-- item-->
+                                             <a href="javascript:void(0);" class="dropdown-item">Edit</a>
+                                             <!-- item-->
+                                             <a href="javascript:void(0);" class="dropdown-item">delete</a>
+                                          </div>
+                                       </div>
+                                    </td>
+                                 </tr>
+                                 <tr>
+                                    <td></td>
+                                    <td></td>
+                                    <td></td>
+                                    <td></td>
+                                    <td>
+                                       <div class="dropdown float-center">
+                                          <a href="#" class="dropdown-toggle arrow-none card-drop" data-bs-toggle="dropdown" aria-expanded="false"><i class="mdi mdi-dots-vertical"></i></a>
+                                          <div class="dropdown-menu dropdown-menu-end">
+                                             <!-- item-->
+                                             <a href="javascript:void(0);" class="dropdown-item">Edit</a>
+                                             <!-- item-->
+                                             <a href="javascript:void(0);" class="dropdown-item">delete</a>
+                                          </div>
+                                       </div>
+                                    </td>
+                                 </tr>
+                                 <tr>
+                                    <td></td>
+                                    <td></td>
+                                    <td></td>
+                                    <td></td>
+                                    <td>
+                                       <div class="dropdown float-center">
+                                          <a href="#" class="dropdown-toggle arrow-none card-drop" data-bs-toggle="dropdown" aria-expanded="false"><i class="mdi mdi-dots-vertical"></i></a>
+                                          <div class="dropdown-menu dropdown-menu-end">
+                                             <!-- item-->
+                                             <a href="javascript:void(0);" class="dropdown-item">Edit</a>
+                                             <!-- item-->
+                                             <a href="javascript:void(0);" class="dropdown-item">delete</a>
+                                          </div>
+                                       </div>
+                                    </td>
+                                 </tr>
+                              </tbody>
+                           </table>
+                        </div>
+                        <!-- --------------  -->
+                        <div class="col-md-12 mt-3 text-end">
+                           <button class="btn btn-sm btn-primary">Add</button>
+                        </div>
+                        <!-- --------------  -->
+                     </div>
+                     <!-- ============== -->
+                  </div>
+                  <!-- ============== -->
+                  <!-- end row -->
+               </div>
+            </div>
+            <!-- /.modal-content -->
+         </div>
+         <!-- /.modal-dialog -->
+      </div>
+      <!-- /.modal -->
+      <!--  Modal content for the Large example -->
+      <div class="modal fade" id="workflow-access" tabindex="-1" role="dialog" aria-labelledby="myLargeModalLabel" aria-hidden="true">
+         <div class="modal-dialog modal-lg">
+            <div class="modal-content">
+               <div class="modal-header">
+                  <h4 class="modal-title" id="myLargeModalLabel">Workflow Access for this Position / Role</h4>
+                  <button type="button" class="btn-close" data-bs-dismiss="modal" aria-label="Close"></button>
+               </div>
+               <div class="modal-body">
+                  <!-- ============== -->
+                  <!-- end row -->
+               </div>
+            </div>
+            <!-- /.modal-content -->
+         </div>
+         <!-- /.modal-dialog -->
+      </div>
+      <!-- /.modal -->
+      <!-- ----------------------------  -->
+      <div class="modal fade" id="position-copy" tabindex="-1" role="dialog" aria-labelledby="mySmallModalLabel" aria-hidden="true">
+         <div class="modal-dialog bxs-modal">
+            <div class="modal-content">
+               <div class="modal-header">
+                  <h4 class="modal-title" id="mySmallModalLabel"></h4>
+                  <button type="button" class="btn-close" data-bs-dismiss="modal" aria-label="Close"></button>
+               </div>
+               <div class="modal-body">
+                  <div class="row">
+                     <label class="form-label col-md-4 mb-2">Copy from Similar Position</label>
+                     <!-- ----- -->
+                     <div class="col-md-2 mb-2">
+                        <label class="form-label mb-2">Yes</label>
+                        <input class="form-check-input m-l-5" type="radio" name="123">
+                     </div>
+                     <!-- ----- -->
+                     <div class="col-md-2 mb-2">
+                        <label class="form-label  mb-2">No</label>
+                        <input class="form-check-input m-l-5" type="radio" name="123">
+                     </div>
+                     <!-- ----- -->
+                     <div class="col-md-8 mb-2">
+                        <select class="form-select form-select-sm">
+                           <option value="">XXXXXXX </option>
+                           <option value="">XXXXXXX </option>
+                           <option value="">XXXXXXX </option>
+                        </select>
+                     </div>
+                     <!-- ============== -->
+                  </div>
+               </div>
+            </div>
+            <!-- /.modal-content -->
+         </div>
+         <!-- /.modal-dialog -->
+      </div>
+      <!-- /.modal -->
+      <!-- ================================    MODALS  Ends    ========================================== -->
+      <!-- Vendor js -->
+    <template id="DeptRow">
+    <tr>
+        <td>{name}</td>
+        <td>{section}</td>
+        <td>{plantName}</td>
+        <td>{prodDept}</td>
+        <td>{noOfShifts}</td>
+        <td>{activity}</td>
+        <!--activity: null
+        departmentId: 1
+        name: "Production"
+        noOfShifts: 3
+        plantId: 1
+        plantName: "test"-->
+        <td>
+            <div class="dropdown float-center">
+                <a href="#" class="dropdown-toggle arrow-none card-drop" data-bs-toggle="dropdown" aria-expanded="false"><i class="mdi mdi-dots-vertical"></i></a>
+                <div class="dropdown-menu dropdown-menu-end">
+                    <!-- item-->
+                    <a href="javascript:void(0);" onclick="SetOp('edit');"
+                    data-deptid="{departmentId}" data-name="{name}"
+                       data-activity="{activity}" data-noOfShifts="{noOfShifts}"
+                       data-plantId="{plantId}" data-plantName="{plantName}"
+                       data-proddept="{prodDept}" data-section="{section}"
+                       class="dropdown-item" data-bs-toggle="modal" 
+                       data-bs-target="#add-dept">Edit</a>
+                    <!-- item-->
+                    <a href="javascript:void(0);" onclick="DelDept('{name}',{departmentId});" class="dropdown-item">Delete</a>
+                    <!-- item-->
+                    <a href="javascript:void(0);" class="dropdown-item">Add Section</a>
+                    <!-- item-->
+                    <a href="javascript:void(0);" class="dropdown-item" data-bs-toggle="modal" data-bs-target="#">Position / Roles</a>
+                    <!-- item-->
+                    <a href="javascript:void(0);" class="dropdown-item" data-bs-toggle="modal" data-bs-target="#">UI Access</a>
+                    <!-- item-->
+                    <a href="javascript:void(0);" class="dropdown-item" data-bs-toggle="modal" data-bs-target="#">Workflow Access</a>
+                </div>
+            </div>
+        </td>
+    </tr>
+    </template>
+
+@section scripts {
+    <script src="~/js/ItemMaster/supplier.js"></script>
+    <script src="~/js/department.js"></script>
+}

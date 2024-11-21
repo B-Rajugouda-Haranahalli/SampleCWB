@@ -1,0 +1,204 @@
+﻿@model CWB.App.Models.Routing.RoutingListItemVM
+<div class="row">
+    <div class="col-md-12">
+        <div class="table-responsive">
+            <table class="w-100" style="margin-top: -9px;">
+                <tbody>
+                    <tr>
+                        <td>
+                            <h5>Routing List for <span id="SpanPartName">  @Html.DisplayFor(model => model.PartNo)  </span> / <span id="SpanPartDesc"> @Html.DisplayFor(model => model.PartDescription) </span></h5>
+                            <span id="SpanComp" hidden> @Html.DisplayFor(model => model.CompanyName)</span>
+                        </td>
+                        <td style="text-align: end;">
+                            <a asp-action="Index" asp-controller="Routings">
+                                <button type="button" class="btn-close"></button>
+                            </a>
+                        </td>
+                    </tr>
+                </tbody>
+            </table>
+        </div>
+    </div>
+    <!-- ==========================  -->
+    <div class="table-responsive mt-1 table-he-250">
+        <table class="table table-sm table-bordered  mb-3 text-center mt-1 tableFixHead w-100" id="RoutingGrid">
+            <thead class="  table-info th-sti">
+                <tr class="table-border-bottom">
+                    <th></th>
+                    <th>Pref</th>
+                    <th>Routing Name</th>
+                    <th>Make from</th>
+                    <th>No of Oprns</th>
+                    <th>Mandatory Docs Avl</th>
+                    <th>Status</th>
+                    <th>Update Date</th>
+                    <th>In Current Prodn</th>
+                    <th></th>
+                </tr>
+            </thead>
+            <tbody>
+                @foreach (var routing in Model.RoutingVMs)
+                {
+                    if (routing.Deleted == 1)
+                        continue;
+                    routing.BGColor = "white";
+                    if (routing.PreferredRouting == 1)
+                    {
+                        routing.BGColor = "#eee";
+                        routing.StrPreferredRouting = "Yes";
+                    }
+                    <tr bgcolor="@routing.BGColor">
+                        <td hidden>@routing.RoutingId</td>
+                        <td hidden>@routing.ManufacturedPartId</td>
+                        <td><input class="form-check-input mt-1" type="checkbox" id="RoutingChk" name="RoutingChk"></td>
+                        <td data-key="PreferredRouting">@routing.StrPreferredRouting</td>
+                        <td data-key="RoutingName">@routing.RoutingName</td>
+                        <td data-key="MakeFromName">@routing.MKPartName</td>
+                        <td data-key="NoOprns">@routing.NoOprns</td>
+                        <td data-key="MandocAvl">@routing.MandocAvl</td>
+                        <td data-key="RoutingStatus">@routing.Status</td>
+                        <td data-key="CreationDate">-</td>
+                        <td>-</td>
+                        <td>
+                            <div class="dropdown float-center">
+                                <a href="#" class="dropdown-toggle arrow-none card-drop" data-bs-toggle="dropdown" aria-expanded="false"><i class="mdi mdi-dots-vertical"></i></a>
+                                <div class="dropdown-menu dropdown-menu-end">
+                                    <!--<a href="javascript:void(0);" onclick="ViewRoute();" class="dropdown-item">View</a>-->
+                                    <a href="javascript:EditRoute(@routing.RoutingId,'@routing.RoutingName',@routing.ManufacturedPartId);"
+                                       data-routingid="@routing.RoutingId" data-routingname="@routing.RoutingName" class="dropdown-item">
+                                        Edit
+                                    </a>
+                                    <a href="javascript:void(0);" data-routingname="@routing.RoutingName" data-manufid="@routing.ManufacturedPartId" data-origroutingid="@routing.OrigRoutingId"
+                                       data-routingid="@routing.RoutingId" data-preferredrouting="@routing.PreferredRouting" data-status="@routing.Status"
+                                       data-mkpartid="@routing.MKPartId" data-toggle="modal" data-target="#edit-routingname" class="dropdown-item">
+                                        Rename Routing
+                                    </a>
+                                    <a href="javascript:void(0);" data-routingname="@routing.RoutingName" data-manufid="@routing.ManufacturedPartId" data-origroutingid="@routing.OrigRoutingId" data-routingid="@routing.RoutingId" data-mkpartid="@routing.MKPartId" data-preferredrouting="@routing.PreferredRouting" data-toggle="modal"
+                                       data-target="#preferred-rout" class="dropdown-item">
+                                        Set as Preferred Routing
+                                    </a>
+                                    @{
+                                        if (Model.MasterPartType == "ManufacturedPart")
+                                        {
+
+                                            <a href="javascript:void(0);" data-routingname="@routing.RoutingName" data-manufid="@routing.ManufacturedPartId" data-mkpartname="@routing.MKPartName" data-origroutingid="@routing.OrigRoutingId" data-routingid="@routing.RoutingId" data-mkpartid="@routing.MKPartId" data-preferredrouting="@routing.PreferredRouting" data-toggle="modal"
+                                               data-target="#changeMakeFromPopup" class="dropdown-item">
+                                                Change Make From
+                                            </a>
+                                        }
+                                    }
+                                    <a href="javascript:void(0);" data-routingname="@routing.RoutingName" data-manufid="@routing.ManufacturedPartId" data-mkpartname="@routing.MKPartName" data-origroutingid="@routing.OrigRoutingId" data-routingid="@routing.RoutingId" data-mkpartid="@routing.MKPartId" data-preferredrouting="@routing.PreferredRouting" data-toggle="modal"
+                                       data-status="@routing.Status" data-target="#StatusChangePopup" class="dropdown-item">
+                                        Change Status
+                                    </a>
+
+                                    <a href="javascript:void(0);" data-manufid="@routing.ManufacturedPartId" data-origroutingid="@routing.OrigRoutingId" data-routingid="@routing.RoutingId" data-toggle="modal" data-target="#alt-rout"
+                                       class="dropdown-item">
+                                        Create Alternate Routing from this Routing
+                                    </a>
+                                    <a href="javascript:void(0);" data-routingname="@routing.RoutingName" data-manufid="@routing.ManufacturedPartId" data-origroutingid="@routing.OrigRoutingId" data-routingid="@routing.RoutingId" data-preferredrouting="@routing.PreferredRouting"
+                                       data-status="@routing.Status" data-toggle="modal" data-target="#changelog" class="dropdown-item">
+                                        Show Change Log
+                                    </a>
+                                    <a href="javascript:void(0);" data-routingname="@routing.RoutingName" data-manufid="@routing.ManufacturedPartId" data-origroutingid="@routing.OrigRoutingId" data-routingid="@routing.RoutingId" data-preferredrouting="@routing.PreferredRouting"
+                                       data-status="@routing.Status" data-toggle="modal" data-target="#delete-rout" class="dropdown-item">
+                                        Delete
+                                    </a>
+                                </div>
+                            </div>
+                        </td>
+                    </tr>
+                }
+            </tbody>
+        </table>
+    </div>
+    <!-- ==========================  -->
+    <div class="col-md-12 text-end">
+        <button id="BtnCreateAlRouting" class="btn btn-sm btn-primary" data-manufacturedpartid="@Model.ManufacturedPartId" data-toggle="modal" data-target="#alt-rout" title="Retrieving data. Wait a few seconds and try to cut or copy again." data-plugin="tippy" data-tippy-placement="top">
+            Create New Alternate Routing
+        </button>
+        <button id="BtnCreateNewRouting" class="btn btn-sm btn-primary" data-toggle="modal" data-target="#routing-new" data-manufacturedpartid="@Model.ManufacturedPartId" title="" data-plugin="tippy" data-tippy-placement="top">Create New Routing</button>
+    </div>
+</div>
+
+<hr>
+
+<div class="row">
+    <div class="col-md-12 mt-2 mb-2">
+        <h5>Routing Performance Comparison</h5>
+        <div class="table-responsive mt-2 table-bordered table-he-180 ">
+            <table class="table table-sm table-bordered  mb-3 text-center mt-1 tableFixHead" id="PerformanceGrid">
+                <thead class="table-info th-sti">
+                    <tr class="table-border-bottom">
+                        <th>Pref</th>
+                        <th>Routing Name</th>
+                        <th># Inhouse Oprns</th>
+                        <th># Sub Con Oprns</th>
+                        <th>Avg Inhouse Cycle Time (min)</th>
+                        <th># Oprns &gt; Avg Cycle Time (min)</th>
+                        <th>Total Inhouse setup Time (min)</th>
+                        <th>Max Total Setup Time (min)</th>
+                        <th>Batch Size Manf Time (Hrs) *</th>
+                    </tr>
+                </thead>
+                <tbody>
+                </tbody>
+            </table>
+        </div>
+    </div>
+    <!-- ------------------  -->
+    <label class="form-label col-md-1">Batch Size</label>
+    <div class="col-md-1 mb-2">
+        <input class="form-control form-control-sm" type="text" id="BacthSize" value="250">
+    </div>
+    <!-- ================ -->
+    <div class="col-md-2">
+        <button class="btn btn-sm btn-primary" id="CalcBatchSize">Calculate Batch Manf Time.</button>
+    </div>
+    <!-- ================ -->
+</div>
+
+<template id="PerformanceRow">
+    <tr>
+        <td><input type="radio" class="form-check-input" name="pref" {checked} disabled></td>
+        <td>{routingName}</td>
+        <td>{inhouseNo}</td>
+        <td>{subconNo}</td>
+        <td>{avgCycleTime}</td>
+        <td>{oprnGreaterAvgCycleTime}</td>
+        <td>{totalSetupTime}</td>
+        <td>{maxSetupTime}</td>
+        <td>{bacthManufTime}</td>
+    </tr>
+</template>
+
+
+<!--
+<h5 class="p3">Routing List</h5>
+<div class="row">
+    <div class="table-responsive mt-1 table-he-250">
+        <table class="table table-sm table-bordered  mb-3 text-center mt-1 tableFixHead w-50" id="RoutingGrid">
+            <thead class="  table-info th-sti">
+                <tr class="table-border-bottom">
+                    <th width="5%"></th>
+                    <th width="5%">PreferredRoute</th>
+                    <th width="15%">Routing Name</th>
+                    <th width="15%">Make from</th>
+                    <th width="10%">No of Oprns</th>
+                    <th width="10%">Mandatory Docs Avl</th>
+                    <th width="15%">Status</th>
+                    <th width="15%">Update Date</th>
+                    <th width="15%">In Current Prodn</th>
+                    <th></th>
+                </tr>
+            </thead>
+        </table>
+    </div>
+    <div class="col-md-6 text-end">
+        <button id="BtnCreateAlRouting" class="btn btn-sm btn-primary" data-manufacturedpartid="@Model.ManufacturedPartId" data-toggle="modal" data-target="#alt-rout" title="Retrieving data. Wait a few seconds and try to cut or copy again." data-plugin="tippy" data-tippy-placement="top">Create New Alternate Routing</button>
+    </div>
+    <div class="col-md-7 text-end">
+        <button id="BtnCreateNewRouting" class="btn btn-sm btn-primary" data-toggle="modal" data-target="#routing-new" data-manufacturedpartid="@Model.ManufacturedPartId" title="" data-plugin="tippy" data-tippy-placement="top">Create New Routing</button>
+    </div>
+</div>
+-->

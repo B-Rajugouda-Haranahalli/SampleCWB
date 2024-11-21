@@ -1,0 +1,61 @@
+﻿<div id="dialog-machine" class="modal fade" data-bs-backdrop="static" data-bs-keyboard="false" tabindex="-1" aria-labelledby="staticBackdropLabel" aria-hidden="true">
+    <div class="modal-dialog modal-full-width">
+        <div class="modal-content">
+            <div class="modal-header">
+                <div class="col-md-12">
+                    <div class="table-responsive">
+                        <partial name="_MachineModelHeader" />
+                    </div>
+                </div>
+            </div>
+            <div class="modal-body">
+                <ul class="nav nav-pills navtab-bg nav-justified machine-tabs">
+                    <li class="nav-item">
+                        <a href="#machine-general" data-bs-toggle="tab" aria-expanded="false" class="nav-link active">
+                            <span class="d-inline-block d-sm-none">General</span>
+                            <span class="d-none d-sm-inline-block">General</span>
+                        </a>
+                    </li>
+                    <li class="nav-item">
+                        <a href="#machine-process-doc" data-bs-toggle="tab" aria-expanded="true" class="nav-link machine-tab-withdata disabled">
+                            <span class="d-inline-block d-sm-none">Process Document List</span>
+                            <span class="d-none d-sm-inline-block">Process Document List</span>
+                        </a>
+                    </li>
+                    <li class="nav-item">
+                        <a href="#machine-cost-details" data-bs-toggle="tab" aria-expanded="false" class="nav-link machine-tab-withdata disabled">
+                            <span class="d-inline-block d-sm-none">Cost Details</span>
+                            <span class="d-none d-sm-inline-block">Cost Details</span>
+                        </a>
+                    </li>
+                    <li class="nav-item">
+                        <a href="#machine-maintenance-info" data-bs-toggle="tab" aria-expanded="false" class="nav-link machine-tab-withdata disabled">
+                            <span class="d-inline-block d-sm-none">Maintenance Info</span>
+                            <span class="d-none d-sm-inline-block">Maintenance Info</span>
+                        </a>
+                    </li>
+                    <li class="nav-item">
+                        <a href="#machine-pm-schedule" data-bs-toggle="tab" aria-expanded="false" class="nav-link machine-tab-withdata disabled">
+                            <span class="d-inline-block d-sm-none">PM Schedule</span>
+                            <span class="d-none d-sm-inline-block">PM Schedule</span>
+                        </a>
+                    </li>
+                </ul>
+                <div class="tab-content">
+                    @Html.Partial("_MachineGeneralDialog", new CWB.App.Models.Machine.MachineVM())
+                    <!-- ================= -->
+                    @Html.Partial("_MachineProcessDocDialog")
+                    <!-- ================= -->
+                    @Html.Partial("_MachineCostDetailsDialog")
+                    <!-- ================= -->
+                    @Html.Partial("_MachineMaintenanceInfoDialog")
+                    <!-- ================= -->
+                    @Html.Partial("_MachinePMScheduleDialog")
+                    <!-- ================= -->
+                </div>
+            </div>
+        </div>
+        <!-- /.modal-content -->
+    </div>
+    <!-- /.modal-dialog -->
+</div>

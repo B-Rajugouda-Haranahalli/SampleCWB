@@ -1,0 +1,37 @@
+﻿<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="utf-8" />
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0, shrink-to-fit=no" />
+
+    <title>KGK - @ViewBag.Title</title>
+
+    <link rel="icon" type="image/x-icon" href="~/favicon.ico" />
+    <link rel="shortcut icon" type="image/x-icon" href="~/favicon.ico" />
+
+    <link rel="stylesheet" href="~/lib/bootstrap/dist/css/bootstrap.min.css" />
+
+    <!-- App css -->
+    <link href="~/css/bootstrap.min.css" rel="stylesheet" type="text/css" id="bs-default-stylesheet" />
+    <link href="~/css/app.min.css" rel="stylesheet" type="text/css" id="app-default-stylesheet" />
+    <link href="~/css/app-dark.min.css" rel="stylesheet" type="text/css" id="app-dark-stylesheet" />
+    <!-- icons -->
+    <link href="~/css/icons.min.css" rel="stylesheet" type="text/css" />
+
+    <link rel="stylesheet" href="~/css/site.css" />
+</head>
+<body>
+    <div class="account-pages mt-5 mb-5">
+        <div class="container body-container">
+            @RenderBody()
+        </div>
+    </div>
+    <script src="~/lib/jquery/dist/jquery.slim.min.js"></script>
+    <script src="~/lib/bootstrap/dist/js/bootstrap.bundle.min.js"></script>
+    <scrip src="~/lib/jquery-validation/dist/jquery.validate.min.js"></scrip>
+    <scrip src="~/lib/jquery-validation-unobtrusive/jquery.validate.unobtrusive.min.js"></scrip>
+
+    @RenderSection("scripts", required: false)
+</body>
+</html>

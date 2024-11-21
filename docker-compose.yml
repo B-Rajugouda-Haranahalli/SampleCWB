@@ -1,0 +1,249 @@
+version: '3.8'
+
+networks:
+  cwb-network:
+    name: cwb-network
+    driver: bridge
+
+services:
+  db:
+    image: mysql
+    restart: always
+    healthcheck:
+      test: mysql db --user=root --password=password --silent --execute "SELECT 1;"
+      interval: 30s
+      timeout: 10s
+      retries: 10
+    environment:
+      MYSQL_DATABASE: 'db'
+      MYSQL_PASSWORD: 'password'
+      MYSQL_ROOT_PASSWORD: 'password'
+    ports:
+      - '3306:3306'
+    expose:
+      - '3306'
+    volumes:
+      - my-db:/var/lib/mysql
+    networks:
+      - cwb-network
+
+  cwb.apigateway:
+    image: rajugouda/cwbapigateway
+    build:
+      context: .
+      dockerfile: CWB.ApiGateway/Dockerfile
+    #depends_on:
+    #  - cwb.tenant
+    networks:
+      - cwb-network
+    ports:
+      - "9000:443"
+      - "9001:80"
+    restart: always
+
+  cwb.identity:
+    image: rajugouda/cwbidentity
+    build:
+      context: .
+      dockerfile: CWB.Identity/Dockerfile
+    depends_on:
+      db:
+        condition: service_healthy
+    links:
+      - db
+    networks:
+      - cwb-network
+    ports:
+      - "9002:443"
+      - "9003:80"
+    restart: always
+
+  cwb.app:
+    image: rajugouda/cwbapp
+    build:
+      context: .
+      dockerfile: CWB.App/Dockerfile
+    networks:
+      - cwb-network
+    ports:
+      - "9004:443"
+      - "9005:80"
+    restart: always
+
+  cwb.tenant:
+    image: rajugouda/cwbtenant
+    build:
+      context: .
+      dockerfile: CWB.Tenant/Dockerfile
+    depends_on:
+      db:
+        condition: service_healthy
+    links:
+      - db
+    networks:
+      - cwb-network
+    ports:
+      - "9006:443"
+      - "9007:80"
+    restart: always
+
+  zookeeper:
+    image: zookeeper:3.7.0
+    container_name: zookeeper
+    ports:
+      - '2181:2181'
+    environment:
+      - ALLOW_ANONYMOUS_LOGIN=yes
+    networks:
+      - cwb-network
+
+  kafka:
+    image: bitnami/kafka:2.7.0
+    container_name: kafka
+    ports:
+      - '9093:9093'
+    environment:
+      - KAFKA_CFG_ZOOKEEPER_CONNECT=zookeeper:2181
+      - ALLOW_PLAINTEXT_LISTENER=yes
+      - KAFKA_CFG_LISTENER_SECURITY_PROTOCOL_MAP=CLIENT:PLAINTEXT,EXTERNAL:PLAINTEXT
+      - KAFKA_CFG_LISTENERS=CLIENT://:9092,EXTERNAL://:9093
+      - KAFKA_CFG_ADVERTISED_LISTENERS=CLIENT://kafka:9092,EXTERNAL://localhost:9093
+      - KAFKA_INTER_BROKER_LISTENER_NAME=CLIENT
+      - KAFKA_CFG_AUTO_CREATE_TOPICS_ENABLE=true
+      - KAFKA_CREATE_TOPICS=Tenant:1:1
+    depends_on:
+      - zookeeper
+    networks:
+      - cwb-network
+
+  kafdrop:
+    image: obsidiandynamics/kafdrop:latest
+    container_name: kafdrop
+    ports:
+      - 9010:9000
+    expose:
+      - '9010'
+    environment:
+      - KAFKA_BROKERCONNECT=kafka:9092
+    depends_on:
+      - kafka
+    networks:
+      - cwb-network
+
+
+
+  #cwb.tenantbroker:
+  #  image: rajugouda/cwbtenantbroker
+  #  build:
+  #    context: .
+  #    dockerfile: CWB.TenantBroker/Dockerfile
+  #  depends_on:
+  #    - kafka
+  #  networks:
+  #    - cwb-network
+
+  cwb.modules:
+    image: rajugouda/cwbmodules
+    build:
+      context: .
+      dockerfile: CWB.Modules/Dockerfile
+    depends_on:
+      db:
+        condition: service_healthy
+    links:
+      - db
+    networks:
+      - cwb-network
+    ports:
+      - "9009:443"
+      - "9011:80"
+    restart: always
+
+  cwb.simulation:
+    image: rajugouda/cwbsimulation
+    build:
+      context: .
+      dockerfile: CWB.Simulation/Dockerfile
+    depends_on:
+      db:
+        condition: service_healthy
+    links:
+      - db
+    networks:
+      - cwb-network
+    ports:
+      - "9012:443"
+      - "9013:80"
+    restart: always
+
+  cwb.companysettings:
+    image: rajugouda/cwbcompanysettings
+    build:
+      context: .
+      dockerfile: CWB.CompanySettings/Dockerfile
+    depends_on:
+      db:
+        condition: service_healthy
+    links:
+      - db
+    networks:
+      - cwb-network
+    ports:
+      - "9014:443"
+      - "9015:80"
+    restart: always
+
+  cwb.masters:
+    image: rajugouda/cwbmasters
+    build:
+      context: .
+      dockerfile: CWB.Masters/Dockerfile
+    depends_on:
+      db:
+        condition: service_healthy
+    links:
+      - db
+    networks:
+      - cwb-network
+    ports:
+      - "9016:443"
+      - "9017:80"
+    restart: always
+
+  cwb.productionplanwo:
+    image: rajugouda/cwbproductionplanwo
+    build:
+      context: .
+      dockerfile: CWB.ProductionPlanWO/Dockerfile
+    depends_on:
+      db:
+        condition: service_healthy
+    links:
+      - db
+    networks:
+      - cwb-network
+    ports:
+      - "9020:443"
+      - "9021:80"
+    restart: always
+  
+  cwb.businessaquisition:
+    image: rajugouda/cwbbusinessprocesses
+    build:
+      context: .
+      dockerfile: CWB.BusinessAquisition/Dockerfile
+    depends_on:
+      db:
+        condition: service_healthy
+    links:
+      - db
+    networks:
+      - cwb-network
+    ports:
+      - "9018:443"
+      - "9019:80"
+    restart: always
+
+volumes:
+  my-db:
+    

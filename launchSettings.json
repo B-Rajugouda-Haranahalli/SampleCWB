@@ -1,0 +1,27 @@
+{
+  "profiles": {
+    "Docker Compose": {
+      "commandName": "DockerCompose",
+      "commandVersion": "1.0",
+      "composeLaunchAction": "LaunchBrowser",
+      "composeLaunchServiceName": "cwb.app",
+      "composeLaunchUrl": "{Scheme}://localhost:{ServicePort}",
+      "serviceActions": {
+        "cwb.apigateway": "StartDebugging",
+        "cwb.app": "StartDebugging",
+        "cwb.companysettings": "StartDebugging",
+        "cwb.identity": "StartDebugging",
+        "cwb.modules": "StartDebugging",
+        "cwb.simulation": "StartDebugging",
+        "cwb.tenant": "StartDebugging",
+        "db": "StartWithoutDebugging",
+        "kafdrop": "StartWithoutDebugging",
+        "kafka": "StartWithoutDebugging",
+        "zookeeper": "StartWithoutDebugging",
+        "cwb.masters": "StartDebugging",
+        "cwb.businessaquisition": "StartDebugging",
+        "cwb.productionplanwo": "StartDebugging"
+      }
+    }
+  }
+}

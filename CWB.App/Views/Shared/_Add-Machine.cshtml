@@ -1,0 +1,306 @@
+﻿<div id="add-machine" class="modal fade" data-bs-backdrop="static" data-bs-keyboard="false" tabindex="-1" aria-labelledby="staticBackdropLabel" aria-hidden="true">
+    <div class="modal-dialog modal-full-width">
+        <div class="modal-content">
+            <div class="modal-header">
+                <div class="col-md-12">
+                    <div class="table-responsive">
+                        <table id="TitleTableMachine" class="table table-sm text-center w-100 tcenter vam p-0 m-0">
+                            <tbody>
+                                <!--TitleRowSupplier-->
+                            </tbody>
+                        </table>
+                    </div>
+                </div>
+            </div>
+            <div class="modal-body">
+                <div class="row">
+                    <!-- --------  -->
+                    <!-- ============= -->
+                    <div class="col-md-12">
+                        <div class="accordion accordion-flush" id="accordionFlushExample">
+                            <div class="accordion-item border border-1">
+                                <h2 class="accordion-header" id="flush-headingOne">
+                                    <button class="accordion-button" type="button" data-bs-toggle="collapse" data-bs-target="#flush-collapseOne" aria-expanded="false" aria-controls="flush-collapseOne">
+                                        <h6 class="color-purple mt-0"> Select Machine</h6>
+                                    </button>
+                                </h2>
+                                <div id="flush-collapseOne" class="accordion-collapse collapse" aria-labelledby="flush-headingOne"
+                                     data-bs-parent="#accordionFlushExample">
+                                    <div class="accordion-body table-he-250">
+                                        <div class="row">
+                                            <!-- -----------------  -->
+                                            <label class="col-md-1 form-label mb-2">Plant </label>
+                                            <div class="col-md-2 mb-2">
+                                                <select id="MAC_Plants" class="form-select form-select-sm" aria-label="form-select-sm" title="Choose the Plant from the List" data-plugin="tippy" data-tippy-placement="top">
+                                                    <!--<option value="">Plant 1</option>-->
+                                                </select>
+                                            </div>
+                                            <!-- -----------------  -->
+                                            <label class="col-md-1 form-label mb-2">Shop </label>
+                                            <div class="col-md-2 mb-2">
+                                                <select id="MAC_Shops" " class="form-select form-select-sm" aria-label="form-select-sm" title="Choose the Shop in the Plant from the List" data-plugin="tippy" data-tippy-placement="top">
+                                                    <!--<option value="">Shop 1</option>-->
+                                                </select>
+                                            </div>
+                                            <!-- -----------------  -->
+                                            <label class="col-md-1 form-label mb-2">M/c Name </label>
+                                            <div class="col-md-2 mb-2">
+                                                <input id="MAC_Name" class="form-control form-control-sm" type="text" placeholder="enter here" title="Enter the Machine Name" data-plugin="tippy" data-tippy-placement="top">
+                                            </div>
+                                            <!-- -----------------  -->
+                                            <label class="col-md-1 form-label mb-2">Type </label>
+                                            <div class="col-md-2 mb-2">
+                                                <select id="MAC_Type" class="form-select form-select-sm" aria-label="form-select-sm" title="Select the Machine Type from the List" data-plugin="tippy" data-tippy-placement="top">
+                                                </select>
+                                            </div>
+                                            <!-- -----------------  -->
+                                            <!-- ======================== -->
+                                        </div>
+                                        <!-- ===================== -->
+                                        <div class="row mt-2">
+                                            <div class="table-responsive table-he-130">
+                                                <table id="AddMachineListTable" class="table table-sm table-bordered w-100 mb-3 text-center tableFixHead">
+                                                    <thead class=" table-info th-sti">
+                                                        <tr class="table-border-bottom">
+                                                            <th width="5%"></th>
+                                                            <th>Plant</th>
+                                                            <th>Shop</th>
+                                                            <th>Sl No</th>
+                                                            <th>M/c Name</th>
+                                                        </tr>
+                                                    </thead>
+                                                    <tbody>
+                                                    </tbody>
+                                                </table>
+                                            </div>
+                                        </div>
+                                        <!-- ===================== -->
+                                        <div class="row">
+                                            <div class="col-md-1 mb-2">
+                                                <input class="form-check-input mt-1" type="radio" name="mod-12" value="1" title="Select if currently selected Machine details to be entered new (ie are different from the previously Added Machines)" data-plugin="tippy" data-tippy-placement="top" checked>
+                                                <label class="form-check-label m-l-5" for="mod-12">Create New</label>
+                                            </div>
+                                            <!-- ============  -->
+                                            <div class="col-md-3 mb-2">
+                                                <input class="form-check-input mt-1" type="radio" name="mod-12" value="2" title="Select if currently selected Machine details are similar or same as the previously Added Machines. Select the Machine from where the data / documents have to be copied from the Drop Down. Pl note if there are any changes, these would need to be edited before Saving" data-plugin="tippy" data-tippy-placement="top">
+                                                <label class="form-check-label m-l-5" for="mod-12">Copy M/c Details from Other M/C in the list</label>
+                                            </div>
+                                            <!-- ============  -->
+                                            <div class="col-md-3 mb-2">
+                                                <select id="StepMachine" name="StepMachine" class="form-select form-select-sm" title="Select a machine from the List from which data to be copied" data-plugin="tippy" data-tippy-placement="top" required>
+                                                    <option value="">Select</option>
+                                                </select>
+                                            </div>
+                                            <!--
+                                            <div class="col text-end mb-2">
+                                                <button class="btn btn-sm btn-primary" title="Use to Save the entered data" data-plugin="tippy" data-tippy-placement="top">Save</button>
+                                            </div>
+                                            -->
+                                        </div>
+                                        <!-- ===================== -->
+                                        <!-- end body -->
+                                    </div>
+                                </div>
+                            </div>
+                        </div>
+                        <!-- end accordion -->
+                        <hr class="hr-color-2">
+                        <!-- ======================== -->
+                        <div class="row">
+                            <!-- --------  -->
+                            <div class="col-md-12">
+                                <div class="table-responsive">
+                                    <table class="table table-sm   table-info text-center w-50 tcenter">
+                                        <tbody>
+                                            <tr>
+                                                <th>
+                                                    Enter Machine Details for :
+                                                </th>
+                                                <td>
+                                                    <span class="h6">Machine Name :</span> <span id="MPopupMcNameSpan"> </span>
+                                                </td>
+                                                <td>
+                                                    <span class="h6">Plant:</span>  <span id="MPopupMcPlantSpan"> </span>
+                                                </td>
+                                                <td>
+                                                    <span class="h6">Shop :</span> <span id="MPopupMcShopSpan"> </span>
+                                                </td>
+                                            </tr>
+                                        </tbody>
+                                    </table>
+                                </div>
+                            </div>
+                        </div>
+                        <!-- ======================== -->
+                        <form method="Post" id="FormRoutingMachine" class="parsley-examples" onsubmit="return false;">
+                            <div class="row">
+                                <label class="form-label col-md-2 mb-2">Setup Time <span class="text-danger">*</span> </label>
+                                <div class="col-md-4 mb-2">
+                                    <input value="10:00:00" type="text" id="SetupTime" name="SetupTime" class="form-control form-control-sm" required title="Enter the Setup time for the Machine for the Routing Step ... Removal / Unload of Previous Setup Hardware, Assemble / Load Hardware for the current setup, Downloading / Entering of Programs ...." data-plugin="tippy" data-tippy-placement="top">
+                                </div>
+                                <!-- ---------------  -->
+                                <label class="form-label col-md-2 mb-2">1st Piece Processing time <span class="text-danger">*</span></label>
+                                <div class="col-md-4 mb-2">
+                                    <input value="10:00:00" type="text" id="FloorToFloorTime" name="FloorToFloorTime" class="form-control form-control-sm" required title="Enter the time for Processing the first Part inclusive of Approval of the Setup .... If there is no approval enter the Floor To Floor Time " data-plugin="tippy" data-tippy-placement="top">
+                                </div>
+                                <!-- ---------------  -->
+                                <label class="form-label col-md-2 mb-2">Floor to Floor Time <span class="text-danger">*</span></label>
+                                <div class="col-md-4 mb-2">
+                                    <input value="10:00:00" type="text" id="FirstPieceProcessingTime" name="FirstPieceProcessingTime" class="form-control form-control-sm" required title="Enter the Floor to Floor Time which is the time interval between two Cycle Starts which would typically include Load / Unload and any other activity which is done serially ... Activities done in parallel to the Machine working (eg Inspection, Deburring ...) will not be a part of Floor To Floor Time" data-plugin="tippy" data-tippy-placement="top">
+                                </div>
+                                <!-- ---------------  -->
+                                <label class="form-label  col-md-2 mb-2">No of parts per loading <span class="text-danger">*</span></label>
+                                <div class="col-md-4 mb-2">
+                                    <input type="number" id="NoOfPartsPerLoading" name="NoOfPartsPerLoading" class="form-control form-control-sm" value="1" required title="If multiple Parts are processed in the Machine ... enter the number. " data-plugin="tippy" data-tippy-placement="top">
+                                </div>
+                                <!-- ---------------  -->
+                                <div class="col-md-6 mt-1">
+                                    <button type="button" class="btn btn-warning btn-sm" data-bs-toggle="modal" data-bs-target="#add-document-2" title="" data-plugin="tippy" data-tippy-placement="top"><i class="fas fa-info"></i></button>
+                                    <button type="button" class="btn btn-purple btn-sm   display-none " data-bs-toggle="modal" data-bs-target="#task-rou">Task <span class="badge bg-danger rounded-circle noti-icon-badge">5</span></button>
+                                </div>
+                                <!-- ---------------- -->
+                                <div class="col-md-6 mt-1 text-end">
+                                    <input hidden type="text" name="PreferredMachine" value="0" id="PreferredMachine" />
+                                    <input hidden type="text" name="MachineId" value="0" id="MachineId" />
+                                    <input hidden type="text" name="RoutingStepId" value="0" id="MachineRoutingStepId" />
+                                    <input hidden type="text" name="RoutingStepMachineId" value="0" id="RoutingStepMachineId" />
+                                    <input type="submit" id="SaveRouteMachine" class="btn btn-primary btn-sm" title="Use to Save the entered data" data-plugin="tippy" data-tippy-placement="top" value="Save" />
+                                </div>
+                                <!-- ---------------- -->
+                            </div>
+                        </form>
+                        <!-- ======================== -->
+                        <div class="row mt-4">
+                            <div class="col-md-12">
+                                <div class="table-responsive table-he-250">
+                                    <table class="table table-sm table-bordered tableFixHead w-100" id="MachineDocGrid">
+                                        <thead class="table-info th-sti text-center">
+                                            <tr class="table-border-bottom">
+                                                <th>Document Type</th>
+                                                <th>Mandatory</th>
+                                                <th>Info / Comment</th>
+                                                <th>Uploaded by</th>
+                                                <th>Uploaded on</th>
+                                                <th>View</th>
+                                                <th>Download</th>
+                                                <th width="5%"></th>
+                                            </tr>
+                                        </thead>
+                                        <tbody class="text-center">
+                                        </tbody>
+                                    </table>
+                                </div>
+                                <!-- =========== -->
+                                <button class="btn btn-primary btn-sm mt-2" data-bs-toggle="modal" data-bs-target="#doc-item" data-plugin="tippy" data-tippy-placement="top" data-tippy="" data-original-title="Click to Add a document">
+                                    Upload Other Related
+                                    Documents
+                                </button>
+                                <!-- =========== -->
+                            </div>
+                            <!-- ======================== -->
+                        </div>
+                    </div>
+                    <!-- end body -->
+                </div>
+                <!-- /.modal-content -->
+            </div>
+            <!-- /.modal-dialog -->
+        </div>
+    </div>
+</div>
+
+<template id="TitleRowMachine">
+    <tr>
+        <td>
+            <h4>Add Machine</h4>
+        </td>
+        <td>
+            <span class="h6">Part No :</span> {partNo}
+        </td>
+        <td>
+            <span class="h6">Description :</span>  {partDescription}
+        </td>
+        <td>
+            <span class="h6">Company :</span> {companyName}
+        </td>
+        <td>
+            <span class="h6">Routing :</span> {routingName}
+        </td>
+        <td>
+            <span class="h6">Routing Step :</span> {stepNumber}
+        </td>
+        <td>
+            <button type="button" id="Add-Machine-Close" class="btn-close" data-bs-dismiss="modal" aria-label="Close"></button>
+        </td>
+    </tr>
+</template>
+<!--
+     <th>Plant</th>
+                                                            <th>Shop</th>
+                                                            <th>Sl No</th>
+                                                            <th>M/c Name</th>
+-->
+<template id="AddMachineListRow">
+    <tr>
+        <td>
+            <input class="form-check-input" type="radio" name="stepmachineselect" id="stepmachine_{num}" value="{machineId}" title="Select a Machine by clicking the checkbox for the Machine. Only 1 Machine can be selected at a time" data-plugin="tippy" data-tippy-placement="top" checked>
+        </td>
+        <td>{plant}</td>
+        <td>{shop}</td>
+        <td>{slNo}</td>
+        <td>{name}</td>
+    </tr>
+    <tr>
+</template>
+
+<template id="machineDocGridRow">
+    <tr>
+        <td>{documentTypeName}</td>
+        <td>{mandatory}</td>
+        <td>{comments}</td>
+        <td>{uploadedBy}</td>
+        <td>{updatedOnStr}</td>
+        <td>
+            @*<i class="fas fa-eye btn btn-sm" data-bs-toggle="modal"
+                data-bs-target="#viewDoc"></i>*@
+            <a href="javascript:void(0);" data-filename="{fileName}" data-doctypename="{documentTypeName}" data-customername="{companyName}"
+               data-partno="{partNo}" data-partdesc="{partDesc}" data-routingname="{routingName}" data-retdate="{retentionDateStr}"
+               data-oprno="{oprNo}" data-uploadby="{uploadedBy}" data-uploadon="{updatedOnStr}"
+               onclick="viewFile(this)">
+                <i class="fas fa-eye btn btn-sm"></i><!--style="color: #007bff;"-->
+            </a>
+        </td>
+        <td>
+            <a href="javascript:void(0);" data-filename="{fileName}" onclick="downloadFile(this)">
+                <i class="fas fa-download btn btn-sm"></i><!--style="color: #007bff;"-->
+            </a>
+        </td>
+        <td>
+            <div class="dropdown float-center">
+                <a href="#" class="dropdown-toggle arrow-none card-drop"
+                   data-bs-toggle="dropdown" aria-expanded="false">
+                    <i class="mdi mdi-dots-vertical"></i>
+                </a>
+                <div class="dropdown-menu dropdown-menu-end">
+                    <!-- item-->
+                    <a href="javascript:void(0);" class="dropdown-item" data-bs-toggle="modal" data-bs-target="#doc-item"
+                       data-filename="{fileName}" data-doctypename="{documentTypeName}" data-comments="{comments}" data-fileextnname="{fileExtnName}"
+                       data-documenttypeid="{documentTypeId}" data-upload="1" data-deletiondate="{deletionDate}"
+                       data-doclistid="{docListId}" data-retdate="{retentionDateStr}" data-addmachinedoc="1">Upload</a>
+                    <!-- item-->
+                    <a href="javascript:void(0);" class="dropdown-item" data-bs-toggle="modal" data-bs-target="#doc-item"
+                       data-filename="{fileName}" data-doctypename="{documentTypeName}" data-comments="{comments}" data-fileextnname="{fileExtnName}"
+                       data-documenttypeid="{documentTypeId}" data-upload="2" data-deletiondate="{deletionDate}"
+                       data-doclistid="{docListId}" data-retdate="{retentionDateStr}">Edit</a>
+                    <!-- item-->
+                    <a href="javascript:void(0);" class="dropdown-item" data-doclistid="{docListId}"
+                       onclick="DeleteDocList(this)">Delete</a>
+                    <!-- item-->
+                    <a href="javascript:void(0);" class="dropdown-item" data-bs-toggle="modal" data-bs-target="#RefLogPopup"
+                       data-doctypename="{documentTypeName}" data-documenttypeid="{documentTypeId}"
+                       data-doclistid="{docListId}">View Log</a>
+                </div>
+            </div>
+        </td>
+    </tr>
+</template>

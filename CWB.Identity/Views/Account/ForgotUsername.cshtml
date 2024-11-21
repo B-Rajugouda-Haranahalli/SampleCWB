@@ -1,0 +1,28 @@
+﻿@model CWB.Identity.ViewModels.ForgotUsernameViewModel
+
+<div class="login-page">
+
+    <partial name="_ValidationSummary" />
+
+    <div class="row">
+        <div class="col-sm-6">
+            <div class="card">
+                <div class="card-header">
+                    <h2>Forgot Username</h2>
+                </div>
+
+                <div class="card-body">
+                    <form asp-route="ForgotUsername">
+                        <div class="form-group">
+                            <label asp-for="PhoneEmail"></label>
+                            <input type="text" class="form-control" placeholder="Phone or Email Address" asp-for="PhoneEmail">
+                            <span asp-validation-for="PhoneEmail" class="text-danger"></span>
+                        </div>
+                        <button class="btn btn-primary" name="button" value="submit">Save</button>
+                        <button class="btn btn-secondary" name="button" value="cancel">Cancel</button>
+                    </form>
+                </div>
+            </div>
+        </div>
+    </div>
+</div>

@@ -1,0 +1,33 @@
+Who to Bind Data in C# program
+Explain Oops features with C# program
+how to store data in database
+views and objects difference 
+default access modifier of class
+how we declare prefered access modifier 
+Diff b/w overiding & overloading 
+class & types 
+Access Modifier
+ref & out keyword 
+break and continue 
+Abstract and Interface
+Reverse string Program 
+Adding number program
+Try and catch
+sql joins
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+

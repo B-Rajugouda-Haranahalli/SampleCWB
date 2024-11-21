@@ -1,0 +1,52 @@
+﻿<div class="modal fade" id="existing-part" data-bs-backdrop="static" data-bs-keyboard="false" tabindex="-1" aria-labelledby="staticBackdropLabel" aria-hidden="true">
+    <div class="modal-dialog bxs-modal">
+        <div class="modal-content">
+            <div class="modal-header">
+                <h4 class="modal-title" id="standard-modalLabel">Select Part</h4>
+                <button type="button" class="btn-close" id="btn-close-ExistingParts" data-bs-dismiss="modal" aria-label="Close"></button>
+            </div>
+            <div class="modal-body">
+                <!-- ---------------- -->
+                <div class="row mt-1">
+                    <label class="form-label col-md-4 mb-2"> Company  </label>
+                    <div class="col-md-8 mb-2">
+                        <input class="form-control form-control-sm" type="text" placeholder="Enter here" value="" id="epco" name="epco" disabled />
+                    </div>
+                    <!-- -------------------------------------  -->
+                    <!-- ========================= -->
+                    <label class="form-label col-md-4 mb-2">Part Number </label>
+                    <div class="col-md-8 mb-2">
+                        <input class="form-control form-control-sm" type="text" placeholder="Enter here" value="" id="eppn" name="eppn" />
+                    </div>
+                    <!-- ========================= -->
+                    <label class="form-label col-md-4 mb-2">Part Description </label>
+                    <div class="col-md-8 mb-2">
+                        <input class="form-control form-control-sm" type="text" placeholder="Enter here" value="" id="eppd" name="eppd" />
+                    </div>
+                </div>
+                <!-- ============================== -->
+                <div class="table-responsive table-he-250 mt-3">
+                    <table class="table table-sm table-bordered  mb-3 mt-1 tableFixHead" id="tbl-existingparts">
+                        <thead class="table-info th-sti text-center">
+                            <tr class="table-border-bottom">
+                                <th width="10%"></th>
+                                <th width="30%">Part No.</th>
+                                <th width="40%">Description</th>
+                                <th width="15%">Child/Assy</th>
+                                <th width="5%"></th>
+                            </tr>
+                        </thead>
+                        <tbody>
+                        </tbody>
+                    </table>
+                </div>
+                <!-- =============================== -->
+            </div>
+            <div class="modal-footer">
+                <button type="button" class="btn btn-primary btn-sm" onclick="copyData()">Select</button>
+            </div>
+        </div>
+        <!-- /.modal-content -->
+    </div>
+    <!-- /.modal-dialog -->
+</div>

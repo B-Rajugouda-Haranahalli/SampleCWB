@@ -1,0 +1,258 @@
+﻿<div id="add-subcon" class="modal fade" data-bs-backdrop="static" data-bs-keyboard="false" tabindex="-1"
+     aria-labelledby="staticBackdropLabel" aria-hidden="true">
+    <div class="modal-dialog modal-full-width">
+        <div class="modal-content">
+            <div class="modal-header">
+                <h4 class="modal-title" id="standard-modalLabel">Add Subcon</h4>
+                <button type="button" id="Add-SubCon-Close" class="btn-close" data-bs-dismiss="modal" aria-label="Close"></button>
+            </div>
+            <div class="modal-body">
+                <div class="row">
+                    <!-- ---------------  -->
+                    <form id="FormSubCon" onsubmit="return false;">
+                        <div class="row">
+
+                            <div class="col-md-3 mb-2">
+                                <label class="form-label"> Sub Con <span class="text-danger">*</span></label>
+                                <select class="form-select form-select-sm" id="subconname" data-plugin="tippy" data-tippy-placement="top" data-tippy="" data-original-title="Select a machine from the List from which data to be copied">
+                                    <option value="0">-Select-</option>
+                                </select>
+                            </div>
+                            <!-- ---------------  -->
+
+                            <div class="col-md-3 mb-2">
+                                <label class="form-label">Work done at Sub Con <span class="text-danger">*</span></label>
+                                <input id="WorkDone" name="WorkDone" type="text" class="form-control form-control-sm" title="" data-plugin="tippy" data-tippy-placement="top" required="">
+                            </div>
+                            <!-- ---------------  -->
+                            <div class="col-md-3 mb-2">
+                                <label class="form-label">Transport Time to /from (Hrs)</label>
+                                <input id="TransportTime" name="TransportTime" type="text" class="form-control form-control-sm" title="" data-plugin="tippy" data-tippy-placement="top" required="">
+                            </div>
+                            <!-- ---------------  -->
+                            <div class="col-md-3 mb-2">
+                                <label class="form-label">Subcon Cost / Part <span class="text-danger">*</span></label>
+                                <input type="text" class="form-control form-control-sm" title="" id="CostPerPart" name="CostPerPart" data-plugin="tippy" data-tippy-placement="top" required="">
+                            </div>
+                            <!-- ---------------  -->
+                            <!-- ---------------  -->
+                            <div class="col-md-6 mb-2">
+                                <label class="form-label">Notes </label>
+                                <textarea id="Notes" name="Notes" class="form-control form-control-sm" required=""></textarea>
+                            </div>
+                            <input type="text" hidden="" id="SubConRoutingStepId" name="RoutingStepId" value="0">
+                            <input type="text" hidden="" id="SubConDetailsId" name="SubConDetailsId" value="0">
+                            <input type="text" hidden="" id="SubConSupplierId" name="SupplierId" value="0">
+                            <input type="text" hidden="" id="PreferredSubCon" name="PreferredSubCon" value="0">
+                            <input type="text" hidden="" id="deleted" name="deleted" value="0">
+                            <div class="col-md-6 mb-2">
+                                <button id="SaveSubCon" class="btn btn-sm btn-primary">Save</button>
+                            </div>
+                        </div>
+                    </form>
+                    <!-- -----------------  -->
+                    <hr>
+                    <!-- ================== -->
+                    <div class="col-md-12">
+                        <div class="table-responsive table-he-150">
+                            <table class="table table-sm table-bordered w-100 mb-3 text-center tableFixHead" id="WSTable">
+                                <thead class=" table-info th-sti">
+                                    <tr class="table-border-bottom">
+                                        <th>Work Step Description *</th>
+                                        <th>Machine Type</th>
+                                        <th>Floor to Floor Time *</th>
+                                        <th width="5%"></th>
+                                    </tr>
+                                </thead>
+                                <tbody>
+                                    <!-- ==================== -->
+                                </tbody>
+                            </table>
+                        </div>
+                        <!-- ----------  -->
+                        <div class="col-md-12 text-end">
+                            <button class="btn btn-sm btn-primary" id="AddWorkStepPopup" data-bs-toggle="modal" data-bs-target="#addWorkStep">Add Work Step</button>
+                        </div>
+                        <!-- ----------  -->
+                    </div>
+                    <!-- ================== -->
+                    <div class="col-md-12 mt-3">
+                        <div class="table-responsive table-he-250">
+                            <table class="table table-sm table-bordered tableFixHead w-100" id="SubConDocGrid">
+                                <thead class="table-info th-sti text-center">
+                                    <tr class="table-border-bottom">
+                                        <th>Document Type</th>
+                                        <th>Mandatory</th>
+                                        <th>Info / Comment</th>
+                                        <th>Uploaded by</th>
+                                        <th>Uploaded on</th>
+                                        <th>View</th>
+                                        <th>Download</th>
+                                        <th width="5%"></th>
+                                    </tr>
+                                </thead>
+                                <tbody class="text-center">
+                                    <!-- ---------- -->
+                                </tbody>
+                            </table>
+                        </div>
+                        <!-- =========== -->
+                        <button class="btn btn-primary btn-sm mt-2" data-bs-toggle="modal" data-bs-target="#doc-item" data-plugin="tippy" data-tippy-placement="top" data-tippy="" data-original-title="Click to Add a document">
+                            Upload Other Related
+                            Documents
+                        </button>
+                        <!-- =========== -->
+                    </div>
+                    <!-- ======================== -->
+                    <!-- ================== -->
+                </div>
+                <!-- end row -->
+            </div>
+            <!-- end body -->
+        </div>
+        <!-- /.modal-content -->
+    </div>
+    <!-- /.modal-dialog -->
+</div>
+<!-- /.modal -->
+
+<template id="SubConNameRow">
+    <tr>
+        <td>
+            <input type="radio" id="stepsubcon_{companyId}" name="RadioSubConName" value="{companyId}">
+        </td>
+        <td>{companyName}</td>
+    </tr>
+</template>
+
+<template id="SubConNameRow_Checked">
+    <tr>
+        <td>
+            <input type="radio" id="stepsubcon_{companyId}" name="RadioSubConName" value="{companyId}" checked>
+        </td>
+        <td>{companyName}</td>
+    </tr>
+</template>
+
+<template id="TitleRow">
+    <tr>
+        <td>
+            <span class="h6">Part No :</span> {partNo}
+        </td>
+        <td>
+            <span class="h6">Description :</span>  {partDescription}
+        </td>
+        <td>
+            <span class="h6">Company :</span> {companyName}
+        </td>
+        <td>
+            <span class="h6">Routing :</span> {routingName}
+        </td>
+        <td>
+            <span class="h6">Routing Step :</span> {stepNumber}
+        </td>
+    </tr>
+</template>
+<!--
+////SubConWSSubConDetailsId//SubConWSRoutingStepId//SubConWSDetailsId //WorkStepDesc//MachineType//FloorToFloorTime//SetupTime//NoOfPartsPerLoading
+-->
+<template id="WSRow">
+    <tr>
+        <td>{workStepDesc}</td>
+        <td>{machineNameStr}</td>
+        <td>{floorToFloorTime}</td>
+        <td>
+            <div class="dropdown float-center">
+                <a href="#"
+                   class="dropdown-toggle arrow-none card-drop"
+                   data-bs-toggle="dropdown" aria-expanded="false">
+                    <i class="mdi mdi-dots-vertical"></i>
+                </a>
+                <div class="dropdown-menu dropdown-menu-end">
+                    <!-- item-->
+                    @*<a href="javascript:void(0);" onclick="AssignWorkStepVals('{workStepDesc}',{machineType},'{floorToFloorTime}','{setupTime}','{noOfPartsPerLoading}',{routingStepId},{subConDetailsId},{subConWSDetailsId});"
+                       class="dropdown-item">View</a>*@
+                    <!-- item-->
+                    <a href="javascript:void(0);" onclick="AssignWorkStepVals('{workStepDesc}',{machineType},'{floorToFloorTime}','{setupTime}','{noOfPartsPerLoading}',{routingStepId},{subConDetailsId},{subConWSDetailsId});"
+                     data-bs-toggle="modal" data-bs-target="#addWorkStep"
+                       class="dropdown-item">Edit</a>
+                    <!-- item-->
+                    <a href="javascript:void(0);" onclick="DeleteWS({subConWSDetailsId})"
+                       class="dropdown-item">Delete</a>
+                </div>
+            </div>
+        </td>
+    </tr>
+</template>
+
+<div class="modal fade" id="addWorkStep" data-bs-backdrop="static" data-bs-keyboard="false" tabindex="-1" aria-labelledby="staticBackdropLabel" aria-hidden="true">
+    <div class="modal-dialog">
+        <div class="modal-content bxs-modal">
+            <div class="modal-header">
+                <h5 class="modal-title" id="myLargeModalLabel"> Subcon Step Work Details</h5>
+                <button type="button" class="btn-close" data-bs-dismiss="modal" aria-label="Close"></button>
+            </div>
+            <div class="modal-body">
+                <div class="row">
+                    <!-- ---------------  -->
+                    <form id="FormSubConWS" onsubmit="return false;">
+                        <div class="row">
+
+                            <label class="form-label col-md-4 mb-2">
+                                Work Step
+                                Description <span class="text-danger">*</span>
+                            </label>
+                            <div class="col-md-8 mb-2">
+                                <input id="WorkStepDesc" name="WorkStepDesc" type="text" class="form-control form-control-sm" title="" data-plugin="tippy" data-tippy-placement="top" required="">
+                            </div>
+                            <!-- ---------------  -->
+                            <label class="col-md-4 form-label mb-2">
+                                Machine Type
+                            </label>
+                            <div class="col-md-8 mb-2">
+                                <select class="form-select form-select-sm" aria-label="form-select-sm" data-plugin="tippy" data-tippy-placement="top" id="MachineType" name="MachineType" required="" data-tippy="" data-original-title="Select the Machine Type from the List">
+                                </select>
+                            </div>
+                            <!-- -----------------  -->
+                            <label class="form-label col-md-4 mb-2">
+                                Floor to
+                                Floor Time <span class="text-danger">*</span>
+                            </label>
+                            <div class="col-md-8 mb-2">
+                                <input value="10:00:00" id="SubConFloorToFloorTime" name="FloorToFloorTime" type="text" class="form-control form-control-sm" data-toggle="input-mask" data-mask-format="00:00:00" placeholder="10:00:00" required="" data-plugin="tippy" data-tippy-placement="top" data-tippy="" data-original-title="Enter the Floor to Floor Time which is the time interval between two Cycle Starts which would typically include Load / Unload and any other activity which is done serially ... Activities done in parallel to the Machine working (eg Inspection, Deburring ...) will not be a part of Floor To Floor Time">
+                            </div>
+                            <!-- ----------  -->
+                            <!-- ---------------  -->
+                            <label class="form-label col-md-4 mb-2">
+                                Setup Time
+                                <span class="text-danger">*</span>
+                            </label>
+                            <div class="col-md-8 mb-2">
+                                <input value="10:00:00" id="SubConSetupTime" name="SetupTime" type="text" class="form-control form-control-sm" data-toggle="input-mask" data-mask-format="00:00:00" placeholder="10:00:00" required="" data-plugin="tippy" data-tippy-placement="top" data-tippy="" data-original-title="Enter the Setup time for the Machine for the Routing Step ... Removal / Unload of Previous Setup Hardware, Assemble / Load Hardware for the current setup, Downloading / Entering of Programs ....">
+                            </div>
+                            <!-- ---------------  -->
+                            <label class="form-label  col-md-4 mb-2">
+                                No of parts
+                                per loading
+                                <span class="text-danger">*</span>
+                            </label>
+                            <div class="col-md-8 mb-2">
+                                <input id="SubConNoOfPartsPerLoading" name="NoOfPartsPerLoading" type="number" class="form-control form-control-sm" value="1" required="" data-plugin="tippy" data-tippy-placement="top" data-tippy="" data-original-title="If multiple Parts are processed in the Machine ... enter the number. ">
+                            </div>
+                            <input type="text" hidden id="SubConWSDetailsId" name="SubConWSDetailsId" value="0" />
+                            <input type="text" hidden id="SubConWSRoutingStepId" name="RoutingStepId" value="0" />
+                            <input type="text" hidden id="SubConWSSubConDetailsId" name="SubConDetailsId" value="0" />
+                            <!-- ----------  -->
+                            <div class="col-md-12 text-end">
+                                <button id="SaveSubConWS" class="btn btn-sm btn-primary">Save</button>
+                            </div>
+                        </div>
+                    </form>
+                    <!-- ----------  -->
+                </div>
+            </div>
+        </div>
+        <!-- /.modal-content -->
+    </div>
+    <!-- /.modal-dialog -->
+</div>

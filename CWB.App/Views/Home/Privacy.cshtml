@@ -1,0 +1,48 @@
+﻿@model CWB.App.Models.Contacts.CompanyVM
+@{
+    ViewData["Title"] = "Privacy Policy";
+}
+<h1>@ViewData["Title"]</h1>
+
+<form id="frmCompany" method="post">
+    <div class="row">
+        <label class="form-label col-md-4 mb-2" asp-for="CompanyType"></label>
+        <div class="col-md-8 mb-2" title="Select if the Company is a Customer or Supplier or Both" data-plugin="tippy" data-tippy-placement="top">
+            <select class="form-select form-select-sm" asp-for="CompanyType" asp-items="ViewBag.CompanyTypes">
+                <option value="">--Select--</option>
+            </select>
+            <span asp-validation-for="CompanyType"></span>
+        </div>
+        <!-- ============== -->
+        <label class=" col-md-4 form-label mb-2" asp-for="CompanyName"></label>
+        <div class="col-md-8 mb-2" title="Enter Company Name" data-plugin="tippy" data-tippy-placement="top">
+            <input class="form-control form-control-sm" type="text" placeholder="Enter here" asp-for="CompanyName" />
+            <span asp-validation-for="CompanyName"></span>
+        </div>
+        <!-- ============== -->
+        <label class=" col-md-4 form-label mb-2" asp-for="DivisionName"></label>
+        <div class="col-md-8 mb-2" title="Enter the Company Division or Plant if applicable. If it is the Main Plant / Division / HQ enter Main" data-plugin="tippy" data-tippy-placement="top">
+            <input class="form-control form-control-sm" type="text" placeholder="Enter here" asp-for="DivisionName" />
+            <span asp-validation-for="DivisionName"></span>
+        </div>
+        <!-- ============== -->
+        <label class=" col-md-4 form-label mb-2" asp-for="Location"></label>
+        <div class="col-md-8 mb-2" title="Enter the Company Location ... City, Country ..." data-plugin="tippy" data-tippy-placement="top">
+            <input class="form-control form-control-sm" type="text" placeholder="Enter here" asp-for="Location" />
+            <span asp-validation-for="Location"></span>
+        </div>
+        <!-- ============== -->
+        <label class=" col-md-4 form-label mb-2" asp-for="Notes">Notes</label>
+        <div class="col-md-8 mb-2" title="Enter any relevant Notes about the company" data-plugin="tippy" data-tippy-placement="top">
+            <textarea class="form-control form-control-sm" asp-for="Notes"></textarea>
+            <span asp-validation-for="Notes"></span>
+        </div>
+        <!-- ============== -->
+        <div class="col text-end mt-2">
+            <input type="button" class="btn btn-sm btn-primary" title="Use to Save the entered data"
+                   data-plugin="tippy" data-tippy-placement="top" value="Save" id="btnContactSubmit" />
+
+        </div>
+    </div>
+</form>
+

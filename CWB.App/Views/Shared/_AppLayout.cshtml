@@ -1,0 +1,117 @@
+﻿<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="utf-8" />
+    <title>@ViewData["Title"] | CWB</title>
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <meta content="KGK " name="description" />
+    <meta content="kgk" name="author" />
+    <meta http-equiv="X-UA-Compatible" content="IE=edge" />
+    <!-- Custom Style Sheet -->
+    <link rel="stylesheet" type="text/css" href="~/css/custom.css" />
+    <!-- App favicon -->
+    <link rel="shortcut icon" href="~/images/favicon.ico" />
+    <!-- App css -->
+    <link href="~/css/bootstrap.min.css" rel="stylesheet" type="text/css" id="bs-default-stylesheet" />
+    <link href="~/css/app.min.css" rel="stylesheet" type="text/css" id="app-default-stylesheet" />
+    <link href="~/css/bootstrap-dark.min.css" rel="stylesheet" type="text/css" id="bs-dark-stylesheet" />
+    <link href="~/css/app-dark.min.css" rel="stylesheet" type="text/css" id="app-dark-stylesheet" />
+    
+    <link href="~/css/site.css" type="text/css" rel="stylesheet" />
+    <link href="~/css/toastr.css" type="text/css" rel="stylesheet" />
+    <link href="~/css/select2.min.css" type="text/css" rel="stylesheet" />
+    <link href="~/lib/jquery-ui/dist/jquery-ui.css" rel="stylesheet" />
+    <!-- icons -->
+    <link href="~/css/icons.min.css" rel="stylesheet" type="text/css" />
+</head>
+<body>
+    <!-- Pre-loader -->
+    <div id="preloader">
+        <div id="status">
+            <div class="spinner-border avatar-lg text-primary m-2" role="status"></div>
+        </div>
+    </div>
+    <!-- End Preloader-->
+    <!-- Begin page -->
+    <div id="wrapper">
+        <!-- Topbar Start -->
+        <div class="navbar-custom">
+            <div class="container-fluid">
+                <partial name="_LoginPartial" />
+                <!-- LOGO -->
+                <ul class="list-unstyled topnav-menu topnav-menu-left m-0">
+                    <li>
+                        <button class="button-menu-mobile waves-effect waves-light"> <i class="fe-menu"></i> </button>
+                    </li>
+                    <li>
+                        <!-- Mobile menu toggle (Horizontal Layout)-->
+                        <a class="navbar-toggle nav-link" data-bs-toggle="collapse" data-bs-target="#topnav-menu-content">
+                            <div class="lines"> <span></span> <span></span> <span></span> </div>
+                        </a>
+                        <!-- End mobile menu toggle-->
+                    </li>
+                    <li class="dropdown d-none d-xl-block">
+                        <a class="nav-link dropdown-toggle waves-effect waves-light" data-bs-toggle="dropdown" href="#" role="button" aria-haspopup="false" aria-expanded="false"> <strong class="text-light font-20">Collaboration WorkBench</strong> </a>
+                    </li>
+                </ul>
+                <div class="clearfix"></div>
+                <div class="row">
+                    <div id="null" class="col-md-5 mb-2 mt-2"></div>
+                    <div id="null" class="col-md-4 mb-2 mt-2"></div>
+                    <div id="op-notifier" class="col-md-3 mb-1 mt-1"></div>
+                </div>
+            </div>
+        </div>
+        <!-- end Topbar -->
+        <!-- ========== Left Sidebar Start ========== -->
+        <div class="left-side-menu">
+            <!-- LOGO -->
+            <div class="logo-box">
+                <a href="#" class="logo logo-light text-center">
+                    <span class="logo-sm">
+                        <img src="~/images/logo.png" alt="" height="24" />
+                    </span>
+                    <span class="logo-lg">
+                        <img src="~/images/logo.png" alt="" height="35" />
+                        <!--<span  class="text-dark"><strong></strong></span>-->
+                    </span>
+                </a>
+            </div>
+            <partial name="_NavPartial" />
+            <!-- Sidebar -left -->
+        </div>
+        
+        <!-- Left Sidebar End -->
+        <!-- Start Page Content here -->
+        <!-- ============================================================== -->
+       
+        <div class="content-page">
+            @RenderBody()
+        </div>
+        <!-- end Container -->
+    </div>
+    <!----wrapper ends----->
+    <!-- END wrapper -->
+    <!-- End Page Content here -->
+    <!-- ================================     MODALS  Starts    ================================ -->
+    <!-- ================================    MODALS  Ends    ======================================= -->
+    <script src="~/lib/tippy-js/tippy.all.min.js"></script>
+    <!-- Vendor js -->
+    <script src="~/js/vendor.min.js"></script>
+    <!-- App js -->
+    <script src="~/js/app.min.js"></script>
+    <script src="~/lib/jquery/dist/jquery.js"></script>
+    <script src="~/lib/jquery-ui/dist/jquery-ui.js"></script>
+    <script src="~/lib/jquery-validation/dist/jquery.validate.min.js"></script>
+    <script src="~/lib/jquery-validation-unobtrusive/jquery.validate.unobtrusive.min.js"></script>
+    <script src="~/lib/bootstrap/dist/js/bootstrap.js"></script>
+    <script src="~/js/select2.min.js"></script>
+    
+    <script src="~/js/site.js"></script>
+    <script src="~/js/globalvas.js"></script>
+    <script src="~/lib/toastr.js"></script>
+    <script src="~/lib/logger.js"></script>
+    
+    @RenderSection("Scripts", required: false)
+</body>
+</html>

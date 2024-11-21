@@ -1,0 +1,53 @@
+﻿<div class="modal fade" id="ba_existing-part" data-bs-backdrop="static" data-bs-keyboard="false" tabindex="-1"
+     aria-labelledby="staticBackdropLabel" aria-hidden="true">
+    <div class="modal-dialog modal-sm">
+        <div class="modal-content bxs-modal">
+            <div class="modal-header">
+                <h5 class="modal-title" id="staticBackdropLabel">Select Part</h5>
+                <button type="button" id="btn-close-ba-ExistingParts" class="btn-close" data-bs-dismiss="modal" aria-label="Close"></button>
+            </div>
+            <div class="modal-body">
+                <!-- ---------------- -->
+                <div class="row mt-1">
+                    <!-- -------------------------------------  -->
+                    <!-- ========================= -->
+                    <label class="form-label col-md-4 mb-2">Part Number </label>
+                    <div class="col-md-8 mb-2">
+                        <input class="form-control form-control-sm" type="text" placeholder="Enter here" value="" id="baeppn" name="baeppn" />
+                    </div>
+                    <!-- ========================= -->
+                    <label class="form-label col-md-4 mb-2">Part Description </label>
+                    <div class="col-md-8 mb-2">
+                        <input class="form-control form-control-sm" type="text" placeholder="Enter here" value="" id="baeppd" name="baeppd" />
+                    </div>
+                </div>
+                <!-- ============================== -->
+                <div class="table-responsive table-he-250 mt-3">
+                    <table class="table table-sm table-bordered  mb-3 mt-1 tableFixHead" id="tbl-ba-existingparts">
+                        <thead class="table-info th-sti text-center">
+                            <tr class="table-border-bottom">
+                                <th width="10%"></th>
+                                <th width="30%">Part No.</th>
+                                <th width="55%">Description</th>
+                                <th width="5%"></th>
+                            </tr>
+                        </thead>
+                        <tbody>
+                        </tbody>
+                    </table>
+                </div>
+                <!-- =============================== -->
+            </div>
+        </div>
+    </div>
+</div>
+
+<template id="BAParts">
+    <tr>
+        <td>
+            <input class="form-check-input mt-1" type="radio" onclick="copyPartData();" name="radiopartba" value="{num}">
+        </td>
+        <td data-key="partNo">{partNo}</td>
+        <td data-key="description">{description}</td>
+    </tr>
+</template>

@@ -1,0 +1,323 @@
+﻿@{
+    ViewData["Title"] = "Document View";
+}
+
+<div class="content">
+    <div class="row">
+        <div class="col-xl-12 col-md-12 col-sm-12 col-xs-12">
+            <!-- ================= -->
+            <div class="card">
+                <div class="card-body">
+                    <div class="row">
+                        <h5 class="mb-3 col-md-11">View Documents</h5>
+                        <a type="button" class="btn-close col-md-6 mb-3 text-end" asp-controller="DocumentManagement" asp-action="Index"></a>
+                    </div>
+                    <div class="row">
+                        <div class="col-md-12">
+                            <div class="row">
+                                <div class="col-md-4 dott-bord-r">
+                                    <div class="row">
+                                        <div class="col-md-6">
+                                            <label class="form-label mb-1">Document Type Name</label>
+                                            <input class="form-control form-control-sm" type="text" placeholder="Enter Here" id="SearchDocTypeName"
+                                                   title="" data-plugin="tippy" data-tippy-placement="top">
+                                        </div>
+                                        <!-- ----------  -->
+                                        <div class="col-md-6">
+                                            <label class="form-label mb-1">Docu Category.</label>
+                                            <select class="form-select form-select-sm" aria-label="form-select-sm" title=""  id="SearchDocCat"
+                                                    data-plugin="tippy" data-tippy-placement="top">
+                                                <option value="">Docu Category</option>
+                                            </select>
+                                        </div>
+                                        <!-- ----------  -->
+                                        <div class="col-md-6">
+                                            <label class="form-label mb-1">Uploaded by</label>
+                                            <select class="form-select form-select-sm" aria-label="form-select-sm" title="" data-plugin="tippy" data-tippy-placement="top">
+                                                <option value="">Person</option>
+                                            </select>
+                                        </div>
+                                        <!-- ----------  -->
+                                        <div class="col-md-6 mt-3">
+                                            <label class="form-check-label">
+                                                Data Share w
+                                                Customer
+                                            </label>
+                                            <input class="form-check-input" type="checkbox" title="" data-plugin="tippy" data-tippy-placement="top" id="SearchDataShareCust"><br>
+                                            <label class="form-check-label">Archive</label>
+                                            <input class="form-check-input" type="checkbox" title="" data-plugin="tippy" data-tippy-placement="top"id="SearchArchive">
+                                        </div>
+                                        <!-- ----------  -->
+                                    </div>
+                                </div>
+                                <!-- ======================= -->
+                                <div class="col-md-4 dott-bord-r">
+                                    <div class="row">
+                                        <div class="col-md-6">
+                                            <label class="form-label mb-1">Part No</label>
+                                            <div class="input-group">
+                                                <input class="form-control form-control-sm" type="text" placeholder="" id="SearchPartNo" title="" data-plugin="tippy" data-tippy-placement="top">
+                                                @*<button type="button" id="#" class="btn btn-sm btn-outline-purple" title="" data-plugin="tippy" data-tippy-placement="top" data-bs-toggle="modal" data-bs-target="#type-new">
+                                                    <i class="fas fa-search font-18"></i>
+                                                </button>*@
+                                            </div>
+                                        </div>
+                                        <!-- ----------  -->
+                                        <div class="col-md-6">
+                                            <label class="form-label mb-1">WO No</label>
+                                            @*<select class="form-select form-select-sm" aria-label="form-select-sm" title="" data-plugin="tippy" data-tippy-placement="top">
+            <option value="">xxxxxxx</option>
+        </select>*@
+                                            <input class="form-control form-control-sm" type="text" placeholder="" id="SearchWo" title="" data-plugin="tippy" data-tippy-placement="top">
+                                        </div>
+                                        <!-- ----------  -->
+                                        <div class="col-md-6">
+                                            <label class="form-label mb-1">Routing.</label>
+                                            <input class="form-control form-control-sm" type="text" placeholder="" id="SearchRoutingName" title="" data-plugin="tippy" data-tippy-placement="top">
+                                        </div>
+                                        <!-- ----------  -->
+                                        <div class="col-md-6">
+                                            <label class="form-label mb-1">Opr No</label>
+                                            <input class="form-control form-control-sm" type="text" placeholder="" id="SearchOrpNo" title="" data-plugin="tippy" data-tippy-placement="top">
+                                        </div>
+                                        <!-- ----------  -->
+                                    </div>
+                                </div>
+                                <!-- ======================= -->
+                                <div class="col-md-2 dott-bord-r">
+                                    <div class="row">
+                                        <div class="col-md-12">
+                                            <label class="form-label mb-1">Customer</label>
+                                            <input class="form-control form-control-sm" type="text" placeholder="" id="SearchCustomer" title="" data-plugin="tippy" data-tippy-placement="top">
+                                        </div>
+                                        <!-- ----------  -->
+                                        <div class="col-md-12">
+                                            <label class="form-label mb-1">Customer PO</label>
+                                            <input class="form-control form-control-sm" type="text" placeholder="" id="SearchPo" title="" data-plugin="tippy" data-tippy-placement="top">
+                                        </div>
+                                        <!-- ----------  -->
+                                    </div>
+                                </div>
+                                <!-- ======================= -->
+                                <div class="col-md-2 dott-bord-r">
+                                    <div class="row">
+                                        <div class="col-md-12">
+                                            <label class="form-label mb-1">Upload From</label>
+                                            <input type="date" class="form-control form-control-sm" id="SearchUploadFrom">
+                                        </div>
+                                        <!-- ----------  -->
+                                        <div class="col-md-12">
+                                            <label class="form-label mb-1">Upload To</label>
+                                            <input type="date" class="form-control form-control-sm" id="SearchUploadTo">
+                                        </div>
+                                        <!-- ----------  -->
+                                        <div class="col-md-12 text-end">
+                                            <label class="form-label mb-1">&nbsp;</label>
+                                            <button type="button" class="btn btn-outline-primary btn-sm mt-2" id="ClearSearchFields" >Clear Fields</button>
+                                        </div>
+                                    </div>
+                                </div>
+                                <!-- ======================= -->
+                            </div>
+                            <!-- =========== -->
+                        </div>
+                    </div>
+                    <!-- =========== -->
+                </div>
+                <!-- end card body -->
+            </div>
+            <!-- end card -->
+            <!-- ================= -->
+            <div class="card">
+                <div class="card-body">
+                    <div class="table-responsive table-he-294">
+                        <table class="table table-sm table-bordered w-100 text-center" id="DocViewListGrid">
+                            <thead class="  table-info th-sti">
+                                <tr class="table-border-bottom">
+                                    <th>
+                                        <input id="select-all-checkbox" class="form-check-input"
+                                               type="checkbox" title="Select all"
+                                               data-plugin="tippy" data-tippy-placement="top">
+                                    </th>
+                                    <th>Document Type Name</th>
+                                    <th>Upload Date</th>
+                                    <th>Uploaded by</th>
+                                    <th>Customer</th>
+                                    <th>PO No / WO No</th>
+                                    <th>Part No / Desc</th>
+                                    <th>Routing </th>
+                                    <th>Opr No </th>
+                                    <th>Retain up to </th>
+                                    <th>View </th>
+                                    <th>Download </th>
+                                    <th width="5%"></th>
+                                </tr>
+                            </thead>
+                            <tbody>
+                                <!-- --------------  -->
+                            </tbody>
+                        </table>
+                    </div>
+                    <div>
+                        <button id="btnDeleteFiles" class="btn btn-sm btn-outline-purple" title="" disabled>
+                            Delete Selected Files
+                        </button>
+                    </div>
+                </div>
+            </div>
+            <!-- ================= -->
+        </div>
+        <!-- end col -->
+    </div>
+    <!-- end row -->
+</div>
+
+<!--Doc View Popup -->
+<div class="modal fade modal-fullscreen-xl-down" id="viewDoc" data-bs-backdrop="static" data-bs-keyboard="false" tabindex="-1" aria-labelledby="staticBackdropLabel" aria-hidden="true">
+    <div class="modal-dialog modal-fullscreen">
+        <div class="modal-content bxs-modal">
+            <div class="modal-header">
+                <h4 class="modal-title" id="mySmallModalLabel">View Documents</h4>
+                <button type="button" class="btn-close" data-bs-dismiss="modal" aria-label="Close"></button>
+            </div>
+            <div class="modal-body">
+                <div class="row">
+                    <!-- ========================= -->
+                    <div class="col-md-12 dott-bord-r">
+                        <div class="table-responsive table-he-150">
+                            <table class="table table-sm table-bordered w-100 text-center">
+                                <thead class="table-info th-sti">
+                                    <tr class="table-border-bottom">
+                                    </tr>
+                                </thead>
+                                <tbody>
+                                    <tr>
+                                        <td>Document Type : <span id="DocTypenameText"></span></td>
+                                        <td>Uploaded by <span id="UploadByText"></span> on <span id="UpdatedDateText"></span></td>
+                                        <td>Part No / Desc : <span id="PartNoText"></span> / <span id="PartDescText"></span></td>
+                                        <td>Customer : <span id="CustomerText"></span> </td>
+                                        <td>PO No / WO No : <span id="PoNoText"></span></td>
+                                    </tr>
+                                    <tr>
+                                        <td>Retention Date : <span id="RetentionDateText"></span></td>
+                                        <td>Routing No : <span id="RoutingNameText"></span></td>
+                                        <td>Opr No : <span id="OprNoText"></span></td>
+                                    </tr>
+                                </tbody>
+                            </table>
+                        </div>
+                    </div>
+                    <!-- ========================= -->
+                    <div class="col-md-12">
+                        <iframe id="fileViewer" src="" style="width: 100vw; height: 100vh;"></iframe>
+                        @*<img src="https://skala.or.id/wp-content/uploads/2024/01/dummy-post-square-1-1.jpg" alt="img" style="width: 100%; height: 400px;">*@
+                    </div>
+                    <!-- ========================= -->
+                </div>
+            </div>
+        </div><!-- /.modal-content -->
+    </div><!-- /.modal-dialog -->
+</div>
+<!--Doc View Popup Ends-->
+<!--Popup 5 -->
+<div class="modal fade" id="RetentionDate" data-bs-backdrop="static" data-bs-keyboard="false" tabindex="-1" aria-labelledby="staticBackdropLabel" aria-hidden="true">
+    <div class="modal-dialog">
+        <div class="modal-content bxs-modal">
+            <div class="modal-header">
+                <h4 class="modal-title" id="mySmallModalLabel">Retention Date Change</h4>
+                <button type="button" class="btn-close" data-bs-dismiss="modal" aria-label="Close"></button>
+            </div>
+            <div class="modal-body">
+                <div class="row">
+                    <!-- ========================= -->
+                    <label class="form-label col-md-7 mb-2">Current Date up to which Document is retained</label>
+                    <div class="col-md-5 mb-2">
+                        <input type="text" class="form-control form-control-sm" value="" id="P5CurrentDate" readonly>
+                    </div>
+                    <!-- ========================= -->
+                    <label class="form-label col-md-7 mb-2">
+                        New Date up to which Document to be retained
+                        <br> (Date to be later than above)
+                    </label>
+                    <div class="col-md-5 mb-2">
+                        <input type="date" class="form-control form-control-sm" id="P5RetentionDate">
+                    </div>
+                    <!-- ========================= -->
+                    <div class="col-md-12 text-end mt-3">
+                        <input type="text" id="P5DocListId" hidden />
+                        <button type="button" class="btn btn-sm btn-outline-purple" id="RetentionSave">Save</button>
+                    </div>
+                    <!-- ========================= -->
+                </div>
+            </div>
+        </div><!-- /.modal-content -->
+    </div><!-- /.modal-dialog -->
+</div>
+<!--Popup 5 Ends-->
+
+
+
+
+
+
+
+
+
+
+
+
+<template id="DocListGridRow">
+    <tr>
+        <td>
+            <input type="checkbox" class="row-checkbox" />
+        </td>
+        <td>{documentTypeName}</td>
+        <td>{uploadedBy}</td>
+        <td>{updatedOnStr}</td>
+        <td>{companyName}</td>
+        <td></td>
+        <td>{partNo} / {partDesc}</td>
+        <td>{routingName}</td>
+        <td>{oprNo}</td>
+        <td>{retentionDateStr}</td>
+        <td hidden>{dataReqdByCust}</td>
+        <td hidden>{archive}</td>
+        <td hidden>{docCat}</td>
+        <td hidden>{docListId}</td>
+        <td hidden>{storageLocation}</td>
+        <td hidden>{fileName}</td>
+        <td>
+            <a href="javascript:void(0);" data-filename="{fileName}" data-doctypename="{documentTypeName}" data-customername="{companyName}"
+               data-partno="{partNo}" data-partdesc="{partDesc}" data-routingname="{routingName}" data-retdate="{retentionDateStr}"
+               data-oprno="{oprNo}"
+               onclick="viewFile(this)">
+                <i class="fas fa-eye btn btn-sm" style="color: #007bff;"></i>
+            </a>
+        </td>
+        <td>
+            <a href="javascript:void(0);" data-filename="{fileName}" onclick="downloadFile(this)">
+                <i class="fas fa-download btn btn-sm" style="color: #007bff;"></i>
+            </a>
+        </td>
+
+        <td>
+            <div class="dropdown float-center">
+                <a href="#" class="dropdown-toggle arrow-none card-drop" data-bs-toggle="dropdown" aria-expanded="false"><i class="mdi mdi-dots-vertical"></i></a>
+                <div class="dropdown-menu dropdown-menu-end">
+                    @*item
+                    <a href="javascript:void(0);" class="dropdown-item">Edit</a>
+                     item
+                    <a href="javascript:void(0);" class="dropdown-item">Delete</a>
+                     item*@
+                    <a href="javascript:void(0);" class="dropdown-item" data-bs-toggle="modal" data-bs-target="#RetentionDate"
+                       data-doclistid="{docListId}" data-retdate="{retentionDateStr}"> Change Retention Date</a>
+                </div>
+            </div>
+        </td>
+    </tr>
+</template>
+
+
+@section Scripts {
+    <script src="~/js/DocViewList.js"></script>
+}

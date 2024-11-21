@@ -1,0 +1,319 @@
+﻿@{
+    ViewData["Title"] = "Work Order";
+}
+<input value="B-BP" type="hidden" id="hdn-nav-menu" />
+<div class="content">
+    <div class="row" id="myRadioGroup">
+        <div class="col-xl-12 col-md-12 col-sm-12 col-xs-12">
+            <!-- ================= -->
+            <div class="card">
+                <div class="card-body">
+                    <div class="row">
+                        <div class="col-md-12">
+                            <h3 style="padding: 10px;">Operations</h3>
+                        </div>
+                        <!-- =============================  -->
+                        <div class="col-md-12">
+                            <div class="row">
+                                <!-- ================================ -->
+                                <div class="col-md-3 col-sm-12 dott-bord-r" style="padding: 10px;">
+                                    <!-- end row -->
+                                    <div class="row">
+                                        <h5 class="mb-3">Production Planning Flow</h5>
+                                        <div class="col-md-12">
+                                            <div class="text-center btn btn-outline-info w-100 mb-2">
+                                                <a asp-controller="WorkOrder" asp-action="SoToWo">
+                                                    <h6>Convert SO to WO</h6>
+                                                </a>
+                                            </div>
+                                        </div>
+                                        <!-- end -->
+                                        <div class="col-md-12">
+                                            <div class="text-center btn btn-outline-info w-100 mb-2">
+                                                <a asp-controller="WorkOrder" asp-action="DetailedProcPlan">
+                                                    <h6>Detailed Production Planning</h6>
+                                                </a>
+                                            </div>
+                                        </div>
+                                        <!-- end -->
+                                        <div class="col-md-12">
+                                            <div class="text-center btn btn-outline-info w-100 mb-2">
+                                                <a href="#">
+                                                    <h6>Release WO for Production </h6>
+                                                </a>
+                                            </div>
+                                        </div>
+                                        <!-- end -->
+                                        <div class="col-md-12">
+                                            <div class="text-center btn btn-outline-info w-100 mb-2">
+                                                <a href="#">
+                                                    <h6>Release Material PO</h6>
+                                                </a>
+                                            </div>
+                                        </div>
+                                        <!-- end -->
+                                        <div class="col-md-12">
+                                            <div class="text-center btn btn-outline-info w-100 mb-2">
+                                                <a href="#">
+                                                    <h6>WIP Control</h6>
+                                                </a>
+                                            </div>
+                                        </div>
+                                        <!-- end -->
+                                        <div class="col-md-12">
+                                            <div class="text-center btn btn-outline-info w-100 mb-2">
+                                                <a href="#">
+                                                    <h6>SO Ready for Dispatch</h6>
+                                                </a>
+                                            </div>
+                                        </div>
+                                        <!-- end -->
+                                    </div>
+                                </div>
+                                <!-- ================================ -->
+                                <div class="col-md-5 dott-bord-r" style="padding: 10px;">
+                                    <!-- end row -->
+                                    <div class="row">
+                                        <h5 class="mb-3 text-center">SO / PO Status</h5>
+                                        <div class="col-md-12">
+                                            <div class="table-responsive table-he-250">
+                                                <table class="table table-sm table-bordered  mb-3 text-center tableFixHead w-100">
+                                                    <thead class="  table-info th-sti">
+                                                        <tr class="table-border-bottom">
+                                                        </tr>
+                                                    </thead>
+                                                    <tbody>
+                                                        <tr>
+                                                            <td><a href="#">SO to WO- Pending</a></td>
+                                                            <td><span id="1stSoWoPending"></span> </td>
+                                                            <td>XX INR</td>
+                                                        </tr>
+                                                        <!-- ===========================  -->
+                                                        <tr>
+                                                            <td><a href="#">SO on Hold</a></td>
+                                                            <td><span id="noOfSoHold"></span> </td>
+                                                            <td>XX INR</td>
+                                                        </tr>
+                                                        <!-- ===========================  -->
+                                                        <tr>
+                                                            <td><a href="#">SO in WIP Past Due</a></td>
+                                                            <td><span id="SoInPastDue"></span> </td>
+                                                            <td>XX INR</td>
+                                                        </tr>
+                                                        <!-- ===========================  -->
+                                                        <tr>
+                                                            <td><a href="#">SO in WIP on Track</a></td>
+                                                            <td><span id="SoOntrack"></span> </td>
+                                                            <td>XX INR</td>
+                                                        </tr>
+                                                        <!-- ===========================  -->
+                                                        <tr>
+                                                            <td><a href="#" style="font-weight: bold;">SO Total</a></td>
+                                                            <td><span id="totalSO"></span> </td>
+                                                            <td>XX INR</td>
+                                                        </tr>
+                                                        <!-- ===========================  -->
+
+                                                    </tbody>
+                                                </table>
+                                            </div>
+                                            <!-- ========================  -->
+                                            <div class="table-responsive table-he-250">
+                                                <table class="table table-sm table-bordered  mb-3 text-center tableFixHead w-100">
+                                                    <thead class="  table-info th-sti">
+                                                        <tr class="table-border-bottom">
+                                                        </tr>
+                                                    </thead>
+                                                    <tbody>
+                                                        <tr>
+                                                            <td><a href="#">SO to WO- Pending</a></td>
+                                                            <td><span id="SoWoPending"></span></td>
+                                                        </tr>
+                                                        <!-- ===========================  -->
+                                                        <tr>
+                                                            <td><a href="#">Incoming Matl Past Due (# Parts)</a></td>
+                                                            <td>XX</td>
+                                                        </tr>
+                                                        <!-- ===========================  -->
+                                                    </tbody>
+                                                </table>
+                                            </div>
+                                            <!-- ========================  -->
+                                            <div class="table-responsive table-he-250">
+                                                <table class="table table-sm table-bordered  mb-3 text-center tableFixHead w-100">
+                                                    <thead class="  table-info th-sti">
+                                                        <tr class="table-border-bottom">
+                                                        </tr>
+                                                    </thead>
+                                                    <tbody>
+                                                        <tr>
+                                                            <td><a href="#">WO Released waiting for (w/f) Matl</a></td>
+                                                            <td>XX</td>
+                                                        </tr>
+                                                        <!-- ===========================  -->
+                                                        <tr>
+                                                            <td><a href="#">WO Start Date Past Due w/f Mat</a></td>
+                                                            <td>XX</td>
+                                                        </tr>
+                                                        <!-- ===========================  -->
+                                                        <tr>
+                                                            <td><a href="#">WO with Matl awaiting Start Date</a></td>
+                                                            <td>XX</td>
+                                                        </tr>
+                                                        <!-- ===========================  -->
+                                                        <tr>
+                                                            <td><a href="#">WO with Matl past Start Date</a></td>
+                                                            <td>XX</td>
+                                                        </tr>
+                                                        <!-- ===========================  -->
+                                                        <tr>
+                                                            <td><a href="#">WO on Hold</a></td>
+                                                            <td><span id="WoOnHold"></span></td>
+                                                        </tr>
+                                                        <!-- ===========================  -->
+                                                        <tr>
+                                                            <td><a href="#">WO in WIP Past Due</a></td>
+                                                            <td><span id="WoInPastDue"></span></td>
+                                                        </tr>
+                                                        <!-- ===========================  -->
+                                                        <tr>
+                                                            <td><a href="#">WO in WIP on Track</a></td>
+                                                            <td><span id="WoOnTrack"></span></td>
+                                                        </tr>
+                                                        <!-- ===========================  -->
+                                                        <tr>
+                                                            <td><a href="#" style="font-weight: bold;">WO Total</a></td>
+                                                            <td><span id="totalWO"></span></td>
+                                                        </tr>
+                                                        <!-- ===========================  -->
+                                                    </tbody>
+                                                </table>
+                                            </div>
+                                            <!-- ========================  -->
+                                        </div>
+                                        <div class="col-md-4">
+                                            <div class="text-center btn-sm btn btn-outline-info w-100 mb-2">
+                                                <a asp-controller="WorkOrder" asp-action="SalesOrderList">
+                                                    <h6>SO List View / Edit</h6>
+                                                </a>
+                                            </div>
+                                        </div>
+                                        <!-- ========================  -->
+                                        <div class="col-md-4">
+                                            <div class="text-center btn-sm btn btn-outline-info w-100 mb-2">
+                                                <a asp-controller="WorkOrder" asp-action="WorkOrderList">
+                                                    <h6>WO List View / Edit</h6>
+                                                </a>
+                                            </div>
+                                        </div>
+                                        <!-- ========================  -->
+                                        <div class="col-md-4">
+                                            <div class="text-center btn-sm btn btn-outline-info w-100 mb-2">
+                                                <a href="#">
+                                                    <h6>PO List View / Edit</h6>
+                                                </a>
+                                            </div>
+                                        </div>
+                                        <!-- ========================  -->
+                                        <!-- end -->
+                                    </div>
+                                </div>
+                                <!-- ================================ -->
+                                <div class="col-md-4 col-sm-6" style="padding: 10px;">
+                                    <div class="row ">
+                                        <h5 class="mb-3 text-center">Customer Status</h5>
+                                        <div class="col-md-12">
+                                            <!-- ========================  -->
+                                            <div class="table-responsive table-he-250">
+                                                <table class="table table-sm table-bordered  mb-3 text-center tableFixHead w-100">
+                                                    <thead class="  table-info th-sti">
+                                                        <tr class="table-border-bottom">
+                                                            <th>Customer</th>
+                                                            <th>SO Open</th>
+                                                            <th>SO WIP</th>
+                                                        </tr>
+                                                    </thead>
+                                                    <tbody>
+                                                        <tr>
+                                                            <td><a href="#">HAL</a></td>
+                                                            <td># / xxx INR</td>
+                                                            <td># / xxx INR</td>
+                                                        </tr>
+                                                        <!-- ===========================  -->
+                                                        <tr>
+                                                            <td><a href="#">TISS</a></td>
+                                                            <td># / xxx INR</td>
+                                                            <td># / xxx INR</td>
+                                                        </tr>
+                                                        <!-- ===========================  -->
+                                                        <tr>
+                                                            <td><a href="#">ABC</a></td>
+                                                            <td># / xxx INR</td>
+                                                            <td># / xxx INR</td>
+                                                        </tr>
+                                                        <!-- ===========================  -->
+                                                        <tr>
+                                                            <td><a href="#">XYX</a></td>
+                                                            <td># / xxx INR</td>
+                                                            <td># / xxx INR</td>
+                                                        </tr>
+                                                        <!-- ===========================  -->
+                                                        <tr>
+                                                            <td><a href="#">ZYZ</a></td>
+                                                            <td># / xxx INR</td>
+                                                            <td># / xxx INR</td>
+                                                        </tr>
+                                                        <!-- ===========================  -->
+                                                    </tbody>
+                                                </table>
+                                                <!-- =================================  -->
+                                                <table class="table table-sm table-bordered  mb-3 text-center tableFixHead w-100 table-border-bottom">
+                                                    <thead class="  table-info th-sti">
+                                                        <tr class="table-border-bottom">
+                                                        </tr>
+                                                    </thead>
+                                                    <tbody>
+                                                        <tr>
+                                                            <td width="32%" style="font-weight: bolder;">Total</td>
+                                                            <td># / xxx INR</td>
+                                                            <td># / xxx INR</td>
+                                                        </tr>
+                                                        <!-- ===========================  -->
+                                                    </tbody>
+                                                </table>
+                                            </div>
+                                            <!-- ========================  -->
+                                            <!-- ========================  -->
+                                        </div>
+                                    </div>
+                                    <!-- ================= -->
+                                </div>
+                                <!-- ================================ -->
+                                <!-- ================================ -->
+                            </div>
+                            <!-- end row -->
+                        </div>
+                        <!-- =============================  -->
+                    </div>
+                </div>
+            </div>
+            <!-- end card body -->
+            <!-- ================= -->
+        </div>
+        <!-- end card -->
+        <!-- ======================================================================== -->
+    </div>
+    <!-- end col -->
+</div>
+<!-- end row -->
+<!-- end Container -->
+<!----content-page ends----->
+<!----wrapper ends----->
+<!-- END wrapper -->
+<!-- ============================================================== -->
+<!-- End Page Content here -->
+
+
+@section Scripts {
+    <script src="~/js/ProcessPlan.js"></script>
+}

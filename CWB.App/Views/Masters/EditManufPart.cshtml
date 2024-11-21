@@ -1,0 +1,23 @@
+﻿@{
+    ViewData["Title"] = "Edit Item Master - Manufactured Part";
+    
+}
+@model CWB.App.Models.ItemMaster.ManufacturedPartNoDetailVM
+<partial name="ManufPart" model=@Model />
+
+
+@section scripts {
+    <script src="~/js/addfunctions.js"></script>
+    <script src="~/js/ItemMaster/supplier.js"></script>
+    <script src="~/js/ItemMaster/rmselects.js"></script>
+    <script src="~/js/contact-model.js"></script>
+    <script src="~/js/ItemMaster/ManufPart-model.js"></script>
+    <script src="~/js/contacts.js"></script>
+    <script src="~/js/searchparts.js"></script>
+    <script src="~/js/searchpartsbof.js"></script>
+    <script>
+        var modelObj = @Html.Raw(Json.Serialize(Model));
+        modelObj["Edit"] = true;
+   //     $('#ManufPartForm').validate();
+    </script>
+}

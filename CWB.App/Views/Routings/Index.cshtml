@@ -1,0 +1,312 @@
+﻿@{
+    ViewData["Title"] = "Routing Home";
+}
+<input value="M-IR" type="hidden" id="hdn-nav-menu" />
+<div class="content">
+    <div class="card">
+        <div class="card-body">
+            <div class="row">
+                <h5>Routing List</h5>
+                <hr>
+            </div>
+            <!-- end row  -->
+            <div class="row mt-2">
+                <label class="form-label col-md-1 mb-2">Company</label>
+                <div class="col-md-3 mb-2">
+                    <input class="form-control form-control-sm" type="text" id="master_co" name="master_co" placeholder="enter here">
+                </div>
+                <!-- -------------------------------------  -->
+                <div class="col-md-4 mb-2">
+                    <table class="w-100" style="border: 1px solid rgb(162, 149, 149); border-radius: 15px;">
+                        <tbody>
+                            <tr>
+                                <td style="padding-left: 20px;">
+                                    <label class="form-check-label" for="cars">Manufactured Part </label>
+                                    <input class="form-check-input mt-1" type="radio" name="MasterPartType" value="1" checked="">
+                                </td>
+                                <td>
+                                    <label class="form-check-label" for="cars">Assembly </label>
+                                    <input class="form-check-input mt-1" type="radio" name="MasterPartType" value="2">
+                                </td>
+
+                            </tr>
+                        </tbody>
+                    </table>
+                </div>
+                <!-- -------------------------------------  -->
+                <label class="form-label col-md-1 mb-2">Part Number </label>
+                <div class="col-md-3 mb-2">
+                    <div class="input-group">
+                        <input class="form-control form-control-sm" type="text" id="master_partno" name="master_partno" placeholder="enter here">
+                        @*<button class="btn btn-sm btn-outline-purple" data-plugin="tippy" data-tippy-placement="top" type="button" data-bs-toggle="modal" data-bs-target="#existing-part" data-tippy="" data-original-title="Search Part number"><i class="ri-search-2-line"></i></button>*@
+                    </div>
+                </div>
+                <!-- =============== -->
+            </div>
+            <!-- ===================== -->
+            <!-- ================= -->
+            <div class="row mb-3">
+                <div class="col-md-4">
+                    <table class="w-100">
+                        <tbody>
+                            <tr>
+                                <td>
+                                    <label class="form-check-label" for="cars">Part Nos without Routing </label>
+                                    <input class="form-check-input mt-1 m-l-10" type="checkbox" id="ChkprWithOutRoute">
+                                </td>
+                                <td>
+                                    <input class="form-control form-control-sm" id="prWithOutRoute" type="text" value="0" readonly>
+                                </td>
+                            </tr>
+                        </tbody>
+                    </table>
+                </div>
+                <!-- -----------------  -->
+                <div class="col-md-4">
+                    <table class="w-100">
+                        <tbody>
+                            <tr>
+                                <td>
+                                    <label class="form-check-label" for="cars">Part Nos without all Mandatory Docs </label>
+                                    <input class="form-check-input mt-1 m-l-10" id="ChkprWithOutDoc" type="checkbox">
+                                </td>
+                                <td width="30%">
+                                    <input class="form-control form-control-sm" id="prWithOutDoc" type="text" value="0" readonly>
+                                </td>
+                            </tr>
+                        </tbody>
+                    </table>
+                </div>
+                <!-- -----------------  -->
+                <div class="col-md-4">
+                    <table class="w-100">
+                        <tbody>
+                            <tr>
+                                <td>
+                                    <label class="form-check-label" for="cars">Part Nos that required Routing Update </label>
+                                    <input class="form-check-input mt-1 m-l-10" type="checkbox" id="ChkprUpdate">
+                                </td>
+                                <td width="30%">
+                                    <input class="form-control form-control-sm" type="text" id="prUpdate" value="0" readonly>
+                                </td>
+                            </tr>
+                        </tbody>
+                    </table>
+                </div>
+                <!-- -----------------  -->
+            </div>
+            <!-- ---- end row ----  -->
+            <div class="row mb-3">
+                <div class="col-md-4">
+                    <table class="w-100">
+                        <tbody>
+                            <tr>
+                                <td>
+                                    <label class="form-check-label" for="cars">Part Nos that require Routing Approval </label>
+                                    <input class="form-check-input mt-1 m-l-10" type="checkbox" id="ChkprApproval">
+                                </td>
+                                <td width="30%">
+                                    <input class="form-control form-control-sm" type="text" id="prApproval" value="0" readonly>
+                                </td>
+                            </tr>
+                        </tbody>
+                    </table>
+                </div>
+                <div class="col-md-2"></div>
+                <div class="col-md-6 text-end">
+                    <button type="button" class="btn btn-outline-primary btn-sm " id="ClearSearchFields">Clear Fields</button>
+                </div>
+            </div>
+        </div>
+        <!-- ============================= -->
+        <!-- end row  -->
+        <div class="row">
+            <div class="table-responsive mt-1 table-he-330 p-3">
+                <table class="table table-sm table-bordered w-100 mb-3 tableFixHead" id="PartsRoutingsTable" >
+                    <thead class="  table-info th-sti text-center">
+                        <tr class="table-border-bottom">
+                            <th>Company</th>
+                            <th>Part No</th>
+                            <th>Description</th>
+                            <th>No of Routing</th>
+                            <th>All Mandatory Docs Avl</th>
+                            <th>Update Reqd</th>
+                            <th>Status</th>
+                            <th width="5%"></th>
+                        </tr>
+                    </thead>
+                    <tbody>
+                        <!-- ==========  -->
+                        <!-- ==========  -->
+                    </tbody>
+                </table>
+            </div>
+            <!-- =========================== -->
+            <div class="col-md-12 text-end mt-2">
+                @*<a href="routinglist.html"> <button class="btn btn-sm btn-primary">Page 1</button></a>
+                <a href="details-of-routing.html"> <button class="btn btn-sm btn-primary">Page 2</button></a>
+                <a href="step-info.html"> <button class="btn btn-sm btn-primary">Page 3</button></a>*@
+            </div>
+            <!-- =========================== -->
+        </div>
+    </div>
+</div>
+<partial name="../Shared/_NewRoute" />
+
+<template id="Parts-Routing-Template">
+    <tr sclass="bg-grey">
+        <td data-key="Company">{companyName}</td>
+        <td data-key="PartNo">{partNo}</td>
+        <td data-key="PartDescription">{partDescription}</td>
+        <td data-key="Routes">{noOfRoutes}</td>
+        <td data-key="MandocAvl">{mandocAvl}</td>
+        <td data-key="UpdateReq">-</td>
+        <td data-key="Status">{status}</td>
+        <td>
+            <div class="dropdown float-center">
+                <a href="#" class="dropdown-toggle arrow-none card-drop" data-bs-toggle="dropdown" aria-expanded="false"><i class="mdi mdi-dots-vertical"></i></a>
+                <div class="dropdown-menu dropdown-menu-end">
+                    <a href="javascript:void(0);" onclick="EditRoutes(event,{noOfRoutes},{manufacturedPartId});" class="dropdown-item">Edit</a>
+                    @*<a href="javascript:void(0);" data-manufacturedPartId="{manufacturedPartId}" data-partno="{partNo}" data-companyname="{companyName}" data-partdescription="{partDescription}" data-toggle="modal" data-target="#routing-new" class="dropdown-item">Create New Routing</a>*@
+                    <a href="javascript:void(0);" onclick="EditRoutes(event,{noOfRoutes},{manufacturedPartId});" class="dropdown-item">Create New Routing</a>
+                </div>
+            </div>
+        </td>
+    </tr>
+</template>
+<!-- ================================     MODALS  Starts    ================================ -->
+<!-- ==========================================  -->
+<!-- /.modal -->
+<!-- ============================================================================================== -->
+<!-- ================================    MODALS  Ends    ======================================= -->
+@section scripts {
+    <script src="~/js/routing/Routing-Model.js"></script>
+}
+
+
+
+
+
+
+<!--<div class="content">
+    <div class="row">
+        <div class="col-xl-12 col-md-12 col-sm-12 col-xs-12">
+            <div class="card">
+                <div class="card-body">
+                    <div class="row">
+                        <h5>Routing  List</h5>
+                    </div>
+                    <div class="row mt-2">
+                        <div class="accordion" id="accordionExample">
+                            <div class="accordion-item">
+                                <h5 class="accordion-header" id="headingOne">
+                                    <button class="accordion-button" type="button" data-bs-toggle="collapse" data-bs-target="#collapseOne"
+                                            aria-expanded="true" aria-controls="collapseOne">
+                                        Select Part No
+                                    </button>
+                                </h5>
+                                <div id="collapseOne" class="accordion-collapse collapse" aria-labelledby="headingOne"
+                                     data-bs-parent="#accordionExample">
+                                    <div class="accordion-body">-->
+                                        <!-- ============================= -->
+                                        <!--<div class="modal-body">-->
+                                            <!-- ================= -->
+                                            <!--<div class="row mb-3">
+                                                <div class="col-md-11">
+                                                    <table class="w-75 bord">
+                                                        <tbody>
+                                                        <td>
+                                                            <label class="form-check-label" for="cars">Manufactured Part </label>
+                                                            <input class="form-check-input mt-1" type="radio" name="MasterPartType" value="1" checked>
+                                                        </td>
+                                                        <td>
+                                                            <label class="form-check-label" for="cars">Assembly </label>
+                                                            <input class="form-check-input mt-1" type="radio" name="MasterPartType" value="2">
+                                                        </td>
+                                                        <td>
+                                                            <label class="form-check-label" for="cars">Routing </label>
+                                                            <input class="form-check-input mt-1" type="radio" name="WithRouting" value="1" checked>
+                                                        </td>
+                                                        <td>
+                                                            <label class="form-check-label" for="cars">Without Routing </label>
+                                                            <input class="form-check-input mt-1" type="radio" name="WithRouting" value="2">
+                                                        </td>
+                                                        </tbody>
+                                                    </table>
+                                                </div>
+                                            </div>-->
+                                            <!-- ---- end row ----  -->
+                                            <!--<div class="row mt-2">
+                                                <label class="form-label col-md-2 mb-2">Company</label>
+                                                <div class="col-md-4 mb-2">
+                                                    <input class="form-control form-control-sm" type="text" id="master_co" name="master_co" placeholder="enter here">
+                                                </div>-->
+                                                <!-- -------------------------------------  -->
+                                                <!--<div class="col-md-2">
+                                                    <button class="btn btn-sm btn-outline-purple w-100 display-none" data-bs-toggle="modal" data-bs-target="#tree">Group</button>
+                                                </div>-->
+                                                <!-- ---------------  -->
+                                                <!--<div class="col-md-4">
+                                                    <input class="form-control form-control-sm display-none" type="text" value="CNMG 120408">
+                                                </div>-->
+                                                <!-- ================= -->
+                                                <!-- -------------------------------------  -->
+                                            <!--</div>-->
+                                            <!-- ===================== -->
+                                            <!--<div class="row mb-1">
+                                                <label class="form-label col-md-2 mb-2">Part Number </label>
+                                                <div class="col-md-4 mb-2">
+                                                    <input class="form-control form-control-sm" type="text" id="master_partno" name="master_partno" placeholder="enter here">
+                                                </div>-->
+                                                <!-- =============== -->
+                                                <!--<label class="form-label col-md-2 mb-2">Part Description </label>
+                                                <div class="col-md-4 mb-2">
+                                                    <textarea typeof="text" id="partDescription" name="partDescription" class="form-control form-control-sm">Enter......</textarea>
+                                                </div>-->
+                                                <!-- =============== -->
+                                                <!--<label class="form-label col-md-2 mb-1">Keyword / Description</label>
+                                                <div class="col-md-10 mb-2">
+                                                    <input id="keyword" name="keyword" class="form-control form-control-sm" type="text" placeholder="enter here">
+                                                </div>-->
+                                                <!-- =============== -->
+                                                <!--<div class="col-md-5">
+                                                    <label class="form-check-label" for="cars">Show Part No Without Routing</label>
+                                                    <input class="form-check-input m-l-5" type="checkbox" id="WithoutRouting" name="WithoutRouting">
+                                                </div>
+                                            </div>-->
+                                            <!-- ---- end row ----  -->
+                                        <!--</div>-->
+                                        <!-- ============================= -->
+                                    <!--</div>
+                                </div>
+                            </div>
+                        </div>
+                    </div>
+                    <div class="row">
+                        <div class="table-responsive mt-3 table-he-150">
+                            <table id="PartsRoutingsTable" class="table table-sm table-bordered w-100 mb-3 tableFixHead">
+                                <thead class="  table-info th-sti text-center">
+                                    <tr class="table-border-bottom">
+                                        <th>Part No</th>
+                                        <th>Description</th>
+                                        <th>Company</th>
+                                        <th>Routes</th>
+                                        <th>Status</th>
+                                        <th width="5%"></th>
+                                    </tr>
+                                </thead>
+                                <tbody>
+                                </tbody>
+                            </table>
+                        </div>-->
+                        <!--
+                        <div class="col-md-12 text-end mt-2">
+                            <button data-toggle="modal" class="btn btn-sm btn-primary" data-target="#routing-new">Add Routing</button>
+                        </div>
+                        -->
+                    <!--</div>
+                </div>
+            </div>
+        </div>
+    </div>
+</div>--><!--End content-->

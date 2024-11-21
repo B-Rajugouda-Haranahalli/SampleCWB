@@ -1,0 +1,41 @@
+﻿<Project Sdk="Microsoft.NET.Sdk.Web">
+
+  <PropertyGroup>
+    <TargetFramework>netcoreapp3.1</TargetFramework>
+    <DockerDefaultTargetOS>Linux</DockerDefaultTargetOS>
+    <DockerfileContext>..\CWB</DockerfileContext>
+    <UserSecretsId>b76bb22c-1860-4fe5-b657-f5dc05b02ffb</UserSecretsId>
+    <DockerComposeProjectPath>..\docker-compose.dcproj</DockerComposeProjectPath>
+  </PropertyGroup>
+
+  <ItemGroup>
+    <Compile Remove="Domain\ManufacturedPartMakeFrom.cs" />
+    <Compile Remove="ViewModels\ItemMaster\BoughtOutFinishDetailListVM.cs" />
+    <Compile Remove="ViewModels\ItemMaster\RawMaterialDetailListVM.cs" />
+  </ItemGroup>
+
+  <ItemGroup>
+    <None Remove="Configurations\ItemMaster\BoughtOutFinishConfigurations.cs~RFaea1aa6.TMP" />
+  </ItemGroup>
+
+  <ItemGroup>
+    <PackageReference Include="AutoMapper" Version="12.0.1" />
+    <PackageReference Include="AutoMapper.Extensions.Microsoft.DependencyInjection" Version="12.0.1" />
+    <PackageReference Include="Microsoft.AspNetCore.Mvc.NewtonsoftJson" Version="3.1.25" />
+    <PackageReference Include="Microsoft.EntityFrameworkCore" Version="5.0.15" />
+    <PackageReference Include="Microsoft.EntityFrameworkCore.Tools" Version="5.0.0">
+      <PrivateAssets>all</PrivateAssets>
+      <IncludeAssets>runtime; build; native; contentfiles; analyzers; buildtransitive</IncludeAssets>
+    </PackageReference>
+    <PackageReference Include="Microsoft.VisualStudio.Azure.Containers.Tools.Targets" Version="1.11.1" />
+    <PackageReference Include="Newtonsoft.Json" Version="13.0.1" />
+    <PackageReference Include="Pomelo.EntityFrameworkCore.MySql" Version="5.0.4" />
+  </ItemGroup>
+
+  <ItemGroup>
+    <ProjectReference Include="..\CWB.CommonUtils\CWB.CommonUtils.csproj" />
+    <ProjectReference Include="..\CWB.Extensions\CWB.Extensions.csproj" />
+  </ItemGroup>
+
+
+</Project>

@@ -1,0 +1,2191 @@
+﻿@{
+    ViewData["Title"] = "Detailed-Planning";
+}
+
+<div class="content">
+    <div class="row" id="myRadioGroup">
+        <div class="col-xl-12 col-md-12 col-sm-12 col-xs-12">
+            <!-- ================= -->
+            <div class="card">
+                <div class="card-body">
+                    <div class="row">
+                        <div class="col-md-12">
+                            <h3 style="padding: 10px;">Detailed Production Planning</h3>
+                        </div>
+                        <!-- =============================  -->
+                        <div class="col-md-12">
+                            <div class="row">
+                                <!-- ================================ -->
+                                <div class="col-md-4 col-sm-12 dott-bord-r" style="padding: 10px;">
+                                    <div class="table-responsive table-he-250">
+                                        <table class="table table-sm table-bordered  mb-3 text-center tableFixHead w-100">
+                                            <thead class="  table-info th-sti">
+
+                                            </thead>
+                                            <tbody>
+                                                <tr>
+                                                    <td>No of WO w/f detailed Planning </td>
+                                                    <td><span id="noOfWo"></span></td>
+                                                </tr>
+                                                <!-- ===========================  -->
+                                                <tr>
+                                                    <td>No of Assy BOM exploded </td>
+                                                    <td><span id="noOfAssyBomExploded"></span></td>
+                                                </tr>
+                                                <!-- ===========================  -->
+                                                <tr>
+                                                    <td>No of Customer Child Part </td>
+                                                    <td><span id="noOfChildPart"></span></td>
+                                                </tr>
+                                                <!-- ===========================  -->
+                                            </tbody>
+                                        </table>
+                                    </div>
+                                    <!-- ========================  -->
+                                    <div class="table-responsive table-he-250">
+                                        <table class="table table-sm table-bordered  mb-3 text-center tableFixHead w-100">
+                                            <thead class="  table-info th-sti">
+                                            <th colspan="2">
+                                                Plan_compl_dt of xxx Sub Assy completed
+                                            </th>
+                                            </thead>
+                                            <tbody>
+                                                <tr>
+                                                    <td>Level 1 </td>
+                                                    <td>xxxx</td>
+                                                </tr>
+                                                <!-- ===========================  -->
+                                                <tr>
+                                                    <td>Level 2 </td>
+                                                    <td>xxxx</td>
+                                                </tr>
+                                                <!-- ===========================  -->
+                                                <tr>
+                                                    <td>Level 3 </td>
+                                                    <td>xxxx</td>
+                                                </tr>
+                                                <!-- ===========================  -->
+                                                <tr>
+                                                    <td>Level 4 </td>
+                                                    <td>xxxx</td>
+                                                </tr>
+                                                <!-- ===========================  -->
+                                                <tr>
+                                                    <td colspan="2">
+                                                        Plan_compl_dt of xxx Manf Parts completed
+                                                    </td>
+                                                </tr>
+                                                <!-- ===========================  -->
+                                                <tr>
+                                                    <td colspan="2">
+                                                        Plan_receipt_dt of xxx BOF Parts completeds
+                                                    </td>
+                                                </tr>
+                                                <!-- ===========================  -->
+                                            </tbody>
+                                        </table>
+                                    </div>
+                                    <!-- ========================  -->
+                                </div>
+                                <!-- ================================ -->
+                                <div class="col-md-4 dott-bord-r" style="padding: 10px;">
+                                    <div class="table-responsive">
+                                        <table class="table table-sm table-bordered  mb-3 text-center tableFixHead w-100">
+                                            <thead class="  table-info th-sti">
+
+                                            </thead>
+                                            <tbody>
+                                                <tr>
+                                                    <td>No of common Sub Assy in level 1</td>
+                                                    <td>XXXX</td>
+                                                </tr>
+                                                <!-- ===========================  -->
+                                                <tr>
+                                                    <td>No of unique Sub Assy in Level 1</td>
+                                                    <td>XXXX</td>
+                                                </tr>
+                                                <!-- ===========================  -->
+                                                <tr>
+                                                    <td>No of common Sub Assy in level 2</td>
+                                                    <td>XXXX</td>
+                                                </tr>
+                                                <!-- ===========================  -->
+                                                <tr>
+                                                    <td>No of unique Sub Assy in Level 2</td>
+                                                    <td>XXXX</td>
+                                                </tr>
+                                                <!-- ===========================  -->
+                                                <tr>
+                                                    <td>No of common Sub Assy in level 3</td>
+                                                    <td>XXXX</td>
+                                                </tr>
+                                                <!-- ===========================  -->
+                                                <tr>
+                                                    <td>No of unique Sub Assy in Level 3</td>
+                                                    <td>XXXX</td>
+                                                </tr>
+                                                <!-- ===========================  -->
+                                                <tr>
+                                                    <td>No of common Sub Assy in level 4 </td>
+                                                    <td>XXXX</td>
+                                                </tr>
+                                                <!-- ===========================  -->
+                                                <tr>
+                                                    <td>No of unique Sub Assy in Level 4</td>
+                                                    <td>XXXX</td>
+                                                </tr>
+                                                <!-- ===========================  -->
+                                            </tbody>
+                                        </table>
+                                    </div>
+                                    <!-- ========================  -->
+                                    <div class="table-responsive">
+                                        <table class="table table-sm table-bordered  mb-3 text-center tableFixHead w-100">
+                                            <thead class="  table-info th-sti">
+
+                                            </thead>
+                                            <tbody>
+                                                <tr>
+                                                    <td>No of Common Manf Parts</td>
+                                                    <td><span id="noOfCommonManfParts"></span></td>
+                                                </tr>
+                                                <!-- ===========================  -->
+                                                <tr>
+                                                    <td>Total no unique Manf Parts</td>
+                                                    <td><span id="totalNoOfUniqueManfParts"></span></td>
+                                                </tr>
+                                                <!-- ===========================  -->
+                                            </tbody>
+                                        </table>
+                                    </div>
+                                    <!-- ========================  -->
+                                    <div class="table-responsive">
+                                        <table class="table table-sm table-bordered  mb-3 text-center tableFixHead w-100">
+                                            <thead class="  table-info th-sti">
+
+                                            </thead>
+                                            <tbody>
+                                                <tr>
+                                                    <td>No of Common BOF Parts</td>
+                                                    <td><span id="noOfCommonBOFParts"></span></td>
+                                                </tr>
+                                                <!-- ===========================  -->
+                                                <tr>
+                                                    <td>Total no unique BOF Parts </td>
+                                                    <td><span id="totalNoOfUniqueBOFParts"></span></td>
+                                                </tr>
+                                                <!-- ===========================  -->
+                                            </tbody>
+                                        </table>
+                                    </div>
+                                    <!-- ========================  -->
+                                </div>
+                                <!-- ================================ -->
+                                <div class="col-md-4 col-sm-6" style="padding: 10px;">
+                                    <div class="row ">
+                                        <p class="mb-3 text-center">Qnty on hand updated</p>
+                                        <div class="col-md-12">
+                                            <div class="table-responsive">
+                                                <table class="table table-sm table-bordered  mb-3 text-center tableFixHead w-100">
+                                                    <thead class="  table-info th-sti">
+                                                    </thead>
+                                                    <tbody>
+                                                        <tr>
+                                                            <td>No of BOF Parts to be procured</td>
+                                                            <td>XXXX</td>
+                                                        </tr>
+                                                        <!-- ===========================  -->
+                                                        <tr>
+                                                            <td style="font-weight: bold;">
+                                                                No of Critical
+                                                                BOF Parts
+                                                            </td>
+                                                            <td style="font-weight: bold;">XXXX</td>
+                                                        </tr>
+                                                        <!-- ===========================  -->
+                                                    </tbody>
+                                                </table>
+                                            </div>
+                                            <!-- ========================  -->
+                                            <div class="table-responsive">
+                                                <table class="table table-sm table-bordered  mb-3 text-center tableFixHead w-100">
+                                                    <thead class="  table-info th-sti">
+                                                    </thead>
+                                                    <tbody>
+                                                        <tr>
+                                                            <td>No of RM Part No</td>
+                                                            <td><span id="noOfRMPart"></span></td>
+                                                        </tr>
+                                                        <!-- ===========================  -->
+                                                        <tr>
+                                                            <td>No of Common RM Parts</td>
+                                                            <td><span id="noOfCommonRMPart"></span></td>
+                                                        </tr>
+                                                        <!-- ===========================  -->
+                                                        <tr>
+                                                            <td>Total no unique RM Parts </td>
+                                                            <td><span id="totalNoOfUniqueRMPart"></span></td>
+                                                        </tr>
+                                                        <!-- ===========================  -->
+                                                    </tbody>
+                                                </table>
+                                            </div>
+                                            <!-- ========================  -->
+                                            <div class="table-responsive">
+                                                <table class="table table-sm table-bordered  mb-3 text-center tableFixHead w-100">
+                                                    <thead class="  table-info th-sti">
+                                                    </thead>
+                                                    <tbody>
+                                                        <tr>
+                                                            <td>No of RM Part No to procure</td>
+                                                            <td>XXXX</td>
+                                                        </tr>
+                                                        <!-- ===========================  -->
+                                                    </tbody>
+                                                </table>
+                                            </div>
+                                            <!-- ========================  -->
+                                            <div class="table-responsive">
+                                                <table class="table table-sm table-bordered  mb-3 text-center tableFixHead w-100">
+                                                    <thead class="  table-info th-sti">
+                                                    </thead>
+                                                    <tbody>
+                                                        <tr>
+                                                            <td style="font-weight: bold;">
+                                                                No of Manf Parts
+                                                                critical
+                                                            </td>
+                                                            <td style="font-weight: bold;">XXXX</td>
+                                                        </tr>
+                                                        <!-- ===========================  -->
+                                                        <tr>
+                                                            <td style="font-weight: bold;">
+                                                                No of Parent WO
+                                                                critical
+                                                            </td>
+                                                            <td style="font-weight: bold;">XXXX</td>
+                                                        </tr>
+                                                        <!-- ===========================  -->
+                                                        <tr>
+                                                            <td style="font-weight: bold;">
+                                                                No of SO critical
+                                                            </td>
+                                                            <td style="font-weight: bold;">XXXX</td>
+                                                        </tr>
+                                                        <!-- ===========================  -->
+                                                    </tbody>
+                                                </table>
+                                            </div>
+                                            <!-- ========================  -->
+                                        </div>
+                                    </div>
+                                    <!-- ================= -->
+                                </div>
+                                <!-- ================================ -->
+                                <!-- ================================ -->
+                            </div>
+                            <hr class="mt-2">
+                            <!-- ================================  -->
+                            <div class="row">
+                                <h6>WO List - Parent Level, Sub-Assembly, Child Manufactured Parts</h6>
+                                <div class="col-md-2 mb-2" style="margin-top: -2px;">
+                                    <label class="form-label">Part No</label>
+                                    <div class="input-group">
+                                        <input class="form-control form-control-sm" type="text" title=""
+                                               data-plugin="tippy" data-tippy-placement="top"
+                                               placeholder="Enter Part No" id="searchWoPartNo">
+                                        @*<button type="button" id="#" class="btn btn-sm btn-outline-dark"
+                                                title="Search Part No" data-plugin="tippy"
+                                                data-tippy-placement="top" data-bs-toggle="modal"
+                                                data-bs-target="#">
+                                            <i class="ri-search-2-line serch-part-btn1"></i>
+                                        </button>*@
+                                    </div>
+                                </div>
+                                <!-- ======================== -->
+                                <div class="col-md-3 mb-2">
+                                    <label class="form-label">Part Description</label>
+                                    <input class="form-control form-control-sm" type="text" title=""
+                                           data-plugin="tippy" data-tippy-placement="top" id="searchWoPartDesc">
+                                </div>
+                                <!-- ======================== -->
+                                <div class="col-md-2 mb-2">
+                                    <label class="form-label">Work Order #</label>
+                                    <input class="form-control form-control-sm" type="text" title=""
+                                           data-plugin="tippy" data-tippy-placement="top" id="searchWoNumber">
+                                </div>
+                                <!-- ======================== -->
+                                <div class="col-md-2 mb-2">
+                                    <label class="form-label">Part Type</label>
+                                    <select class="form-select form-select-sm" aria-label="form-select-sm"
+                                            title="" data-plugin="tippy" data-tippy-placement="top" id="searchWoPartType">
+                                        <option value="0">All</option>
+                                        <option value="1">Child Part</option>
+                                        <option value="2">Assembly</option>
+                                    </select>
+                                </div>
+                                <!-- ======================== -->
+                                <div class="col-md-3 mt-3">
+                                    <div class="row">
+                                        <div class="col-md-6 mb-2">
+                                            <label class="form-label">Critical Part</label>
+                                            <input id="select-all-checkbox" class="form-check-input"
+                                                   type="checkbox" title="Select" data-plugin="tippy"
+                                                   data-tippy-placement="top">
+                                        </div>
+                                        <!-- ======================== -->
+                                        <div class="col-md-6 mb-2">
+                                            <label class="form-label">Parent Level</label>
+                                            <input id="checkparentlevel" class="form-check-input"
+                                                   type="checkbox" title="Select" data-plugin="tippy"
+                                                   data-tippy-placement="top">
+                                        </div>
+                                        <!-- ======================== -->
+                                    </div>
+                                </div>
+                                <!-- ======================== -->
+                                <div class="col-md-12">
+                                    <div class="row">
+                                        <div class="table-responsive table-he-250">
+                                            <table class="table table-sm table-bordered w-100 text-center" id="detailedPlanWo">
+                                                <thead class="  table-info th-sti">
+                                                    <tr class="table-border-bottom">
+                                                        <th>
+                                                            <input id="select-all-checkbox-in-wo"
+                                                                   class="form-check-input" type="checkbox"
+                                                                   title="Select all" data-plugin="tippy"
+                                                                   data-tippy-placement="top">
+                                                        </th>
+                                                        <th>Work Order </th>
+                                                        <th>Build to Stock</th>
+                                                        <th>Part No / Desc</th>
+                                                        <th>Calc WO Qnty</th>
+                                                        <th>Qnty on Hand</th>
+                                                        <th>Addn Qnty from User</th>
+                                                        <th>Plan WO Qnty</th>
+                                                        <th>Input Matl Rcpt Date</th>
+                                                        <th>Plan Start Date</th>
+                                                        <th>Plan Compl Dt</th>
+                                                        <th></th>
+                                                    </tr>
+                                                </thead>
+                                                <tbody>
+                                                    <!-- -------------  -->
+                                                    <!-- -------------  -->
+
+                                                </tbody>
+                                            </table>
+                                        </div>
+                                        <div class="col-md-10 mt-3 text-end">
+                                            <!-- =============================  -->
+                                            <button class="btn btn-sm btn-purple" title="" id="ReleaseWo">
+                                                Release Work
+                                                Order
+                                            </button>
+                                            <!-- =============================  -->
+                                        </div>
+                                        <div class="col-md-2 mt-3 text-end">
+                                            <!-- =============================  -->
+                                            <a class="btn btn-sm btn-purple" asp-controller="WorkOrder"
+                                                    asp-action="DownloadProductionWoGridData" id="DownloadWo">
+                                               Download WorkOrders
+                                            </a>
+                                            <!-- =============================  -->
+                                        </div>
+                                    </div>
+                                </div>
+                                <!-- =========== -->
+                            </div>
+                            <!-- =========== -->
+                            <hr class="mt-2">
+                            <!-- =============================================  -->
+                            <!-- =============  end row  ================  -->
+                            <div class="accordion accordion-flush" id="accordionFlushExample">
+                                <div class="accordion-item">
+                                    <h2 class="accordion-header" id="flush-headingOne">
+                                        <button class="accordion-button" type="button"
+                                                data-bs-toggle="collapse" data-bs-target="#flush-collapseOne"
+                                                aria-expanded="false" aria-controls="flush-collapseOne"
+                                                title="Click" data-plugin="tippy" data-tippy-placement="top">
+                                            Material Procurement Plan
+                                        </button>
+                                    </h2>
+                                    <div id="flush-collapseOne" class="accordion-collapse collapse"
+                                         aria-labelledby="flush-headingOne"
+                                         data-bs-parent="#accordionFlushExample">
+                                        <div class="accordion-body">
+                                            <div class="row">
+                                                <div class="col-md-3 mb-2">
+                                                    <label class="form-label">Part No</label>
+                                                    <input class="form-control form-control-sm" type="text" title=""
+                                                           data-plugin="tippy" data-tippy-placement="top"
+                                                           placeholder="Enter Part No" id="searchMatProcPartNo">
+                                                </div>
+                                                <!-- -----------------  -->
+                                                <div class="col-md-2 mb-2">
+                                                    <label class="form-label">Part Description</label>
+                                                    <input class="form-control form-control-sm" type="text"
+                                                           placeholder="Enter PO Number" title=""
+                                                           data-plugin="tippy" data-tippy-placement="top" id="searchMatProcPartDesc">
+                                                </div>
+                                                <!-- -----------------  -->
+                                                <div class="col-md-3 mb-2">
+                                                    <label class="form-label">Part Type</label>
+                                                    <input class="form-control form-control-sm" type="text" title=""
+                                                           data-plugin="tippy" data-tippy-placement="top"
+                                                           placeholder="Enter Part No" id="searchMatProcPartType">
+                                                </div>
+                                                <!-- -----------------  -->
+                                                <div class="col-md-3 mb-2 mt-3">
+                                                    <label class="form-label">Critical Part</label>
+                                                    <input id="select-all-checkbox" class="form-check-input"
+                                                           type="checkbox" title="Select" data-plugin="tippy"
+                                                           data-tippy-placement="top">
+                                                </div>
+                                                <!-- ======================== -->
+                                                <div class="col-md-12">
+                                                    <div class="table-responsive table-he-250">
+                                                        <table class="table table-sm table-bordered w-100 text-center" id="ProcPlanGrid">
+                                                            <thead class="  table-info th-sti">
+                                                                <tr class="table-border-bottom">
+                                                                    <th>
+                                                                        <input id="select-all-checkbox-in-procplan"
+                                                                               class="form-check-input"
+                                                                               type="checkbox"
+                                                                               title="Select all"
+                                                                               data-plugin="tippy"
+                                                                               data-tippy-placement="top">
+                                                                    </th>
+                                                                    <th>Part No / Desc </th>
+                                                                    <th>Part Type</th>
+                                                                    <th>Supplier </th>
+                                                                    <th>PO Ref</th>
+                                                                    <th>Calculated. Requirement</th>
+                                                                    <th>UOM</th>
+                                                                    <th>Qnty on Hand</th>
+                                                                    <th>Planned Purchase Qnty</th>
+                                                                    <th>MOQ</th>
+                                                                    <th>Date Reqd</th>
+                                                                    <th>Lead Time Days</th>
+                                                                    <th>Calculated Receipt Date</th>
+                                                                    <th></th>
+                                                                </tr>
+                                                            </thead>
+                                                            <tbody>
+                                                                <!-- -------------  -->
+                                                                <!-- -------------  -->
+                                                            </tbody>
+                                                        </table>
+                                                    </div>
+                                                </div>
+                                                <!-- -----------------  -->
+                                                <div class="col-md-6 mt-2">
+                                                    <button class="btn btn-sm btn-purple" id="UpdateMOQ">
+                                                        Update All
+                                                        Purchase Qnty < MOQ to MOQ
+                                                    </button>
+                                                </div>
+                                                <!-- -----------------  -->
+                                                <div class="col-md-4 mt-2 text-end">
+                                                    <button class="btn btn-sm btn-purple" id="ReleasePo">
+                                                        Release Purchase
+                                                        Order
+                                                    </button>
+                                                </div>
+                                                <div class="col-md-2 mt-2 text-end">
+                                                    <!-- =============================  -->
+                                                    <a class="btn btn-sm btn-purple" asp-controller="WorkOrder"
+                                                       asp-action="DownloadMaterialProcPlanGridData" id="DownloadMatlProc">
+                                                        Download Material Procurement Plan
+                                                    </a>
+                                                    <!-- =============================  -->
+                                                </div>
+                                                <!-- -----------------  -->
+                                            </div>
+                                        </div>
+                                    </div>
+                                </div>
+                                <!-- ==========================  -->
+                                <div class="accordion-item">
+                                    <h2 class="accordion-header" id="flush-headingTwo">
+                                        <button class="accordion-button collapsed" type="button"
+                                                data-bs-toggle="collapse" data-bs-target="#flush-collapseTwo"
+                                                aria-expanded="false" aria-controls="flush-collapseTwo"
+                                                title="Click" data-plugin="tippy" data-tippy-placement="top">
+                                            BOM List
+                                        </button>
+                                    </h2>
+                                    <div id="flush-collapseTwo" class="accordion-collapse collapse"
+                                         aria-labelledby="flush-headingTwo"
+                                         data-bs-parent="#accordionFlushExample">
+                                        <div class="accordion-body">
+                                            <div class="row">
+                                                <div class="col-md-3 mb-2">
+                                                    <label class="form-label">Part No</label>
+                                                    <input class="form-control form-control-sm" type="text" title=""
+                                                           data-plugin="tippy" data-tippy-placement="top"
+                                                           placeholder="Enter Part No" id="searchBomProcPartNo">
+                                                </div>
+                                                <!-- -----------------  -->
+                                                <div class="col-md-2 mb-2">
+                                                    <label class="form-label">Part Description</label>
+                                                    <input class="form-control form-control-sm" type="text"
+                                                           placeholder="Enter PO Number" title=""
+                                                           data-plugin="tippy" data-tippy-placement="top" id="searchBomProcPartDesc">
+                                                </div>
+                                                <!-- -----------------  -->
+                                                <div class="col-md-3 mb-2">
+                                                    <label class="form-label">Part Type</label>
+                                                    <input class="form-control form-control-sm" type="text" title=""
+                                                           data-plugin="tippy" data-tippy-placement="top"
+                                                           placeholder="Enter Part No" id="searchBomProcPartType">
+                                                </div>
+                                                <!-- -----------------  -->
+                                                <div class="col-md-3 mb-2 mt-3">
+                                                    <label class="form-label">Critical Part</label>
+                                                    <input id="select-all-checkbox" class="form-check-input"
+                                                           type="checkbox" title="Select" data-plugin="tippy"
+                                                           data-tippy-placement="top">
+                                                </div>
+                                                <!-- ======================== -->
+                                                <div class="col-md-12">
+                                                    <div class="table-responsive table-he-250">
+                                                        <table class="table table-sm table-bordered w-100 text-center" id="BomListGrid">
+                                                            <thead class="  table-info th-sti">
+                                                                <tr class="table-border-bottom">
+                                                                    <th>Child Part / Desc</th>
+                                                                    <th>Part Type</th>
+                                                                    <th>WO / PO Ref</th>
+                                                                    <th>Plan Qnty</th>
+                                                                    <th>Plan Compl / Rcpt Date</th>
+                                                                    <th>Act Qnty</th>
+                                                                    <th>Act Compl / Recpt Dt</th>
+                                                                    <th>Status</th>
+                                                                    <th>Critical Part</th>
+                                                                    <th></th>
+                                                                </tr>
+                                                            </thead>
+                                                            <tbody>
+                                                                <!-- -------------  -->
+                                                                <!-- -------------  -->
+                                                            </tbody>
+                                                        </table>
+                                                    </div>
+                                                </div>
+
+                                                <div class="col-md-12 mt-2 text-end">
+                                                    <!-- =============================  -->
+                                                    <a class="btn btn-sm btn-purple" asp-controller="WorkOrder"
+                                                       asp-action="DownloadBomListGridData" id="DownloadBomList">
+                                                        Download BOM List
+                                                    </a>
+                                                    <!-- =============================  -->
+                                                </div>
+                                                <!-- -----------------  -->
+
+                                            </div>
+                                        </div>
+                                    </div>
+                                </div>
+                                <!-- ==========================  -->
+                                <div class="accordion-item">
+                                    <h2 class="accordion-header" id="flush-headingThree">
+                                        <button class="accordion-button collapsed" type="button"
+                                                data-bs-toggle="collapse" data-bs-target="#flush-collapseThree"
+                                                aria-expanded="false" aria-controls="flush-collapseThree"
+                                                title="Click" data-plugin="tippy" data-tippy-placement="top">
+                                            Machine Timing List Summary
+                                        </button>
+                                    </h2>
+                                    <div id="flush-collapseThree" class="accordion-collapse collapse"
+                                         aria-labelledby="flush-headingThree"
+                                         data-bs-parent="#accordionFlushExample">
+                                        <div class="accordion-body">
+                                            <div class="row">
+                                                <div class="col-md-3 mb-2">
+                                                    <label class="form-label">Location</label>
+                                                    <input class="form-control form-control-sm" type="text" title=""
+                                                           data-plugin="tippy" data-tippy-placement="top"
+                                                           placeholder="Enter Location" id="searchMCSummaryLocation">
+                                                </div>
+                                                <!-- -----------------  -->
+                                                <div class="col-md-2 mb-2">
+                                                    <label class="form-label">Mc Type</label>
+                                                    <input class="form-control form-control-sm" type="text" title=""
+                                                           data-plugin="tippy" data-tippy-placement="top"
+                                                           placeholder="Enter MC Type" id="searchMCSummarMCType">
+                                                </div>
+                                                <!-- -----------------  -->
+                                                <div class="col-md-3 mb-2">
+                                                    <label class="form-label">Machine</label>
+                                                    <input class="form-control form-control-sm" type="text" title=""
+                                                           data-plugin="tippy" data-tippy-placement="top"
+                                                           placeholder="Enter Machine" id="searchMCSummaryMachine">
+                                                </div>
+                                                <!-- -----------------  -->
+                                                <div class="col-md-3 mb-2 mt-3">
+                                                    <label class="form-label">Critical Part</label>
+                                                    <input id="select-all-checkbox" class="form-check-input"
+                                                           type="checkbox" title="Select" data-plugin="tippy"
+                                                           data-tippy-placement="top">
+                                                </div>
+                                                <!-- ======================== -->
+                                                <div class="col-md-12">
+                                                    <div class="table-responsive table-he-250">
+                                                        <table class="table table-sm table-bordered w-100 text-center" id="McTimeListSummary">
+                                                            <thead class="  table-info th-sti">
+                                                                <tr class="table-border-bottom">
+                                                                    <th>Location</th>
+                                                                    <th>Machine Type</th>
+                                                                    <th>Machine</th>
+                                                                    <th>Start Date</th>
+                                                                    <th>End Date</th>
+                                                                    <th>Mc Hrs</th>
+                                                                    <th></th>
+                                                                </tr>
+                                                            </thead>
+                                                            <tbody>
+                                                                <!-- -------------  -->
+                                                                
+                                                                <!-- -------------  -->
+                                                            </tbody>
+                                                        </table>
+                                                    </div>
+                                                </div>
+                                                <!-- -----------------  -->
+                                            </div>
+                                        </div>
+                                    </div>
+                                </div>
+                                <!-- ==========================  -->
+                                <div class="accordion-item">
+                                    <h2 class="accordion-header" id="flush-headingFour">
+                                        <button class="accordion-button collapsed" type="button"
+                                                data-bs-toggle="collapse" data-bs-target="#flush-collapseFour"
+                                                aria-expanded="false" aria-controls="flush-collapseFour"
+                                                title="Click" data-plugin="tippy" data-tippy-placement="top">
+                                            Machine Timing List Detail
+                                        </button>
+                                    </h2>
+                                    <div id="flush-collapseFour" class="accordion-collapse collapse"
+                                         aria-labelledby="flush-headingFour"
+                                         data-bs-parent="#accordionFlushExample">
+                                        <div class="accordion-body">
+                                            <div class="row">
+                                                <div class="col-md-2 mb-2">
+                                                    <label class="form-label">Part No</label>
+                                                    <input class="form-control form-control-sm" type="text" title=""
+                                                           data-plugin="tippy" data-tippy-placement="top"
+                                                           placeholder="Enter Part No" id="searchMCDetailParttNo">
+                                                </div>
+                                                <!-- -----------------  -->
+                                                <div class="col-md-3 mb-2">
+                                                    <label class="form-label">Part Desc</label>
+                                                    <input class="form-control form-control-sm" type="text" title=""
+                                                           data-plugin="tippy" data-tippy-placement="top"
+                                                           placeholder="Enter Part Desc" id="searchMCDetailPartDesc">
+                                                </div>
+                                                <!-- ======================== -->
+                                                <div class="col-md-2 mb-2">
+                                                    <label class="form-label">WO Ref </label>
+                                                    <input class="form-control form-control-sm" type="text" title=""
+                                                           data-plugin="tippy" data-tippy-placement="top"
+                                                           placeholder="Enter WO Ref" id="searchMCDetailWoRef">
+                                                </div>
+                                                <!-- ======================== -->
+                                                <div class="col-md-2 mb-2">
+                                                    <label class="form-label">Location</label>
+                                                    <input class="form-control form-control-sm" type="text" title=""
+                                                           data-plugin="tippy" data-tippy-placement="top"
+                                                           placeholder="Enter Location" id="searchMCDetailLocation">
+                                                </div>
+                                                <!-- -----------------  -->
+                                                <div class="col-md-3 mb-2">
+                                                    <label class="form-label">Mc Type</label>
+                                                    <input class="form-control form-control-sm" type="text" title=""
+                                                           data-plugin="tippy" data-tippy-placement="top"
+                                                           placeholder="Enter Mc Type" id="searchMCDetailMCType">
+                                                </div>
+                                                <!-- -----------------  -->
+                                                <div class="col-md-3 mb-2">
+                                                    <label class="form-label">Machine</label>
+                                                    <input class="form-control form-control-sm" type="text" title=""
+                                                           data-plugin="tippy" data-tippy-placement="top"
+                                                           placeholder="Enter Machine" id="searchMCDetailMachine">
+                                                </div>
+                                                <!-- -----------------  -->
+                                                <div class="col-md-3 mb-2 mt-3">
+                                                    <label class="form-label">Critical Part</label>
+                                                    <input id="select-all-checkbox" class="form-check-input"
+                                                           type="checkbox" title="Select" data-plugin="tippy"
+                                                           data-tippy-placement="top">
+                                                </div>
+                                                <!-- ======================== -->
+                                                <div class="col-md-12">
+                                                    <div class="table-responsive table-he-250">
+                                                        <table class="table table-sm table-bordered w-100 text-center" id="MachineTimeListDetail">
+                                                            <thead class="  table-info th-sti">
+                                                                <tr class="table-border-bottom">
+                                                                    <th>Part No  / Desc</th>
+                                                                    <th>Part Type</th>
+                                                                    <th>WO  Ref</th>
+                                                                    <th>Location</th>
+                                                                    <th>Opr No</th>
+                                                                    <th>Machine Type</th>
+                                                                    <th>Machine</th>
+                                                                    <th>Plan Qnty</th>
+                                                                    <th>Start Date</th>
+                                                                    <th>End Date</th>
+                                                                    <th>Mc Hrs</th>
+                                                                    <th>Status</th>
+                                                                    <th>Critical Part</th>
+                                                                </tr>
+                                                            </thead>
+                                                            <tbody>
+                                                                <!-- -------------  -->
+                                                                <!-- -------------  -->
+                                                            </tbody>
+                                                        </table>
+                                                    </div>
+                                                </div>
+                                                <!-- -----------------  -->
+                                                <div class="col-md-12 mt-2 text-end">
+                                                    <!-- =============================  -->
+                                                    <a class="btn btn-sm btn-purple" asp-controller="WorkOrder"
+                                                       asp-action="DownloadMachineListDetailGridData" id="DownloadMachineListDetail">
+                                                        Download Machine List Detail
+                                                    </a>
+                                                    <!-- =============================  -->
+                                                </div>
+                                            </div>
+                                        </div>
+                                    </div>
+                                </div>
+                            </div>
+                            <!-- end accordion -->
+                        </div>
+                        <!-- =============================  -->
+                    </div>
+                </div>
+            </div>
+            <!-- end card body -->
+            <!-- ================= -->
+        </div>
+        <!-- end card -->
+        <!-- ======================================================================== -->
+    </div>
+    <!-- end col -->
+</div>
+<!-- end row -->
+<!-- end Container -->
+<!----content-page ends----->
+<!---------------Popup1--------------->
+<div class="modal fade" id="popup1" data-bs-backdrop="static" data-bs-keyboard="false" tabindex="-1"
+     aria-labelledby="staticBackdropLabel" aria-hidden="true">
+    <div class="modal-dialog modal-lg">
+        <div class="modal-content bxs-modal">
+            <div class="modal-header">
+                <h5 class="modal-title" id="staticBackdropLabel">
+                   Detailed Production Plan Work Order Creation for Part No : <span id="partNo"></span>
+                </h5>
+                <button type="button" id="btnPop1Close" class="btn-close" data-bs-dismiss="modal" aria-label="Close"></button>
+            </div>
+            <div class="modal-body">
+                <div class="row">
+                    <div class="col-md-12 mb-2">
+                        <h6>Work Order Ref : <span id="woNumber"></span></h6>
+                    </div>
+                    <div class="col-md-4 dott-bord-r">
+                        <div class="row">
+                            <div class="col-md-12 mb-2">
+                                <label class="form-label"> Sales Order Qnty </label>
+                                <input id="SoQty" class="form-control  form-control-sm" type="text" title="" data-plugin="tippy"
+                                       data-tippy-placement="top" readonly>
+                            </div>
+                            <!-- ========================= -->
+                            <div class="col-md-12 mb-2">
+                                <label class="form-label"> Qnty on Hand</label>
+                                <input id="QtyOnHand" class="form-control form-control-sm" type="text" title="" data-plugin="tippy"
+                                       data-tippy-placement="top" value="0" readonly>
+                            </div>
+                            <!-- ========================= -->
+                            <div class="col-md-12 mb-2">
+                                <label class="form-label"> Bal Qnty to Manf </label>
+                                <input id="BalQty" class=" form-control form-control-sm" type="text" title=""
+                                       data-plugin="tippy" data-tippy-placement="top" readonly>
+                            </div>
+                            <!-- ========================= -->
+                            <!-- ========================= -->
+                            <div class="col-md-12 mb-2">
+                                <label class="form-label"> Plan WO Qty </label>
+                                <input id="PlanWoQty" class=" form-control form-control-sm" type="text" title=""
+                                       data-plugin="tippy" data-tippy-placement="top">
+                            </div>
+                            <!-- ========================= -->
+                            <!-- ========================= -->
+                            <div class="col-md-12 mb-2">
+                                <label class="form-label"> WO Completion Date</label>
+                                <input id="WoComplDate" class=" form-control form-control-sm" type="date" title=""
+                                       data-plugin="tippy" data-tippy-placement="top">
+                            </div>
+                            <!-- ========================= -->
+                            <div class="col-md-12 text-end">
+                                <input id="WOID" name="WOID" class="form-control  form-control-sm" type="text" title="" data-plugin="tippy"
+                                       data-tippy-placement="top" value="0" hidden>
+                                <input id="SalesOrderId" name="SalesOrderId" class="form-control  form-control-sm" type="text" title="" data-plugin="tippy"
+                                       data-tippy-placement="top" value="0" hidden>
+                                <input id="PartId" name="PartId" class="form-control  form-control-sm" type="text" title="" data-plugin="tippy"
+                                       data-tippy-placement="top" value="0" hidden>
+                                <input id="reqdate" type="text" value="" hidden />
+                                <input id="PartType" type="text" value="" hidden />
+                                <input id="woStatus" type="text" value="" hidden />
+                                <input id="p1ppid" type="text" value="" hidden />
+                                <input id="p1planComplDate" type="date" value="" hidden />
+                                <!--<button class="btn btn-sm btn-primary ">Save</button>-->
+                            </div>
+                            <!-- ========================= -->
+                        </div>
+                    </div>
+                    <!-- ===========  -->
+                    <div class="col-md-8">
+                        <div class="table-responsive table-he-330">
+                            <table id="multipleSO" class="table table-sm table-bordered w-100 text-center">
+                                <thead class="  table-info th-sti">
+                                    <tr class="table-border-bottom">
+                                        <th>Sales Order #</th>
+                                        <th>Total SO Qnty</th>
+                                        <th>Balance SO Qnty</th>
+                                        <th>SO Plan Dt</th>
+                                        <th>
+                                            <input class="form-check-input" type="checkbox" title="Select All"
+                                                   data-plugin="tippy" data-tippy-placement="top">
+                                        </th>
+                                    </tr>
+                                </thead>
+                                <tbody>
+                                    <!-- -------------  -->
+                                </tbody>
+                            </table>
+                        </div>
+                    </div>
+                    <!-- ===============  -->
+                    <div class="col-md-4 mb-2">
+                        <label class="form-label">Routing Selection</label>
+                        <select id="routing" class="form-select form-select-sm" aria-label="form-select-sm" title=""
+                                data-plugin="tippy" data-tippy-placement="top">
+                            <option value="">==========</option>
+                        </select>
+                    </div>
+                    <!-- ===============  -->
+                    <div class="col-md-4 mb-2">
+                        <label class="form-label">Starting Opr No</label>
+                        <select id="StartingOpNo" class="form-select form-select-sm" aria-label="form-select-sm" title=""
+                                data-plugin="tippy" data-tippy-placement="top">
+                            <option value="">==========</option>
+                        </select>
+                    </div>
+                    <!-- ===============  -->
+                    <div class="col-md-4 mb-2">
+                        <label class="form-label">Ending Opr No</label>
+                        <select id="EndingOpNo" class="form-select form-select-sm" aria-label="form-select-sm" title=""
+                                data-plugin="tippy" data-tippy-placement="top">
+                            <option value="">==========</option>
+                        </select>
+                    </div>
+                    <!-- ===============  -->
+                    <div class="col-md-12 text-end">
+                        <button class="btn btn-primary btn-sm" id="updateWO">Update WO</button>
+                    </div>
+                    <!-- ===============  -->
+                </div>
+            </div>
+        </div>
+    </div>
+</div>
+<!---------------Popup1 End--------------->
+<!---------------------Popup 2 -------------->
+<div class="modal fade" id="popup2" data-bs-backdrop="static" data-bs-keyboard="false" tabindex="-1"
+     aria-labelledby="staticBackdropLabel" aria-hidden="true">
+    <div class="modal-dialog modal-lg">
+        <div class="modal-content bxs-modal">
+            <div class="modal-header">
+                <h5 class="modal-title" id="staticBackdropLabel">
+                    Detailed Production Plan Work Order Creation for <span id="p2soNumber"></span> for <span id="p2PartNo"></span> to completed by <span id="p2PlanComplDate"></span>
+                </h5>
+                <button type="button" id="btnPop2Close" class="btn-close" data-bs-dismiss="modal" aria-label="Close"></button>
+            </div>
+            <div class="modal-body">
+                <div class="row">
+                    <div class="col-md-3 mb-2">
+                        <label class="form-label"> Total SO Qnty</label>
+                        <input id="p2totalSoQty" class="form-control form-control-sm" type="text" title="" data-plugin="tippy"
+                               data-tippy-placement="top" readonly>
+                    </div>
+                    <!-- ========================= -->
+                    <div class="col-md-3 mb-2">
+                        <label class="form-label"> Bal. SO Qnty</label>
+                        <input id="p2BalQty" class="form-control form-control-sm" type="text" title="" data-plugin="tippy"
+                               data-tippy-placement="top" readonly>
+                    </div>
+                    <!-- ========================= -->
+                    <div class="col-md-3 mb-2">
+                        <label class="form-label"> Qnty on Hand</label>
+                        <input id="p2QtyOnHand" class="form-control form-control-sm" type="text" title="" data-plugin="tippy"
+                               data-tippy-placement="top" readonly>
+                    </div>
+                    <!-- ========================= -->
+                    <div class="col-md-3 mb-2">
+                        <label class="form-label"> Balance to Manufacture</label>
+                        <input id="p2BaltoManuf" class="form-control form-control-sm" type="text" title="" data-plugin="tippy"
+                               data-tippy-placement="top" readonly>
+                    </div>
+                    <hr>
+                    <!-- ========================= -->
+                    <div class="col-md-2 mb-2" style="margin-top: 33px;">
+                        <label class="form-label"> Single WO</label>
+                        <input class="form-check-input mt-1" type="radio" title="" data-plugin="tippy" id="singleWoradio"
+                               name="radioWO" value="1" data-tippy-placement="top">
+                    </div>
+                    <!-- ========================= -->
+                    <div class="col-md-2 mb-2" style="margin-top: 33px;">
+                        <label class="form-label"> Equal Dispatches</label>
+                        <input class="form-check-input mt-1" type="radio" title="" data-plugin="tippy"
+                               id="equalWoradio" name="radioWO" value="2" data-tippy-placement="top">
+                    </div>
+                    <!-- ========================= -->
+                    <div class="col-md-2 mb-2" style="margin-top: 33px;">
+                        <label class="form-label"> Manual Multiple</label>
+                        <input class="form-check-input mt-1" type="radio" title="" data-plugin="tippy"
+                               id="manualWoradio" name="radioWO" value="3" data-tippy-placement="top">
+                    </div>
+                    <!-- ========================= -->
+                    <div class="col-md-12 mb-2" style="border: 1px solid #dee2e6;padding-bottom: 10px; display:none" id="equaldiv">
+                        <div class="row">
+                            <div class="col-md-12">
+                                <h6>Equal Dispatches</h6>
+                            </div>
+                            <!-- ============================  -->
+                            <label class="form-label col-md-2"> Dispatch Start Date</label>
+                            <div class="col-md-3">
+                                <input class="form-control form-control-sm" type="date" title="" data-plugin="tippy"
+                                       id="dispatchDate" data-tippy-placement="top">
+                            </div>
+                            <!-- ============================  -->
+                            <div class="col-md-2">
+                                <label class="form-label"> Daily</label>
+                                <input class="form-check-input mt-1" type="radio" title="" data-plugin="tippy"
+                                       id="dailyDispatch" name="equalwo" value="1" data-tippy-placement="top">
+                            </div>
+                            <!-- ============================  -->
+                            <div class="col-md-2">
+                                <label class="form-label"> Weekly </label>
+                                <input class="form-check-input mt-1" type="radio" title="" data-plugin="tippy"
+                                       id="weeklyDispatch" name="equalwo" value="2" data-tippy-placement="top">
+                            </div>
+                            <!-- ============================  -->
+                            <div class="col-md-2">
+                                <label class="form-label"> Monthly</label>
+                                <input class="form-check-input mt-1" type="radio" title="" data-plugin="tippy"
+                                       id="monthlyDispatch" name="equalwo" value="3" data-tippy-placement="top">
+                            </div>
+                            <!-- ============================  -->
+                        </div>
+                    </div>
+                    <!-- ========================= -->
+                    <div class="col-md-12 mb-2 text-end">
+                        <input id="p2SalesOrderId" type="text" hidden>
+                        <input id="p2ppid" type="text" hidden>
+                        <input id="p2WOid" type="text" hidden>
+                        <input id="p2PartId" type="text" hidden>
+                        <input id="p2PartType" type="text" hidden>
+                        <input id="p2WoNumber" type="text" hidden>
+                        <input id="p2Status" type="text" hidden>
+                        <button class="btn btn-primary btn-sm" id="MultipleWo">Generate WO</button>
+                    </div>
+                    <!-- ========================= -->
+                    <!-- ========================= -->
+                    <div class="col-md-12 mb-2">
+                        <div class="table-responsive table-he-250">
+                            <table id="MulitpleWOs" class="table table-sm table-bordered w-100 text-center">
+                                <thead class="  table-info th-sti">
+                                    <tr class="table-border-bottom">
+                                        <th>WO Ref</th>
+                                        <th>WO Qnty</th>
+                                        <th>WO Compl Dt</th>
+                                        <th width="40px"></th>
+                                    </tr>
+                                </thead>
+                                <tbody>
+                                    <!-- -------------  -->
+                                    <!-- -------------  -->
+                                </tbody>
+                            </table>
+                        </div>
+                    </div>
+                    <!-- ========================= -->
+                    <label class="form-label col-md-2 text-end"> Sum WO Qnty</label>
+                    <div class="col-md-3 mb-2">
+                        <input class="form-control form-control-sm" type="text" title="" data-plugin="tippy"
+                               data-tippy-placement="top" id="popup2Sum" value="0" readonly>
+                    </div>
+                    <!-- ========================= -->
+                    <div class="col-md-7 mb-2 text-end">
+                        <button class="btn btn-primary btn-sm" id="NewWoPopupBtn">New WO</button>
+                    </div>
+                    <!-- ========================= -->
+                </div>
+            </div>
+        </div>
+    </div>
+</div>
+<!-- ============================================================================================== -->
+<!-----------------Popup2 End ---------->
+
+<!-----popup3------>
+<div class="modal fade" id="popup3" data-bs-backdrop="static" data-bs-keyboard="false" tabindex="-1"
+     aria-labelledby="staticBackdropLabel" aria-hidden="true">
+    <div class="modal-dialog modal-lg">
+        <div class="modal-content bxs-modal">
+            <div class="modal-header">
+                <h5 class="modal-title" id="staticBackdropLabel">
+                   Detailed Production Plan Work Order Creation for <span id="p3soNumber"></span> for  <span id="p3partNo"></span> to completed by <span id="woCompletedBy"></span>
+                </h5>
+                <button type="button" class="btn-close" data-bs-dismiss="modal" aria-label="Close"></button>
+            </div>
+            <div class="modal-body">
+                <div class="row">
+                    <div class="col-md-3 mb-2">
+                        <label class="form-label"> Total SO Qnty</label>
+                        <input class="form-control form-control-sm" type="text" title="" data-plugin="tippy"
+                               data-tippy-placement="top" id="singleTotalSoQty" readonly>
+                    </div>
+                    <!-- ========================= -->
+                    <div class="col-md-3 mb-2">
+                        <label class="form-label"> Bal. SO Qnty</label>
+                        <input class="form-control form-control-sm" type="text" title="" data-plugin="tippy"
+                               data-tippy-placement="top" id="singleBalSoQty" readonly>
+                    </div>
+                    <!-- ========================= -->
+                    <div class="col-md-3 mb-2">
+                        <label class="form-label"> Qnty on Hand</label>
+                        <input class="form-control form-control-sm" type="text" title="" data-plugin="tippy"
+                               data-tippy-placement="top" id="singleQtyOnHand" readonly>
+                    </div>
+                    <!-- ========================= -->
+                    <div class="col-md-3 mb-2">
+                        <label class="form-label"> Balance to Manufacture</label>
+                        <input class="form-control form-control-sm" type="text" title="" data-plugin="tippy"
+                               data-tippy-placement="top" id="singleBalToManuf" readonly>
+                    </div>
+                    <!-- ========================= -->
+                    <div class="col-md-3 mb-2">
+                        <label class="form-label"> No of WO released</label>
+                        <input class="form-control form-control-sm" type="text" title="" data-plugin="tippy"
+                               data-tippy-placement="top" id="singleNoofWoReleased" readonly>
+                    </div>
+                    <!-- ========================= -->
+                    <div class="col-md-3 mb-2">
+                        <label class="form-label"> Sum WO Qnty </label>
+                        <input class="form-control form-control-sm" type="text" title="" data-plugin="tippy"
+                               data-tippy-placement="top" id="singleSumWoQnty" readonly>
+                    </div>
+                    <!-- ========================= -->
+                    <div class="col-md-3 mb-2">
+                        <label class="form-label"> Bal WO Qnty</label>
+                        <input class="form-control form-control-sm" type="text" title="" data-plugin="tippy"
+                               data-tippy-placement="top" id="singleBalWoQty" readonly>
+                    </div>
+                    <hr>
+                    <!-- ========================= -->
+                    <div class="col-md-3 mb-2">
+                        <label class="form-label"> WO Reference</label>
+                        <input class="form-control form-control-sm" type="text" title="" data-plugin="tippy"
+                               data-tippy-placement="top" id="singleWoNumber" readonly>
+                    </div>
+                    <!-- ========================= -->
+                    <div class="col-md-9 mb-2"></div>
+                    <!-- ========================= -->
+                    <div class="col-md-3 mb-2">
+                        <label class="form-label"> Plan WO Qty</label>
+                        <input class="form-control form-control-sm" type="text" title="" data-plugin="tippy"
+                               data-tippy-placement="top" id="singlePlanWoQty">
+                    </div>
+                    <!-- ========================= -->
+                    <div class="col-md-3 mb-2">
+                        <label class="form-label"> WO Compl Dt</label>
+                        <input class="form-control form-control-sm" type="date" title="" data-plugin="tippy"
+                               data-tippy-placement="top" id="singleWoComplDt">
+                    </div>
+                    <!-- ========================= -->
+                    <div class="col-md-6 mb-2"></div>
+                    <!-- ========================= -->
+                    <div class="col-md-3 mb-2">
+                        <label class="form-label"> Routing</label>
+                        <select class="form-select form-select-sm" aria-label="form-select-sm" title="" id="singleRouting" disabled>
+                            @*<option value="">==========</option>
+                                <option value="">==========</option>*@
+                        </select>
+                    </div>
+                    <!-- ========================= -->
+                    <div class="col-md-3 mb-2">
+                        <label class="form-label"> Starting Opr No</label>
+                        <select class="form-select form-select-sm" aria-label="form-select-sm" title="" id="singleStartOpNo" disabled>
+                            @*<option value="">==========</option>
+                                <option value="">==========</option>*@
+                        </select>
+                    </div>
+                    <!-- ========================= -->
+                    <div class="col-md-3 mb-2">
+                        <label class="form-label"> Ending Opr No</label>
+                        <select class="form-select form-select-sm" aria-label="form-select-sm" title="" id="singleEndOpNo" disabled>
+                            @*<option value="">==========</option>
+                                <option value="">==========</option>*@
+                        </select>
+                    </div>
+                    <!-- ========================= -->
+                    <hr>
+                    <!-- ========================= -->
+                    <div class="col-md-12 mb-2 text-end">
+                        <input type="text" id="p3ppid" hidden />
+                        <input type="text" id="woid" hidden />
+                        <input type="text" id="soid" hidden />
+                        <input type="text" id="partId" hidden />
+                        <input type="text" id="partType" hidden />
+                        <input type="text" id="p3Status" hidden />
+                        <input type="text" id="p3ReloadOption" hidden />
+                        <button class="btn btn-primary btn-sm" id="singleSaveWo">Save WO</button>
+                    </div>
+                    <!-- ========================= -->
+                </div>
+            </div>
+        </div>
+    </div>
+</div>
+<!-----popup3-End----->
+
+<!-----popup3-For-ManualMultiple----->
+
+<div class="modal fade" id="popup3ManualMultiple" data-bs-backdrop="static" data-bs-keyboard="false" tabindex="-1"
+     aria-labelledby="staticBackdropLabel" aria-hidden="true">
+    <div class="modal-dialog modal-lg">
+        <div class="modal-content bxs-modal">
+            <div class="modal-header">
+                <h5 class="modal-title" id="staticBackdropLabel">
+                   Detailed Production Plan Work Order Creation for <span id="p3MsoNumber"></span> for
+                    <span id="ManualpartNo"></span> to completed by <span id="ManualwoCompletedBy"></span>
+                </h5>
+                <button type="button" class="btn-close" data-bs-dismiss="modal" aria-label="Close"></button>
+            </div>
+            <div class="modal-body">
+                <div class="row">
+                    <div class="col-md-3 mb-2">
+                        <label class="form-label"> Total SO Qnty</label>
+                        <input class="form-control form-control-sm" type="text" title="" data-plugin="tippy"
+                               data-tippy-placement="top" id="ManualTotalSoQty" readonly>
+                    </div>
+                    <!-- ========================= -->
+                    <div class="col-md-3 mb-2">
+                        <label class="form-label"> Bal. SO Qnty</label>
+                        <input class="form-control form-control-sm" type="text" title="" data-plugin="tippy"
+                               data-tippy-placement="top" id="ManualBalSoQty" readonly>
+                    </div>
+                    <!-- ========================= -->
+                    <div class="col-md-3 mb-2">
+                        <label class="form-label"> Qnty on Hand</label>
+                        <input class="form-control form-control-sm" type="text" title="" data-plugin="tippy"
+                               data-tippy-placement="top" id="ManualQtyOnHand" readonly>
+                    </div>
+                    <!-- ========================= -->
+                    <div class="col-md-3 mb-2">
+                        <label class="form-label"> Balance to Manufacture</label>
+                        <input class="form-control form-control-sm" type="text" title="" data-plugin="tippy"
+                               data-tippy-placement="top" id="ManualBalToManuf" readonly>
+                    </div>
+                    <!-- ========================= -->
+                    <div class="col-md-3 mb-2">
+                        <label class="form-label"> No of WO released</label>
+                        <input class="form-control form-control-sm" type="text" title="" data-plugin="tippy"
+                               data-tippy-placement="top" id="ManualNoofWoReleased" readonly>
+                    </div>
+                    <!-- ========================= -->
+                    <div class="col-md-3 mb-2">
+                        <label class="form-label"> Sum WO Qnty </label>
+                        <input class="form-control form-control-sm" type="text" title="" data-plugin="tippy"
+                               data-tippy-placement="top" id="ManualSumWoQnty" readonly>
+                    </div>
+                    <!-- ========================= -->
+                    <div class="col-md-3 mb-2">
+                        <label class="form-label"> Bal WO Qnty</label>
+                        <input class="form-control form-control-sm" type="text" title="" data-plugin="tippy"
+                               data-tippy-placement="top" id="ManualBalWoQty" readonly>
+                    </div>
+                    <hr>
+                    <!-- ========================= -->
+                    <div class="col-md-3 mb-2">
+                        <label class="form-label"> WO Reference</label>
+                        <input class="form-control form-control-sm" type="text" title="" data-plugin="tippy"
+                               data-tippy-placement="top" id="ManualWoNumber" readonly>
+                    </div>
+                    <!-- ========================= -->
+                    <div class="col-md-9 mb-2"></div>
+                    <!-- ========================= -->
+                    <div class="col-md-3 mb-2">
+                        <label class="form-label"> Plan WO Qty</label>
+                        <input class="form-control form-control-sm" type="text" title="" data-plugin="tippy"
+                               data-tippy-placement="top" id="ManualPlanWoQty">
+                    </div>
+                    <!-- ========================= -->
+                    <div class="col-md-3 mb-2">
+                        <label class="form-label"> WO Compl Dt</label>
+                        <input class="form-control form-control-sm" type="date" title="" data-plugin="tippy"
+                               data-tippy-placement="top" id="ManualWoComplDt">
+                    </div>
+                    <!-- ========================= -->
+                    <div class="col-md-6 mb-2"></div>
+                    <!-- ========================= -->
+                    <div class="col-md-3 mb-2">
+                        <label class="form-label"> Routing</label>
+                        <select class="form-select form-select-sm" aria-label="form-select-sm" title="" id="ManualRouting" disabled>
+                            @*<option value="">==========</option>
+                                <option value="">==========</option>*@
+                        </select>
+                    </div>
+                    <!-- ========================= -->
+                    <div class="col-md-3 mb-2">
+                        <label class="form-label"> Starting Opr No</label>
+                        <select class="form-select form-select-sm" aria-label="form-select-sm" title="" id="ManualStartOpNo" disabled>
+                            @*<option value="">==========</option>
+                                <option value="">==========</option>*@
+                        </select>
+                    </div>
+                    <!-- ========================= -->
+                    <div class="col-md-3 mb-2">
+                        <label class="form-label"> Ending Opr No</label>
+                        <select class="form-select form-select-sm" aria-label="form-select-sm" title="" id="ManualEndOpNo" disabled>
+                            @*<option value="">==========</option>
+                                <option value="">==========</option>*@
+                        </select>
+                    </div>
+                    <!-- ========================= -->
+                    <hr>
+                    <!-- ========================= -->
+                    <div class="col-md-12 mb-2 text-end">
+                        <input type="text" id="Manualppid" hidden />
+                        <input type="text" id="Manualwoid" hidden />
+                        <input type="text" id="Manualsoid" hidden />
+                        <input type="text" id="ManualpartId" hidden />
+                        <input type="text" id="ManualpartType" hidden />
+                        <input type="text" id="ManualStatus" hidden />
+                        <button class="btn btn-primary btn-sm" id="ManualSaveWo">Generate WO</button>
+                    </div>
+                    <!-- ========================= -->
+                </div>
+            </div>
+        </div>
+    </div>
+</div>
+
+<!-----popup3-For-ManualMultiple----->
+
+
+
+<!-----popup3-For-New WO----->
+
+<div class="modal fade" id="popup3NewWo" data-bs-backdrop="static" data-bs-keyboard="false" tabindex="-1"
+     aria-labelledby="staticBackdropLabel" aria-hidden="true">
+    <div class="modal-dialog modal-lg">
+        <div class="modal-content bxs-modal">
+            <div class="modal-header">
+                <h5 class="modal-title" id="staticBackdropLabel">
+                   Detailed Production Plan Work Order Creation for <span id="p2NsoNumber"></span> for  <span id="NewpartNo"></span> to completed by <span id="NewwoCompletedBy"></span>
+                </h5>
+                <button type="button" class="btn-close" data-bs-dismiss="modal" aria-label="Close"></button>
+            </div>
+            <div class="modal-body">
+                <div class="row">
+                    <div class="col-md-3 mb-2">
+                        <label class="form-label"> Total SO Qnty</label>
+                        <input class="form-control form-control-sm" type="text" title="" data-plugin="tippy"
+                               data-tippy-placement="top" id="NewTotalSoQty" readonly>
+                    </div>
+                    <!-- ========================= -->
+                    <div class="col-md-3 mb-2">
+                        <label class="form-label"> Bal. SO Qnty</label>
+                        <input class="form-control form-control-sm" type="text" title="" data-plugin="tippy"
+                               data-tippy-placement="top" id="NewBalSoQty" readonly>
+                    </div>
+                    <!-- ========================= -->
+                    <div class="col-md-3 mb-2">
+                        <label class="form-label"> Qnty on Hand</label>
+                        <input class="form-control form-control-sm" type="text" title="" data-plugin="tippy"
+                               data-tippy-placement="top" id="NewQtyOnHand" readonly>
+                    </div>
+                    <!-- ========================= -->
+                    <div class="col-md-3 mb-2">
+                        <label class="form-label"> Balance to Manufacture</label>
+                        <input class="form-control form-control-sm" type="text" title="" data-plugin="tippy"
+                               data-tippy-placement="top" id="NewBalToManuf" readonly>
+                    </div>
+                    <!-- ========================= -->
+                    <div class="col-md-3 mb-2">
+                        <label class="form-label"> No of WO released</label>
+                        <input class="form-control form-control-sm" type="text" title="" data-plugin="tippy"
+                               data-tippy-placement="top" id="NewNoofWoReleased" readonly>
+                    </div>
+                    <!-- ========================= -->
+                    <div class="col-md-3 mb-2">
+                        <label class="form-label"> Sum WO Qnty </label>
+                        <input class="form-control form-control-sm" type="text" title="" data-plugin="tippy"
+                               data-tippy-placement="top" id="NewSumWoQnty" readonly>
+                    </div>
+                    <!-- ========================= -->
+                    <div class="col-md-3 mb-2">
+                        <label class="form-label"> Bal WO Qnty</label>
+                        <input class="form-control form-control-sm" type="text" title="" data-plugin="tippy"
+                               data-tippy-placement="top" id="NewBalWoQty" readonly>
+                    </div>
+                    <hr>
+                    <!-- ========================= -->
+                    <div class="col-md-3 mb-2">
+                        <label class="form-label"> WO Reference</label>
+                        <input class="form-control form-control-sm" type="text" title="" data-plugin="tippy"
+                               data-tippy-placement="top" id="NewWoNumber" readonly>
+                    </div>
+                    <!-- ========================= -->
+                    <div class="col-md-9 mb-2"></div>
+                    <!-- ========================= -->
+                    <div class="col-md-3 mb-2">
+                        <label class="form-label"> Plan WO Qty</label>
+                        <input class="form-control form-control-sm" type="text" title="" data-plugin="tippy"
+                               data-tippy-placement="top" id="NewPlanWoQty">
+                    </div>
+                    <!-- ========================= -->
+                    <div class="col-md-3 mb-2">
+                        <label class="form-label"> WO Compl Dt</label>
+                        <input class="form-control form-control-sm" type="date" title="" data-plugin="tippy"
+                               data-tippy-placement="top" id="NewWoComplDt">
+                    </div>
+                    <!-- ========================= -->
+                    <div class="col-md-6 mb-2"></div>
+                    <!-- ========================= -->
+                    <div class="col-md-3 mb-2">
+                        <label class="form-label"> Routing</label>
+                        <select class="form-select form-select-sm" aria-label="form-select-sm" title="" id="NewRouting" disabled>
+                            @*<option value="">==========</option>
+                                <option value="">==========</option>*@
+                        </select>
+                    </div>
+                    <!-- ========================= -->
+                    <div class="col-md-3 mb-2">
+                        <label class="form-label"> Starting Opr No</label>
+                        <select class="form-select form-select-sm" aria-label="form-select-sm" title="" id="NewStartOpNo" disabled>
+                            @*<option value="">==========</option>
+                                <option value="">==========</option>*@
+                        </select>
+                    </div>
+                    <!-- ========================= -->
+                    <div class="col-md-3 mb-2">
+                        <label class="form-label"> Ending Opr No</label>
+                        <select class="form-select form-select-sm" aria-label="form-select-sm" title="" id="NewEndOpNo" disabled>
+                            @*<option value="">==========</option>
+                                <option value="">==========</option>*@
+                        </select>
+                    </div>
+                    <!-- ========================= -->
+                    <hr>
+                    <!-- ========================= -->
+                    <div class="col-md-12 mb-2 text-end">
+                        <input type="text" id="Newppid" hidden />
+                        <input type="text" id="Newwoid" hidden />
+                        <input type="text" id="Newsoid" hidden />
+                        <input type="text" id="NewpartId" hidden />
+                        <input type="text" id="NewpartType" hidden />
+                        <input type="text" id="NewWoStatus" hidden />
+                        <button class="btn btn-primary btn-sm" id="NewSaveWo">Generate WO</button>
+                    </div>
+                    <!-- ========================= -->
+                </div>
+            </div>
+        </div>
+    </div>
+</div>
+
+<!-----popup3-For-New Wo----->
+<!---------------Popup4 ------>
+<div class="modal fade" id="popup4" data-bs-backdrop="static" data-bs-keyboard="false" tabindex="-1"
+     aria-labelledby="staticBackdropLabel" aria-hidden="true">
+    <div class="modal-dialog modal-lg">
+        <div class="modal-content bxs-modal">
+            <div class="modal-header">
+                <h5 class="modal-title" id="staticBackdropLabel">
+                    Work Order Ref <span id="popup4WoNumber"></span> for <span id="popup4PartNo"></span>
+                    generated in Detailed Planning
+                </h5>
+                <button type="button" class="btn-close" data-bs-dismiss="modal" aria-label="Close"></button>
+            </div>
+            <div class="modal-body">
+                <div class="row">
+                    <div class="col-md-2 mb-2">
+                        <label class="form-label"> Calc. WO Qnty</label>
+                        <input class="form-control form-control-sm" type="text" title="" data-plugin="tippy"
+                               data-tippy-placement="top" id="popup4CalcWoQnty" readonly>
+                    </div>
+                    <!-- ========================= -->
+                    <div class="col-md-2 mb-2">
+                        <label class="form-label"> Qnty on Hand</label>
+                        <input class="form-control form-control-sm" type="text" title="" data-plugin="tippy"
+                               data-tippy-placement="top" id="popup4QntyOnHanf" readonly>
+                    </div>
+                    <!-- ========================= -->
+                    <div class="col-md-3 mb-2">
+                        <label class="form-label"> Bal Qnty to Manf</label>
+                        <input class="form-control form-control-sm" type="text" title="" data-plugin="tippy"
+                               data-tippy-placement="top" id="popup4BalQnty" readonly>
+                    </div>
+                    <!-- ========================= -->
+                    <div class="col-md-3 mb-2">
+                        <label class="form-label"> Plan WO Qty</label>
+                        <input class="form-control form-control-sm" type="text" title="" data-plugin="tippy"
+                               data-tippy-placement="top" id="popup4PlanWoQnty" readonly>
+                    </div>
+                    <!-- ========================= -->
+                    <div class="col-md-2 mb-2">
+                        <label class="form-label"> WO Compl Dt</label>
+                        <input class="form-control form-control-sm" type="text" title="" data-plugin="tippy"
+                               data-tippy-placement="top" id="popup4WoComplDt" readonly>
+                    </div>
+                    <!-- ========================= -->
+                    <div class="col-md-5 mt-3">
+                        <label class="form-label"> Edit generated WO for Qnty / Date / Routing </label>
+                        <input class="form-check-input mt-1" type="radio" title="" data-plugin="tippy"
+                               name="popup4Radiobtn" value="1" data-tippy-placement="top">
+                    </div>
+                    <!-- ============================  -->
+                    <div class="col-md-3 mt-3">
+                        <label class="form-label"> Split Work this Order into </label>
+                        <input class="form-check-input mt-1" type="radio" title="" data-plugin="tippy"
+                               name="popup4Radiobtn" value="2" data-tippy-placement="top">
+                    </div>
+                    <!-- ============================  -->
+                    <div class="col-md-2 mt-3">
+                        <select class="form-select form-select-sm" aria-label="form-select-sm" title=""
+                                data-plugin="tippy" data-tippy-placement="top" id="numbersplitwo">
+                            <option value="2">2</option>
+                            <option value="3">3</option>
+                            <option value="4">4</option>
+                            <option value="5">5</option>
+                        </select>
+                    </div>
+                    <!-- ============================  -->
+                    <div class="col-md-2 mb-2 text-end mt-3">
+                        <input type="text" id="popup4ppid" hidden />
+                        <input type="text" id="popup4woid" hidden />
+                        <input type="text" id="popup4soid" hidden />
+                        <input type="text" id="popup4partId" hidden />
+                        <input type="text" id="popup4partType" hidden />
+                        <input type="text" id="popup4Status" hidden />
+                        @*<input type="text" id="popup4RelodOption" hidden />*@
+                        <button class="btn btn-primary btn-sm w-100" id="popup4SaveWo">Update WO</button>
+                    </div>
+                    <!-- ============================  -->
+                    <hr class="mt-3">
+                    <!-- ========================= -->
+                    <div class="col-md-12 mb-2">
+                        <h5>List of split WO of <span id="popup4StWoNumber"></span> </h5>
+                        <div class="table-responsive table-he-250">
+                            <table class="table table-sm table-bordered w-100 text-center" id="Popup4Grid">
+                                <thead class="  table-info th-sti">
+                                    <tr class="table-border-bottom">
+                                        <th>WO Ref</th>
+                                        <th>WO Qnty</th>
+                                        <th>WO Compl Dt</th>
+                                        <th width="40px"></th>
+                                    </tr>
+                                </thead>
+                                <tbody>
+                                    <!-- -------------  -->
+                                    <!-- -------------  -->
+                                </tbody>
+                            </table>
+                        </div>
+                    </div>
+                    <!-- ========================= -->
+                </div>
+            </div>
+        </div>
+    </div>
+</div>
+<!----------------Popup4 - ends----->
+<!----------------Popup6 -------->
+
+<div class="modal fade" id="popup6" data-bs-backdrop="static" data-bs-keyboard="false" tabindex="-1"
+     aria-labelledby="staticBackdropLabel" aria-hidden="true">
+    <div class="modal-dialog modal-lg">
+        <div class="modal-content bxs-modal">
+            <div class="modal-header">
+                <h5 class="modal-title" id="staticBackdropLabel">
+                    Work Order Ref xxxx for Part No ./ Desc ...
+                    generated in Detailed Planning
+                </h5>
+                <button type="button" class="btn-close" data-bs-dismiss="modal" aria-label="Close"></button>
+            </div>
+            <div class="modal-body">
+                <div class="row">
+                    <div class="col-md-12">
+                        <div class="row">
+                            <div class="col-md-3 mb-2">
+                                <label class="form-label"> Calc. WO Qnty </label>
+                                <input class="form-control form-control-sm" type="text" title="" data-plugin="tippy"
+                                       data-tippy-placement="top" id="popup6CalcWoQnty" readonly>
+                            </div>
+                            <!-- ========================= -->
+                            <div class="col-md-3 mb-2">
+                                <label class="form-label"> Qnty on Hand</label>
+                                <input class="form-control form-control-sm" type="text" title="" data-plugin="tippy"
+                                       data-tippy-placement="top" id="popup6QntyOnHand" readonly>
+                            </div>
+                            <!-- ========================= -->
+                            <div class="col-md-3 mb-2">
+                                <label class="form-label"> Bal Qnty to Manf </label>
+                                <input class=" form-control form-control-sm" type="text" title=""
+                                       data-plugin="tippy" data-tippy-placement="top" id="popup6BalQnty" readonly>
+                            </div>
+                            <!-- ========================= -->
+                            <!-- ========================= -->
+                            <div class="col-md-3 mb-2">
+                                <label class="form-label"> Plan WO Qty </label>
+                                <input class=" form-control form-control-sm" type="text" title=""
+                                       data-plugin="tippy" data-tippy-placement="top" id="popup6PlanWoQnty" readonly>
+                            </div>
+                            <!-- ========================= -->
+                            <!-- ========================= -->
+                            <div class="col-md-3 mb-2">
+                                <label class="form-label"> WO Compl Dt</label>
+                                <input class=" form-control form-control-sm" type="text" title=""
+                                       data-plugin="tippy" data-tippy-placement="top" id="popup6WoComplDt" readonly>
+                            </div>
+                            <!-- ========================= -->
+                            <div class="col-md-5 mb-2 mt-3">
+                                <label class="form-label"> Edit generated WO for Qnty / Date / Routing </label>
+                                <input class="form-check-input" type="radio" title="" data-plugin="tippy"
+                                       name="popup6Radiobtn" value="1" data-tippy-placement="top">
+                            </div>
+                            <!-- ========================= -->
+                            <div class="col-md-3 mb-2 mt-3">
+                                <label class="form-label"> Split Work this Order </label>
+                                <input class="form-check-input" type="radio" title="" data-plugin="tippy"
+                                       name="popup6Radiobtn" value="1" data-tippy-placement="top">
+                            </div>
+                            <!-- ========================= -->
+                            <div class="col-md-12 text-end">
+                                <button class="btn btn-sm btn-primary " id="popup6SaveWo">Update WO</button>
+                            </div>
+                            <!-- ========================= -->
+                        </div>
+                    </div>
+                    <!-- ===========  -->
+                    <hr class="mt-2">
+                    <!-- ===========  -->
+                    <div class="col-md-8">
+                        <h6>List of WO combined to form WO Ref xxx</h6>
+                        <div class="table-responsive table-he-180">
+                            <table class="table table-sm table-bordered w-100 text-center">
+                                <thead class="  table-info th-sti">
+                                    <tr class="table-border-bottom">
+                                        <th>WO Ref</th>
+                                        <th>WO Qnty</th>
+                                        <th>WO Compl Dt</th>
+                                        <th>Cumul. Sum</th>
+                                        <th>
+                                            <input class="form-check-input" type="checkbox" title="Select All"
+                                                   data-plugin="tippy" data-tippy-placement="top">
+                                        </th>
+                                    </tr>
+                                </thead>
+                                <tbody>
+                                    <!-- -------------  -->
+                                    <tr>
+                                        <td></td>
+                                        <td></td>
+                                        <td></td>
+                                        <td></td>
+                                        <td>
+                                            <input class="form-check-input" type="checkbox" title="Select"
+                                                   data-plugin="tippy" data-tippy-placement="top">
+                                        </td>
+                                    </tr>
+                                    <!-- -------------  -->
+                                    <!-- -------------  -->
+                                </tbody>
+                            </table>
+                        </div>
+                    </div>
+                    <!-- ===============  -->
+                    <div class="col-md-4">
+                        <div class="row mt-3">
+                            <div class="col-md-12 mb-2">
+                                <label class="form-label">Sum of selected WO Qnty</label>
+                                <input class=" form-control form-control-sm" type="text" title=""
+                                       data-plugin="tippy" data-tippy-placement="top" id="popup6SumWo" readonly>
+                            </div>
+                            <!-- ===============  -->
+                            <div class="col-md-12">
+                                <button class="btn btn-primary btn-sm w-100">Create New WO from selected WO</button>
+                            </div>
+                            <!-- ===============  -->
+                            <div class="col-md-12 mb-2">
+                                <label class="form-label">Bal. WO Qnty to be selected</label>
+                                <input class=" form-control form-control-sm" type="text" title=""
+                                       data-plugin="tippy" data-tippy-placement="top" id="popup6SelectedBalQnty" readonly>
+                            </div>
+                            <!-- ===============  -->
+                        </div>
+                    </div>
+                    <!-- ===============  -->
+                    <hr class="mt-2">
+                    <!-- ========================= -->
+                    <div class="col-md-8 mb-2">
+                        <div class="table-responsive table-he-150">
+                            <table class="table table-sm table-bordered w-100 text-center">
+                                <thead class="  table-info th-sti">
+                                    <tr class="table-border-bottom">
+                                        <th>WO Ref</th>
+                                        <th>WO Qnty</th>
+                                        <th>WO Compl Dt</th>
+                                        <th width="40px"></th>
+                                    </tr>
+                                </thead>
+                                <tbody>
+
+                                    <!-- -------------  -->
+                                    <tr>
+                                        <td></td>
+                                        <td></td>
+                                        <td></td>
+                                        <td>
+                                            <div class="dropdown float-center">
+                                                <a href="#" class="dropdown-toggle arrow-none card-drop"
+                                                   data-bs-toggle="dropdown" aria-expanded="false">
+                                                    <i class="mdi mdi-dots-vertical"></i>
+                                                </a>
+                                                <div class="dropdown-menu dropdown-menu-end">
+                                                    <!-- item-->
+                                                    <a href="javascript:void(0);" class="dropdown-item">Edit</a>
+                                                    <!-- item-->
+                                                    <a href="javascript:void(0);" class="dropdown-item">Delete</a>
+                                                </div>
+                                            </div>
+                                        </td>
+                                    </tr>
+                                    <!-- -------------  -->
+                                    <!-- -------------  -->
+                                </tbody>
+                            </table>
+                        </div>
+                    </div>
+                    <!-- ========================= -->
+                    <div class="col-md-4"></div>
+                    <!-- ========================= -->
+                    <label class="form-label col-md-2 text-end"> Sum WO Qnty</label>
+                    <div class="col-md-3 mb-2">
+                        <input class="form-control form-control-sm" type="text" title="" data-plugin="tippy"
+                               data-tippy-placement="top" value="0" readonly>
+                    </div>
+                    <!-- ========================= -->
+                </div>
+            </div>
+        </div>
+    </div>
+</div>
+
+<!----------------Popup6 - ends----->
+<!-- =================Popup5================== -->
+<div class="modal fade" id="popup5" data-bs-backdrop="static" data-bs-keyboard="false" tabindex="-1"
+     aria-labelledby="staticBackdropLabel" aria-hidden="true">
+    <div class="modal-dialog modal-lg">
+        <div class="modal-content bxs-modal">
+            <div class="modal-header">
+                <h5 class="modal-title" id="staticBackdropLabel">
+                    Work Order Updation WO Ref <span id="popup5WoNumber"> </span> for 
+                    <span id="pup5PatNo"> </span>
+                </h5>
+                <button type="button" class="btn-close" data-bs-dismiss="modal" aria-label="Close"></button>
+            </div>
+            <div class="modal-body">
+                <div class="row">
+                    <div class="col-md-3 mb-2">
+                        <label class="form-label"> Calc. WO Qnty</label>
+                        <input class="form-control form-control-sm" type="text" title="" data-plugin="tippy"
+                               data-tippy-placement="top" id="popup5CalcWoQnty" readonly>
+                    </div>
+                    <!-- ========================= -->
+                    <div class="col-md-3 mb-2">
+                        <label class="form-label"> Qnty on Hand</label>
+                        <input class="form-control form-control-sm" type="text" title="" data-plugin="tippy"
+                               data-tippy-placement="top" id="popup5QntyOnHand" readonly>
+                    </div>
+                    <!-- ========================= -->
+                    <div class="col-md-3 mb-2">
+                        <label class="form-label"> Bal Qnty to Manf</label>
+                        <input class="form-control form-control-sm" type="text" title="" data-plugin="tippy"
+                               data-tippy-placement="top" id="popup5BalQnty" readonly>
+                    </div>
+                    <!-- ========================= -->
+                    <div class="col-md-3 mb-2">
+                        <label class="form-label"> Plan WO Qty</label>
+                        <input class="form-control form-control-sm" type="text" title="" data-plugin="tippy"
+                               data-tippy-placement="top" id="popup5PlanWoQnty" readonly>
+                    </div>
+                    <!-- ========================= -->
+                    <div class="col-md-3 mb-2">
+                        <label class="form-label"> WO Compl Dt</label>
+                        <input class="form-control form-control-sm" type="text" title="" data-plugin="tippy"
+                               data-tippy-placement="top" id="popup5WoComplDt" readonly>
+                    </div>
+                    <!-- ========================= -->
+
+                    <hr>
+                    <!-- ========================= -->
+                    <div class="col-md-3 mb-2">
+                        <label class="form-label"> WO Reference</label>
+                        <input class="form-control form-control-sm" type="text" title="" data-plugin="tippy"
+                               data-tippy-placement="top" id="popup5WoNumberField" readonly>
+                    </div>
+                    <!-- ========================= -->
+                    <div class="col-md-9 mb-2"></div>
+                    <!-- ========================= -->
+                    <div class="col-md-3 mb-2">
+                        <label class="form-label"> Plan WO Qty</label>
+                        <input class="form-control form-control-sm" type="text" title="" data-plugin="tippy"
+                               data-tippy-placement="top" id="popup5PlanWoQntyField">
+                    </div>
+                    <!-- ========================= -->
+                    <div class="col-md-3 mb-2">
+                        <label class="form-label"> WO Compl Dt</label>
+                        <input class="form-control form-control-sm" type="date" title="" data-plugin="tippy"
+                               data-tippy-placement="top" id="popup5WoComplDtField">
+                    </div>
+                    <!-- ========================= -->
+                    <div class="col-md-6 mb-2"></div>
+                    <!-- ========================= -->
+                    <div class="col-md-3 mb-2">
+                        <label class="form-label"> Routing</label>
+                        <select class="form-select form-select-sm" aria-label="form-select-sm" title="" id="popup5Routing">
+                        </select>
+                    </div>
+                    <!-- ========================= -->
+                    <div class="col-md-3 mb-2">
+                        <label class="form-label"> Starting Opr No</label>
+                        <select class="form-select form-select-sm" aria-label="form-select-sm" title="" id="popup5StartingOp">
+                        </select>
+                    </div>
+                    <!-- ========================= -->
+                    <div class="col-md-3 mb-2">
+                        <label class="form-label"> Ending Opr No</label>
+                        <select class="form-select form-select-sm" aria-label="form-select-sm" title="" id="popup5EndingOp">
+                        </select>
+                    </div>
+                    <!-- ========================= -->
+                    <hr>
+                    <!-- ========================= -->
+                    <div class="col-md-12 mb-2 text-end">
+                        <input type="text" id="popup5ppid" hidden />
+                        <input type="text" id="popup5woid" hidden />
+                        <input type="text" id="popup5soid" hidden />
+                        <input type="text" id="popup5partId" hidden />
+                        <input type="text" id="popup5partType" hidden />
+                        <input type="text" id="popup5Status" hidden />
+                        <input type="text" id="popup5Reloadoption" hidden />
+                        <button class="btn btn-primary btn-sm" id="popup5SaveWo">Save WO</button>
+                    </div>
+                    <!-- ========================= -->
+                </div>
+            </div>
+        </div>
+    </div>
+</div>
+<!-- ==========Popup5--End=============== -->
+
+<!-- =================Popup5 Edit================== -->
+<div class="modal fade" id="popup5Edit" data-bs-backdrop="static" data-bs-keyboard="false" tabindex="-1"
+     aria-labelledby="staticBackdropLabel" aria-hidden="true">
+    <div class="modal-dialog modal-lg">
+        <div class="modal-content bxs-modal">
+            <div class="modal-header">
+                <h5 class="modal-title" id="staticBackdropLabel">
+                    Work Order Updation WO Ref <span id="popup5EditWoNumber"> </span> 
+                    <span id="popup5EditPatNo"> </span>
+                </h5>
+                <button type="button" class="btn-close" data-bs-dismiss="modal" aria-label="Close"></button>
+            </div>
+            <div class="modal-body">
+                <div class="row">
+                    <div class="col-md-3 mb-2">
+                        <label class="form-label"> Calc. WO Qnty</label>
+                        <input class="form-control form-control-sm" type="text" title="" data-plugin="tippy"
+                               data-tippy-placement="top" id="popup5EditCalcWoQnty" readonly>
+                    </div>
+                    <!-- ========================= -->
+                    <div class="col-md-3 mb-2">
+                        <label class="form-label"> Qnty on Hand</label>
+                        <input class="form-control form-control-sm" type="text" title="" data-plugin="tippy"
+                               data-tippy-placement="top" id="popup5EditQntyOnHand" readonly>
+                    </div>
+                    <!-- ========================= -->
+                    <div class="col-md-3 mb-2">
+                        <label class="form-label"> Bal Qnty to Manf</label>
+                        <input class="form-control form-control-sm" type="text" title="" data-plugin="tippy"
+                               data-tippy-placement="top" id="popup5EditBalQnty" readonly>
+                    </div>
+                    <!-- ========================= -->
+                    <div class="col-md-3 mb-2">
+                        <label class="form-label"> Plan WO Qty</label>
+                        <input class="form-control form-control-sm" type="text" title="" data-plugin="tippy"
+                               data-tippy-placement="top" id="popup5EditPlanWoQnty" readonly>
+                    </div>
+                    <!-- ========================= -->
+                    <div class="col-md-3 mb-2">
+                        <label class="form-label"> WO Compl Dt</label>
+                        <input class="form-control form-control-sm" type="text" title="" data-plugin="tippy"
+                               data-tippy-placement="top" id="popup5EditWoComplDt" readonly>
+                    </div>
+                    <!-- ========================= -->
+
+                    <hr>
+                    <!-- ========================= -->
+                    <div class="col-md-3 mb-2">
+                        <label class="form-label"> WO Reference</label>
+                        <input class="form-control form-control-sm" type="text" title="" data-plugin="tippy"
+                               data-tippy-placement="top" id="popup5EditWoNumberField" readonly>
+                    </div>
+                    <!-- ========================= -->
+                    <div class="col-md-9 mb-2"></div>
+                    <!-- ========================= -->
+                    <div class="col-md-3 mb-2">
+                        <label class="form-label"> Plan WO Qty</label>
+                        <input class="form-control form-control-sm" type="text" title="" data-plugin="tippy"
+                               data-tippy-placement="top" id="popup5EditPlanWoQntyField">
+                    </div>
+                    <!-- ========================= -->
+                    <div class="col-md-3 mb-2">
+                        <label class="form-label"> WO Compl Dt</label>
+                        <input class="form-control form-control-sm" type="date" title="" data-plugin="tippy"
+                               data-tippy-placement="top" id="popup5EditWoComplDtField">
+                    </div>
+                    <!-- ========================= -->
+                    <div class="col-md-6 mb-2"></div>
+                    <!-- ========================= -->
+                    <div class="col-md-3 mb-2">
+                        <label class="form-label"> Routing</label>
+                        <select class="form-select form-select-sm" aria-label="form-select-sm" title="" id="popup5EditRouting">
+                        </select>
+                    </div>
+                    <!-- ========================= -->
+                    <div class="col-md-3 mb-2">
+                        <label class="form-label"> Starting Opr No</label>
+                        <select class="form-select form-select-sm" aria-label="form-select-sm" title="" id="popup5EditStartingOp">
+                        </select>
+                    </div>
+                    <!-- ========================= -->
+                    <div class="col-md-3 mb-2">
+                        <label class="form-label"> Ending Opr No</label>
+                        <select class="form-select form-select-sm" aria-label="form-select-sm" title="" id="popup5EditEndingOp">
+                        </select>
+                    </div>
+                    <!-- ========================= -->
+                    <hr>
+                    <!-- ========================= -->
+                    <div class="col-md-12 mb-2 text-end">
+                        <input type="text" id="popup5Editppid" hidden />
+                        <input type="text" id="popup5Editwoid" hidden />
+                        <input type="text" id="popup5Editsoid" hidden />
+                        <input type="text" id="popup5EditpartId" hidden />
+                        <input type="text" id="popup5EditpartType" hidden />
+                        <input type="text" id="popup5EditStatus" hidden />
+                        <button class="btn btn-primary btn-sm" id="popup5EditSaveWo">Save WO</button>
+                    </div>
+                    <!-- ========================= -->
+                </div>
+            </div>
+        </div>
+    </div>
+</div>
+<!-- ==========Popup5--End=============== -->
+
+
+
+<template id="detailedPlanWoRow">
+    <tr>
+        <td>
+            <input type="checkbox"/>
+        </td>
+        <td hidden>{woId}</td>
+        <td hidden>{salesOrderId}</td>
+        <td hidden>{partId}</td>
+        <td>{woNumber}</td>
+        <td>{buildToStock}</td>
+        <td>{partNo} / {partDesc}</td>
+        <td>{calcWOQty}</td>
+        <td>0</td>
+        <td>0</td>
+        <td>0</td>
+        <td></td>
+        <td></td>
+        <td>{planCompletionDateStr}</td>
+        <td hidden>{partType}</td>
+        <td hidden>{productionPlanId}</td>
+        <td hidden>{planCompletionDate}</td>
+        <td hidden>{parentlevel}</td>
+        <td>
+            <div class="dropdown float-center">
+                <a href="#"
+                   class="dropdown-toggle arrow-none card-drop"
+                   data-bs-toggle="dropdown"
+                   aria-expanded="false">
+                    <i class="mdi mdi-dots-vertical"></i>
+                </a>
+                <div class="dropdown-menu dropdown-menu-end">
+                    <!-- item-->
+                    <a href="javascript:void(0);"
+                       class="dropdown-item">View</a>
+                    <!-- item-->
+                    <a href="javascript:void(0);"
+                       class="dropdown-item" onclick="EditWo(this)"
+                       data-ppid={productionPlanId}
+                       data-workorderid={woId}
+                       data-parentwoid={parentWoId}
+                       data-salesorderid={salesOrderId}
+                       data-wonumber={woNumber}
+                       data-partno={partNo}
+                       data-partid={partId}
+                       data-parttype={partType}
+                       data-parentlevel={parentlevel}
+                       data-plancompletiondatestr='{planCompletionDateStr}'
+                       data-requiredquantity={requiredQuantity}
+                       data-calwoqty={calcWOQty}
+                       data-wostatus={status}>Edit</a>
+                </div>
+            </div>
+        </td>
+        <td hidden>{productionPlanId}</td>
+    </tr>
+</template>
+
+<template id="ProcPlanRow">
+    <tr>
+        <td>
+            <input class="form-check-input" type="checkbox">
+        </td>
+        <td hidden>{procPlanId}</td>
+        <td hidden>{workOrderId}</td>
+        <td hidden>{partId}</td>
+        <td>{partNo} / {partDesc}</td>
+        <td>{partType}</td>
+        <td>{supplier}</td>
+        <td>0</td>
+        <td>{calc_Proc_Qnty}</td>
+        <td>{uomName}</td>
+        <td>0</td>
+        <td>{plan_Proc_Qnty}</td>
+        <td>{moq}</td>
+        <td></td>
+        <td>{leadTimeInDays}</td>
+        <td>{calcReceiptDateStr}</td>
+        <td hidden>{calcReceiptDate}</td>
+        <td hidden>{supplierId}</td>
+        <td>
+            <div class="dropdown float-center">
+                <a href="#"
+                   class="dropdown-toggle arrow-none card-drop"
+                   data-bs-toggle="dropdown"
+                   aria-expanded="false">
+                    <i class="mdi mdi-dots-vertical"></i>
+                </a>
+                <div class="dropdown-menu dropdown-menu-end">
+                    <!-- item-->
+                    <a href="javascript:void(0);"
+                       class="dropdown-item">View</a>
+                    <!-- item-->
+                    <a href="javascript:void(0);"
+                       class="dropdown-item">Edit</a>
+                </div>
+            </div>
+        </td>
+    </tr>
+</template>
+
+<template id="BomListRow">
+    <tr>
+        <td hidden>{bomListId}</td>
+        <td hidden>{parentWoId}</td>
+        <td hidden>{child_Part_No_ID}</td>
+        <td>{partNo} / {partDesc}</td>
+        <td>{child_Part_No_Type}</td>
+        <td>{woNumber}</td>
+        <td>{calc_Qnty}</td>
+        <td>{calcReceiptDateStr}</td>
+        <td></td>
+        <td></td>
+        <td></td>
+        <td></td>
+        <td hidden>{plan_Compl_Dt}</td>
+        <td hidden>{calcReceiptDate}</td>
+        <td>
+            <div class="dropdown float-center">
+                <a href="#"
+                   class="dropdown-toggle arrow-none card-drop"
+                   data-bs-toggle="dropdown"
+                   aria-expanded="false">
+                    <i class="mdi mdi-dots-vertical"></i>
+                </a>
+                <div class="dropdown-menu dropdown-menu-end">
+                    <!-- item-->
+                    <a href="javascript:void(0);"
+                       class="dropdown-item">
+                        View
+                        Detail
+                    </a>
+                    <!-- item-->
+                    <a href="javascript:void(0);"
+                       class="dropdown-item">
+                        Hold
+                        / Resume
+                    </a>
+                </div>
+            </div>
+        </td>
+    </tr>
+</template>
+
+<template id="Popup4GridRow">
+    <tr>
+        <td hidden>{productionPlanId}</td>
+        <td hidden>{woId}</td>
+        <td hidden>{salesOrderId}</td>
+        <td hidden>{partId}</td>
+        <td>{woNumber}</td>
+        <td>{calcWOQty}</td>
+        <td>{planCompletionDateStr}</td>
+        <td>
+            <div class="dropdown float-center">
+                <a href="#" class="dropdown-toggle arrow-none card-drop"
+                   data-bs-toggle="dropdown" aria-expanded="false">
+                    <i class="mdi mdi-dots-vertical"></i>
+                </a>
+                <div class="dropdown-menu dropdown-menu-end">
+                    <!-- item-->
+                    <a href="javascript:void(0);" class="dropdown-item" data-bs-toggle="modal"
+                       data-productionplanid={productionPlanId}
+                       data-workorderid={woId}
+                       data-parentwoid={parentWoId}
+                       data-salesorderid={salesOrderId}
+                       data-wonumber={woNumber}
+                       data-partno={partNo}
+                       data-partid={partId}
+                       data-parttype={partType}
+                       data-parentlevel={parentlevel}
+                       data-plancompletiondatestr='{planCompletionDateStr}'
+                       data-calwoqty={calcWOQty}
+                       data-wostatus={status}
+                       data-pfreloadoption={reloadOption}
+                       data-bs-target="#popup5Edit">Edit</a>
+                    <!-- item-->
+                    <a href="javascript:void(0);" class="dropdown-item">Delete</a>
+                </div>
+            </div>
+        </td>
+    </tr>
+</template>
+
+<template id="MultipleSoRow">
+    <tr>
+        <td hidden>{salesOrderId}</td>
+        <td hidden>{partId}</td>
+        <td>{soNumber}</td>
+        <td>{requiredQuantity}</td>
+        <td>{balanceSOQty}</td>
+        <td>{requiredByDateStr}</td>
+        <td hidden>{requiredByDate}</td>
+        <td>
+            <input type="checkbox" class="rowMCheckbox" />
+        </td>
+    </tr>
+</template>
+
+<template id="MultipleWoRow">
+    <tr>
+        <td hidden>{woid}</td>
+        <td hidden>{salesOrderId}</td>
+        <td hidden>{partId}</td>
+        <td>{woNumber}</td>
+        <td>{calcWOQty}</td>
+        <td>{planCompletionDateStr}</td>
+        <td>
+            <div class="dropdown float-center">
+                <a href="#" class="dropdown-toggle arrow-none card-drop"
+                   data-bs-toggle="dropdown" aria-expanded="false">
+                    <i class="mdi mdi-dots-vertical"></i>
+                </a>
+                <div class="dropdown-menu dropdown-menu-end">
+                    <!-- item-->
+                    <a href="javascript:void(0);" class="dropdown-item" data-bs-toggle="modal"
+                       data-ppid={productionPlanId}
+                       data-workorderid={woid}
+                       data-salesorderid={salesOrderId}
+                       data-wonumber={woNumber}
+                       data-partno={partNo}
+                       data-partid={partId}
+                       data-parttype={partType}
+                       data-plancompletiondatestr='{planCompletionDateStr}'
+                       data-requiredquantity={requiredQuantity}
+                       data-calwoqty={calcWOQty}
+                       data-p3status={status}
+                       data-nreloadoption={reloadOption}
+                       data-bs-target="#popup3">
+                        Edit
+                    </a>
+                    <!-- item-->
+                    <a href="javascript:void(0);" class="dropdown-item">Delete</a>
+                </div>
+            </div>
+        </td>
+    </tr>
+</template>
+
+
+<template id="MachineTimeListDetailRow">
+    <tr>
+        <td>{partNo} / {partDesc}</td>
+        <td>{partType}</td>
+        <td>{woNumber}</td>
+        <td>{location}</td>  
+        <td>{oprationNo}</td>
+        <td>{machineTypeName}</td>
+        <td>{machineName}</td>
+        <td>{planQnty}</td>
+        <td>{mcPlanStartTimeStr}</td>
+        <td>{mcPlanEndTimeStr}</td>
+        <td>{totalPlanTime}</td>
+        <td></td>
+        <td></td>
+    </tr>
+</template>
+
+<template id="McTimeListSummaryRow">
+    <tr>
+        <td>{location}</td>
+        <td>{machineTypeName}</td>
+        <td>{machineName}</td>
+        <td>{mcPlanStartTimeStr}</td>
+        <td>{mcPlanEndTimeStr}</td>
+        <td>{totalPlanTime}</td>
+        <td></td>
+    </tr>
+</template>
+
+
+
+
+@section Scripts {
+    <script src="~/js/detailedplan.js"></script>
+}

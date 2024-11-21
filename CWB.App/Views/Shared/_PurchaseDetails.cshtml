@@ -1,0 +1,320 @@
+﻿<div class="tab-pane" id="tab-2">
+    <!-- ========= -->
+    <div class="row">
+        <!-- ------------  -->
+        <div class="col-md-12">
+            <button class="btn btn-outline-purple btn-sm mt-2" data-bs-toggle="modal" data-bs-target="#Pdetails" title="" data-plugin="tippy" data-tippy-placement="top"> Add Supplier</button>
+        </div>
+        <!-- ------------  -->
+        <!-- ------------  -->
+        <div class="col-md-7 mt-3">
+            <div class="table-responsive table-he-250">
+                <table class="table table-sm table-bordered tableFixHead w-100" id="TablePurchaseDetails">
+                    <thead class="table-info th-sti text-center">
+                        <tr class="table-border-bottom">
+                            <th width="5%">Pref.</th>
+                            <th>Supplier</th>
+                            <th>Lead Time</th>
+                            <th>MOQ</th>
+                            <th>Price</th>
+                            <th width="5%"></th>
+                        </tr>
+                    </thead>
+                    <tbody>
+                        <!-- ---------- -->
+                        <!-- ---------- -->
+                        <!-- ---------- -->
+                    </tbody>
+                </table>
+            </div>
+            <!-- =========== -->
+            <!-- =========== -->
+        </div>
+        <!-- ------- -->
+
+    </div>
+    <!-- ========================= -->
+</div>
+
+<div class="modal fade" id="Pdetails" data-bs-backdrop="static" data-bs-keyboard="false" tabindex="-1" aria-labelledby="staticBackdropLabel" aria-hidden="true">
+    <div class="modal-dialog">
+        <div class="modal-content">
+            <div class="modal-header">
+                <h5 class="modal-title" id="myLargeModalLabel">Purchase Details for <span id="Span_PartNo" style="font-weight:bold"></span> / <span id="Span_PartDescription" style="font-weight:bold"></span> </h5>
+                <button type="button" class="btn-close" data-bs-dismiss="modal" aria-label="Close"></button>
+            </div>
+            <!-- ------- -->
+            <div class="modal-body">
+                <div class="col-md-12">
+                    <form class="parsley-examples" method="post" name="FormPurchaseDetails" id="FormPurchaseDetails" onsubmit="return false;">
+                        <div class="row mt-2">
+                            <label class="form-label col-md-4 mb-2">
+                                Supplier Company <span class="text-danger">
+                                    *
+                                </span>
+                            </label>
+                            <div class="col-md-8 mb-2 d-flex align-items-center">
+                                <div class="input-group" style="flex-grow: 1;">
+                                    <select class="form-select form-select-sm" id="PSupplierId" name="PSupplierId" required></select>
+                                </div>
+                                <button type="button" id="#" data-id="0" data-divisionId="0" class="btn btn-sm waves-effect waves-light" data-plugin="tippy" data-tippy-placement="top" data-bs-toggle="modal" data-bs-target="#dialog-company" data-tippy="" data-original-title="Select to enter details of the Supplier Company if it is not in the List">
+                                    <i class="fe-plus-square add-cust-btn"></i>
+                                </button>
+                            </div>
+                            <!-- ========================= -->
+                            <label class="form-label col-md-4 mb-2">Supplier Part No</label>
+                            <div class="col-md-8 mb-2">
+                                <input class="form-control form-control-sm" type="text" placeholder="enter here" data-plugin="tippy"
+                                       data-tippy-placement="top" data-tippy=""
+                                       data-original-title="Enter the Supplier Part No"
+                                       id="PSupplierPartNo" name="PSupplierPartNo" value="-">
+                            </div>
+                            <!-- ============================== -->
+                            <label class="form-label col-md-4 mb-2">MOQ (Min. Order Qnty) *</label>
+                            <div class="col-md-8 mb-2">
+                                <input id="MinimumOrderQuantity" name="MinimumOrderQuantity" class="form-control form-control-sm" type="text" placeholder="enter here" data-plugin="tippy" data-tippy-placement="top" data-tippy="" data-original-title="Enter any applicable Minimum Order Quantity (MoQ)">
+                            </div>
+                            <!-- ========================= -->
+                            <label class="form-label col-md-4 mb-2">Lead Time to Supply MOQ (Days) *</label>
+                            <div class="col-md-8 mb-2">
+                                <input id="LeadTimeInDays" name="LeadTimeInDays" class="form-control form-control-sm" type="text" placeholder="enter here" data-plugin="tippy" data-tippy-placement="top" data-tippy="" data-original-title="Enter the Lead time in days for procuring the RM Part No from the Supplier Company">
+                            </div>
+                            <!-- ============================== -->
+                            <label class="form-label col-md-4 mb-2">Price *</label>
+                            <div class="col-md-8 mb-2">
+                                <input id="Price" name="Price" class="form-control form-control-sm" type="text" placeholder="enter here" data-plugin="tippy" data-tippy-placement="top" data-tippy="" data-original-title="Enter the price of the RM">
+                            </div>
+                            <!-- ========================= -->
+                            <label class="form-label col-md-4 mb-2">Share of Business (SOB) %</label>
+                            <div class="col-md-8 mb-2">
+                                <input id="ShareOfBusiness" name="ShareOfBusiness" value="0" class="form-control form-control-sm" type="text" placeholder="enter here" data-plugin="tippy" data-tippy-placement="top" data-tippy="" data-original-title="Enter the Share of Business (in case of multiple Suppliers) for the RM Part No (%)">
+                            </div>
+                            <!-- ========================= -->
+                            <label class="form-label col-md-4 mb-2">Additional Information</label>
+                            <div class="col-md-8 mb-2">
+                                <textarea id="PAdditionalInfo" name="PAdditionalInfo" class="form-control form-control-sm" data-plugin="tippy" data-tippy-placement="top" placeholder="Enter......" data-tippy="" data-original-title="Enter any relevant comment / additional info">-</textarea>
+                            </div>
+                            <input type="text" hidden id="PSupplier" value="" name="PSupplier" />
+                            <input type="text" hidden id="PPartId" value="0" name="PPartId" />
+                            <input type="text" hidden id="RMId" value="-1" name="RMId" />
+                            <input type="text" hidden id="BOFId" value="-1" name="BOFId" />
+                            <input type="text" hidden id="PPartNo" value="0" name="PPartNo" />
+                            <input type="text" hidden id="PMasterPartType" value="0" name="PMasterPartType" />
+
+                            <!-- ========================= -->
+                            <div class="col-md-12 mb-2">
+                                <label class="form-check-label" style="margin-right: 27px;">
+                                    Make as Preferred
+                                    Supplier
+                                </label>
+                                <input class="form-check-input mt-1" id="pPreferredSupplier" type="checkbox" data-plugin="tippy" data-tippy-placement="top" data-tippy="" data-original-title="Check">
+                                <input type="text" id="fPreferredSupplier" name="PreferredSupplier" hidden/>
+                            </div>
+                            <!-- ========================= -->
+                            <div class="col-md-12 mb-2 text-end">
+                                <button id="AddSupplier"  class="btn btn-sm btn-primary" data-plugin="tippy" data-tippy-placement="top" data-tippy="" data-original-title="Use to Save the entered data">Save</button>
+                            </div>
+                            <!-- ========================= -->
+                        </div>
+                    </form>
+                </div>
+                <!-- col end -->
+            </div>
+        </div><!-- /.modal-content -->
+    </div><!-- /.modal-dialog -->
+</div>
+<div class="modal fade" id="setPreferred" data-bs-backdrop="static" data-bs-keyboard="false" tabindex="-1" aria-labelledby="staticBackdropLabel" aria-hidden="true">
+    <div class="modal-dialog">
+        <div class="modal-content bxs-modal">
+            <div class="modal-header">
+                <h4 class="modal-title" id="mySmallModalLabel">Set Preferred as Preferred Supplier</h4>
+                <button type="button" class="btn-close" data-bs-dismiss="modal" aria-label="Close"></button>
+            </div>
+            <div class="modal-body">
+                <div class="row">
+                    <!-- ========================= -->
+                    <div class="col-md-10">
+                        Set Supplier <span id="supplierName" style="font-weight:bold"></span> as Preferred Supplier for
+                        <br> for <span id="ppartNameSpan" style="font-weight:bold"></span> / <span id="pPartDescNameSPan" style="font-weight:bold"></span>
+                    </div>
+                    <!-- ========================= -->
+                    <div class="col-md-2">
+                        <input type="checkbox" id="SetPreferedChkBox" class="form-check-input">
+                        <input type="text" id="SetPreferedPDid" hidden>
+                    </div>
+                    <!-- ========================= -->
+                </div>
+                <div class="row">
+                    <div class="col-md-10 text-end">
+                        <button class="btn btn-sm btn-primary" id="btnSetPreferedSave">Save</button>
+                    </div>
+                </div>
+            </div>
+        </div><!-- /.modal-content -->
+    </div><!-- /.modal-dialog -->
+</div>
+
+<template id="PurchaseDetailTemplate">
+
+    <tr style="text-align: center;" id="{Id}">
+        <td><input type="radio" class="form-check-input" name="pref" {checked} disabled></td>
+        <td data-key="Supplier">{pSupplier}</td>
+        <td data-key="LeadTime">{leadTimeInDays}</td>
+        <td data-key="MOQ">{minimumOrderQuantity}</td>
+        <td data-key="Price">{price}</td>
+        <td>
+            <div class="dropdown float-center">
+                <a href="#" class="dropdown-toggle arrow-none card-drop" data-bs-toggle="dropdown" aria-expanded="false"><i class="mdi mdi-dots-vertical"></i></a>
+                <div class="dropdown-menu dropdown-menu-end">
+                    <!-- item-->
+                    <a href="javascript:void(0);" data-partpurchaseid="{partPurchaseId}" data-bs-toggle="modal" data-bs-target="#dialog-EditPurchaseDetail" class="dropdown-item">Edit</a>
+                    <!-- item-->
+                    <a href="javascript:void(0);" data-partpurchaseid="{partPurchaseId}" data-bs-toggle="modal" data-bs-target="#dialog-DeletePurchaseDetail" class="dropdown-item">Delete</a>
+                    <a href="javascript:void(0);" data-partpurchaseid="{partPurchaseId}" data-supplier="{pSupplier}" class="dropdown-item" data-bs-toggle="modal" data-bs-target="#setPreferred">
+                        Set
+                        Preferred Supplier
+                    </a>
+                </div>
+            </div>
+        </td>
+    </tr>
+</template>
+
+
+<!--<div class="row">
+    <div class="col-md-9">
+        <div class="table-responsive">
+            <table class="table table-sm">
+                <tbody>
+                    <tr>
+                        <td>
+                            Part No:&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;<span id="Span_PartNo" class="h6">XXXXXXXXXXXXXXX</span>
+                        </td>
+                        <td>
+                            Part Description:&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;<span id="Span_PartDescription" class="h6">Lorem Ipsum is  dummy text of the printing industry.</span>
+                        </td>
+                    </tr>
+                </tbody>
+            </table>
+        </div>
+    </div>-->
+    <!-- ========= -->
+    <!-- ========= -->
+    <!--<div class="col-md-3" hidden>
+        <div class="table-responsive">
+            <table class="table table-sm  text-end w-100">
+                <tbody>
+                    <tr>
+                        <td>
+                            <button class="btn btn-sm btn-dark display-none"><span class="fon-we-700">Target Date :</span> 12/08/2022</button>
+                        </td>
+                    </tr>
+                </tbody>
+            </table>
+        </div>
+    </div>-->
+    <!-- ========= -->
+<!--</div>-->
+<!-- ========= -->
+<!--<div class="row">
+    <div class="col-md-6 dott-bord-r">
+        <form method="post" name="FormPurchaseDetails" id="FormPurchaseDetails" onsubmit="return false;">
+            <div class="row mt-4">
+                <label class="form-label col-md-4 mb-2"> Supplier <span class="text-danger"> *</span> </label>
+                <div class="col-md-8 mb-2">
+                    <div class="input-group">
+                        <div class="col-md-9 mb-2">
+                            <select class="form-select form-select-sm" id="PSupplierId" name="PSupplierId" required></select>
+                        </div>
+                        <div class="col-md-3 mb-2">
+                            <button type="button" id="#" data-id="0" data-divisionId="0" class="btn btn-sm waves-effect waves-light" title="Add New Supplier" data-plugin="tippy" data-tippy-placement="top" data-bs-toggle="modal" data-bs-target="#dialog-company">-->
+                                <!--<button type="button" id="#" class="btn btn-sm waves-effect waves-light" title="Use to add a New Customer Type to the List" data-plugin="tippy" data-tippy-placement="top" data-bs-toggle="modal" data-bs-target="#">-->
+                                <!--<i class="fe-plus-square add-cust-btn"></i>
+                            </button>
+                        </div>
+                    </div>
+                </div>-->
+                <!-- ========================= -->
+                <!--<label class="form-label col-md-4 mb-2">Supplier Part No</label>
+                <div class="col-md-8 mb-2">
+                    <input required id="PSupplierPartNo" name="PSupplierPartNo" class="form-control form-control-sm" type="text" placeholder="enter here" title="Enter the Supplier Part No" data-plugin="tippy" data-tippy-placement="top" value="-">
+                </div>-->
+                <!-- ============================== -->
+                <!--<label class="form-label col-md-4 mb-2">Lead Time (Days) </label>
+                <div class="col-md-8 mb-2">
+                    <input required id="LeadTimeInDays" name="LeadTimeInDays" class="form-control form-control-sm" type="text" placeholder="enter here" title="Enter the Lead time in days for procuring the RM Part No from the Supplier Company" data-plugin="tippy" data-tippy-placement="top" value="1">
+                </div>-->
+                <!-- ============================== -->
+                <!--<label class="form-label col-md-4 mb-2">Minimum Order Quantity</label>
+                <div class="col-md-8 mb-2">
+                    <input required id="MinimumOrderQuantity" name="MinimumOrderQuantity" class="form-control form-control-sm" type="text" placeholder="enter here" title="Enter any applicable Minimum Order Quantity (MoQ)" data-plugin="tippy" data-tippy-placement="top">
+                </div>-->
+                <!-- ========================= -->
+                <!--<label class="form-label col-md-4 mb-2">Price</label>
+                <div class="col-md-8 mb-2">
+                    <input required id="Price" name="Price" class="form-control form-control-sm" type="text" placeholder="enter here" title="Enter the price of the RM" data-plugin="tippy" data-tippy-placement="top">
+                </div>-->
+                <!-- ========================= -->
+                <!--<label class="form-label col-md-4 mb-2">Share of Business</label>
+                <div class="col-md-8 mb-2">
+                    <input required id="ShareOfBusiness" name="ShareOfBusiness" class="form-control form-control-sm" type="text" placeholder="enter here" title="Enter the Share of Business (in case of multiple Suppliers) for the RM Part No (%)" data-plugin="tippy" data-tippy-placement="top" value="0">
+                </div>-->
+                <!-- ========================= -->
+                <!--<label class="form-label col-md-4 mb-2">Additional Information</label>
+                <div class="col-md-8 mb-2">
+                    <textarea id="PAdditionalInfo" name="PAdditionalInfo" class="form-control form-control-sm" title="Enter any relevant comment / additional info" data-plugin="tippy" data-tippy-placement="top"></textarea>
+
+                </div>-->
+                <!--
+                    <input type="hidden" id="SupplierId" value="1" name="SupplierId"/>
+                -->
+                <!--<input type="text" hidden id="PSupplier" value="" name="PSupplier" />
+                <input type="text" hidden id="PPartId" value="0" name="PPartId" />
+                <input type="text" hidden id="RMId" value="-1" name="RMId" />
+                <input type="text" hidden id="BOFId" value="-1" name="BOFId" />
+                <input type="text" hidden id="PPartNo" value="0" name="PPartNo" />
+                <input type="text" hidden id="PMasterPartType" value="0" name="PMasterPartType" />
+                <div class="col-md-6 mb-2">
+                    <button type="button" id="AddSupplier" class="btn btn-sm btn-primary" title="Select to Add another Supplier for the RM" data-plugin="tippy" data-tippy-placement="top">Add Supplier</button>
+                </div>
+                <div class="col-md-6 mb-2 text-end" hidden>
+                    <button class="btn btn-sm btn-primary" title="Use to Save the entered data" data-plugin="tippy" data-tippy-placement="top">Save</button>
+                </div>-->
+                <!-- ========================= -->
+            <!--</div>
+        </form>
+    </div>-->
+    <!-- col end -->
+    <!--<div class="col-md-6">
+        <div class="table-responsive table-he-180 mt-3">
+            <table class="table table-sm table-bordered mb-3 text-center mt-1 w-100 tableFixHead" id="TablePurchaseDetails">
+                <thead class="  table-info th-sti">
+                    <tr class="table-border-bottom">
+                        <th>Supplier</th>
+                        <th>Lead Time</th>
+                        <th>MOQ</th>
+                        <th>UOM</th>
+                        <th>Price</th>
+                        <th width="5%"></th>
+                    </tr>
+                </thead>
+                <tbody>
+                </tbody>
+            </table>
+        </div>-->
+        <!-- --------------  -->
+    <!--</div>-->
+    <!-- col end -->
+<!--</div>-->
+<!-- ========================= -->
+<!--<div class="row">
+    <div class="col-md-6 mt-3">
+        <button type="button" class="btn btn-warning btn-sm" title="Use to go to the Previous Tab" data-plugin="tippy" data-tippy-placement="top"><i class="fas fa-arrow-left"></i></button>
+    </div>-->
+    <!-- ---------- -->
+    <!--<div class="col-md-6 mt-3 text-end">
+        <button class="btn btn-sm btn-dark" data-bs-toggle="modal" data-bs-target="#popup-4" title="Use to Exit " data-plugin="tippy" data-tippy-placement="top">Exit</button>
+        <button type="button" class="btn btn-warning btn-sm" title="Use to go to the next Tab" data-plugin="tippy" data-tippy-placement="top"><i class="fas fa-arrow-right"></i></button>
+    </div>-->
+    <!-- ------end col ----- -->
+<!--</div>-->

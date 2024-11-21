@@ -1,0 +1,57 @@
+﻿@model CWB.App.Models.OperationList.OperationListVM
+<div class="modal fade" id="dialog-operation" data-bs-backdrop="static" data-bs-keyboard="false" tabindex="-1" aria-labelledby="staticBackdropLabel" aria-hidden="true">
+    <div class="modal-dialog modal-lg">
+        <div class="modal-content">
+            <div class="modal-header">
+                <h4 class="modal-title" id="myLargeModalLabel"> <span id="PopHeadName">Add</span> Operation</h4>
+                <button type="button" class="btn-close" data-bs-dismiss="modal" aria-label="Close" title="Close & Return to Previous Screen / Menu Item" data-plugin="tippy" data-tippy-placement="top"></button>
+            </div>
+            <div class="modal-body">
+                <form id="frmOperationlist" method="post">
+                    <div class="row">
+                        <!-- ----- -->
+                        <label class="form-label col-md-2 mb-2" asp-for="Operation"></label>
+                        <div class="col-md-4 mb-2" title="Enter the Operation Name ... Should be unique" data-plugin="tippy" data-tippy-placement="top">
+                            <input class="form-control form-control-sm" type="text" asp-for="Operation" />
+                            <span asp-validation-for="Operation"></span>
+                        </div>
+                        <!-- ----- -->
+                        <!-- ----- -->
+                        <div class="col-md-12 mb-2">
+                            <label class="form-check-label" asp-for="IsMultiplePartsOfBOMUsed"></label>
+                            <input class="form-check-input mt-1 m-l-10" type="checkbox" asp-for="IsMultiplePartsOfBOMUsed"
+                                   title="Select the Checkbox if the Operation involves joining, welding, assembly ... of multiple parts of the BOM (identify if it is an Assembly type operation)" data-plugin="tippy" data-tippy-placement="top" />
+                            <span asp-validation-for="IsMultiplePartsOfBOMUsed"></span>
+                        </div>
+                        <div class="col-md-12 mb-2">
+                            <label class="form-check-label">Operation Location : </label>
+                            <label class="form-check-label">Inhouse </label>
+                            <input class="form-check-input mt-1 m-l-10" type="checkbox" id="ChkIsMultipleSubCon"
+                                   title="Select the Checkbox if the Operation involves joining, welding, assembly ... of multiple parts of the IsMultipleSubCon (identify if it is an Assembly type operation)" data-plugin="tippy" data-tippy-placement="top" />
+                            <input type="text" id="IsMultipleSubCon" asp-for="Inhouse" hidden />
+                            <label class="form-check-label ms-1">Subcon </label>
+                            <input class="form-check-input mt-1 m-l-10" type="checkbox" id="ChkIsSubcon"
+                                   title="Select the Checkbox if the Operation involves joining, welding, assembly ... of multiple parts of the IsMultipleSubCon (identify if it is an Assembly type operation)" data-plugin="tippy" data-tippy-placement="top" />
+                            <input type="text" id="IsSubCon" asp-for="Subcon" hidden />
+                        </div>
+                        <!-- ----- -->
+                        <!-- ----- -->
+                        <div class="col-md-6 text-end">
+                            <input type="button" class="btn btn-sm btn-primary" title="Use to Save the entered data"
+                                   data-plugin="tippy" data-tippy-placement="top" value="Save" id="btnOperationSubmit" />
+                        </div>
+                        <!-- end col -->
+                        <!-- ==================== -->
+                    </div>
+                    <input type="hidden" asp-for="OperationId" />
+                    <hr class="hr-color-2" />
+                </form>
+                <!-- end row -->
+                @Html.Partial("_OperationListDocumentType", new CWB.App.Models.OperationList.OperationDocumentTypeVM())
+                <!-- end row -->
+            </div>
+        </div>
+        <!-- /.modal-content -->
+    </div>
+    <!-- /.modal-dialog -->
+</div>

@@ -1,0 +1,270 @@
+﻿@{
+    ViewData["Title"] = "Sales Order List";
+}
+<div class="content">
+    <div class="row">
+        <div class="col-xl-12 col-md-12 col-sm-12 col-xs-12">
+            <!-- ================= -->
+            <div class="card">
+                <div class="card-body">
+                    <div class="row">
+                        <h5 class="mb-4">Top Level Production Planning - SO to WO</h5>
+                        <!-- -----------------  -->
+                        <div class="col-md-2 mb-2">
+                            <label class="form-label">Sales Order #</label>
+                            <input class="form-control form-control-sm" type="text" placeholder="Enter here"
+                                   title="" data-plugin="tippy" data-tippy-placement="top" id="searchSo">
+                        </div>
+                        <!-- -----------------  -->
+                        <!-- -----------------  -->
+                        <div class="col-md-2 mb-2">
+                            <label class="form-label">Customer</label>
+                            <input class="form-control form-control-sm" type="text" placeholder="Enter here"
+                                   title="" data-plugin="tippy" data-tippy-placement="top" id="searchCustomer">
+                        </div>
+                        <!-- -----------------  -->
+                        <div class="col-md-2 mb-2">
+                            <label class="form-label">Part No</label>
+                            <input class="form-control form-control-sm" type="text" placeholder="Enter here"
+                                   title="" data-plugin="tippy" data-tippy-placement="top" id="searchPartNo">
+                        </div>
+                        <!-- -----------------  -->
+                        <div class="col-md-4 mb-2">
+                            <label class="form-label">Part Description</label>
+                            <input class="form-control form-control-sm" type="text" placeholder="Enter here"
+                                   title="" data-plugin="tippy" data-tippy-placement="top" id="searchPartDesc">
+                        </div>
+                        <!-- -----------------  -->
+                        <div class="col-md-2 mb-2">
+                            <label class="form-label">Status</label>
+                            <input class="form-control form-control-sm" type="text" placeholder="Enter here"
+                                   title="" data-plugin="tippy" data-tippy-placement="top" id="searchStatus">
+                        </div>
+                        <!-- -----------------  -->
+                        <div class="col-md-2 mb-2">
+                            <label class="form-label">PO Number</label>
+                            <input class="form-control form-control-sm" type="text"
+                                   placeholder="Enter PO Number" title="" data-plugin="tippy"
+                                   data-tippy-placement="top" id="searchPoNo">
+                        </div>
+                        <!-- -----------------  -->
+                        <div class="col-md-2 mb-2">
+                            <label class="form-label">SO Compl Dt from</label>
+                            <input class="form-control form-control-sm" type="date" title=""
+                                   data-plugin="tippy" data-tippy-placement="top" id="SocomplDtFrom">
+                        </div>
+                        <!-- ========================= -->
+                        <div class="col-md-2 mb-2">
+                            <label class="form-label">SO Compl Dt To</label>
+                            <input class="form-control form-control-sm" type="date" title=""
+                                   data-plugin="tippy" data-tippy-placement="top" id="SocomplDtTo">
+                        </div>
+                        <div class="col-md-2 mb-2 mt-2">
+                            <button id="btnClear" class="btn btn-sm btn-outline-purple mt-2" title=""
+                                    data-plugin="tippy" data-tippy-placement="top">
+                                Clear The Fields
+                            </button>
+                        </div>
+                        <!-- ======================== -->
+                        <!-- -----------------  -->
+                        <!-- ======================== -->
+                    </div>
+                    <!-- =========== -->
+                    <div class="row mt-3">
+                        <div class="col-md-12">
+                            <div class="table-responsive table-he-250">
+                                <table class="table table-sm table-bordered w-100 text-center" id="SalesOrderList">
+                                    <thead class="  table-info th-sti">
+                                        <tr class="table-border-bottom">
+                                            <th>Sales Order</th>
+                                            <th>Customer</th>
+                                            <th>PO No</th>
+                                            <th>Part No / Desc</th>
+                                            <th>Status</th>
+                                            <th>Total SO Qnty</th>
+                                            <th>Balance SO Qnty</th>
+                                            <th>Qnty on Hand</th>
+                                            <th>SO Plan Dt</th>
+                                            <th></th>
+                                        </tr>
+                                    </thead>
+                                    <tbody>
+
+                                        <!-- -------------  -->
+                                        <!-- -------------  -->
+                                    </tbody>
+                                </table>
+                            </div>
+                            <!-- ===========================  -->
+                        </div>
+                        <!-- =======================  -->
+                        <div class="col-md-3">
+                            <h6>No of Unplanned Sales Order : <span id="noOfUnplannedSO"></span></h6>
+                        </div>
+                        <!-- =========== -->
+                        <div class="col-md-2">
+                            <a class="btn btn-sm btn-outline-primary w-100" asp-controller="WorkOrder" asp-action="SoToWo">Generate Work Order</a>
+                        </div>
+                        <!-- =========== -->
+                        <div class="col-md-5">
+                        </div>
+                        <!-- =========== -->
+                        <!-- =======================  -->
+                        <div class="col-md-3">
+                            <h6>WO / SO ready for Dispatch : xxx</h6>
+                        </div>
+                        <!-- =========== -->
+                        <div class="col-md-2">
+                            <button class="btn btn-sm btn-outline-primary w-100">Dispatch Details</button>
+                        </div>
+                        <!-- =========== -->
+                        <!-- =========== -->
+                    </div>
+                    <!-- =========== -->
+                </div>
+                <!-- end card body -->
+            </div>
+            <!-- end card -->
+            <!-- ================= -->
+        </div>
+        <!-- end col -->
+    </div>
+    <!-- end row -->
+</div>
+<!-- end Container -->
+<!----content-page ends----->
+<!-- popups----------------------->
+<div class="modal fade" id="Edit-SalesOrder" data-bs-backdrop="static" data-bs-keyboard="false" tabindex="-1"
+     aria-labelledby="staticBackdropLabel" aria-hidden="true">
+    <div class="modal-dialog modal-lg">
+        <div class="modal-content bxs-modal">
+            <div class="modal-header">
+                <h5 class="modal-title" id="staticBackdropLabel">Edit Sales Order</h5>
+                <button type="button" id="BtnEditSalesOrderClose" class="btn-close" data-bs-dismiss="modal" aria-label="Close"></button>
+            </div>
+            <div class="modal-body">
+                <div class="row">
+                    <div class="row mt-4">
+                        <div class="row">
+                            <form id="EditSOForm" onsubmit="return false;">
+                                <label class="form-label col-md-4 mb-2">
+                                    Reqd Date <span class="text-danger">*</span>
+                                </label>
+                                <div class="col-md-8 mb-2">
+                                    <input id="EditSORequiredByDate" name="RequiredByDate" class="form-control form-control-sm" type="date" title="" data-plugin="tippy"
+                                           data-tippy-placement="top">
+                                </div>
+                                <!-- ========================= -->
+                                <label class="form-label col-md-4 mb-2">
+                                    Reqd Quantity <span class="text-danger">*</span>
+                                </label>
+                                <div class="col-md-8 mb-2">
+                                    <input id="EditSORequiredQuantity" name="RequiredQuantity" class="form-control form-control-sm" type="text" title="" data-plugin="tippy"
+                                           value="0" data-tippy-placement="top" placeholder="Enter Reqd Quantity" />
+                                </div>
+                                <!-- ========================= -->
+                                <label class="form-label col-md-4 mb-2">
+                                    Comment <span class="text-danger">*</span>
+                                </label>
+                                <div class="col-md-8 mb-2">
+                                    <textarea id="EditSOComment" name="Comment" class="form-control form-control-sm" placeholder="Enter Comment" value="-"></textarea>
+                                </div>
+                                <input type="text" hidden id="EditSOPartId" name="DSPartId" value="0" />
+                                <input type="text" hidden id="EditSOScheduleId" name="ScheduleId" value="0" />
+                                <input type="text" hidden id="EditSOCustomerOrderId" name="CustomerOrderId" value="0" />
+                                <!-- ========================= -->
+                                <div class="col-md-12 text-end">
+                                    <button id="BtnEditSO" class="btn btn-sm btn-primary">Edit</button>
+                                </div>
+                                <!-- ========================= -->
+                            </form>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </div>
+</div>
+<!-- ==============Hold Popup=========== -->
+
+<div class="modal fade" id="po-hold" data-bs-backdrop="static" data-bs-keyboard="false" tabindex="-1"
+     aria-labelledby="staticBackdropLabel" aria-hidden="true">
+    <div class="modal-dialog ">
+        <div class="modal-content bxs-modal">
+            <form id="poholdform" onclick="return false;">
+                <div class="modal-header">
+                    <h5 class="modal-title" id="staticBackdropLabel">Reason for SO Hold / Resume *</h5>
+                    <button type="button" id="btnholdclose" class="btn-close" data-bs-dismiss="modal" aria-label="Close"></button>
+                </div>
+                <div class="modal-body">
+                    <textarea id="POHComment" name="Comment" class="form-control" placeholder="Enter Comments"></textarea>
+                </div>
+                <input type="text" hidden id="POLogId" name="POLogId" value="0" />
+                <input type="text" hidden id="POHCustomerOrderId" name="CustomerOrderId" value="0" />
+                <input type="text" hidden id="POHSalesOrderId" name="SalesOrderId" value="0" />
+                <input type="text" hidden id="POHUser" name="User" value="Admin" />
+                <input type="text" hidden id="POHNewValue" name="NewValue" value="0" />
+                <input type="text" hidden id="POHOldValue" name="OldValue" value="0" />
+                <input type="text" hidden id="POHEvent" name="Event" value="HoldResume" />
+                <input type="text" hidden id="POHPartId" name="PartId" value="0" />
+                <div class="modal-footer">
+                    <button id="BtnPOHold" type="button" class="btn btn-primary btn-sm">Save</button>
+                </div>
+            </form>
+        </div>
+    </div>
+</div>
+
+<template id="SalesOrderListRow">
+    <tr>
+        <td hidden>{salesOrderId}</td>
+        <td hidden>{customerOrderId}</td>
+        <td hidden>{partId}</td>
+        <td>{soNumber}</td>
+        <td>{customer}</td>
+        <td>{poNumber}</td>
+        <td>{partNo} / {partDesc}</td>
+        <td>{strStatus}</td>
+        <td>{requiredQuantity}</td>
+        <td>{balanceSOQty}</td>
+        <td>0</td>
+        <td>{requiredByDateStr}</td>
+        <td hidden>{requiredByDate}</td>
+        <td>
+            <div class="dropdown float-center">
+                <a href="#" class="dropdown-toggle arrow-none card-drop"
+                   data-bs-toggle="dropdown" aria-expanded="false">
+                    <i class="mdi mdi-dots-vertical"></i>
+                </a>
+                <div class="dropdown-menu dropdown-menu-end">
+                    <!-- item-->
+                    <a href="javascript:void(0);" class="dropdown-item"
+                       data-customerorderid={customerOrderId}
+                       data-salesorderid={salesOrderId}
+                       data-scheduleid={scheduleId}
+                       data-requiredbydatestr='{requiredByDateStr}'
+                       data-requiredquantity={requiredQuantity}
+                       data-comment='{comment}'
+                       data-partid={partId}
+                       data-salesorder="Y"
+                       data-bs-toggle="modal"
+                       data-bs-target="#Edit-SalesOrder">Edit</a>
+                    <a href="javascript:void(0);" class="dropdown-item"
+                       data-bs-toggle="modal" data-partno='{partNo}'
+                       data-customerorderid={customerOrderId}
+                       data-salesorder="Y" data-salesorderid={salesOrderId}
+                       data-bs-target="#po-hold">
+                        Hold /
+                        Resume
+                    </a>
+
+                </div>
+            </div>
+        </td>
+    </tr>
+</template>
+
+
+@section Scripts {
+    <script src="~/js/salesorderlist.js"></script>
+}

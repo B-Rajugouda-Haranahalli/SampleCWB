@@ -1,0 +1,111 @@
+﻿<div id="add-supplier" class="modal fade" data-bs-backdrop="static" data-bs-keyboard="false" tabindex="-1" aria-labelledby="staticBackdropLabel" aria-hidden="true">
+    <div class="modal-dialog">
+        <div class="modal-content">
+            <div class="modal-header">
+                <h4 class="modal-title" id="standard-modalLabel">Add Supplier</h4>
+                <button type="button" id="Add-Supplier-Close" class="btn-close" data-bs-dismiss="modal" aria-label="Close"></button>
+            </div>
+            <div class="modal-body">
+                <div class="row">
+                    <div class="col-md-12">
+                        <div class="table-responsive">
+                            <table id="TitleTableSupplier" class="table table-sm   table-info text-center w-100 tcenter">
+                                <tbody>
+                                    <!--TitleRow goes here-->
+                                </tbody>
+                            </table>
+                        </div>
+                    </div>
+                    <!-- ============= -->
+                </div>
+                <div class="row mt-2">
+                    <form id="FormRoutingSupplier" onsubmit="return false;">
+                        <div class="row">
+                    <label class="form-label col-md-3 mb-2">Supplier Name</label>
+                    <div class="col-md-9 mb-2">
+                        <input class="form-control form-control-sm" type="text" id="Supplier" name="Supplier" value="">
+                         <input hidden class="form-control form-control-sm" type="text" name="SupplierId" id="SupplierId" value="" />
+                    </div>
+                    </div>
+                    <!-- ---------------  -->
+                    <div class="table-responsive table-he-130 mb-3">
+                        <table id="RoutingSelectSupplierTable" class="table table-sm table-bordered w-100 mb-3 text-center tableFixHead">
+                            <thead class="  table-info th-sti">
+                                <tr class="table-border-bottom">
+                                    <th width="5%"></th>
+                                    <th>Supplier Name</th>
+                                </tr>
+                            </thead>
+                            <tbody>
+                                
+                            </tbody>
+                        </table>
+                    </div>
+                    <!-- ================== -->
+                    <h6 class="mb-2 text-center">Enter Supplier Details for : XXXXXXXXXXXX</h6>
+                    <!-- ---------------  -->
+                    <div class="row">
+                        <label class="form-label col-md-3 mb-2">Outsource Days </label>
+                        <div class="col-md-9 mb-2">
+                                <input class="form-control form-control-sm" name="OutSourceDays" value="" id="OutSourceDays">
+                        </div>
+                    </div>
+                    <!-- ---------------  -->
+                    <div class="row">
+                        <label class="form-label col-md-3 mb-2">Share of Business</label>
+                        <div class="col-md-9 mb-2">
+                                <input class="form-control form-control-sm" type="text" name="ShareOfBusiness" value="" id="ShareOfBusiness">
+                        </div>
+                    </div>
+                    <!-- ---------------  -->
+                    <div class="row">
+                    <label class="col-md-3 form-label mb-2">Notes </label>
+                    <div class="col-md-9 mb-2">
+                            <textarea class="form-control form-control-sm" name="Notes" id="Notes"></textarea>
+                    </div>
+                    </div>
+                    <!-- -----------------  -->
+                    <div class="col-md-12 text-end">
+                        <input hidden type="text" name="RoutingStepId" value="0" id="SupplierRoutingStepId" />
+                        <input hidden type="text" name="RoutingStepSupplierId" value="0" id="RoutingStepSupplierId"/>
+                        <input type="submit" id="SaveRouteSupplier" class="btn btn-sm btn-primary" value="Save"/>
+                    </div>
+                    <!-- ================== -->
+                    </form>
+                </div>
+                <!-- end row -->
+            </div>
+            <!-- end body -->
+        </div>
+        <!-- /.modal-content -->
+    </div>
+    <!-- /.modal-dialog -->
+</div>
+
+<template id="RoutingSelectSupplierRow">
+    <tr>
+    <td>
+         <input type='radio' id="stepsupp_{num}" name='stepsupplierselect' value='{companyId}'>
+    </td>
+    <td>{companyName}</td>
+    </tr>
+</template>
+<template id="TitleRow">
+    <tr>
+        <td>
+            <span class="h6">Part No :</span> {partNo}
+        </td>
+        <td>
+            <span class="h6">Description :</span>  {partDescription}
+        </td>
+        <td>
+            <span class="h6">Company :</span> {companyName}
+        </td>
+        <td>
+            <span class="h6">Routing :</span> {routingName}
+        </td>
+        <td>
+            <span class="h6">Routing Step :</span> {stepNumber}
+        </td>
+    </tr>
+</template>

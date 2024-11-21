@@ -1,0 +1,20 @@
+﻿@{
+    ViewData["Title"] = "Item Master - Raw Material";
+}
+@model CWB.App.Models.ItemMaster.RawMaterialDetailVM
+<partial name="RawMaterial" model=@Model/>
+
+@section scripts {
+    <script src="~/js/addfunctions.js"></script>
+    <script src="~/js/ItemMaster/supplier.js"></script>
+    <script src="~/js/ItemMaster/rmselects.js"></script>
+    <script src="~/js/contact-model.js"></script>
+    <script src="~/js/ItemMaster/RawMaterial-model.js"></script>
+    <script src="~/js/ItemMaster/purchasedetails.js"></script>
+    <script src="~/js/contacts.js"></script>
+    <script>
+        var modelObj = @Html.Raw(Json.Serialize(Model));
+        modelObj["Edit"] = true;
+        //$('#RawMetform').validate();
+    </script>
+}

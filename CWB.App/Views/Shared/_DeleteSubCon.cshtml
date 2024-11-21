@@ -1,0 +1,34 @@
+﻿<div class="modal fade" id="delete-subcon" 
+role="dialog" data-bs-backdrop="static" data-bs-keyboard="false" 
+tabindex="-1" aria-labelledby="staticBackdropLabel" aria-hidden="true">
+    <div class="modal-dialog modal-sm">
+        <div class="modal-content bxs-modal">
+            <div class="modal-header">
+                <h4 class="modal-title" id="mySmallModalLabel">Delete SubCon</h4>
+                <button id="BtnDelSubConClose" type="button" class="btn-close" data-bs-dismiss="modal" aria-label="Close"></button>
+            </div>
+            <div class="modal-body">
+                <form method="post" id="FormDelSubCon" onsubmit="return false;">
+                    <div class="row">
+                        <label class="form-label col-md-5 mb-2">SubCon name <span class="text-danger" id="SubConToDelete"></span></label>
+                        <div class="col-md-7 mb-1">
+                            <input type="text" hidden id="DelSubConDetailsId" name="SubConDetailsId" value="0" />
+                            <input type="text" hidden id="DelSubConStepId" name="StepId" value="0" />
+                        </div>
+                        <div>
+                            <label class="form-label col-md-8 mb-2"> Are you sure you want to delete this routing?</label>
+                        </div>
+                        <!-- =========  -->
+                        <div class="col text-end mt-2">
+                            <button id="BtnDelSubConSave" type="button" class="btn btn-sm btn-primary">Delete</button>
+                            <button type="button" id="CancelDelSubCon" class="btn btn-sm btn-primary" data-plugin="tippy" data-tippy-placement="top">Cancel</button>
+                        </div>
+                        <!-- =========  -->
+                    </div>
+                </form>
+            </div>
+        </div>
+        <!-- /.modal-content -->
+    </div>
+    <!-- /.modal-dialog -->
+</div>

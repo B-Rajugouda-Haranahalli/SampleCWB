@@ -1,0 +1,22 @@
+﻿@model CWB.App.Models.Machine.McSlNoDocListVM
+<form id="frmMachineProcsDoc" method="post">
+    <label class=" col-md-4 form-label mb-2">Document Type</label>
+    <div class="col-md-8 mb-2" data-plugin="tippy" data-tippy-placement="top" data-tippy="" data-original-title="Select the Document Type (Part Program, Tool List ...) from the Drop Down. If the Document Type is not in the List, it needs to be created in Company Settings -> Document Types">
+        <select class="form-select form-select-sm" aria-label="form-select-sm" asp-for="DocumentTypeId" id="ProcDocTypeId">
+        </select>
+    </div>
+    <!-- ================ -->
+    <div class="col-md-12 mb-2">
+        <label class="form-check-label">Mandatory </label>
+        <input class="form-check-input mt-1 m-l-10" type="checkbox" id="ProcManChK" data-plugin="tippy" data-tippy-placement="top" data-tippy=""
+               data-original-title="Select if the Document is mandatory .... ie without which the machine cannot be set or operated">
+    </div>
+    <!-- ================ -->
+    <div class="col-md-12 text-end">
+        <input type="button" class="btn btn-sm btn-primary" title="Select to Add the Document Type to the List of Documents"
+               data-plugin="tippy" data-tippy-placement="top" value="Save" id="btnMachineProDocSubmit" />
+    </div>
+    <input type="hidden" asp-for="McSlNoDocListId" id="ProcSlNoDocId" />
+    <input type="hidden" asp-for="McId" id="ProcMcId"/>
+    <input type="hidden" asp-for="Mandatory" id="ProcMan" />
+</form>

@@ -1,0 +1,28 @@
+﻿<div class="modal fade" id="dialog-AddRMSpec" data-bs-backdrop="static" data-bs-keyboard="false" tabindex="-1" aria-labelledby="staticBackdropLabel" aria-hidden="true">
+    <div class="modal-dialog modal-sm">
+        <div class="modal-content">
+            <div class="modal-header">
+                <h4 class="modal-title" id="mySmallModalLabel">Raw Material Spec</h4>
+                <button type="button" class="btn-close" id="btn-close-AddSpec" data-bs-dismiss="modal" aria-label="Close"></button>
+            </div>
+            <div class="modal-body">
+                <div class="row">
+                      <form method="post" onsubmit="return false;" id="SpecForm">
+                          <div class="row">
+                              <label class="form-label col-md-4 mb-2">Name</label>
+                              <div class="col-md-8 mb-2">
+                                  <input id="SpecName" name="Name" type="text" class="form-control form-control-sm" placeholder="Enter here" required />
+                              </div>
+                              <input type="text" hidden value="0" id="DMaterialSpecId" name="MaterialSpecId" />
+                              <!-- ========================= -->
+                              <div class="col text-end">
+                                  <button class="btn btn-sm btn-primary" id="btnAddRMSpec" onclick="AddRMSpec();">Save</button>
+                              </div>
+                          </div>
+                    <!-- ========================= -->
+                    </form>
+                </div>
+            </div>
+        </div><!-- /.modal-content -->
+    </div><!-- /.modal-dialog -->
+</div><!-- /.modal -->

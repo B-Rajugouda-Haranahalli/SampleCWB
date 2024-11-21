@@ -1,0 +1,10 @@
+{
+  "profiles": {
+    "CWB.TenantBroker": {
+      "commandName": "Project"
+    },
+    "Docker": {
+      "commandName": "Docker"
+    }
+  }
+}

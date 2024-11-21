@@ -539,7 +539,7 @@ function DowlonadPartsRoutings() {
         }
     }
     else {
-        api.getbulk("/routings/routinglistitems").then((data) => {
+        api.getbulk("/Machine/GetMachineTypes").then((data) => {
             //console.log(data);
             noOfRoutePart = 0;
             noOfWithoutDoc = 0;

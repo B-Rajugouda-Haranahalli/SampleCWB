@@ -79,7 +79,6 @@ namespace CWB.App.Controllers
             }
             return Json(result);
         }
-        //GetRoutingListItmes
 
         [HttpPost]
         public async Task<IActionResult> AddNewRouting(RoutingVM model)

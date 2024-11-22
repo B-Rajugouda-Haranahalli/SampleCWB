@@ -13,6 +13,21 @@
 
     // Now you can use accessToken in your JavaScript code
     console.log(accessToken); // This will log the access token to the console
+    $.ajax({
+        url: "http://172.27.96.1:9017/api/v1/machine-types/1", // The API endpoint
+        method: "GET", // HTTP method
+        headers: {
+            "Authorization": "Bearer ${accessToken}" // Authorization header
+        },
+        success: function (result) {
+            console.log("Data retrieved successfully:", result);
+            // Handle the response data
+        },
+        error: function (xhr, status, error) {
+            console.error("Error occurred:", error);
+            // Handle the error
+        }
+    });
 
     // You can also implement your token expiry checks here
     if (accessToken) {

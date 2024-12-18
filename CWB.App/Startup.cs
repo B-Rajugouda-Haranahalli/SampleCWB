@@ -129,7 +129,7 @@ namespace CWB.App
             app.UseStaticFiles();
             logger.LogInformation("Application started");
             //    app.UseRewriter(new RewriteOptions()
-            //.AddRewrite(@"^WorkOrder/SoToWo(.*)", "http://172.18.80.1:9005/WorkOrder/$1", skipRemainingRules: true));
+            //.AddRewrite(@"^WorkOrder/SoToWo(.*)", "http://172.27.96.1:9005/WorkOrder/$1", skipRemainingRules: true));
             //app.Use(async (context, next) => {
             //    var url = context.Request.Path.Value;
             //    if (url.Contains("/SOWO"))

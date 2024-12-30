@@ -718,3 +718,5 @@ Connected to database successfully! Connection string: server=db;port=3306;uid=r
 Connected to database successfully! Connection string: server=db;port=3306;uid=root;pwd=password;database=cwbcompanysettings
 Connected to database successfully! Connection string: server=db;port=3306;uid=root;pwd=password;database=cwbcompanysettings
 Connected to database successfully! Connection string: server=db;port=3306;uid=root;pwd=password;database=cwbcompanysettings
+Connected to database successfully! Connection string: server=db;port=3306;uid=root;pwd=password;database=cwbcompanysettings
+Connected to database successfully! Connection string: server=db;port=3306;uid=root;pwd=password;database=cwbcompanysettings

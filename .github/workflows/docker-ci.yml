@@ -3,7 +3,7 @@ name: CI/CD Pipelines
 on:
   push:
     branches:
-      - master
+      - Latest
   pull_request:
 
 jobs:

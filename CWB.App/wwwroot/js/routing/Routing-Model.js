@@ -540,7 +540,7 @@ function DowlonadPartsRoutings() {
     }
     else {
         api.getbulk("/routings/routinglistitems").then((data) => {
-            //console.log(data);
+            //console.log(data);    
             noOfRoutePart = 0;
             noOfWithoutDoc = 0;
             dataPartsRoutings = data;

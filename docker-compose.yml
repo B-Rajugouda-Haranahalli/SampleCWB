@@ -28,7 +28,7 @@ services:
       - cwb-network
 
   cwb.apigateway:
-    image: ${DOCKER_REGISTRY-}cwbapigateway
+    image: rajugouda/cwbapigateway
     build:
       context: .
       dockerfile: CWB.ApiGateway/Dockerfile
@@ -42,7 +42,7 @@ services:
     restart: always
 
   cwb.identity:
-    image: ${DOCKER_REGISTRY-}cwbidentity
+    image: rajugouda/cwbidentity
     build:
       context: .
       dockerfile: CWB.Identity/Dockerfile
@@ -59,7 +59,7 @@ services:
     restart: always
 
   cwb.app:
-    image: ${DOCKER_REGISTRY-}cwbapp
+    image: rajugouda/cwbapp
     build:
       context: .
       dockerfile: CWB.App/Dockerfile
@@ -71,7 +71,7 @@ services:
     restart: always
 
   cwb.tenant:
-    image: ${DOCKER_REGISTRY-}cwbtenant
+    image: rajugouda/cwbtenant
     build:
       context: .
       dockerfile: CWB.Tenant/Dockerfile
@@ -133,7 +133,7 @@ services:
 
 
   #cwb.tenantbroker:
-  #  image: ${DOCKER_REGISTRY-}cwbtenantbroker
+  #  image: rajugouda/cwbtenantbroker
   #  build:
   #    context: .
   #    dockerfile: CWB.TenantBroker/Dockerfile
@@ -143,7 +143,7 @@ services:
   #    - cwb-network
 
   cwb.modules:
-    image: ${DOCKER_REGISTRY-}cwbmodules
+    image: rajugouda/cwbmodules
     build:
       context: .
       dockerfile: CWB.Modules/Dockerfile
@@ -160,7 +160,7 @@ services:
     restart: always
 
   cwb.simulation:
-    image: ${DOCKER_REGISTRY-}cwbsimulation
+    image: rajugouda/cwbsimulation
     build:
       context: .
       dockerfile: CWB.Simulation/Dockerfile
@@ -177,7 +177,7 @@ services:
     restart: always
 
   cwb.companysettings:
-    image: ${DOCKER_REGISTRY-}cwbcompanysettings
+    image: rajugouda/cwbcompanysettings
     build:
       context: .
       dockerfile: CWB.CompanySettings/Dockerfile
@@ -194,7 +194,7 @@ services:
     restart: always
 
   cwb.masters:
-    image: ${DOCKER_REGISTRY-}cwbmasters
+    image: rajugouda/cwbmasters
     build:
       context: .
       dockerfile: CWB.Masters/Dockerfile
@@ -211,7 +211,7 @@ services:
     restart: always
 
   cwb.productionplanwo:
-    image: ${DOCKER_REGISTRY-}cwbproductionplanwo
+    image: rajugouda/cwbproductionplanwo
     build:
       context: .
       dockerfile: CWB.ProductionPlanWO/Dockerfile
@@ -228,7 +228,7 @@ services:
     restart: always
   
   cwb.businessaquisition:
-    image: ${DOCKER_REGISTRY-}cwbbusinessprocesses
+    image: rajugouda/cwbbusinessprocesses
     build:
       context: .
       dockerfile: CWB.BusinessAquisition/Dockerfile

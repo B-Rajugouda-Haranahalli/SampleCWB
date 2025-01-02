@@ -18,10 +18,10 @@ namespace CWB.App.Services.CompanySettings
         private readonly IHttpContextAccessor _httpContextAccessor;
         private readonly long tenantId;
 
-        public DocTypeService(ILoggerManager logger, IOptions<ApiUrls> apiUrlsOptions, IHttpContextAccessor httpContextAccessor)
+        public DocTypeService(ILoggerManager logger, ApiUrls apiUrlsOptions, IHttpContextAccessor httpContextAccessor)
         {
             _logger = logger;
-            _apiUrls = apiUrlsOptions.Value;
+            _apiUrls = apiUrlsOptions;
             _httpContextAccessor = httpContextAccessor;
             tenantId = long.Parse(AppUtil.GetTenantId(_httpContextAccessor.HttpContext.User));
         }

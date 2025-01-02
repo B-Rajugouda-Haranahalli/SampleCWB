@@ -15,6 +15,7 @@ using Microsoft.Extensions.Logging;
 using Microsoft.IdentityModel.Logging;
 using Microsoft.IdentityModel.Tokens;
 using NLog;
+using System;
 using System.Diagnostics.CodeAnalysis;
 using System.IO;
 
@@ -24,10 +25,12 @@ namespace CWB.App
     public class Startup
     {
         private bool _enableAuth = true;
+        private readonly string _localIpAddress;
         public Startup(IConfiguration configuration)
         {
             //LogManager.LoadConfiguration(string.Concat(Directory.GetCurrentDirectory(), "/nlog.config"));
             Configuration = configuration;
+            _localIpAddress = Environment.GetEnvironmentVariable("HOST_DEFAULT_SWITCH_IP");
         }
 
         public IConfiguration Configuration { get; }
@@ -40,7 +43,25 @@ namespace CWB.App
             services.AddControllersWithViews();
 
             //configureApp URLS..
-            services.Configure<ApiUrls>(Configuration.GetSection("ApiUrls"));
+            //var sharedConfigPath = @"D:\EvolutionSoftware\SampleCWB\CWB\CWB.CommonUtils\Common\sharedsettings.json";
+            //var sharedConfig = new ConfigurationBuilder()
+            //    .SetBasePath(Directory.GetCurrentDirectory())
+            //    .AddJsonFile(sharedConfigPath, optional: true, reloadOnChange: true)
+            //    .Build();
+
+            //var combinedConfig = new ConfigurationBuilder()
+            //    .AddConfiguration(Configuration)
+            //    .AddConfiguration(sharedConfig)
+            //    .Build();
+            //services.AddSingleton<IConfiguration>(combinedConfig);
+            //services.Configure<ApiUrls>(combinedConfig.GetSection("ApiUrls"));
+            ApiUrls apiUrls = new ApiUrls
+            {
+                Idenitity = $"http://{_localIpAddress}:9003",
+                Gateway = $"http://{_localIpAddress}:9001"
+            };
+            //services.Configure<ApiUrls>(Configuration.GetSection(apiUrls));
+            services.AddSingleton(apiUrls);
             //Dependency Injection..
             services.ConfigureAppDI();
             
@@ -59,7 +80,7 @@ namespace CWB.App
             })
                 .AddOpenIdConnect("oidc", options =>
                 {
-                    options.Authority = Configuration["ApiUrls:Idenitity"];
+                    options.Authority = $"http://{_localIpAddress}:9003";
                     options.ClientId = "cwbmvc";
                     options.ClientSecret = "cwbsecret";
                     //options.ResponseType = "code";

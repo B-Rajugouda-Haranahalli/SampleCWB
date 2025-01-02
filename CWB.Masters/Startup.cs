@@ -10,6 +10,7 @@ using Microsoft.Extensions.Hosting;
 using Microsoft.Extensions.Logging;
 using Newtonsoft.Json;
 using NLog;
+using System;
 using System.IO;
 
 namespace CWB.Masters
@@ -17,11 +18,13 @@ namespace CWB.Masters
     [System.Runtime.InteropServices.Guid("AA2E7983-3AD0-4BA5-A7A2-20A8EB865B8B")]
     public class Startup
     {
+        private readonly string _localIpAddress;
         public Startup(IConfiguration configuration)
         {
             //enable logging..
             LogManager.LoadConfiguration(string.Concat(Directory.GetCurrentDirectory(), "/nlog.config"));
             Configuration = configuration;
+            _localIpAddress = Environment.GetEnvironmentVariable("HOST_DEFAULT_SWITCH_IP");
         }
 
         public IConfiguration Configuration { get; }
@@ -34,7 +37,25 @@ namespace CWB.Masters
             //Ef setup
             services.ConfigureAppDataEF(Configuration);
             ////configureApp URLS..
-            services.Configure<ApiUrls>(Configuration.GetSection("ApiUrls"));
+            //var sharedConfigPath = @"D:\EvolutionSoftware\SampleCWB\CWB\CWB.CommonUtils\Common\sharedsettings.json";
+            //var sharedConfig = new ConfigurationBuilder()
+            //    .SetBasePath(Directory.GetCurrentDirectory())
+            //    .AddJsonFile(sharedConfigPath, optional: true, reloadOnChange: true)
+            //    .Build();
+
+            //var combinedConfig = new ConfigurationBuilder()
+            //    .AddConfiguration(Configuration)
+            //    .AddConfiguration(sharedConfig)
+            //    .Build();
+            //services.AddSingleton<IConfiguration>(combinedConfig);
+            //services.Configure<ApiUrls>(combinedConfig.GetSection("ApiUrls:Idenitity"));
+            //services.Configure<ApiUrls>(Configuration.GetSection("ApiUrls"));   - changed
+            ApiUrls apiUrls = new ApiUrls
+            {
+                Idenitity = $"http://{_localIpAddress}:9003"
+            };
+            services.AddSingleton(apiUrls);
+
             ////Dependency Injection..
             services.ConfigureAppDI();
             services.AddControllers().AddNewtonsoftJson(options =>
@@ -44,7 +65,7 @@ namespace CWB.Masters
             services.AddControllers().AddJsonOptions(options =>
             options.JsonSerializerOptions.Converters.Add(new TimeSpanToStringConverter()));
 
-            services.ConfigureAuthenticationNAuthorization(Configuration["ApiUrls:Idenitity"]);
+            services.ConfigureAuthenticationNAuthorization($"http://{_localIpAddress}:9003");
             //automapper
             services.AddAutoMapper(typeof(Startup));
             services.ConfigureSwagger("Masters API");

@@ -14,6 +14,7 @@ using Microsoft.Extensions.Configuration;
 using Microsoft.Extensions.DependencyInjection;
 using Microsoft.Extensions.Hosting;
 using NLog;
+using System;
 using System.IO;
 
 namespace CWB.Identity
@@ -21,11 +22,13 @@ namespace CWB.Identity
     [System.Runtime.InteropServices.Guid("AA2E7983-3AD0-4BA5-A7A2-20A8EB865B8B")]
     public class Startup
     {
+        private readonly string _localIpAddress;
         public Startup(IConfiguration configuration)
         {
             //enable logging..
             LogManager.LoadConfiguration(string.Concat(Directory.GetCurrentDirectory(), "/nlog.config"));
             Configuration = configuration;
+            _localIpAddress = Environment.GetEnvironmentVariable("HOST_DEFAULT_SWITCH_IP");
         }
 
         public IConfiguration Configuration { get; }
@@ -39,7 +42,12 @@ namespace CWB.Identity
             //Ef setup
             services.ConfigureAppDataEF(Configuration);
             //configureApp URLS..
-            services.Configure<ApiUrls>(Configuration.GetSection("ApiUrls"));
+            ApiUrls apiUrls = new ApiUrls
+            {
+                App = $"http://{_localIpAddress}:9005"
+            };
+            services.AddSingleton(apiUrls);
+            //services.Configure<ApiUrls>(Configuration.GetSection("ApiUrls"));
             services.Configure<KafkaConfig>(Configuration.GetSection("KafkaEmailConfig"));
             services.ConfigureIdentity();
 

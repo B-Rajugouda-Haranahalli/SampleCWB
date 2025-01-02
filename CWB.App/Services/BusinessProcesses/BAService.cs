@@ -32,10 +32,10 @@ namespace CWB.App.Services.BusinessProcesses
         private readonly IHttpContextAccessor _httpContextAccessor;
         private readonly long tenantId;
 
-        public BAService(ILoggerManager logger, IOptions<ApiUrls> apiUrlsOptions, IHttpContextAccessor httpContextAccessor)
+        public BAService(ILoggerManager logger, ApiUrls apiUrlsOptions, IHttpContextAccessor httpContextAccessor)
         {
             _logger = logger;
-            _apiUrls = apiUrlsOptions.Value;
+            _apiUrls = apiUrlsOptions;
             _httpContextAccessor = httpContextAccessor;
             tenantId = long.Parse(AppUtil.GetTenantId(_httpContextAccessor.HttpContext.User));
         }

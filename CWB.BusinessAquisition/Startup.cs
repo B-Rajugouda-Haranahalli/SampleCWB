@@ -11,6 +11,7 @@ using Microsoft.Extensions.Hosting;
 using Microsoft.Extensions.Logging;
 using Newtonsoft.Json;
 using NLog;
+using System;
 using System.IO;
 
 namespace CWB.BusinessAquisition
@@ -18,10 +19,12 @@ namespace CWB.BusinessAquisition
     [System.Runtime.InteropServices.Guid("AA2E7983-3AD0-4BA5-A7A2-20A8EB865B8B")]
     public class Startup
     {
+        private readonly string _localIpAddress;
         public Startup(IConfiguration configuration)
         {
             LogManager.LoadConfiguration(string.Concat(Directory.GetCurrentDirectory(), "/nlog.config"));
             Configuration = configuration;
+            _localIpAddress = Environment.GetEnvironmentVariable("HOST_DEFAULT_SWITCH_IP");
         }
 
         public IConfiguration Configuration { get; }
@@ -33,16 +36,22 @@ namespace CWB.BusinessAquisition
             //EF
             services.ConfigureAppDataEF(Configuration);
             ////configureApp URLS..
-            services.Configure<ApiUrls>(Configuration.GetSection("ApiUrls"));
+            ApiUrls apiUrls = new ApiUrls
+            {
+                Idenitity = $"http://{_localIpAddress}:9003"
+            };
+            services.AddSingleton(apiUrls);
+            //services.Configure<ApiUrls>(Configuration.GetSection("ApiUrls"));
             ////Dependency Injection..
             services.ConfigureAppDI();
             services.AddControllers().AddNewtonsoftJson(options =>
             {
                 options.SerializerSettings.ReferenceLoopHandling = ReferenceLoopHandling.Ignore;
-            }); 
+            });
             //services.AddControllers().AddJsonOptions(options =>options.JsonSerializerOptions.Converters.Add(new TimeSpanToStringConverter()));
 
-            services.ConfigureAuthenticationNAuthorization(Configuration["ApiUrls:Idenitity"]);
+            services.ConfigureAuthenticationNAuthorization($"http://{_localIpAddress}:9003");
+            //services.ConfigureAuthenticationNAuthorization(Configuration["ApiUrls:Idenitity"]);
             //automapper
             services.AddAutoMapper(typeof(Startup));
             services.ConfigureSwagger("CWB.BusinessAquisition");

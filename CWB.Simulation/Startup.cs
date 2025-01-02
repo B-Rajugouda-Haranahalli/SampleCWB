@@ -11,16 +11,19 @@ using Microsoft.Extensions.Hosting;
 using Microsoft.Extensions.Logging;
 using Newtonsoft.Json;
 using NLog;
+using System;
 using System.IO;
 
 namespace CWB.Simulation
 {
     public class Startup
     {
+        private readonly string _localIpAddress;
         public Startup(IConfiguration configuration)
         {
             LogManager.LoadConfiguration(string.Concat(Directory.GetCurrentDirectory(), "/nlog.config"));
             Configuration = configuration;
+            _localIpAddress = Environment.GetEnvironmentVariable("HOST_DEFAULT_SWITCH_IP");
         }
 
         public IConfiguration Configuration { get; }
@@ -33,7 +36,12 @@ namespace CWB.Simulation
             //Ef setup
             services.ConfigureAppDataEF(Configuration);
             //configureApp URLS..
-            services.Configure<ApiUrls>(Configuration.GetSection("ApiUrls"));
+            ApiUrls apiUrls = new ApiUrls
+            {
+                Idenitity = $"http://{_localIpAddress}:9003"
+            };
+            services.AddSingleton(apiUrls);
+            //services.Configure<ApiUrls>(Configuration.GetSection("ApiUrls"));
             //Dependency Injection..
             services.ConfigureAppDI();
             services.AddControllers().AddNewtonsoftJson(options =>
@@ -41,7 +49,8 @@ namespace CWB.Simulation
                 options.SerializerSettings.ReferenceLoopHandling = ReferenceLoopHandling.Ignore;
             }); ;
 
-            services.ConfigureAuthenticationNAuthorization(Configuration["ApiUrls:Idenitity"]);
+            services.ConfigureAuthenticationNAuthorization($"http://{_localIpAddress}:9003");
+            //services.ConfigureAuthenticationNAuthorization(Configuration["ApiUrls:Idenitity"]);
             //automapper
             services.AddAutoMapper(typeof(Startup));
             services.ConfigureSwagger("Simulation API");
